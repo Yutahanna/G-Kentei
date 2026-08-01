@@ -15,11 +15,17 @@ import { questionSchema, type Question } from "../src/schemas/question.schema";
 import { manifestSchema, type Manifest } from "../src/schemas/content.schema";
 import {
   buildConceptVocabulary,
+  checkQuestionCountsAgainstDesign,
+  computeAnswerPositionDistribution,
   computeNearConceptRate,
   computeSectionDistribution,
   computeSkillTagDistribution,
+  findAnswerPositionSkewWarning,
+  findChoiceLengthImbalances,
   findContentTagOverlaps,
+  findExtremePhraseUsages,
   findSimilarPairs,
+  hasCaseApplicationInAdvanced,
   NEAR_CONCEPT_MIN_HITS,
 } from "./lib/question-quality-checks";
 
@@ -176,6 +182,45 @@ function main(): void {
     console.log(
       `[${chapterId}] 近接概念を含む誤答選択肢の割合: ${(chapterRate * 100).toFixed(0)}%（${totalNearConceptHits}/${totalWrong}）`,
     );
+
+    const countCheck = checkQuestionCountsAgainstDesign(chapterQuestions);
+    if (!countCheck.totalMatches) {
+      warn(
+        `[${chapterId}]: 総問題数が設計値と一致しません（設計値25問 / 実際${countCheck.actualTotal}問）。`,
+      );
+    }
+    for (const mismatch of countCheck.mismatchedDifficulties) {
+      warn(
+        `[${chapterId}]: ${mismatch.difficulty}の問題数が設計値と一致しません（設計値${mismatch.expected}問 / 実際${mismatch.actual}問）。`,
+      );
+    }
+
+    const skewWarning = findAnswerPositionSkewWarning(chapterQuestions);
+    if (skewWarning) {
+      warn(`[${chapterId}] 正答位置の偏り: ${skewWarning}`);
+    }
+    const { countByIndex } = computeAnswerPositionDistribution(chapterQuestions);
+    console.log(
+      `[${chapterId}] 正答位置別件数: 選択肢1=${countByIndex[0]} / 選択肢2=${countByIndex[1]} / 選択肢3=${countByIndex[2]} / 選択肢4=${countByIndex[3]}`,
+    );
+
+    if (!hasCaseApplicationInAdvanced(chapterQuestions)) {
+      warn(
+        `[${chapterId}]: 応用問題に事例適用型（skillTagsに"適用判断"を含む問題）が1問も含まれていません。`,
+      );
+    }
+
+    for (const result of findExtremePhraseUsages(chapterQuestions)) {
+      warn(
+        `[${chapterId}] [${result.questionId}]: 誤答選択肢${result.matchedChoiceIndexes.map((i) => i + 1).join("/")}に極端な断定表現が含まれています。近接概念を用いた誤答に差し替えられないか確認してください。`,
+      );
+    }
+
+    for (const imbalance of findChoiceLengthImbalances(chapterQuestions)) {
+      warn(
+        `[${chapterId}] [${imbalance.questionId}]: 正答の文字数(${imbalance.correctLength})が最長の誤答(${imbalance.longestWrongLength})の${imbalance.ratio.toFixed(1)}倍あり、正答だけが極端に長い可能性があります。`,
+      );
+    }
   }
 
   // レポート出力（章・節×問題数の対応表、節別・skillTags別分布を含む）

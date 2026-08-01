@@ -21,10 +21,14 @@ import {
 } from "../src/schemas/question.schema";
 import {
   buildConceptVocabulary,
+  computeAnswerPositionDistribution,
   computeNearConceptRate,
+  computeQuestionStemFormatCounts,
   computeSectionDistribution,
   computeSkillTagDistribution,
+  findChoiceLengthImbalances,
   findContentTagOverlaps,
+  findExtremePhraseUsages,
   findSimilarPairs,
   NEAR_CONCEPT_MIN_HITS,
   selectFocusQuestionIds,
@@ -72,6 +76,84 @@ function loadAllQuestionsAcrossChapters(): Question[] {
     const raw = JSON.parse(readFileSync(join(ROOT_DIR, relPath), "utf-8")) as unknown[];
     return raw.map((item) => questionSchema.parse(item));
   });
+}
+
+function renderSummaryMetrics(questions: Question[]): string[] {
+  const lines: string[] = [];
+  lines.push("## 冒頭サマリー");
+  lines.push("");
+
+  const posDist = computeAnswerPositionDistribution(questions);
+  lines.push("### 正答位置別件数・正答率");
+  lines.push("");
+  lines.push("| 選択肢番号 | 件数 | 比率 |");
+  lines.push("|---|---|---|");
+  posDist.countByIndex.forEach((count, i) => {
+    lines.push(`| 選択肢${i + 1} | ${count} | ${(posDist.rateByIndex[i]! * 100).toFixed(0)}% |`);
+  });
+  lines.push("");
+
+  lines.push("### 問題文の形式別件数");
+  lines.push("");
+  lines.push("| 形式 | 件数 |");
+  lines.push("|---|---|");
+  for (const row of computeQuestionStemFormatCounts(questions)) {
+    lines.push(`| ${row.label} | ${row.count} |`);
+  }
+  lines.push("");
+
+  const advanced = questions.filter((q) => q.difficulty === "advanced");
+  lines.push("### 応用問題のskillTags分布");
+  lines.push("");
+  if (advanced.length === 0) {
+    lines.push("応用問題はありません。");
+  } else {
+    lines.push("| skillTag | 応用問題での件数 |");
+    lines.push("|---|---|");
+    for (const row of computeSkillTagDistribution(advanced)) {
+      lines.push(`| ${row.key} | ${row.advanced} |`);
+    }
+  }
+  lines.push("");
+
+  const lengthImbalances = findChoiceLengthImbalances(questions);
+  const extremePhraseUsages = findExtremePhraseUsages(questions);
+  const caseApplicationCount = questions.filter((q) =>
+    q.tags.skillTags.includes("適用判断"),
+  ).length;
+  const crossChapterCount = questions.filter((q) => q.tags.crossChapterTags.length > 0).length;
+
+  lines.push("### その他の集計");
+  lines.push("");
+  lines.push("| 項目 | 値 |");
+  lines.push("|---|---|");
+  lines.push(`| 正答が最長誤答より極端に長い問題数（比率>1.6倍） | ${lengthImbalances.length}問 |`);
+  lines.push(`| 極端な断定表現を含む誤答がある問題数 | ${extremePhraseUsages.length}問 |`);
+  lines.push(`| 事例適用型問題数（skillTagsに"適用判断"を含む） | ${caseApplicationCount}問 |`);
+  lines.push(`| 章横断問題数（crossChapterTagsが空でない） | ${crossChapterCount}問 |`);
+  lines.push("");
+
+  if (lengthImbalances.length > 0) {
+    lines.push(
+      "正答が長すぎる可能性がある問題: " +
+        lengthImbalances
+          .map(
+            (r) =>
+              `${r.questionId}（正答${r.correctLength}字 / 最長誤答${r.longestWrongLength}字）`,
+          )
+          .join(", "),
+    );
+    lines.push("");
+  }
+  if (extremePhraseUsages.length > 0) {
+    lines.push(
+      "極端な断定表現を含む誤答がある問題: " +
+        extremePhraseUsages.map((r) => r.questionId).join(", "),
+    );
+    lines.push("");
+  }
+
+  return lines;
 }
 
 function renderDistributionTables(questions: Question[]): string[] {
@@ -178,6 +260,7 @@ function main(): void {
     );
   }
   lines.push("");
+  lines.push(...renderSummaryMetrics(questions));
   lines.push(...renderDistributionTables(questions));
 
   lines.push("## 重複・類似問題チェック");

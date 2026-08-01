@@ -200,8 +200,8 @@ export interface FocusSelectionInput {
 
 /**
  * 重点レビュー対象を自動抽出する。
- * 基礎2問・標準3問・応用3問の代表サンプルに加え、自動検査で警告が出た全問題、
- * 教材横断タグ（crossChapterTags）を持つ全問題を対象とする（重複は除去）。
+ * 応用問題は全問、章横断タグ（crossChapterTags）を持つ問題は全問を対象とし、
+ * 基礎2問・標準3問の代表サンプル、自動検査で警告が出た全問題も加える（重複は除去）。
  * 代表サンプルは配列順（節の並び順）で先頭から選び、特定の節に偏らないようにする。
  */
 export function selectFocusQuestionIds(input: FocusSelectionInput): Set<string> {
@@ -211,7 +211,7 @@ export function selectFocusQuestionIds(input: FocusSelectionInput): Set<string> 
   const sampleCounts: Record<Question["difficulty"], number> = {
     basic: 2,
     standard: 3,
-    advanced: 3,
+    advanced: Number.POSITIVE_INFINITY, // 応用問題は全問を重点確認対象とする
   };
   for (const difficulty of ["basic", "standard", "advanced"] as const) {
     questions
@@ -239,4 +239,191 @@ export function selectFocusQuestionIds(input: FocusSelectionInput): Set<string> 
   }
 
   return focusIds;
+}
+
+/** 正答が特定の選択肢番号に偏っていないかを確認するための分布。 */
+export interface AnswerPositionDistribution {
+  countByIndex: [number, number, number, number];
+  rateByIndex: [number, number, number, number];
+  total: number;
+}
+
+export function computeAnswerPositionDistribution(
+  questions: Question[],
+): AnswerPositionDistribution {
+  const countByIndex: [number, number, number, number] = [0, 0, 0, 0];
+  for (const q of questions) {
+    if (q.correctAnswer === 0) countByIndex[0]++;
+    else if (q.correctAnswer === 1) countByIndex[1]++;
+    else if (q.correctAnswer === 2) countByIndex[2]++;
+    else if (q.correctAnswer === 3) countByIndex[3]++;
+  }
+  const total = questions.length;
+  const rateByIndex = countByIndex.map((c) => (total === 0 ? 0 : c / total)) as [
+    number,
+    number,
+    number,
+    number,
+  ];
+  return { countByIndex, rateByIndex, total };
+}
+
+/**
+ * 正答位置の偏りを警告する。25問中の目安として、いずれかの選択肢番号に
+ * 40%（10問相当）を超えて集中している場合、または1種類の番号しか使われていない場合を警告とする。
+ */
+export function findAnswerPositionSkewWarning(questions: Question[]): string | null {
+  if (questions.length === 0) return null;
+  const { countByIndex, total } = computeAnswerPositionDistribution(questions);
+  const usedPositions = countByIndex.filter((c) => c > 0).length;
+  const maxRate = Math.max(...countByIndex) / total;
+  if (usedPositions <= 1) {
+    return `正答がすべて選択肢${countByIndex.findIndex((c) => c > 0) + 1}に固定されています（全${total}問）。`;
+  }
+  if (maxRate > 0.4) {
+    const maxIndex = countByIndex.indexOf(Math.max(...countByIndex));
+    return `正答が選択肢${maxIndex + 1}に偏っています（${countByIndex[maxIndex]}/${total}問、${(maxRate * 100).toFixed(0)}%）。`;
+  }
+  return null;
+}
+
+/** 章の問題数が設計値（既定: 25問、基礎10/標準10/応用5）と一致しているかを確認する。 */
+export const EXPECTED_TOTAL_QUESTIONS = 25;
+export const EXPECTED_COUNT_BY_DIFFICULTY: Record<Question["difficulty"], number> = {
+  basic: 10,
+  standard: 10,
+  advanced: 5,
+};
+
+export interface DesignCountCheckResult {
+  totalMatches: boolean;
+  actualTotal: number;
+  mismatchedDifficulties: {
+    difficulty: Question["difficulty"];
+    expected: number;
+    actual: number;
+  }[];
+}
+
+export function checkQuestionCountsAgainstDesign(questions: Question[]): DesignCountCheckResult {
+  const actualTotal = questions.length;
+  const mismatchedDifficulties: DesignCountCheckResult["mismatchedDifficulties"] = [];
+  for (const difficulty of ["basic", "standard", "advanced"] as const) {
+    const actual = questions.filter((q) => q.difficulty === difficulty).length;
+    const expected = EXPECTED_COUNT_BY_DIFFICULTY[difficulty];
+    if (actual !== expected) {
+      mismatchedDifficulties.push({ difficulty, expected, actual });
+    }
+  }
+  return {
+    totalMatches: actualTotal === EXPECTED_TOTAL_QUESTIONS,
+    actualTotal,
+    mismatchedDifficulties,
+  };
+}
+
+/**
+ * 内容を十分理解していなくても消去しやすい、極端な断定表現のリスト。
+ * 誤答選択肢にこれらが集中していないかを確認する（品質基準6節に対応）。
+ */
+export const EXTREME_PHRASES = [
+  "完全に解決した",
+  "すでに解決済み",
+  "完全に解決済み",
+  "同一の問題である",
+  "同一の概念である",
+  "無関係である",
+  "すべて同じ技術である",
+  "教材では触れられていない",
+  "使い分けは存在しない",
+  "一切触れられていない",
+];
+
+export interface ExtremePhraseResult {
+  questionId: string;
+  matchedChoiceIndexes: number[];
+}
+
+/** 誤答選択肢に極端な断定表現が含まれる問題を検出する。 */
+export function findExtremePhraseUsages(questions: Question[]): ExtremePhraseResult[] {
+  const results: ExtremePhraseResult[] = [];
+  for (const q of questions) {
+    const matchedChoiceIndexes: number[] = [];
+    q.choices.forEach((choice, index) => {
+      if (index === q.correctAnswer) return;
+      if (EXTREME_PHRASES.some((phrase) => choice.includes(phrase))) {
+        matchedChoiceIndexes.push(index);
+      }
+    });
+    if (matchedChoiceIndexes.length > 0) {
+      results.push({ questionId: q.id, matchedChoiceIndexes });
+    }
+  }
+  return results;
+}
+
+export interface ChoiceLengthImbalance {
+  questionId: string;
+  correctLength: number;
+  longestWrongLength: number;
+  ratio: number;
+}
+
+/**
+ * 正答選択肢が誤答選択肢に比べて極端に長くなっていないかを確認する。
+ * 比率（正答文字数 ÷ 最長の誤答文字数）が1.6を超える問題を警告候補とする。
+ */
+const CHOICE_LENGTH_RATIO_THRESHOLD = 1.6;
+
+export function findChoiceLengthImbalances(questions: Question[]): ChoiceLengthImbalance[] {
+  const results: ChoiceLengthImbalance[] = [];
+  for (const q of questions) {
+    const correctLength = q.choices[q.correctAnswer]?.length ?? 0;
+    const wrongLengths = q.choices.filter((_, i) => i !== q.correctAnswer).map((c) => c.length);
+    const longestWrongLength = Math.max(...wrongLengths, 0);
+    const ratio =
+      longestWrongLength === 0 ? Number.POSITIVE_INFINITY : correctLength / longestWrongLength;
+    if (ratio > CHOICE_LENGTH_RATIO_THRESHOLD) {
+      results.push({ questionId: q.id, correctLength, longestWrongLength, ratio });
+    }
+  }
+  return results;
+}
+
+/** 応用問題に事例適用型（skillTagsに「適用判断」を含む）問題が最低1問含まれるかを確認する。 */
+export function hasCaseApplicationInAdvanced(questions: Question[]): boolean {
+  const advanced = questions.filter((q) => q.difficulty === "advanced");
+  if (advanced.length === 0) return true;
+  return advanced.some((q) => q.tags.skillTags.includes("適用判断"));
+}
+
+/**
+ * 問題文の末尾表現を大まかな型に分類し、同じ言い回しへの偏りを確認するための集計。
+ * 固定パターンに一致しないものは「その他（バリエーション）」として扱う。
+ */
+const QUESTION_STEM_PATTERNS: { label: string; pattern: RegExp }[] = [
+  { label: "教材の内容に合致するもの", pattern: /教材の内容に合致するものはどれか。?$/ },
+  {
+    label: "教材の説明として正しいもの",
+    pattern: /教材の(説明|内容)として(最も)?(適切|正しい)なものはどれか。?$/,
+  },
+  { label: "教材の趣旨に最も近いもの", pattern: /教材の趣旨に最も近いものはどれか。?$/ },
+  { label: "教材が説明しているもの", pattern: /教材が説明しているものはどれか。?$/ },
+  { label: "組み合わせ・比較を問うもの", pattern: /組み合わせとして.*どれか。?$/ },
+  {
+    label: "事例・状況への適用",
+    pattern: /(段階に最も近いか|最も適切なものはどれか。?$|該当するか。?$)/,
+  },
+];
+
+export function computeQuestionStemFormatCounts(
+  questions: Question[],
+): { label: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const q of questions) {
+    const matched = QUESTION_STEM_PATTERNS.find((p) => p.pattern.test(q.question));
+    const label = matched ? matched.label : "その他（バリエーション）";
+    counts.set(label, (counts.get(label) ?? 0) + 1);
+  }
+  return [...counts.entries()].map(([label, count]) => ({ label, count }));
 }

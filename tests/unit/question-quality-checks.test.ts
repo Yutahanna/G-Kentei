@@ -2,11 +2,18 @@ import { describe, expect, it } from "vitest";
 import type { Question } from "../../src/schemas/question.schema";
 import {
   buildConceptVocabulary,
+  checkQuestionCountsAgainstDesign,
+  computeAnswerPositionDistribution,
   computeNearConceptRate,
+  computeQuestionStemFormatCounts,
   computeSectionDistribution,
   computeSkillTagDistribution,
+  findAnswerPositionSkewWarning,
+  findChoiceLengthImbalances,
   findContentTagOverlaps,
+  findExtremePhraseUsages,
   findSimilarPairs,
+  hasCaseApplicationInAdvanced,
   jaccardSimilarity,
   selectFocusQuestionIds,
   tokenize,
@@ -189,5 +196,184 @@ describe("selectFocusQuestionIds", () => {
     expect(focusIds.has("basic-4")).toBe(true);
     expect(focusIds.has("cross-1")).toBe(true);
     expect(focusIds.has("basic-2")).toBe(false);
+  });
+
+  it("応用問題は件数によらずすべて含む", () => {
+    const advanced = Array.from({ length: 5 }, (_, i) =>
+      makeQuestion({ id: `advanced-${i}`, difficulty: "advanced" }),
+    );
+    const focusIds = selectFocusQuestionIds({
+      questions: advanced,
+      similarPairs: [],
+      tagOverlaps: [],
+      nearConceptResults: [],
+    });
+    for (let i = 0; i < 5; i++) {
+      expect(focusIds.has(`advanced-${i}`)).toBe(true);
+    }
+  });
+});
+
+describe("computeAnswerPositionDistribution / findAnswerPositionSkewWarning", () => {
+  it("正答位置ごとの件数と比率を集計する", () => {
+    const questions = [
+      makeQuestion({ id: "q1", correctAnswer: 0 }),
+      makeQuestion({ id: "q2", correctAnswer: 0 }),
+      makeQuestion({ id: "q3", correctAnswer: 1 }),
+      makeQuestion({ id: "q4", correctAnswer: 3 }),
+    ];
+    const dist = computeAnswerPositionDistribution(questions);
+    expect(dist.countByIndex).toEqual([2, 1, 0, 1]);
+    expect(dist.rateByIndex[0]).toBe(0.5);
+  });
+
+  it("正答がすべて同じ選択肢に固定されている場合に警告する", () => {
+    const questions = Array.from({ length: 5 }, (_, i) =>
+      makeQuestion({ id: `q${i}`, correctAnswer: 0 }),
+    );
+    expect(findAnswerPositionSkewWarning(questions)).toMatch(/選択肢1に固定/);
+  });
+
+  it("正答が特定の選択肢に4割を超えて偏っている場合に警告する", () => {
+    const questions = [
+      ...Array.from({ length: 5 }, (_, i) => makeQuestion({ id: `a${i}`, correctAnswer: 0 })),
+      makeQuestion({ id: "b0", correctAnswer: 1 }),
+      makeQuestion({ id: "b1", correctAnswer: 2 }),
+      makeQuestion({ id: "b2", correctAnswer: 3 }),
+    ];
+    expect(findAnswerPositionSkewWarning(questions)).toMatch(/偏っています/);
+  });
+
+  it("バランスの取れた分布では警告しない", () => {
+    const questions = [
+      makeQuestion({ id: "q1", correctAnswer: 0 }),
+      makeQuestion({ id: "q2", correctAnswer: 1 }),
+      makeQuestion({ id: "q3", correctAnswer: 2 }),
+      makeQuestion({ id: "q4", correctAnswer: 3 }),
+    ];
+    expect(findAnswerPositionSkewWarning(questions)).toBeNull();
+  });
+});
+
+describe("checkQuestionCountsAgainstDesign", () => {
+  it("設計値(25問、基礎10/標準10/応用5)と一致する場合はtotalMatchesがtrueになる", () => {
+    const questions = [
+      ...Array.from({ length: 10 }, (_, i) => makeQuestion({ id: `b${i}`, difficulty: "basic" })),
+      ...Array.from({ length: 10 }, (_, i) =>
+        makeQuestion({ id: `s${i}`, difficulty: "standard" }),
+      ),
+      ...Array.from({ length: 5 }, (_, i) => makeQuestion({ id: `a${i}`, difficulty: "advanced" })),
+    ];
+    const result = checkQuestionCountsAgainstDesign(questions);
+    expect(result.totalMatches).toBe(true);
+    expect(result.mismatchedDifficulties).toHaveLength(0);
+  });
+
+  it("難易度別の件数が設計値と異なる場合に検出する", () => {
+    const questions = [makeQuestion({ id: "b0", difficulty: "basic" })];
+    const result = checkQuestionCountsAgainstDesign(questions);
+    expect(result.totalMatches).toBe(false);
+    expect(result.mismatchedDifficulties.map((m) => m.difficulty)).toContain("basic");
+  });
+});
+
+describe("findExtremePhraseUsages", () => {
+  it("誤答選択肢に極端な断定表現が含まれる場合に検出する", () => {
+    const q = makeQuestion({
+      id: "q1",
+      correctAnswer: 0,
+      choices: ["正解", "教材では触れられていない話題である。", "誤答2", "誤答3"],
+    });
+    const results = findExtremePhraseUsages([q]);
+    expect(results).toHaveLength(1);
+    expect(results[0]!.matchedChoiceIndexes).toEqual([1]);
+  });
+
+  it("正答自体に極端な表現が含まれても誤答チェックの対象にはしない", () => {
+    const q = makeQuestion({
+      id: "q1",
+      correctAnswer: 0,
+      choices: ["すでに解決済みである。", "誤答1", "誤答2", "誤答3"],
+    });
+    expect(findExtremePhraseUsages([q])).toHaveLength(0);
+  });
+});
+
+describe("findChoiceLengthImbalances", () => {
+  it("正答が最長の誤答より1.6倍を超えて長い場合に検出する", () => {
+    const q = makeQuestion({
+      id: "q1",
+      correctAnswer: 0,
+      choices: [
+        "これは非常に長く具体的で詳細な説明を伴う正答選択肢のテキストです。".repeat(2),
+        "短い誤答。",
+        "短い誤答。",
+        "短い誤答。",
+      ],
+    });
+    const results = findChoiceLengthImbalances([q]);
+    expect(results).toHaveLength(1);
+    expect(results[0]!.questionId).toBe("q1");
+  });
+
+  it("選択肢間の文量が同程度であれば検出しない", () => {
+    const q = makeQuestion({
+      id: "q1",
+      correctAnswer: 0,
+      choices: [
+        "ほぼ同じ長さの選択肢A",
+        "ほぼ同じ長さの選択肢B",
+        "ほぼ同じ長さの選択肢C",
+        "ほぼ同じ長さの選択肢D",
+      ],
+    });
+    expect(findChoiceLengthImbalances([q])).toHaveLength(0);
+  });
+});
+
+describe("hasCaseApplicationInAdvanced", () => {
+  it("応用問題にskillTagsが適用判断の問題が1問もない場合はfalseを返す", () => {
+    const questions = [
+      makeQuestion({
+        id: "a1",
+        difficulty: "advanced",
+        tags: { contentTags: ["X"], skillTags: ["関係性"], crossChapterTags: [] },
+      }),
+    ];
+    expect(hasCaseApplicationInAdvanced(questions)).toBe(false);
+  });
+
+  it("応用問題に適用判断が1問でもあればtrueを返す", () => {
+    const questions = [
+      makeQuestion({
+        id: "a1",
+        difficulty: "advanced",
+        tags: { contentTags: ["X"], skillTags: ["関係性"], crossChapterTags: [] },
+      }),
+      makeQuestion({
+        id: "a2",
+        difficulty: "advanced",
+        tags: { contentTags: ["X"], skillTags: ["適用判断"], crossChapterTags: [] },
+      }),
+    ];
+    expect(hasCaseApplicationInAdvanced(questions)).toBe(true);
+  });
+
+  it("応用問題が存在しない場合はtrueを返す（対象外のため警告しない）", () => {
+    const questions = [makeQuestion({ id: "b1", difficulty: "basic" })];
+    expect(hasCaseApplicationInAdvanced(questions)).toBe(true);
+  });
+});
+
+describe("computeQuestionStemFormatCounts", () => {
+  it("問題文の末尾パターンごとに件数を分類する", () => {
+    const questions = [
+      makeQuestion({ id: "q1", question: "これは教材の内容に合致するものはどれか。" }),
+      makeQuestion({ id: "q2", question: "これは教材の内容に合致するものはどれか。" }),
+      makeQuestion({ id: "q3", question: "この事例が示す技術的段階に該当するか。" }),
+    ];
+    const counts = computeQuestionStemFormatCounts(questions);
+    const total = counts.reduce((sum, c) => sum + c.count, 0);
+    expect(total).toBe(3);
   });
 });
