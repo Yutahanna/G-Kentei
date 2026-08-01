@@ -2,7 +2,7 @@
   "_generated": true,
   "_generatedBy": "scripts/build-content.ts",
   "_doNotEdit": "このファイルは自動生成物です。修正は materials/ または scripts/build-content.ts に対して行ってください。",
-  "generatedAt": "2026-08-01T09:50:34.013Z",
+  "generatedAt": "2026-08-01T12:13:16.074Z",
   "chapters": [
     {
       "chapterId": "ch01",
@@ -29,6 +29,37 @@
         "ch02-s04",
         "ch02-s05",
         "ch02-s06"
+      ]
+    },
+    {
+      "chapterId": "ch03",
+      "title": "機械学習の概要",
+      "sourceFile": "materials/chapters/06_第3章.md",
+      "contentHash": "595be63caa179ce7f49d84dbd3ca47150a81af3d1d855c7e110d18faac761dc6",
+      "sectionIds": [
+        "ch03-s01",
+        "ch03-s02",
+        "ch03-s03",
+        "ch03-s04",
+        "ch03-s05",
+        "ch03-s06",
+        "ch03-s07",
+        "ch03-s08"
+      ]
+    },
+    {
+      "chapterId": "ch04",
+      "title": "ディープラーニングの概要",
+      "sourceFile": "materials/chapters/07_第4章.md",
+      "contentHash": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+      "sectionIds": [
+        "ch04-s01",
+        "ch04-s02",
+        "ch04-s03",
+        "ch04-s04",
+        "ch04-s05",
+        "ch04-s06",
+        "ch04-s07"
       ]
     }
   ]
