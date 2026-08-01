@@ -1,0 +1,21 @@
+{
+  "_generated": true,
+  "_generatedBy": "scripts/build-content.ts",
+  "_doNotEdit": "このファイルは自動生成物です。修正は materials/ または scripts/build-content.ts に対して行ってください。",
+  "generatedAt": "2026-08-01T07:15:33.624Z",
+  "chapters": [
+    {
+      "chapterId": "ch01",
+      "title": "人工知能とは",
+      "sourceFile": "materials/chapters/04_第1章.md",
+      "contentHash": "0f86823012e6f461b882d8d262f2bd92aabc8e9838a1198c5d518fd7760bb359",
+      "sectionIds": [
+        "ch01-s01",
+        "ch01-s02",
+        "ch01-s03",
+        "ch01-s04",
+        "ch01-s05"
+      ]
+    }
+  ]
+}

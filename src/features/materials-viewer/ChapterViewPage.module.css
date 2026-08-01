@@ -1,0 +1,82 @@
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.tocLink {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+}
+
+.goalsList {
+  padding-left: var(--space-5);
+}
+
+.section {
+  margin-bottom: var(--space-7);
+  scroll-margin-top: var(--space-5);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.introLabel {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.body {
+  white-space: pre-line;
+  margin: var(--space-3) 0;
+}
+
+.keyPoints {
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.readBadge {
+  color: var(--color-correct);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+}
+
+.termGrid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.termImportance {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}

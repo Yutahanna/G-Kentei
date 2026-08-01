@@ -91,7 +91,9 @@ function main() {
 
     if (!block) {
       unmatchedHeadingCount++;
-      console.log(`[見出し不一致] ${fileName}: 見出し "${heading}" に対応する全文版ブロックが見つかりません。`);
+      console.log(
+        `[見出し不一致] ${fileName}: 見出し "${heading}" に対応する全文版ブロックが見つかりません。`,
+      );
       continue;
     }
 

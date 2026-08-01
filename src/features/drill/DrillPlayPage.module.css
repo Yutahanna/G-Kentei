@@ -1,0 +1,110 @@
+.progress {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+}
+
+.question {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.choiceList {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.choiceButton {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+.choiceButton:hover:not(:disabled) {
+  border-color: var(--color-accent);
+}
+
+.choiceButton:disabled {
+  cursor: default;
+}
+
+.choiceCorrect {
+  border-color: var(--color-correct);
+  background-color: var(--color-correct-bg);
+}
+
+.choiceIncorrectSelected {
+  border-color: var(--color-incorrect);
+  background-color: var(--color-incorrect-bg);
+}
+
+.choiceKey {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: var(--color-surface-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.mark {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.feedback {
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+}
+
+.feedbackCorrect {
+  background-color: var(--color-correct-bg);
+  color: var(--color-correct);
+}
+
+.feedbackIncorrect {
+  background-color: var(--color-incorrect-bg);
+  color: var(--color-incorrect);
+}
+
+.feedbackHeading {
+  font-weight: 700;
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-2);
+}
+
+.explanationBlock {
+  color: var(--color-text);
+  margin-top: var(--space-4);
+}
+
+.choiceExplanationList {
+  margin-top: var(--space-2);
+  padding-left: var(--space-5);
+}
+
+.sourceRef {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+.actions {
+  margin-top: var(--space-5);
+}
