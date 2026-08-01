@@ -81,6 +81,14 @@ function collectBlockText(
       i++;
       continue;
     }
+    if (node.type === "table") {
+      const rows = node.children.map((row) =>
+        row.children.map((cell) => toPlainText(cell).trim()).join(" | "),
+      );
+      parts.push(rows.join("\n"));
+      i++;
+      continue;
+    }
     break;
   }
   return { text: parts.join("\n\n"), nextIndex: i };
@@ -279,7 +287,10 @@ export function parseChapter(chapterNumber: number, markdown: string): Chapter {
       i = mechanismResult.nextIndex;
     }
 
-    if (!isHeading(children[i], 4) || toPlainText(children[i]!) !== "この節のポイント") {
+    if (
+      !(isHeading(children[i], 4) || isHeading(children[i], 3)) ||
+      toPlainText(children[i]!) !== "この節のポイント"
+    ) {
       throw new Error(`節「${sectionTitle}」に "この節のポイント" が見つかりません`);
     }
     const keyPointsResult = collectListItems(children, i + 1);
