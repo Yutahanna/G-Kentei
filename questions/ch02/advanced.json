@@ -29,7 +29,7 @@
     "sourceReference": "第2章 1節（第1次AIブーム）",
     "contentVersion": "e9216917be6cb81263cfcfa3314eabb4e0090a8af0cef90051b67787ab01bfa9",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch02-advanced-002",
@@ -61,7 +61,7 @@
     "sourceReference": "第2章 2節（第2次AIブーム）",
     "contentVersion": "e9216917be6cb81263cfcfa3314eabb4e0090a8af0cef90051b67787ab01bfa9",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch02-advanced-003",
@@ -96,7 +96,7 @@
     "sourceReference": "第2章 3節（第3次AIブーム）",
     "contentVersion": "e9216917be6cb81263cfcfa3314eabb4e0090a8af0cef90051b67787ab01bfa9",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch02-advanced-004",
@@ -128,7 +128,7 @@
     "sourceReference": "第2章 4節（ゲームAIの進化）",
     "contentVersion": "e9216917be6cb81263cfcfa3314eabb4e0090a8af0cef90051b67787ab01bfa9",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch02-advanced-005",
@@ -160,6 +160,6 @@
     "sourceReference": "第2章 5節（シンボルグラウンディング問題と身体性）",
     "contentVersion": "e9216917be6cb81263cfcfa3314eabb4e0090a8af0cef90051b67787ab01bfa9",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   }
 ]
