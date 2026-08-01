@@ -1,2 +1,27 @@
-# G-Kentei
-G-Certificate learning platform with structured study materials, practice questions, mock exams, and interactive drills.
+# G検定 学習アプリ用リポジトリ
+
+G検定の正式版学習テキストを基に、章別学習、確認問題、模擬試験、復習機能を持つ学習アプリを開発するためのリポジトリです。
+
+## 教材
+
+- `materials/chapters/`: Claude Codeが優先して読む章別Markdown
+- `materials/G検定_学習テキスト_Rev0.md`: 全文をまとめたMarkdown
+- `materials/INDEX.md`: 章別ファイルの一覧と読み込み順
+
+## 開発時の原則
+
+1. 教材本文を正規の情報源として扱う。
+2. 教材にない知識を問題や解説へ追加する場合は、教材由来と区別する。
+3. 問題データ、進捗データ、アプリコードは教材ファイルと分離する。
+4. 教材本文を直接書き換えず、修正提案は別ファイルに記録する。
+
+## 推奨ディレクトリ
+
+```text
+materials/       教材Markdown
+src/             アプリ本体
+public/          静的ファイル
+questions/       問題データ
+scripts/         変換・検証スクリプト
+docs/            設計資料
+```
