@@ -8,7 +8,12 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { questionSchema, type Question, type Difficulty } from "../src/schemas/question.schema";
+import {
+  questionSchema,
+  type Question,
+  type Difficulty,
+  type ReviewStatus,
+} from "../src/schemas/question.schema";
 
 const ROOT_DIR = join(import.meta.dirname, "..");
 const OUT_PATH = join(ROOT_DIR, "docs", "ch01-question-review.md");
@@ -17,6 +22,12 @@ const DIFFICULTY_LABEL: Record<Difficulty, string> = {
   basic: "基礎",
   standard: "標準",
   advanced: "応用",
+};
+
+const REVIEW_STATUS_LABEL: Record<ReviewStatus, string> = {
+  draft: "draft（ドラフト・レビュー待ち）",
+  approved: "approved（承認済み）",
+  needs_revision: "needs_revision（要修正）",
 };
 
 function loadQuestions(fileName: string): Question[] {
@@ -77,6 +88,34 @@ function main(): void {
     `合計 ${questions.length} 問（基礎 ${questions.filter((q) => q.difficulty === "basic").length} 問／標準 ${questions.filter((q) => q.difficulty === "standard").length} 問／応用 ${questions.filter((q) => q.difficulty === "advanced").length} 問）`,
   );
   lines.push("");
+  lines.push("## 節別・出題意図別の分布");
+  lines.push("");
+  lines.push(
+    "節ごとの問題数が特定の節に偏っていないか、また基礎難易度が暗記偏重になっていないかを確認するための集計。",
+  );
+  lines.push("");
+  const sectionIds = Array.from(new Set(questions.map((q) => q.sectionId))).sort();
+  lines.push("| 節 | 基礎 | 標準 | 応用 | 合計 |");
+  lines.push("|---|---|---|---|---|");
+  for (const sectionId of sectionIds) {
+    const inSection = questions.filter((q) => q.sectionId === sectionId);
+    const basic = inSection.filter((q) => q.difficulty === "basic").length;
+    const standard = inSection.filter((q) => q.difficulty === "standard").length;
+    const advanced = inSection.filter((q) => q.difficulty === "advanced").length;
+    lines.push(`| ${sectionId} | ${basic} | ${standard} | ${advanced} | ${inSection.length} |`);
+  }
+  lines.push("");
+  const skillTagValues = ["暗記", "比較", "関係性", "適用判断"] as const;
+  lines.push("| 出題意図（skillTag） | 基礎 | 標準 | 応用 | 合計 |");
+  lines.push("|---|---|---|---|---|");
+  for (const skill of skillTagValues) {
+    const withSkill = questions.filter((q) => q.tags.skillTags.includes(skill));
+    const basic = withSkill.filter((q) => q.difficulty === "basic").length;
+    const standard = withSkill.filter((q) => q.difficulty === "standard").length;
+    const advanced = withSkill.filter((q) => q.difficulty === "advanced").length;
+    lines.push(`| ${skill} | ${basic} | ${standard} | ${advanced} | ${withSkill.length} |`);
+  }
+  lines.push("");
   lines.push("## 重複・類似問題チェック");
   lines.push("");
   if (duplicateWarnings.length === 0) {
@@ -108,13 +147,20 @@ function main(): void {
       lines.push(`- 選択肢${i + 1}：${exp}`);
     });
     lines.push("");
-    lines.push(`**タグ**：${q.tags.join(" / ")}`);
+    lines.push(`**タグ（表示用・概念）**：${q.tags.contentTags.join(" / ")}`);
+    lines.push("");
+    lines.push(
+      `**タグ（内部管理用・出題意図）**：${q.tags.skillTags.join(" / ")}` +
+        (q.tags.crossChapterTags.length > 0
+          ? ` ／ 章横断：${q.tags.crossChapterTags.join(" / ")}`
+          : ""),
+    );
     lines.push("");
     lines.push(
       `**教材参照**：${q.sourceReference}（見出し: 「${q.sourceHeading}」／${q.sourceFile}）`,
     );
     lines.push("");
-    lines.push(`**レビュー状態**：${q.reviewStatus}`);
+    lines.push(`**レビュー状態**：${REVIEW_STATUS_LABEL[q.reviewStatus]}`);
     lines.push("");
     lines.push("---");
     lines.push("");

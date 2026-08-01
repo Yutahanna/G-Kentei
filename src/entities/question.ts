@@ -1,1 +1,7 @@
-export type { Question, Difficulty, ReviewStatus } from "../schemas/question.schema";
+export type {
+  Question,
+  Difficulty,
+  ReviewStatus,
+  SkillTag,
+  QuestionTags,
+} from "../schemas/question.schema";
