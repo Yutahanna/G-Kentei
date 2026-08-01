@@ -44,10 +44,6 @@ export default function ReviewResultPage() {
     });
   }, [answers, sessionType]);
 
-  useEffect(() => {
-    return () => resetSession();
-  }, [resetSession]);
-
   if (answers.length === 0 || sessionType === null) {
     return (
       <div>
@@ -98,10 +94,14 @@ export default function ReviewResultPage() {
       </ul>
 
       <div className={styles.actions}>
-        <Link to="/review" className={buttonStyles.button}>
+        <Link to="/review" className={buttonStyles.button} onClick={() => resetSession()}>
           復習メニューに戻る
         </Link>
-        <Link to="/" className={`${buttonStyles.button} ${buttonStyles.secondary}`}>
+        <Link
+          to="/"
+          className={`${buttonStyles.button} ${buttonStyles.secondary}`}
+          onClick={() => resetSession()}
+        >
           ホームに戻る
         </Link>
       </div>

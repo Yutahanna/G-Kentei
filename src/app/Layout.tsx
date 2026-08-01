@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { to: "/materials", label: "教材" },
   { to: "/drill", label: "ドリル" },
   { to: "/review", label: "復習" },
+  { to: "/exam", label: "模擬試験" },
   { to: "/settings", label: "設定" },
 ];
 

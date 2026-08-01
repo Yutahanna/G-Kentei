@@ -32,10 +32,6 @@ export default function DrillResultPage() {
     });
   }, [answers, sessionChapterId, chapterId]);
 
-  useEffect(() => {
-    return () => resetSession();
-  }, [resetSession]);
-
   if (answers.length === 0 || sessionChapterId !== chapterId) {
     return (
       <div>
@@ -86,10 +82,14 @@ export default function DrillResultPage() {
       </ul>
 
       <div className={styles.actions}>
-        <Link to="/drill" className={buttonStyles.button}>
+        <Link to="/drill" className={buttonStyles.button} onClick={() => resetSession()}>
           もう一度ドリルを行う
         </Link>
-        <Link to="/" className={`${buttonStyles.button} ${buttonStyles.secondary}`}>
+        <Link
+          to="/"
+          className={`${buttonStyles.button} ${buttonStyles.secondary}`}
+          onClick={() => resetSession()}
+        >
           ホームに戻る
         </Link>
       </div>

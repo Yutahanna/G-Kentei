@@ -10,6 +10,9 @@ import DrillResultPage from "./features/drill/DrillResultPage";
 import ReviewSetupPage from "./features/review/ReviewSetupPage";
 import ReviewPlayPage from "./features/review/ReviewPlayPage";
 import ReviewResultPage from "./features/review/ReviewResultPage";
+import ExamSetupPage from "./features/exam/ExamSetupPage";
+import ExamPlayPage from "./features/exam/ExamPlayPage";
+import ExamResultPage from "./features/exam/ExamResultPage";
 import SettingsPage from "./features/settings/SettingsPage";
 import NotFoundPage from "./app/NotFoundPage";
 
@@ -27,6 +30,9 @@ export default function App() {
         <Route path="review" element={<ReviewSetupPage />} />
         <Route path="review/play" element={<ReviewPlayPage />} />
         <Route path="review/result" element={<ReviewResultPage />} />
+        <Route path="exam" element={<ExamSetupPage />} />
+        <Route path="exam/play" element={<ExamPlayPage />} />
+        <Route path="exam/result" element={<ExamResultPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
