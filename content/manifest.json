@@ -2,7 +2,7 @@
   "_generated": true,
   "_generatedBy": "scripts/build-content.ts",
   "_doNotEdit": "このファイルは自動生成物です。修正は materials/ または scripts/build-content.ts に対して行ってください。",
-  "generatedAt": "2026-08-01T13:57:38.531Z",
+  "generatedAt": "2026-08-01T14:05:40.671Z",
   "chapters": [
     {
       "chapterId": "ch01",
@@ -137,6 +137,22 @@
         "ch09-s05",
         "ch09-s06",
         "ch09-s07"
+      ]
+    },
+    {
+      "chapterId": "ch10",
+      "title": "AI倫理・AIガバナンス",
+      "sourceFile": "materials/chapters/13_第10章.md",
+      "contentHash": "1cd283b3450ae216d7641f20f7f54b213d682bb1a56cf5def2b75298a216b811",
+      "sectionIds": [
+        "ch10-s01",
+        "ch10-s02",
+        "ch10-s03",
+        "ch10-s04",
+        "ch10-s05",
+        "ch10-s06",
+        "ch10-s07",
+        "ch10-s08"
       ]
     }
   ]

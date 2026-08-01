@@ -308,7 +308,7 @@ export function parseChapter(chapterNumber: number, markdown: string): Chapter {
   }
 
   let transitionNote: string | undefined;
-  if (isHeading(children[i], 2) && toPlainText(children[i]!) === "次章へのつながり") {
+  if (isHeading(children[i], 2) && toPlainText(children[i]!).includes("次章へのつながり")) {
     const result = collectBlockText(children, i + 1);
     transitionNote = result.text;
     i = result.nextIndex;
