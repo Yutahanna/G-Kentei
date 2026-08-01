@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "build:content": "tsx scripts/build-content.ts",
     "validate:questions": "tsx scripts/validate-questions.ts",
-    "review:ch01": "tsx scripts/generate-question-review.ts",
+    "review": "tsx scripts/generate-question-review.ts",
+    "review:ch01": "tsx scripts/generate-question-review.ts ch01",
     "compare:materials": "node scripts/compare-materials.mjs",
     "ci": "npm run lint && npm run typecheck && npm run test && npm run validate:questions && npm run build"
   },

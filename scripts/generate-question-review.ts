@@ -1,12 +1,15 @@
 #!/usr/bin/env tsx
 /**
- * 第1章25問のレビュー用一覧（docs/ch01-question-review.md）を生成するスクリプト。
+ * 指定した章の問題データのレビュー用一覧（docs/{chapterId}-question-review.md）を生成するスクリプト。
  * 問題文・選択肢・正答・解説・全選択肢の説明・難易度・タグ・教材参照先を
- * 通読できる形で一覧化する。docs/phase0-design.md 11節のフェーズ1受入基準に対応する。
+ * 通読できる形で一覧化する。docs/phase0-design.md 11節のフェーズ1受入基準、
+ * および10節の品質基準（節別・出題意図別分布の出力、論点重複チェック）に対応する。
  *
- * 使い方: npm run review:ch01
+ * 使い方:
+ *   npm run review -- ch01
+ *   npm run review:ch01   （ch01専用のショートカット）
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import {
   questionSchema,
@@ -16,7 +19,6 @@ import {
 } from "../src/schemas/question.schema";
 
 const ROOT_DIR = join(import.meta.dirname, "..");
-const OUT_PATH = join(ROOT_DIR, "docs", "ch01-question-review.md");
 
 const DIFFICULTY_LABEL: Record<Difficulty, string> = {
   basic: "基礎",
@@ -24,20 +26,35 @@ const DIFFICULTY_LABEL: Record<Difficulty, string> = {
   advanced: "応用",
 };
 
+const DIFFICULTY_ORDER: Difficulty[] = ["basic", "standard", "advanced"];
+
 const REVIEW_STATUS_LABEL: Record<ReviewStatus, string> = {
   draft: "draft（ドラフト・レビュー待ち）",
   approved: "approved（承認済み）",
   needs_revision: "needs_revision（要修正）",
 };
 
-function loadQuestions(fileName: string): Question[] {
-  const raw = JSON.parse(
-    readFileSync(join(ROOT_DIR, "questions", "ch01", fileName), "utf-8"),
-  ) as unknown[];
-  return raw.map((item) => questionSchema.parse(item));
+const SKILL_TAG_VALUES = ["暗記", "比較", "関係性", "適用判断"] as const;
+
+function loadQuestionsForChapter(chapterId: string): Question[] {
+  const chapterDir = join(ROOT_DIR, "questions", chapterId);
+  const fileNames = readdirSync(chapterDir).filter((f) => f.endsWith(".json"));
+  // basic → standard → advanced の順に並べる。それ以外のファイル名は末尾に追加する。
+  fileNames.sort((a, b) => {
+    const rank = (f: string) => {
+      const idx = DIFFICULTY_ORDER.findIndex((d) => f.startsWith(d));
+      return idx === -1 ? DIFFICULTY_ORDER.length : idx;
+    };
+    return rank(a) - rank(b);
+  });
+
+  return fileNames.flatMap((fileName) => {
+    const raw = JSON.parse(readFileSync(join(chapterDir, fileName), "utf-8")) as unknown[];
+    return raw.map((item) => questionSchema.parse(item));
+  });
 }
 
-/** 正規化した問題文＋選択肢のトークン集合が高い類似度を持つ組を検出する（重複確認用）。 */
+/** 正規化した問題文＋選択肢のトークン集合が高い類似度を持つ組を検出する（表現レベルの重複確認用）。 */
 function tokenize(text: string): Set<string> {
   const normalized = text.replace(/[「」『』（）()、。・\s]/g, "");
   const tokens = new Set<string>();
@@ -54,12 +71,14 @@ function jaccardSimilarity(a: Set<string>, b: Set<string>): number {
   return union === 0 ? 0 : intersection / union;
 }
 
+/** 同一節・contentTags完全一致の問題を検出する（表現を変えただけの論点重複を、文面の類似度とは別の観点で確認する）。 */
+function contentTagKey(q: Question): string {
+  return [...q.tags.contentTags].sort().join(" / ");
+}
+
 function main(): void {
-  const questions = [
-    ...loadQuestions("basic.json"),
-    ...loadQuestions("standard.json"),
-    ...loadQuestions("advanced.json"),
-  ];
+  const chapterId = process.argv[2] ?? "ch01";
+  const questions = loadQuestionsForChapter(chapterId);
 
   const duplicateWarnings: string[] = [];
   for (let i = 0; i < questions.length; i++) {
@@ -75,11 +94,28 @@ function main(): void {
     }
   }
 
+  const tagGroups = new Map<string, Question[]>();
+  for (const q of questions) {
+    const key = `${q.sectionId}::${contentTagKey(q)}`;
+    const arr = tagGroups.get(key) ?? [];
+    arr.push(q);
+    tagGroups.set(key, arr);
+  }
+  const tagOverlapWarnings: string[] = [];
+  for (const [key, qs] of tagGroups) {
+    if (qs.length > 1) {
+      const [, tagPart] = key.split("::");
+      tagOverlapWarnings.push(
+        `${qs.map((q) => q.id).join(" / ")}（contentTags完全一致: ${tagPart}）`,
+      );
+    }
+  }
+
   const lines: string[] = [];
-  lines.push("# 第1章25問 レビュー用一覧");
+  lines.push(`# ${chapterId} 問題データ レビュー用一覧`);
   lines.push("");
   lines.push(
-    "このファイルは `npm run review:ch01` が自動生成します。直接編集せず、修正は `questions/ch01/*.json` に対して行ってください。",
+    `このファイルは \`npm run review -- ${chapterId}\` が自動生成します。直接編集せず、修正は \`questions/${chapterId}/*.json\` に対して行ってください。`,
   );
   lines.push("");
   lines.push(`生成日時: ${new Date().toISOString()}`);
@@ -105,10 +141,13 @@ function main(): void {
     lines.push(`| ${sectionId} | ${basic} | ${standard} | ${advanced} | ${inSection.length} |`);
   }
   lines.push("");
-  const skillTagValues = ["暗記", "比較", "関係性", "適用判断"] as const;
+  lines.push(
+    "※ 1問に複数の`skillTags`を付与できるため、下表の件数合計は問題総数を超える場合がある。",
+  );
+  lines.push("");
   lines.push("| 出題意図（skillTag） | 基礎 | 標準 | 応用 | 合計 |");
   lines.push("|---|---|---|---|---|");
-  for (const skill of skillTagValues) {
+  for (const skill of SKILL_TAG_VALUES) {
     const withSkill = questions.filter((q) => q.tags.skillTags.includes(skill));
     const basic = withSkill.filter((q) => q.difficulty === "basic").length;
     const standard = withSkill.filter((q) => q.difficulty === "standard").length;
@@ -118,12 +157,28 @@ function main(): void {
   lines.push("");
   lines.push("## 重複・類似問題チェック");
   lines.push("");
+  lines.push("### 表現レベルの類似度（問題文＋選択肢のトークン類似度0.8以上）");
+  lines.push("");
   if (duplicateWarnings.length === 0) {
-    lines.push("類似度0.8以上のペアは検出されませんでした。");
+    lines.push("該当するペアは検出されませんでした。");
   } else {
     lines.push("以下のペアで高い類似度が検出されました。内容を確認してください。");
     lines.push("");
     duplicateWarnings.forEach((w) => lines.push(`- ${w}`));
+  }
+  lines.push("");
+  lines.push(
+    "### 論点レベルの重複（同一節・contentTags完全一致。表現を変えただけの水増しがないかの確認用）",
+  );
+  lines.push("");
+  if (tagOverlapWarnings.length === 0) {
+    lines.push("該当する組は検出されませんでした。");
+  } else {
+    lines.push(
+      "以下の組はcontentTagsが完全に一致しています。同一論点の言い換えでないか確認してください。",
+    );
+    lines.push("");
+    tagOverlapWarnings.forEach((w) => lines.push(`- ${w}`));
   }
   lines.push("");
   lines.push("## 問題一覧");
@@ -166,10 +221,14 @@ function main(): void {
     lines.push("");
   });
 
-  writeFileSync(OUT_PATH, `${lines.join("\n")}\n`, "utf-8");
-  console.log(`生成: ${OUT_PATH}（${questions.length}問）`);
+  const outPath = join(ROOT_DIR, "docs", `${chapterId}-question-review.md`);
+  writeFileSync(outPath, `${lines.join("\n")}\n`, "utf-8");
+  console.log(`生成: ${outPath}（${questions.length}問）`);
   if (duplicateWarnings.length > 0) {
-    console.log(`類似問題の疑いが${duplicateWarnings.length}件あります。内容を確認してください。`);
+    console.log(`表現レベルの類似問題の疑いが${duplicateWarnings.length}件あります。`);
+  }
+  if (tagOverlapWarnings.length > 0) {
+    console.log(`論点レベルの重複の疑いが${tagOverlapWarnings.length}件あります。`);
   }
 }
 

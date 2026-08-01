@@ -29,7 +29,7 @@
     "sourceReference": "第1章 1節（人工知能の定義とその多様性）",
     "contentVersion": "0f86823012e6f461b882d8d262f2bd92aabc8e9838a1198c5d518fd7760bb359",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch01-advanced-002",
@@ -61,7 +61,7 @@
     "sourceReference": "第1章 2節（AI効果）",
     "contentVersion": "0f86823012e6f461b882d8d262f2bd92aabc8e9838a1198c5d518fd7760bb359",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch01-advanced-003",
@@ -93,7 +93,7 @@
     "sourceReference": "第1章 3節（人工知能レベルの4分類）",
     "contentVersion": "0f86823012e6f461b882d8d262f2bd92aabc8e9838a1198c5d518fd7760bb359",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch01-advanced-004",
@@ -125,7 +125,7 @@
     "sourceReference": "第1章 4節（強いAIと弱いAI、そして中国語の部屋）",
     "contentVersion": "0f86823012e6f461b882d8d262f2bd92aabc8e9838a1198c5d518fd7760bb359",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   },
   {
     "id": "ch01-advanced-005",
@@ -157,6 +157,6 @@
     "sourceReference": "第1章 5節（ダートマス会議・チューリングテスト・トイプロブレム）",
     "contentVersion": "0f86823012e6f461b882d8d262f2bd92aabc8e9838a1198c5d518fd7760bb359",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
+    "reviewStatus": "approved"
   }
 ]
