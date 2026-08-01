@@ -74,6 +74,11 @@ export async function listAllQuestionProgress(): Promise<QuestionProgress[]> {
   return db.getAll("questionProgress");
 }
 
+export async function setBookmark(questionId: string, bookmarked: boolean): Promise<void> {
+  const progress = await getQuestionProgress(questionId);
+  await saveQuestionProgress({ ...progress, bookmarked });
+}
+
 export async function getMaterialReadState(sectionId: string): Promise<MaterialReadState> {
   const db = await getDb();
   const existing = await db.get("materialReadState", sectionId);

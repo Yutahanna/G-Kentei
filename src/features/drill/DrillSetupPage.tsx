@@ -1,13 +1,12 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
-import { getChapter } from "../../shared/lib/content-loader";
+import { getAvailableChapterIds, getChapter, getManifest } from "../../shared/lib/content-loader";
 import { filterQuestions } from "../../shared/lib/question-loader";
 import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
 import type { Difficulty } from "../../entities/question";
 import styles from "./DrillSetupPage.module.css";
 
-const CHAPTER_ID = "ch01";
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string }[] = [
   { value: "basic", label: "基礎" },
   { value: "standard", label: "標準" },
@@ -27,8 +26,18 @@ export default function DrillSetupPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const initialSectionId = searchParams.get("section") ?? "";
+  const initialChapterId = searchParams.get("chapter") ?? "";
 
-  const chapter = getChapter(CHAPTER_ID);
+  const availableChapterIds = getAvailableChapterIds();
+  const manifest = getManifest();
+  const orderedChapterIds = manifest.chapters
+    .map((c) => c.chapterId)
+    .filter((id) => availableChapterIds.includes(id));
+
+  const [chapterId, setChapterId] = useState(
+    availableChapterIds.includes(initialChapterId) ? initialChapterId : (orderedChapterIds[0] ?? ""),
+  );
+  const chapter = getChapter(chapterId);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([
     "basic",
     "standard",
@@ -38,10 +47,14 @@ export default function DrillSetupPage() {
   const [randomize, setRandomize] = useState(true);
   const startSession = useDrillSessionStore((s) => s.startSession);
 
+  useEffect(() => {
+    setSectionId("");
+  }, [chapterId]);
+
   const matchingQuestions = useMemo(() => {
-    const all = filterQuestions({ chapterId: CHAPTER_ID, difficulties: selectedDifficulties });
+    const all = filterQuestions({ chapterId, difficulties: selectedDifficulties });
     return sectionId ? all.filter((q) => q.sectionId === sectionId) : all;
-  }, [selectedDifficulties, sectionId]);
+  }, [chapterId, selectedDifficulties, sectionId]);
 
   function toggleDifficulty(value: Difficulty) {
     setSelectedDifficulties((prev) =>
@@ -52,16 +65,29 @@ export default function DrillSetupPage() {
   function handleStart() {
     const ids = matchingQuestions.map((q) => q.id);
     const ordered = randomize ? shuffle(ids) : ids;
-    startSession(CHAPTER_ID, ordered);
-    void navigate(`/drill/${CHAPTER_ID}/play`);
+    startSession(chapterId, ordered);
+    void navigate(`/drill/${chapterId}/play`);
   }
 
   return (
     <div>
       <h1>章別ドリル</h1>
-      <p>{chapter?.title}（フェーズ1では第1章のみ）</p>
 
       <div className={styles.form}>
+        <fieldset className={styles.fieldset}>
+          <legend className={styles.legend}>章</legend>
+          <select value={chapterId} onChange={(e) => setChapterId(e.target.value)}>
+            {orderedChapterIds.map((id) => {
+              const meta = manifest.chapters.find((c) => c.chapterId === id);
+              return (
+                <option key={id} value={id}>
+                  {meta?.title ?? id}
+                </option>
+              );
+            })}
+          </select>
+        </fieldset>
+
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>難易度</legend>
           {DIFFICULTY_OPTIONS.map((opt) => (

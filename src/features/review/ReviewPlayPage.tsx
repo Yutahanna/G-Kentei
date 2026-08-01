@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
-import { getSection } from "../../shared/lib/content-loader";
+import { getChapter, getSection } from "../../shared/lib/content-loader";
 import { getQuestionProgress, saveQuestionProgress } from "../../shared/lib/db";
 import { applyAnswer } from "../../shared/lib/srs";
 import { scoreAnswer } from "../../shared/lib/scoring";
-import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
+import { useReviewSessionStore } from "../../shared/store/reviewSessionStore";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
-import styles from "./DrillPlayPage.module.css";
+import styles from "../drill/DrillPlayPage.module.css";
+import localStyles from "./ReviewPlayPage.module.css";
 
 const DIFFICULTY_LABEL: Record<string, string> = {
   basic: "基礎",
@@ -16,22 +17,22 @@ const DIFFICULTY_LABEL: Record<string, string> = {
   advanced: "応用",
 };
 
-export default function DrillPlayPage() {
-  const { chapterId } = useParams<{ chapterId: string }>();
+export default function ReviewPlayPage() {
   const navigate = useNavigate();
 
-  const questionIds = useDrillSessionStore((s) => s.questionIds);
-  const currentIndex = useDrillSessionStore((s) => s.currentIndex);
-  const submitAnswer = useDrillSessionStore((s) => s.submitAnswer);
-  const goToNext = useDrillSessionStore((s) => s.goToNext);
-  const lastFeedback = useDrillSessionStore((s) => s.lastFeedback);
-  const sessionChapterId = useDrillSessionStore((s) => s.chapterId);
+  const sessionType = useReviewSessionStore((s) => s.sessionType);
+  const questionIds = useReviewSessionStore((s) => s.questionIds);
+  const currentIndex = useReviewSessionStore((s) => s.currentIndex);
+  const submitAnswer = useReviewSessionStore((s) => s.submitAnswer);
+  const goToNext = useReviewSessionStore((s) => s.goToNext);
+  const lastFeedback = useReviewSessionStore((s) => s.lastFeedback);
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
   const questionId = questionIds[currentIndex];
   const question = questionId ? getQuestionById(questionId) : undefined;
+  const chapter = question ? getChapter(question.chapterId) : undefined;
   const section = question ? getSection(question.chapterId, question.sectionId) : undefined;
   const answered = lastFeedback !== null && lastFeedback.questionId === questionId;
   const { progress, reload, toggleBookmark } = useQuestionProgress(questionId);
@@ -41,13 +42,11 @@ export default function DrillPlayPage() {
   }, [questionId]);
 
   useEffect(() => {
-    if (sessionChapterId !== chapterId || questionIds.length === 0) {
-      return;
-    }
+    if (sessionType === null || questionIds.length === 0) return;
     if (currentIndex >= questionIds.length) {
-      void navigate(`/drill/${chapterId}/result`, { replace: true });
+      void navigate("/review/result", { replace: true });
     }
-  }, [sessionChapterId, chapterId, questionIds.length, currentIndex, navigate]);
+  }, [sessionType, questionIds.length, currentIndex, navigate]);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -65,12 +64,12 @@ export default function DrillPlayPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   });
 
-  if (!question || sessionChapterId !== chapterId || questionIds.length === 0) {
+  if (!question || sessionType === null || questionIds.length === 0) {
     return (
       <div>
-        <h1>出題する問題がありません</h1>
+        <h1>復習する問題がありません</h1>
         <p>
-          <Link to="/drill">ドリル設定に戻る</Link>
+          <Link to="/review">復習メニューに戻る</Link>
         </p>
       </div>
     );
@@ -98,9 +97,10 @@ export default function DrillPlayPage() {
   return (
     <div>
       <p className={styles.progress}>
-        問題 {currentIndex + 1} / {questionIds.length} （{DIFFICULTY_LABEL[question.difficulty]}）
+        復習 {currentIndex + 1} / {questionIds.length} （{chapter?.title} ・{" "}
+        {DIFFICULTY_LABEL[question.difficulty]}）
       </p>
-      <div className={styles.header}>
+      <div className={localStyles.header}>
         <h1 className={styles.question}>{question.question}</h1>
         <button
           type="button"

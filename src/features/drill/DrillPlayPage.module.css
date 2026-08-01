@@ -10,6 +10,17 @@
   margin-bottom: var(--space-4);
 }
 
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.header .question {
+  margin-bottom: var(--space-4);
+}
+
 .choiceList {
   display: grid;
   gap: var(--space-3);

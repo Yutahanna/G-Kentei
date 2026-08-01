@@ -1,31 +1,53 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../../shared/ui/Card";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import ProgressBar from "../../shared/ui/ProgressBar";
 import { useChapterProgress } from "../../shared/hooks/useChapterProgress";
-import { getChapter } from "../../shared/lib/content-loader";
+import { getAvailableChapterIds, getChapter, getManifest } from "../../shared/lib/content-loader";
 import styles from "./DashboardPage.module.css";
 
-const CHAPTER_ID = "ch01";
-
 export default function DashboardPage() {
-  const chapter = getChapter(CHAPTER_ID);
-  const progress = useChapterProgress(CHAPTER_ID);
+  const manifest = getManifest();
+  const availableChapterIds = getAvailableChapterIds();
+  const orderedChapterIds = manifest.chapters
+    .map((c) => c.chapterId)
+    .filter((id) => availableChapterIds.includes(id));
+
+  const [chapterId, setChapterId] = useState(orderedChapterIds[0] ?? "");
+  const chapter = getChapter(chapterId);
+  const progress = useChapterProgress(chapterId);
 
   const sectionRatio =
     progress.totalSections === 0 ? 0 : progress.readSections / progress.totalSections;
   const questionRatio =
     progress.totalQuestions === 0 ? 0 : progress.answeredQuestions / progress.totalQuestions;
 
-  const suggestion = getSuggestion(progress);
+  const suggestion = getSuggestion(progress, chapterId);
 
   return (
     <div>
       <h1>ホーム</h1>
-      <p>
-        現在は第1章「{chapter?.title}
-        」のみが利用できます（フェーズ1）。全章対応はフェーズ2以降に順次追加予定です。
-      </p>
+
+      <div className={styles.section}>
+        <label htmlFor="dashboard-chapter-select" className={styles.sectionTitle}>
+          表示する章
+        </label>
+        <select
+          id="dashboard-chapter-select"
+          value={chapterId}
+          onChange={(e) => setChapterId(e.target.value)}
+        >
+          {orderedChapterIds.map((id) => {
+            const meta = manifest.chapters.find((c) => c.chapterId === id);
+            return (
+              <option key={id} value={id}>
+                {meta?.title ?? id}
+              </option>
+            );
+          })}
+        </select>
+      </div>
 
       <div className={styles.section}>
         <Card>
@@ -48,7 +70,7 @@ export default function DashboardPage() {
       </div>
 
       <div className={styles.section}>
-        <div className={styles.sectionTitle}>第1章の学習進捗</div>
+        <div className={styles.sectionTitle}>{chapter?.title ?? chapterId}の学習進捗</div>
         <div className={styles.grid}>
           <Card>
             <div className={styles.statValue}>
@@ -99,7 +121,10 @@ export default function DashboardPage() {
   );
 }
 
-function getSuggestion(progress: ReturnType<typeof useChapterProgress>): {
+function getSuggestion(
+  progress: ReturnType<typeof useChapterProgress>,
+  chapterId: string,
+): {
   text: string;
   actionLabel: string;
   to?: string;
@@ -109,28 +134,28 @@ function getSuggestion(progress: ReturnType<typeof useChapterProgress>): {
   }
   if (progress.readSections < progress.totalSections) {
     return {
-      text: "第1章の教材をまだ最後まで読んでいません。まずは本文に目を通しましょう。",
+      text: "この章の教材をまだ最後まで読んでいません。まずは本文に目を通しましょう。",
       actionLabel: "教材を読む",
-      to: "/materials/ch01",
+      to: `/materials/${chapterId}`,
     };
   }
   if (progress.answeredQuestions < progress.totalQuestions) {
     return {
       text: "未回答の問題が残っています。章別ドリルで解いてみましょう。",
       actionLabel: "ドリルを始める",
-      to: "/drill",
+      to: `/drill?chapter=${chapterId}`,
     };
   }
   if (progress.dueForReviewQuestions > 0) {
     return {
       text: `復習が必要な問題が${progress.dueForReviewQuestions}問あります。誤答フィルタでドリルを実行しましょう。`,
       actionLabel: "ドリルを始める",
-      to: "/drill",
+      to: `/drill?chapter=${chapterId}`,
     };
   }
   return {
-    text: "第1章の教材・問題に一通り取り組みました。お疲れさまでした。",
+    text: "この章の教材・問題に一通り取り組みました。お疲れさまでした。",
     actionLabel: "ドリルを見直す",
-    to: "/drill",
+    to: `/drill?chapter=${chapterId}`,
   };
 }

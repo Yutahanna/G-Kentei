@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../../shared/ui/Card";
-import { getManifest } from "../../shared/lib/content-loader";
+import { getChapter, getManifest } from "../../shared/lib/content-loader";
 import styles from "./ChapterListPage.module.css";
 
 type SortOrder = "number" | "recommended";
@@ -14,7 +14,9 @@ export default function ChapterListPage() {
     if (order === "number") {
       return a.chapterId.localeCompare(b.chapterId);
     }
-    return a.chapterId.localeCompare(b.chapterId); // フェーズ1は第1章のみのため並び順は同一
+    const aIndex = getChapter(a.chapterId)?.recommendedOrderIndex ?? Number.MAX_SAFE_INTEGER;
+    const bIndex = getChapter(b.chapterId)?.recommendedOrderIndex ?? Number.MAX_SAFE_INTEGER;
+    return aIndex - bIndex;
   });
 
   return (
@@ -38,11 +40,6 @@ export default function ChapterListPage() {
           推奨学習順
         </button>
       </div>
-      <p className={styles.note}>
-        フェーズ1では第1章のみ利用できます。全章対応後は、教材の
-        <code>materials/03_推奨学習順.md</code>
-        に基づく順序にも切り替えられます。
-      </p>
       <div className={styles.list}>
         {chapters.map((chapter) => (
           <Card key={chapter.chapterId}>

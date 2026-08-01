@@ -6,6 +6,9 @@ import ChapterViewPage from "./features/materials-viewer/ChapterViewPage";
 import DrillSetupPage from "./features/drill/DrillSetupPage";
 import DrillPlayPage from "./features/drill/DrillPlayPage";
 import DrillResultPage from "./features/drill/DrillResultPage";
+import ReviewSetupPage from "./features/review/ReviewSetupPage";
+import ReviewPlayPage from "./features/review/ReviewPlayPage";
+import ReviewResultPage from "./features/review/ReviewResultPage";
 import SettingsPage from "./features/settings/SettingsPage";
 import NotFoundPage from "./app/NotFoundPage";
 
@@ -19,6 +22,9 @@ export default function App() {
         <Route path="drill" element={<DrillSetupPage />} />
         <Route path="drill/:chapterId/play" element={<DrillPlayPage />} />
         <Route path="drill/:chapterId/result" element={<DrillResultPage />} />
+        <Route path="review" element={<ReviewSetupPage />} />
+        <Route path="review/play" element={<ReviewPlayPage />} />
+        <Route path="review/result" element={<ReviewResultPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
