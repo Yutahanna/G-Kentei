@@ -32,3 +32,7 @@
   gap: var(--space-4);
   flex-wrap: wrap;
 }
+
+.weakPointsLink {
+  margin-top: var(--space-3);
+}

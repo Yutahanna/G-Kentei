@@ -4,6 +4,7 @@ import Card from "../../shared/ui/Card";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import ProgressBar from "../../shared/ui/ProgressBar";
 import { useChapterProgress } from "../../shared/hooks/useChapterProgress";
+import { useOverallProgress } from "../../shared/hooks/useOverallProgress";
 import { getAvailableChapterIds, getChapter, getManifest } from "../../shared/lib/content-loader";
 import styles from "./DashboardPage.module.css";
 
@@ -17,17 +18,55 @@ export default function DashboardPage() {
   const [chapterId, setChapterId] = useState(orderedChapterIds[0] ?? "");
   const chapter = getChapter(chapterId);
   const progress = useChapterProgress(chapterId);
+  const overall = useOverallProgress();
 
   const sectionRatio =
     progress.totalSections === 0 ? 0 : progress.readSections / progress.totalSections;
   const questionRatio =
     progress.totalQuestions === 0 ? 0 : progress.answeredQuestions / progress.totalQuestions;
 
+  const overallSectionRatio =
+    overall.totalSections === 0 ? 0 : overall.readSections / overall.totalSections;
+  const overallQuestionRatio =
+    overall.totalQuestions === 0 ? 0 : overall.answeredQuestions / overall.totalQuestions;
+
   const suggestion = getSuggestion(progress, chapterId);
 
   return (
     <div>
       <h1>ホーム</h1>
+
+      <div className={styles.section}>
+        <div className={styles.sectionTitle}>全10章の学習状況</div>
+        <div className={styles.grid}>
+          <Card>
+            <div className={styles.statValue}>
+              {overall.readSections} / {overall.totalSections}
+            </div>
+            <div className={styles.statLabel}>教材：既読の節（全章）</div>
+            <ProgressBar ratio={overallSectionRatio} label="全章の教材既読率" />
+          </Card>
+          <Card>
+            <div className={styles.statValue}>
+              {overall.answeredQuestions} / {overall.totalQuestions}
+            </div>
+            <div className={styles.statLabel}>ドリル：回答済み問題数（全章）</div>
+            <ProgressBar ratio={overallQuestionRatio} label="全章の回答済み率" />
+          </Card>
+          <Card>
+            <div className={styles.statValue}>{Math.round(overall.accuracy * 100)}%</div>
+            <div className={styles.statLabel}>全章の正答率（回答済み問題のうち）</div>
+          </Card>
+          <Card>
+            <div className={styles.statValue}>{overall.dueForReviewQuestions}</div>
+            <div className={styles.statLabel}>復習が必要な問題数（全章）</div>
+            <Link to="/review">復習する</Link>
+          </Card>
+        </div>
+        <p className={styles.weakPointsLink}>
+          <Link to="/weak-points">弱点分析（出題形式・難易度・章・節別の正答率）を見る</Link>
+        </p>
+      </div>
 
       <div className={styles.section}>
         <label htmlFor="dashboard-chapter-select" className={styles.sectionTitle}>

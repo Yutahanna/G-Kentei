@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./app/Layout";
 import DashboardPage from "./features/dashboard/DashboardPage";
+import WeakPointsPage from "./features/dashboard/WeakPointsPage";
 import ChapterListPage from "./features/materials-viewer/ChapterListPage";
 import ChapterViewPage from "./features/materials-viewer/ChapterViewPage";
 import DrillSetupPage from "./features/drill/DrillSetupPage";
@@ -17,6 +18,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<DashboardPage />} />
+        <Route path="weak-points" element={<WeakPointsPage />} />
         <Route path="materials" element={<ChapterListPage />} />
         <Route path="materials/:chapterId" element={<ChapterViewPage />} />
         <Route path="drill" element={<DrillSetupPage />} />
