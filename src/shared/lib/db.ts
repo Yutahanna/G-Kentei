@@ -150,3 +150,23 @@ export async function exportAllData(): Promise<ExportedData> {
     userSettings,
   };
 }
+
+/**
+ * エクスポート済みデータを読み込み、既存のIndexedDBの内容を丸ごと置き換える。
+ * 呼び出し側（設定画面）で、事前にexportedDataSchemaによる検証を済ませたデータを渡すこと。
+ */
+export async function importAllData(data: ExportedData): Promise<void> {
+  const db = await getDb();
+  await clearAllData();
+  const tx = db.transaction(
+    ["questionProgress", "studySessionLog", "materialReadState", "userSettings"],
+    "readwrite",
+  );
+  await Promise.all([
+    ...data.questionProgress.map((p) => tx.objectStore("questionProgress").put(p)),
+    ...data.studySessionLog.map((l) => tx.objectStore("studySessionLog").put(l)),
+    ...data.materialReadState.map((r) => tx.objectStore("materialReadState").put(r)),
+    tx.objectStore("userSettings").put(data.userSettings),
+    tx.done,
+  ]);
+}

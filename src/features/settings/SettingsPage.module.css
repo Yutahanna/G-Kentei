@@ -22,3 +22,17 @@
   border-color: var(--color-incorrect);
   background-color: var(--color-incorrect);
 }
+
+.buttonRow {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.errorText {
+  color: var(--color-incorrect);
+}
