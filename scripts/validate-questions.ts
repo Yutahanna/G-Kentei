@@ -2,6 +2,8 @@
 /**
  * questions/**\/*.json の品質検査スクリプト。
  * docs/phase0-design.md 10節の自動検査項目に対応する。
+ * 検査ロジックの実体は scripts/lib/question-quality-checks.ts にあり、
+ * generate-question-review.ts と共有している（章ごとに個別実装しない）。
  *
  * 使い方: npm run validate:questions
  * 終了コード: エラーが1件でもあれば非0で終了する（警告のみの場合は0で終了）。
@@ -11,6 +13,15 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { questionSchema, type Question } from "../src/schemas/question.schema";
 import { manifestSchema, type Manifest } from "../src/schemas/content.schema";
+import {
+  buildConceptVocabulary,
+  computeNearConceptRate,
+  computeSectionDistribution,
+  computeSkillTagDistribution,
+  findContentTagOverlaps,
+  findSimilarPairs,
+  NEAR_CONCEPT_MIN_HITS,
+} from "./lib/question-quality-checks";
 
 const ROOT_DIR = join(import.meta.dirname, "..");
 const MANIFEST_PATH = join(ROOT_DIR, "content", "manifest.json");
@@ -44,28 +55,6 @@ function loadAllQuestions(): { file: string; raw: unknown }[] {
     raw: JSON.parse(readFileSync(join(ROOT_DIR, relPath), "utf-8")) as unknown,
   }));
 }
-
-/** 問題文＋選択肢を正規化したトークン集合のJaccard類似度で重複・類似問題を検出する。 */
-function tokenize(text: string): Set<string> {
-  const normalized = text.replace(/[「」『』（）()、。・\s]/g, "");
-  const tokens = new Set<string>();
-  for (let i = 0; i < normalized.length - 1; i++) {
-    tokens.add(normalized.slice(i, i + 2));
-  }
-  return tokens;
-}
-
-function jaccardSimilarity(a: Set<string>, b: Set<string>): number {
-  if (a.size === 0 && b.size === 0) return 1;
-  let intersection = 0;
-  for (const token of a) {
-    if (b.has(token)) intersection++;
-  }
-  const union = a.size + b.size - intersection;
-  return union === 0 ? 0 : intersection / union;
-}
-
-const SIMILARITY_THRESHOLD = 0.8;
 
 function main(): void {
   const manifest = loadManifest();
@@ -139,38 +128,57 @@ function main(): void {
     }
   }
 
-  // 難易度別・章別の問題数分布
+  // 難易度別・章別の問題数分布（章ごとに検査するため、章IDでグルーピングする）
+  const questionsByChapter = new Map<string, Question[]>();
+  for (const { question } of allQuestions) {
+    const arr = questionsByChapter.get(question.chapterId) ?? [];
+    arr.push(question);
+    questionsByChapter.set(question.chapterId, arr);
+  }
+
   const countByChapterAndDifficulty = new Map<string, number>();
   for (const { question } of allQuestions) {
     const key = `${question.chapterId}:${question.difficulty}`;
     countByChapterAndDifficulty.set(key, (countByChapterAndDifficulty.get(key) ?? 0) + 1);
   }
 
-  // 章・節ごとの問題数（レポート用）
-  const countBySection = new Map<string, number>();
-  for (const { question } of allQuestions) {
-    countBySection.set(question.sectionId, (countBySection.get(question.sectionId) ?? 0) + 1);
-  }
+  // 近接概念の語彙は全章横断で構築する（他章の概念を使った紛らわしい誤答も正しく検出するため）。
+  const globalVocabulary = buildConceptVocabulary(allQuestions.map((q) => q.question));
 
-  // 類似問題検出
-  for (let i = 0; i < allQuestions.length; i++) {
-    const qi = allQuestions[i];
-    if (!qi) continue;
-    const textI = tokenize(qi.question.question + qi.question.choices.join(""));
-    for (let j = i + 1; j < allQuestions.length; j++) {
-      const qj = allQuestions[j];
-      if (!qj) continue;
-      const textJ = tokenize(qj.question.question + qj.question.choices.join(""));
-      const similarity = jaccardSimilarity(textI, textJ);
-      if (similarity >= SIMILARITY_THRESHOLD) {
+  // 章ごとに: 類似問題検出、論点重複検出、近接概念の割合検査
+  for (const [chapterId, chapterQuestions] of questionsByChapter) {
+    const similarPairs = findSimilarPairs(chapterQuestions);
+    for (const pair of similarPairs) {
+      warn(`類似問題の疑い (類似度${pair.similarity.toFixed(2)}): "${pair.aId}" と "${pair.bId}"`);
+    }
+
+    const tagOverlaps = findContentTagOverlaps(chapterQuestions);
+    for (const group of tagOverlaps) {
+      warn(
+        `論点重複の疑い（同一節・contentTags完全一致: ${group.contentTagKey}）: ${group.ids.join(", ")}。同一概念を難易度違いで扱う意図的な設計の場合は問題ない。`,
+      );
+    }
+
+    const vocabulary = globalVocabulary;
+    let totalWrong = 0;
+    let totalNearConceptHits = 0;
+    for (const q of chapterQuestions) {
+      const result = computeNearConceptRate(q, vocabulary);
+      totalWrong += result.wrongChoiceCount;
+      totalNearConceptHits += result.nearConceptHits;
+      if (result.nearConceptHits < NEAR_CONCEPT_MIN_HITS) {
         warn(
-          `類似問題の疑い (類似度${similarity.toFixed(2)}): "${qi.question.id}" と "${qj.question.id}"`,
+          `[${chapterId}] [${q.id}]: 誤答選択肢のうち教材内の近接概念を含むものが${result.nearConceptHits}件（誤答${result.wrongChoiceCount}件中）で、基準の${NEAR_CONCEPT_MIN_HITS}件を下回っています。選択肢${result.flaggedChoiceIndexes.map((i) => i + 1).join("/")}が該当します（見落としの可能性もあるため要確認）。`,
         );
       }
     }
+    const chapterRate = totalWrong === 0 ? 1 : totalNearConceptHits / totalWrong;
+    console.log(
+      `[${chapterId}] 近接概念を含む誤答選択肢の割合: ${(chapterRate * 100).toFixed(0)}%（${totalNearConceptHits}/${totalWrong}）`,
+    );
   }
 
-  // レポート出力（章・節×問題数の対応表）
+  // レポート出力（章・節×問題数の対応表、節別・skillTags別分布を含む）
   const manifestChapters = manifest?.chapters ?? [];
   const reportLines: string[] = [
     "# 章・節×問題データ 対応表（自動生成）",
@@ -193,8 +201,36 @@ function main(): void {
       );
     }
   }
-  reportLines.push("", `総問題数: ${allQuestions.length}`);
+  reportLines.push("", `総問題数: ${allQuestions.length}`, "");
+  reportLines.push("## 章別・skillTags別分布");
+  reportLines.push("");
+  reportLines.push(
+    "※ 1問に複数のskillTagsを付与できるため、件数合計は章の問題総数を超える場合がある。",
+  );
+  reportLines.push("");
+  for (const [chapterId, chapterQuestions] of questionsByChapter) {
+    reportLines.push(`### ${chapterId}`);
+    reportLines.push("");
+    reportLines.push("| skillTag | 基礎 | 標準 | 応用 | 合計 |");
+    reportLines.push("|---|---|---|---|---|");
+    for (const row of computeSkillTagDistribution(chapterQuestions)) {
+      reportLines.push(
+        `| ${row.key} | ${row.basic} | ${row.standard} | ${row.advanced} | ${row.total} |`,
+      );
+    }
+    reportLines.push("");
+  }
   writeFileSync(REPORT_PATH, `${reportLines.join("\n")}\n`, "utf-8");
+
+  // 分布は章ごとの内訳としてコンソールにも出す（節別）
+  for (const [chapterId, chapterQuestions] of questionsByChapter) {
+    const skewed = computeSectionDistribution(chapterQuestions).filter(
+      (row) => row.total === 0 || row.basic + row.standard + row.advanced === 0,
+    );
+    if (skewed.length > 0) {
+      warn(`[${chapterId}]: 問題が0件の節があります: ${skewed.map((r) => r.key).join(", ")}`);
+    }
+  }
 
   // 出力
   const errors = issues.filter((i) => i.level === "error");

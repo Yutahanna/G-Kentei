@@ -1,0 +1,312 @@
+[
+  {
+    "id": "ch02-basic-001",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s01",
+    "difficulty": "basic",
+    "question": "第1次AIブームの時期と中心技術の組み合わせとして、教材の内容に合致するものはどれか。",
+    "choices": [
+      "1950年代後半〜1960年代、探索・推論。",
+      "1980年代、知識工学(エキスパートシステム)。",
+      "2000年代後半〜、機械学習・深層学習。",
+      "2022年以降、生成AI・基盤モデル。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「1956年のダートマス会議を機に幕を開けたのが、第1次AIブーム(1950年代後半〜1960年代)である」とし、この時代のAI研究者は探索と推論の手順によって問題解決を目指したと説明している。",
+    "choiceExplanations": [
+      "正しい。本文に明記された第1次AIブームの時期と中心技術である。",
+      "誤り。これは第2次AIブーム(1980年代)の説明であり、第1次AIブームとは時期・中心技術がともに異なる。",
+      "誤り。これは第3次AIブーム(2000年代後半〜)の説明である。",
+      "誤り。これは2022年以降のブーム(第4次AIブームとも呼ばれる)の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["第1次AIブーム", "探索・推論"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "1. 第1次AIブーム——探索・推論の時代とフレーム問題",
+    "sourceReference": "第2章 1節（第1次AIブーム）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-002",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s01",
+    "difficulty": "basic",
+    "question": "ある部屋にバッテリーと時限爆弾がある。改良されたロボットは、行動を起こす前に「この行動によって起きるすべての事柄」を考慮しようとした結果、「バッテリーを動かしても天井の色は変わらない」といった無関係な事柄まで無限に検討し続け、時間切れで爆発してしまった。この寓話が示す教材の概念はどれか。",
+    "choices": [
+      "フレーム問題（今まさに解決すべき問題に関係のある事柄だけを、無限に広がる可能性の中から適切に選び出すことの難しさ）。",
+      "シンボルグラウンディング問題（記号と実世界の意味とを結びつける課題）。",
+      "知識獲得のボトルネック（専門家の知識や常識を人手で入力するコストの大きさ）。",
+      "AI効果（実用化された技術が単なる自動化とみなされる現象）。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材はこの寓話を「フレーム問題」の説明として紹介し、「現実世界の問題を解くには、無関係なことを無視して関係あることだけに注意を向けるという、人間なら当たり前にできることが、当時のAIには極めて困難だった」と述べている。",
+    "choiceExplanations": [
+      "正しい。本文がこの寓話をフレーム問題の説明として紹介している。",
+      "誤り。シンボルグラウンディング問題は第5節で扱われる別の課題であり、記号と実世界の意味の結びつきに関する話であって、無関係な事柄を無限に検討してしまう本問の寓話とは異なる。",
+      "誤り。知識獲得のボトルネックは第2節で扱われる第2次AIブームの課題であり、専門家の知識を人手で入力するコストの話であって、本問の寓話とは異なる論点である。",
+      "誤り。AI効果は第1章で学んだ概念であり、実用化された技術が呼ばれなくなる現象を指し、本問の寓話とは無関係である。"
+    ],
+    "tags": {
+      "contentTags": ["フレーム問題", "ダニエル・デネットのロボットの寓話"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "1. 第1次AIブーム——探索・推論の時代とフレーム問題",
+    "sourceReference": "第2章 1節（第1次AIブーム）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-003",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s02",
+    "difficulty": "basic",
+    "question": "第2次AIブームで中心となった「エキスパートシステム」の説明として、教材の内容に最も合致するものはどれか。",
+    "choices": [
+      "専門家の知識を「もし〜ならば〜する」というルールの形でコンピュータに入力し、専門家のように判断を下させる仕組み。",
+      "大量のデータからパターンやルールをコンピュータ自身に学習させる仕組み。",
+      "途中まで探索木をたどった後、ランダムなシミュレーションを繰り返して局面の良し悪しを統計的に推定する仕組み。",
+      "身体を通じて物理世界と相互作用することで、記号に実世界の意味を持たせようとする仕組み。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「エキスパートシステム」を「専門家の知識を、『もし〜ならば〜する』というルールの形でコンピュータに大量に入力し、専門家のように判断を下させようとする仕組み」と説明している。",
+    "choiceExplanations": [
+      "正しい。本文に明記されたエキスパートシステムの説明である。",
+      "誤り。これは第3次AIブームを支えた機械学習の説明であり、知識工学(第2次AIブーム)とは対照的なアプローチである。",
+      "誤り。これは第4節で扱われるモンテカルロ木探索の説明である。",
+      "誤り。これは第5節で扱われる身体性(embodiment)の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["第2次AIブーム", "エキスパートシステム"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "2. 第2次AIブーム——知識工学の時代とその限界",
+    "sourceReference": "第2章 2節（第2次AIブーム）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-004",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s02",
+    "difficulty": "basic",
+    "question": "ある知識ベースシステムが、「カナリアは鳥である」「鳥は飛べる」「鳥は羽根を持つ」といった概念どうしの関係を、「ノード(概念)」と「リンク(関係)」で結んだネットワーク構造として表現している。この知識表現の手法は何と呼ばれるか。",
+    "choices": [
+      "意味ネットワーク。",
+      "オントロジー。",
+      "エキスパートシステム。",
+      "Cycプロジェクト。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「意味ネットワークは、概念と概念の関係を『ノード(概念)』と『リンク(関係)』で結んだネットワーク構造として知識を表現する手法である」とし、「カナリアは鳥である」「鳥は飛べる」「鳥は羽根を持つ」という例を挙げている。",
+    "choiceExplanations": [
+      "正しい。本文に明記された意味ネットワークの説明と具体例そのものである。",
+      "誤り。オントロジーは、ある分野における概念や概念どうしの関係性を体系的に整理し明確化したものであり、ノードとリンクによるネットワーク表現そのものを指す語ではない。",
+      "誤り。エキスパートシステムは専門家の知識をルールの形で入力する仕組みであり、概念どうしの関係をネットワークで表現する手法ではない。",
+      "誤り。Cycプロジェクトは人間の常識をすべて手作業で入力しようとした個別のプロジェクト名であり、知識表現の手法の名称ではない。"
+    ],
+    "tags": {
+      "contentTags": ["意味ネットワーク"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "2. 第2次AIブーム——知識工学の時代とその限界",
+    "sourceReference": "第2章 2節（第2次AIブーム）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-005",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s03",
+    "difficulty": "basic",
+    "question": "2012年の画像認識コンテストILSVRCで、深層学習モデル「AlexNet」を用いて圧勝したのはどこのチームか。",
+    "choices": [
+      "トロント大学のチーム。",
+      "IBMの開発チーム。",
+      "Google DeepMindのチーム。",
+      "OpenAIのチーム。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「トロント大学のチームが、『AlexNet』と呼ばれる深層学習モデルを用いて参加したところ、それまでの主流だった手法を大差で上回る認識精度を達成した」と説明している。",
+    "choiceExplanations": [
+      "正しい。本文に明記されている。",
+      "誤り。IBMは第4節で扱われるDeep Blue(チェス、1997年)の開発元であり、AlexNetとは無関係である。",
+      "誤り。Google DeepMindは第4節で扱われるAlphaGo(囲碁、2016年)の開発元であり、AlexNetとは無関係である。",
+      "誤り。OpenAIは第6節で扱われるChatGPT(2022年)に関連する組織として知られるが、本文はAlexNetの開発をトロント大学のチームによるものとしている。"
+    ],
+    "tags": {
+      "contentTags": ["第3次AIブーム", "AlexNet", "ILSVRC"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "3. 第3次AIブーム——機械学習・深層学習の時代",
+    "sourceReference": "第2章 3節（第3次AIブーム）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-006",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s03",
+    "difficulty": "basic",
+    "question": "第3次AIブームが第1次・第2次AIブームと本質的に異なる点として、教材が説明しているものはどれか。",
+    "choices": [
+      "知識やルールを人間が用意するのではなく、大量のデータと計算資源から機械が自らパターンを発見する点。",
+      "探索木を用いて局面を評価する点。",
+      "専門家の知識をルール化してシステムに組み込む点。",
+      "身体を通じた環境との相互作用によって意味を獲得する点。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は第3次AIブームについて「『知能を実現するために必要な知識やルールを、人間が用意する』という発想から、『大量のデータと計算資源さえあれば、機械が自らパターンを発見する』という発想へと転換した点」が本質的な違いであると説明している。",
+    "choiceExplanations": [
+      "正しい。本文に明記された第3次AIブームの本質的な特徴である。",
+      "誤り。探索木は第1節・第4節で扱われる第1次AIブーム・ゲームAIの中心概念であり、第3次AIブームを特徴づける説明ではない。",
+      "誤り。これはまさに第2次AIブーム(知識工学)の説明であり、第3次AIブームが転換した「元の発想」の側である。",
+      "誤り。これは第5節で扱われる身体性の説明であり、第3次AIブームの本質的な違いとは異なる論点である。"
+    ],
+    "tags": {
+      "contentTags": ["第3次AIブーム"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "3. 第3次AIブーム——機械学習・深層学習の時代",
+    "sourceReference": "第2章 3節（第3次AIブーム）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-007",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s04",
+    "difficulty": "basic",
+    "question": "1997年にチェスの世界チャンピオン、ガルリ・カスパロフを破ったコンピュータシステムはどれか。",
+    "choices": ["Deep Blue。", "Ponanza。", "AlphaGo。", "AlexNet。"],
+    "correctAnswer": 0,
+    "explanation": "教材は「1997年、IBMの開発した『Deep Blue』が、当時の世界チャンピオンであるガルリ・カスパロフを破った」と説明している。",
+    "choiceExplanations": [
+      "正しい。本文に明記されている。",
+      "誤り。Ponanzaは日本の将棋ソフトであり、2017年に当時の名人に勝利したシステムである。チェスのカスパロフを破ったシステムではない。",
+      "誤り。AlphaGoは2016年に囲碁の世界トップクラスの棋士イ・セドルに勝利したシステムであり、チェスとは異なる。",
+      "誤り。AlexNetは第3節で扱われる2012年の画像認識モデルであり、ゲームAIではない。"
+    ],
+    "tags": {
+      "contentTags": ["Deep Blue", "ゲームAIの進化"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "4. 探索木・ミニマックス法・モンテカルロ木探索——ゲームAIの進化",
+    "sourceReference": "第2章 4節（ゲームAIの進化）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-008",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s04",
+    "difficulty": "basic",
+    "question": "あるゲームAIは、局面の評価そのものが難しい場面で、途中まで探索木をたどった後、ランダムに手を進めるシミュレーションを何度も繰り返し、その勝率の統計から局面の有利さを推定している。この手法は何と呼ばれるか。",
+    "choices": [
+      "モンテカルロ木探索(MCTS)。",
+      "ミニマックス法。",
+      "エキスパートシステム。",
+      "意味ネットワーク。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「モンテカルロ木探索(MCTS)」を「途中まで探索木をたどった後、そこから先はランダムに手を進めるシミュレーション(プレイアウト)を何度も繰り返し、その勝率の統計から『この局面はどれくらい有利か』を推定する手法」と説明している。",
+    "choiceExplanations": [
+      "正しい。本文に明記されたモンテカルロ木探索の説明そのものである。",
+      "誤り。ミニマックス法は、自分の手番では評価値が最大になる手を選び、相手の手番では評価値が最小になる手を相手が選ぶと仮定して交互に計算する手法であり、ランダムなシミュレーションを繰り返す本問の説明とは異なる。",
+      "誤り。エキスパートシステムは専門家の知識をルール化する第2次AIブームの仕組みであり、ゲームの局面評価の手法ではない。",
+      "誤り。意味ネットワークは概念どうしの関係をノードとリンクで表現する知識表現の手法であり、ゲームの局面評価とは無関係である。"
+    ],
+    "tags": {
+      "contentTags": ["モンテカルロ木探索"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "4. 探索木・ミニマックス法・モンテカルロ木探索——ゲームAIの進化",
+    "sourceReference": "第2章 4節（ゲームAIの進化）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-009",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s05",
+    "difficulty": "basic",
+    "question": "「シンボルグラウンディング問題」を1990年に提起した認知科学者は誰か。",
+    "choices": [
+      "スティーブン・ハルナッド。",
+      "ダニエル・デネット。",
+      "ジョン・サール。",
+      "アラン・チューリング。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「シンボルグラウンディング問題は、認知科学者スティーブン・ハルナッドが1990年に提起した概念である」と明記している。",
+    "choiceExplanations": [
+      "正しい。本文に明記されている。",
+      "誤り。ダニエル・デネットは第1節で紹介されたフレーム問題のロボットの寓話を示した哲学者であり、シンボルグラウンディング問題の提起者ではない。",
+      "誤り。ジョン・サールは第1章で学んだ「中国語の部屋」の考案者であり、シンボルグラウンディング問題の提起者ではない。",
+      "誤り。アラン・チューリングは第1章で学んだチューリングテストの提案者であり、シンボルグラウンディング問題とは無関係である。"
+    ],
+    "tags": {
+      "contentTags": ["シンボルグラウンディング問題", "スティーブン・ハルナッド"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "5. シンボルグラウンディング問題と身体性",
+    "sourceReference": "第2章 5節（シンボルグラウンディング問題と身体性）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-basic-010",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s06",
+    "difficulty": "basic",
+    "question": "2022年に登場し、大規模言語モデルという技術を一般社会に一気に知らしめる契機となったテキスト生成AIはどれか。",
+    "choices": ["ChatGPT。", "AlexNet。", "AlphaGo。", "Deep Blue。"],
+    "correctAnswer": 0,
+    "explanation": "教材は「2022年、テキスト生成AI『ChatGPT』の登場は、それまで研究者やエンジニアの間で語られていた『大規模言語モデル』という技術を、一般社会に一気に知らしめる出来事となった」と説明している。",
+    "choiceExplanations": [
+      "正しい。本文に明記されている。",
+      "誤り。AlexNetは2012年の画像認識モデルであり、2022年のChatGPTとは時期も分野も異なる。",
+      "誤り。AlphaGoは2016年の囲碁AIであり、テキスト生成AIではない。",
+      "誤り。Deep Blueは1997年のチェスAIであり、テキスト生成AIではない。"
+    ],
+    "tags": {
+      "contentTags": ["生成AI・基盤モデルブーム", "ChatGPT"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/05_第2章.md",
+    "sourceHeading": "6. 2022年以降の生成AI・基盤モデルブーム——「第4次AIブーム」",
+    "sourceReference": "第2章 6節（生成AI・基盤モデルブーム）",
+    "contentVersion": "24b80a7a64f9cbb6fb8a1b2eb15795c3d441d948ae8c93aae16661d94bbf2934",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  }
+]

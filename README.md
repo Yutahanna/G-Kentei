@@ -70,8 +70,9 @@ npm run build:content -- 03  # 章番号を指定して変換する場合
 
 npm run validate:questions   # questions/ 配下の問題データを検証し、docs/content-mapping.md を生成
 
-npm run review -- ch01       # 指定した章の問題データのレビュー用一覧 docs/{chapterId}-question-review.md を生成
+npm run review -- ch01       # 指定した章の問題データのレビュー用一覧 docs/{chapterId}-question-review.md を生成（全問詳細表示）
 npm run review:ch01          # ↑ ch01専用のショートカット
+npm run review -- ch03 --focused  # 重点レビュー対象（代表サンプル＋警告あり問題＋章横断タグ問題）のみ詳細表示、他は簡易表示（第3章以降で使用）
 
 npm run compare:materials    # materials/chapters/*.md と全文版materials/G検定_学習テキスト_Rev0.md の突き合わせ
 ```
