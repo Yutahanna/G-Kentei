@@ -1,0 +1,322 @@
+[
+  {
+    "id": "ch05-basic-001",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "question": "CNN(畳み込みニューラルネットワーク)における「畳み込み」と「プーリング」の説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "畳み込みはフィルタを画像上でスライドさせて特定のパターンを検出する操作であり、プーリングは小さな領域から代表値を残して情報を要約する操作である。",
+      "畳み込みは画像全体を1つのベクトルに変換する操作であり、プーリングはそのベクトルを確率分布に変換する操作である。",
+      "畳み込みは正解ラベルとの誤差を計算する操作であり、プーリングはその誤差を逆伝播させる操作である。",
+      "畳み込みは訓練データとテストデータを分割する操作であり、プーリングはその分割比率を調整する操作である。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は畳み込みを「小さな正方形の窓(フィルタ)を画像の上でスライドさせながら...特定のパターンを検出する」操作、プーリングを「小さな領域の中から代表値...だけを残し、情報を間引いて縮小する操作」と説明している。",
+    "choiceExplanations": [
+      "正しい。本文が説明する畳み込み・プーリングの仕組みそのものである。",
+      "誤り。畳み込み・プーリングはこのような説明ではない。",
+      "誤り。これは誤差逆伝播法の説明(第4章)であり、畳み込み・プーリングの説明ではない。",
+      "誤り。これは第3章で学んだデータ分割の説明であり、畳み込み・プーリングとは無関係である。"
+    ],
+    "tags": {
+      "contentTags": ["畳み込み", "プーリング"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.1 CNN（畳み込みニューラルネットワーク）と画像認識",
+    "sourceReference": "第5章 1節（CNNと画像認識）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-002",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s02",
+    "difficulty": "basic",
+    "question": "RNN(再帰型ニューラルネットワーク)の仕組みに関する説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "1回の入力に対して1回の出力を返すだけで、過去の情報を一切保持しない。",
+      "隠れ状態と呼ばれる内部メモリを持ち、1つ前の時刻の隠れ状態を次の時刻の入力と一緒に使うことで、過去の情報を反映しながら系列データを処理する。",
+      "画像のような格子状データに特化しており、フィルタを画像上でスライドさせて特徴を検出する。",
+      "文中のどの単語とも直接的に関連度を計算し、系列全体を並列に処理する。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材はRNNについて「『隠れ状態』と呼ばれる...内部メモリのようなものを持ち、1つ前の時刻の隠れ状態を、次の時刻の入力と一緒に使う」と説明している。",
+    "choiceExplanations": [
+      "誤り。これは普通のニューラルネットワークの説明であり、教材はRNNをこれと対比する形で導入している。",
+      "正しい。本文が説明するRNNの仕組みそのものである。",
+      "誤り。これはCNNの説明であり、第5.1節で扱われる。",
+      "誤り。これはAttention機構・Transformerの説明であり、第5.3節で扱われる。RNNはこの逐次処理の弱点を克服するために後に登場した技術である。"
+    ],
+    "tags": {
+      "contentTags": ["RNN", "隠れ状態"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.2 RNN・LSTM・GRUと系列データ処理",
+    "sourceReference": "第5章 2節（RNN・LSTM・GRU）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-003",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s03",
+    "difficulty": "basic",
+    "question": "Attention機構の基本的な発想に関する説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "画像の小さな領域から代表値だけを残して情報を要約する。",
+      "系列を1つずつ順番に処理し、隠れ状態を更新し続ける。",
+      "今処理している単語が、文中のどの単語と強く関連しているかを、数値的な重みとして計算し、関連の強い単語の情報をより強く反映させる。",
+      "ニューロンの一部をランダムに無効化しながら学習を進める。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "教材はAttention機構を「今処理している単語が、文中のどの単語と強く関連しているかを、数値的な重み(注意の重み)として計算し、関連の強い単語の情報をより強く反映させる仕組み」と説明している。",
+    "choiceExplanations": [
+      "誤り。これはプーリングの説明であり、第5.1節で扱われる。",
+      "誤り。これはRNNの説明であり、Attention機構が克服しようとした逐次処理の仕組みである。",
+      "正しい。本文が説明するAttention機構の基本発想そのものである。",
+      "誤り。これはDropoutの説明であり、第5.11節で扱われる。"
+    ],
+    "tags": {
+      "contentTags": ["Attention機構"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.3 Attention機構とTransformer",
+    "sourceReference": "第5章 3節（Attention機構とTransformer）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-004",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "basic",
+    "question": "事前学習・転移学習・ファインチューニングの説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "転移学習は、大量のラベルなしデータを使って汎用的な特徴を最初に学習させる段階を指す。",
+      "ファインチューニングは、ある領域で学習した知識を、モデルの重みを一切使わずに別の領域に転用することを指す。",
+      "事前学習は、事前学習済みモデルの重みを初期値として、対象タスクの少量データで追加学習することを指す。",
+      "事前学習は汎用的な特徴・パターンを学習する段階、転移学習はその知識を別タスクに転用すること、ファインチューニングは転移学習の代表的な実現手段(追加学習による微調整)である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "教材は「事前学習(pre-training):...まず汎用的な特徴やパターンをモデルに学習させる段階」「転移学習(transfer learning):...知識(モデルの重み)を、別の領域・タスクに転用すること」「ファインチューニング(fine-tuning):転移学習の代表的な手法の1つで...重みを初期値として使い...追加学習して微調整すること」と説明している。",
+    "choiceExplanations": [
+      "誤り。大量のラベルなしデータで汎用的な特徴を学習させる段階は事前学習の説明であり、転移学習の説明ではない。",
+      "誤り。ファインチューニングはモデルの重みを初期値として使い追加学習する手法であり、重みを使わない転用ではない。",
+      "誤り。これはファインチューニングの説明であり、事前学習の説明ではない。",
+      "正しい。本文が説明する3つの用語の定義そのものである。"
+    ],
+    "tags": {
+      "contentTags": ["事前学習", "転移学習", "ファインチューニング"],
+      "skillTags": ["比較"],
+      "crossChapterTags": ["第4章:積層自己符号化器との接続"]
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.4 事前学習・転移学習・ファインチューニングと基盤モデル",
+    "sourceReference": "第5章 4節（事前学習・転移学習・ファインチューニングと基盤モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-005",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s05",
+    "difficulty": "basic",
+    "question": "BERTとGPT系列の違いに関する説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "BERTはTransformerのエンコーダー部分を使い双方向に文脈を参照する「理解」寄りのモデルであり、GPT系列はデコーダー部分を使い一方向に次の単語を予測する「生成」寄りのモデルである。",
+      "BERTはデコーダー部分を使い、GPT系列はエンコーダー部分を使う。",
+      "BERTとGPT系列はどちらも同じ学習方式(次単語予測)で事前学習される。",
+      "BERTは画像認識専用のモデルであり、GPT系列は自然言語処理専用のモデルである。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「BERTはTransformerの『エンコーダー』部分だけを使い...双方向...GPT系列は...『デコーダー』部分をベースに...一方向的な学習方法」と対比して説明している。",
+    "choiceExplanations": [
+      "正しい。本文が対比するBERTとGPT系列の違いそのものである。",
+      "誤り。BERTとGPTが使うTransformerの部分が逆になっている。",
+      "誤り。BERTはマスク言語モデル、GPT系列は次単語予測という異なる学習方式で事前学習される。",
+      "誤り。BERT・GPT系列はいずれも自然言語処理向けの大規模言語モデルであり、画像認識専用ではない。"
+    ],
+    "tags": {
+      "contentTags": ["BERT", "GPT"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.5 大規模言語モデル(GPT系列・BERT)",
+    "sourceReference": "第5章 5節（大規模言語モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-006",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "basic",
+    "question": "GAN(敵対的生成ネットワーク)の仕組みに関する説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "1つのネットワークが、入力と同じものを出力するように学習することで、データの本質的な特徴を圧縮して学習する。",
+      "生成器と識別器という2つのネットワークを互いに競わせ、生成器は本物そっくりの偽データを作ろうとし、識別器はそれを見破ろうとすることで学習が進む。",
+      "きれいな画像に少しずつノイズを加えていく過程を定義し、そのノイズを取り除く過程をニューラルネットワークに学習させる。",
+      "データをある確率分布として圧縮し、その分布からサンプリングした値をデコーダーに通して新しいデータを生成する。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材は「『生成器(Generator)』と『識別器(Discriminator)』という2つのネットワークを互いに競わせることで学習する」とGANを説明している。",
+    "choiceExplanations": [
+      "誤り。これは第4章のオートエンコーダーの説明であり、GANの説明ではない。",
+      "正しい。本文が説明するGANの仕組みそのものである。",
+      "誤り。これは拡散モデルの説明である。",
+      "誤り。これはVAEの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["GAN", "生成器", "識別器"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.6 生成AIの主要技術: GAN・VAE・拡散モデル",
+    "sourceReference": "第5章 6節（GAN・VAE・拡散モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-007",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s08",
+    "difficulty": "basic",
+    "question": "Zero-shot学習とFew-shot学習の説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "Zero-shot学習は、大量の訓練データでモデルの重みを再学習する手法である。",
+      "Few-shot学習は、タスクの例を1つも与えず、指示文だけでモデルにタスクを実行させる方式である。",
+      "Zero-shot学習はタスクの例を1つも与えず指示文だけで実行させる方式であり、Few-shot学習は入力と出力のペアを少数例示してから本番の入力を与える方式である。",
+      "Zero-shot学習とFew-shot学習は、どちらもモデルの重みを更新することで実現される。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "教材は「Zero-shot学習:タスクの例を1つも与えず、指示文だけでモデルにタスクを実行させる方式」「Few-shot学習:タスクの入力と模範的な出力のペアを、プロンプトの中に少数...例示してから、本番の入力を与える方式」と説明している。",
+    "choiceExplanations": [
+      "誤り。Zero-shot学習は重みの再学習を伴わず、指示文だけでタスクを実行させる方式である。",
+      "誤り。「タスクの例を1つも与えない」のはZero-shot学習の説明であり、Few-shot学習の説明ではない。",
+      "正しい。本文が説明するZero-shot学習・Few-shot学習の定義そのものである。",
+      "誤り。教材は「これらはいずれも...モデルの重み自体を書き換える手法とは根本的に異なり、『モデルの重みは固定したまま、入力の工夫だけで望む出力を引き出す』という点が特徴である」と説明している。"
+    ],
+    "tags": {
+      "contentTags": ["Zero-shot学習", "Few-shot学習"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.8 プロンプトエンジニアリングとIn-context Learning",
+    "sourceReference": "第5章 8節（プロンプトエンジニアリング）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-008",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s10",
+    "difficulty": "basic",
+    "question": "マルチモーダルモデルの説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "テキストのみを扱い、画像・音声は一切扱えないAIモデルを指す。",
+      "訓練データ・検証データ・テストデータという3種類のデータを同時に扱えるモデルを指す。",
+      "生成器と識別器という2種類のネットワークを同時に扱えるモデルを指す。",
+      "テキスト・画像・音声・動画など複数の種類のデータを同時に扱える(入力として受け取ったり、出力として生成したりできる)AIモデルを指す。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "教材はマルチモーダルモデルを「テキスト・画像・音声・動画など複数種類のデータを同時に扱える(入力として受け取ったり、出力として生成したりできる)AIモデル」と定義している。",
+    "choiceExplanations": [
+      "誤り。マルチモーダルモデルはテキストだけでなく複数の種類のデータを扱えるモデルである。",
+      "誤り。訓練・検証・テストデータの分割(第3章)とマルチモーダルモデルは無関係である。",
+      "誤り。生成器・識別器はGAN(5.6節)の構成要素であり、マルチモーダルモデルの定義とは無関係である。",
+      "正しい。本文が説明するマルチモーダルモデルの定義そのものである。"
+    ],
+    "tags": {
+      "contentTags": ["マルチモーダルモデル"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.10 マルチモーダルモデル",
+    "sourceReference": "第5章 10節（マルチモーダルモデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-009",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s11",
+    "difficulty": "basic",
+    "question": "Dropoutの仕組みに関する説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "学習の際に、ニューラルネットワークの一部のニューロンをランダムに(一定の確率で)無効化しながら学習を進める手法である。",
+      "各層への入力の分布を、ミニバッチごとに平均0・分散1になるよう正規化してから次の層に渡す手法である。",
+      "重みの絶対値の合計にペナルティを課し、影響の小さい重みをゼロに追い込む手法である。",
+      "生成器と識別器を互いに競わせながら学習を進める手法である。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材はDropoutを「学習の際に、ニューラルネットワークの一部のニューロンをランダムに(一定の確率で)無効化しながら学習を進める」手法と説明している。",
+    "choiceExplanations": [
+      "正しい。本文が説明するDropoutの仕組みそのものである。",
+      "誤り。これはBatch Normalizationの説明である。",
+      "誤り。これは第3章のL1正則化の説明である。",
+      "誤り。これはGAN(5.6節)の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["Dropout"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": ["第3章:L1正則化との対比"]
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.11 正則化技術(Dropout・Batch Normalization)",
+    "sourceReference": "第5章 11節（正則化技術）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-010",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "basic",
+    "question": "Adam(Adaptive Moment Estimation)の説明として、教材の内容に合致するものはどれか。",
+    "choices": [
+      "パラメータごとの学習率調整を一切行わず、全パラメータに同じ学習率を適用し続ける手法である。",
+      "Momentum(勾配の勢い)とAdaGrad(パラメータごとの学習率調整)の発想を組み合わせた手法で、現在最も広く使われている最適化手法の1つである。",
+      "決定木を多数組み合わせて予測を安定させる、アンサンブル学習の手法である。",
+      "訓練データを使わず、検証データのみで重みを更新する手法である。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材はAdamを「MomentumとAdaGradの発想を組み合わせた手法で、現在最も広く使われている最適化手法の1つである」と説明している。",
+    "choiceExplanations": [
+      "誤り。Adamはパラメータごとに適切な学習率を自動調整する手法であり、全パラメータに同じ学習率を適用し続けるものではない。",
+      "正しい。本文が説明するAdamの位置づけそのものである。",
+      "誤り。これは第3章のランダムフォレストの説明であり、Adamとは無関係である。",
+      "誤り。Adamは訓練データに基づく勾配計算(誤差逆伝播法)を前提とした重み更新手法であり、検証データのみを使うものではない。"
+    ],
+    "tags": {
+      "contentTags": ["Adam", "最適化手法"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.12 最適化手法(SGD・Momentum・AdaGrad・Adam)",
+    "sourceReference": "第5章 12節（最適化手法）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-08-01",
+    "reviewStatus": "draft"
+  }
+]

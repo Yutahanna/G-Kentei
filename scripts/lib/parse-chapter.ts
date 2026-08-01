@@ -237,6 +237,15 @@ export function parseChapter(chapterNumber: number, markdown: string): Chapter {
   const learningGoals = goalsResult.items;
   i = goalsResult.nextIndex;
 
+  // 章によっては、学習目標の箇条書きに続けて章全体の補足説明の段落が入ることがある
+  // （例: 第5章の「本章は2024年のシラバス改訂で最も比重が増した領域であり…」）。
+  // 教材本文を欠落させないよう、この段落があれば学習目標の末尾に追加として取り込む。
+  const goalsNoteResult = collectBlockText(children, i);
+  if (goalsNoteResult.text.length > 0) {
+    learningGoals.push(goalsNoteResult.text);
+    i = goalsNoteResult.nextIndex;
+  }
+
   const sections: Section[] = [];
   let sectionIndex = 0;
   while (isHeading(children[i], 2) && /^\d+(\.\d+)?\.\s*/.test(toPlainText(children[i]!))) {

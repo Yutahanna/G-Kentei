@@ -2,7 +2,7 @@
   "_generated": true,
   "_generatedBy": "scripts/build-content.ts",
   "_doNotEdit": "このファイルは自動生成物です。修正は materials/ または scripts/build-content.ts に対して行ってください。",
-  "generatedAt": "2026-08-01T12:13:16.074Z",
+  "generatedAt": "2026-08-01T12:43:00.031Z",
   "chapters": [
     {
       "chapterId": "ch01",
@@ -60,6 +60,55 @@
         "ch04-s05",
         "ch04-s06",
         "ch04-s07"
+      ]
+    },
+    {
+      "chapterId": "ch05",
+      "title": "ディープラーニングの要素技術（生成AIの技術的中核）",
+      "sourceFile": "materials/chapters/08_第5章.md",
+      "contentHash": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+      "sectionIds": [
+        "ch05-s01",
+        "ch05-s02",
+        "ch05-s03",
+        "ch05-s04",
+        "ch05-s05",
+        "ch05-s06",
+        "ch05-s07",
+        "ch05-s08",
+        "ch05-s09",
+        "ch05-s10",
+        "ch05-s11",
+        "ch05-s12"
+      ]
+    },
+    {
+      "chapterId": "ch06",
+      "title": "ディープラーニングの応用例",
+      "sourceFile": "materials/chapters/09_第6章.md",
+      "contentHash": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+      "sectionIds": [
+        "ch06-s01",
+        "ch06-s02",
+        "ch06-s03",
+        "ch06-s04",
+        "ch06-s05",
+        "ch06-s06",
+        "ch06-s07"
+      ]
+    },
+    {
+      "chapterId": "ch07",
+      "title": "AIの社会実装に向けて",
+      "sourceFile": "materials/chapters/10_第7章.md",
+      "contentHash": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+      "sectionIds": [
+        "ch07-s01",
+        "ch07-s02",
+        "ch07-s03",
+        "ch07-s04",
+        "ch07-s05",
+        "ch07-s06"
       ]
     }
   ]
