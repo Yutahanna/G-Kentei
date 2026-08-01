@@ -2,7 +2,7 @@
   "_generated": true,
   "_generatedBy": "scripts/build-content.ts",
   "_doNotEdit": "このファイルは自動生成物です。修正は materials/ または scripts/build-content.ts に対して行ってください。",
-  "generatedAt": "2026-08-01T12:43:00.031Z",
+  "generatedAt": "2026-08-01T13:44:42.427Z",
   "chapters": [
     {
       "chapterId": "ch01",
@@ -109,6 +109,19 @@
         "ch07-s04",
         "ch07-s05",
         "ch07-s06"
+      ]
+    },
+    {
+      "chapterId": "ch08",
+      "title": "AIに必要な数理・統計知識",
+      "sourceFile": "materials/chapters/11_第8章.md",
+      "contentHash": "a9847f565d8a1bcf797d50b4bab5642f0fd27339dd7175d010c78c1f9d57b9ca",
+      "sectionIds": [
+        "ch08-s01",
+        "ch08-s02",
+        "ch08-s03",
+        "ch08-s04",
+        "ch08-s05"
       ]
     }
   ]
