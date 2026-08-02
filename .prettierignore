@@ -5,3 +5,4 @@ materials
 docs/ch01-question-review.md
 docs/content-mapping.md
 package-lock.json
+src-tauri
