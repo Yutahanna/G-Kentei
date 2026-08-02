@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dev-dist
 *.local
 
 # Test / build artifacts (docs/phase0-design.md 4節のGit管理方針に準拠)
