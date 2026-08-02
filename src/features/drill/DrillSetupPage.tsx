@@ -76,7 +76,11 @@ export default function DrillSetupPage() {
       <div className={styles.form}>
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>章</legend>
-          <select value={chapterId} onChange={(e) => setChapterId(e.target.value)}>
+          <select
+            aria-label="章"
+            value={chapterId}
+            onChange={(e) => setChapterId(e.target.value)}
+          >
             {orderedChapterIds.map((id) => {
               const meta = manifest.chapters.find((c) => c.chapterId === id);
               return (
@@ -105,7 +109,7 @@ export default function DrillSetupPage() {
 
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>節</legend>
-          <select value={sectionId} onChange={(e) => setSectionId(e.target.value)}>
+          <select aria-label="節" value={sectionId} onChange={(e) => setSectionId(e.target.value)}>
             <option value="">すべての節</option>
             {chapter?.sections.map((section) => (
               <option key={section.sectionId} value={section.sectionId}>

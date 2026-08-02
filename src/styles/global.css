@@ -38,6 +38,18 @@ select {
   color: inherit;
 }
 
+select {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* fieldsetはUAスタイルシートでmin-width: min-contentが既定のため、
+   幅の長い内容（章名を含むselectなど）があると明示的なmax-widthを無視して
+   横方向にはみ出す。min-width: 0でこの既定を打ち消す。 */
+fieldset {
+  min-width: 0;
+}
+
 a {
   color: var(--color-accent);
 }
