@@ -35,15 +35,39 @@ function answeredProgress(questionId: string, correct: boolean): QuestionProgres
   return {
     ...createInitialProgress(questionId),
     attempts: 1,
-    history: [{ answeredAt: "2026-01-01T00:00:00.000Z", result: correct ? "correct" : "incorrect", selectedIndex: correct ? 0 : 1 }],
+    history: [
+      {
+        answeredAt: "2026-01-01T00:00:00.000Z",
+        result: correct ? "correct" : "incorrect",
+        selectedIndex: correct ? 0 : 1,
+      },
+    ],
   };
 }
 
 describe("analytics（弱点分析の集計ロジック）", () => {
   const questions: Question[] = [
-    makeQuestion({ id: "q1", chapterId: "ch01", sectionId: "ch01-s01", difficulty: "basic", tags: { contentTags: ["a"], skillTags: ["暗記"], crossChapterTags: [] } }),
-    makeQuestion({ id: "q2", chapterId: "ch01", sectionId: "ch01-s01", difficulty: "standard", tags: { contentTags: ["b"], skillTags: ["比較"], crossChapterTags: [] } }),
-    makeQuestion({ id: "q3", chapterId: "ch02", sectionId: "ch02-s01", difficulty: "basic", tags: { contentTags: ["a"], skillTags: ["暗記"], crossChapterTags: [] } }),
+    makeQuestion({
+      id: "q1",
+      chapterId: "ch01",
+      sectionId: "ch01-s01",
+      difficulty: "basic",
+      tags: { contentTags: ["a"], skillTags: ["暗記"], crossChapterTags: [] },
+    }),
+    makeQuestion({
+      id: "q2",
+      chapterId: "ch01",
+      sectionId: "ch01-s01",
+      difficulty: "standard",
+      tags: { contentTags: ["b"], skillTags: ["比較"], crossChapterTags: [] },
+    }),
+    makeQuestion({
+      id: "q3",
+      chapterId: "ch02",
+      sectionId: "ch02-s01",
+      difficulty: "basic",
+      tags: { contentTags: ["a"], skillTags: ["暗記"], crossChapterTags: [] },
+    }),
   ];
   const progressByQuestion: Record<string, QuestionProgress> = {
     q1: answeredProgress("q1", true),

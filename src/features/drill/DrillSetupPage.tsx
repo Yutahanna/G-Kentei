@@ -35,7 +35,9 @@ export default function DrillSetupPage() {
     .filter((id) => availableChapterIds.includes(id));
 
   const [chapterId, setChapterId] = useState(
-    availableChapterIds.includes(initialChapterId) ? initialChapterId : (orderedChapterIds[0] ?? ""),
+    availableChapterIds.includes(initialChapterId)
+      ? initialChapterId
+      : (orderedChapterIds[0] ?? ""),
   );
   const chapter = getChapter(chapterId);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([
@@ -76,11 +78,7 @@ export default function DrillSetupPage() {
       <div className={styles.form}>
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>章</legend>
-          <select
-            aria-label="章"
-            value={chapterId}
-            onChange={(e) => setChapterId(e.target.value)}
-          >
+          <select aria-label="章" value={chapterId} onChange={(e) => setChapterId(e.target.value)}>
             {orderedChapterIds.map((id) => {
               const meta = manifest.chapters.find((c) => c.chapterId === id);
               return (

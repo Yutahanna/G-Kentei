@@ -15,9 +15,10 @@ const THEME_OPTIONS: { value: ThemeSetting; label: string }[] = [
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
   const [resetDone, setResetDone] = useState(false);
-  const [importMessage, setImportMessage] = useState<{ type: "success" | "error"; text: string } | null>(
-    null,
-  );
+  const [importMessage, setImportMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   async function handleReset() {
@@ -50,13 +51,19 @@ export default function SettingsPage() {
     try {
       parsed = JSON.parse(await file.text());
     } catch {
-      setImportMessage({ type: "error", text: "ファイルの読み込みに失敗しました。JSON形式のバックアップファイルを選択してください。" });
+      setImportMessage({
+        type: "error",
+        text: "ファイルの読み込みに失敗しました。JSON形式のバックアップファイルを選択してください。",
+      });
       return;
     }
 
     const result = exportedDataSchema.safeParse(parsed);
     if (!result.success) {
-      setImportMessage({ type: "error", text: "ファイルの内容がバックアップデータの形式と一致しません。" });
+      setImportMessage({
+        type: "error",
+        text: "ファイルの内容がバックアップデータの形式と一致しません。",
+      });
       return;
     }
 
@@ -66,7 +73,10 @@ export default function SettingsPage() {
     if (!confirmed) return;
 
     await importAllData(result.data);
-    setImportMessage({ type: "success", text: "インポートしました。ページを再読み込みしてください。" });
+    setImportMessage({
+      type: "success",
+      text: "インポートしました。ページを再読み込みしてください。",
+    });
   }
 
   return (
@@ -115,7 +125,10 @@ export default function SettingsPage() {
           />
         </div>
         {importMessage && (
-          <p role="status" className={importMessage.type === "error" ? styles.errorText : undefined}>
+          <p
+            role="status"
+            className={importMessage.type === "error" ? styles.errorText : undefined}
+          >
             {importMessage.text}
           </p>
         )}

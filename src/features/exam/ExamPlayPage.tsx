@@ -123,7 +123,11 @@ export default function ExamPlayPage() {
             <li key={index}>
               <button
                 type="button"
-                className={isSelected ? `${styles.choiceButton} ${styles.choiceSelected}` : styles.choiceButton}
+                className={
+                  isSelected
+                    ? `${styles.choiceButton} ${styles.choiceSelected}`
+                    : styles.choiceButton
+                }
                 onClick={() => selectAnswer(questionId, index)}
                 aria-pressed={isSelected}
               >

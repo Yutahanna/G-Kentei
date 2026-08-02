@@ -47,11 +47,12 @@ export function scoreExam(
   const incorrect = total - correct - unanswered;
 
   const chapterMap = new Map<string, ExamChapterScore>();
-  const difficultyMap: Record<Difficulty, { total: number; correct: number; unanswered: number }> = {
-    basic: { total: 0, correct: 0, unanswered: 0 },
-    standard: { total: 0, correct: 0, unanswered: 0 },
-    advanced: { total: 0, correct: 0, unanswered: 0 },
-  };
+  const difficultyMap: Record<Difficulty, { total: number; correct: number; unanswered: number }> =
+    {
+      basic: { total: 0, correct: 0, unanswered: 0 },
+      standard: { total: 0, correct: 0, unanswered: 0 },
+      advanced: { total: 0, correct: 0, unanswered: 0 },
+    };
 
   for (const r of results) {
     const chapterEntry = chapterMap.get(r.chapterId) ?? {

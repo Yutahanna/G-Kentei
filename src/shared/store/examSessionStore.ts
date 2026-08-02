@@ -50,7 +50,11 @@ export const useExamSessionStore = create<ExamSessionState>((set) => ({
     set((state) => ({
       answers: {
         ...state.answers,
-        [questionId]: { ...state.answers[questionId], selectedIndex: index, flagged: state.answers[questionId]?.flagged ?? false },
+        [questionId]: {
+          ...state.answers[questionId],
+          selectedIndex: index,
+          flagged: state.answers[questionId]?.flagged ?? false,
+        },
       },
     })),
   toggleFlag: (questionId) =>

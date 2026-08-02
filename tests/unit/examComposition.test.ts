@@ -16,7 +16,11 @@ describe("examComposition（模擬試験の出題配分）", () => {
       EXAM_COMPOSITION_CONFIG.perChapter.map((c) => [c.chapterId, 25]),
     );
     for (const totalCount of [10, 20, 50, 90, 200]) {
-      const counts = allocateExamQuestionCounts(totalCount, EXAM_COMPOSITION_CONFIG, availableByChapter);
+      const counts = allocateExamQuestionCounts(
+        totalCount,
+        EXAM_COMPOSITION_CONFIG,
+        availableByChapter,
+      );
       const sum = Object.values(counts).reduce((a, b) => a + b, 0);
       expect(sum).toBe(totalCount);
       for (const [chapterId, count] of Object.entries(counts)) {

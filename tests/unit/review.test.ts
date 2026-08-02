@@ -7,10 +7,7 @@ import {
 import { createInitialProgress } from "../../src/entities/progress";
 import type { QuestionProgress } from "../../src/entities/progress";
 
-function withHistory(
-  questionId: string,
-  entries: QuestionProgress["history"],
-): QuestionProgress {
+function withHistory(questionId: string, entries: QuestionProgress["history"]): QuestionProgress {
   return { ...createInitialProgress(questionId), attempts: entries.length, history: entries };
 }
 

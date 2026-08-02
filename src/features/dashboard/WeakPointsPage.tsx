@@ -61,7 +61,8 @@ export default function WeakPointsPage() {
                   {stat.answered} / {stat.total}
                 </div>
                 <div className={styles.statLabel}>
-                  {DIFFICULTY_LABEL[difficulty]}（正答率 {formatAccuracy(stat.answered, stat.accuracy)}）
+                  {DIFFICULTY_LABEL[difficulty]}（正答率{" "}
+                  {formatAccuracy(stat.answered, stat.accuracy)}）
                 </div>
               </Card>
             );

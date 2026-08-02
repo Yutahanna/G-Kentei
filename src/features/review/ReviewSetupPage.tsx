@@ -5,7 +5,10 @@ import buttonStyles from "../../shared/ui/Button.module.css";
 import { getManifest } from "../../shared/lib/content-loader";
 import { getQuestionById } from "../../shared/lib/question-loader";
 import { getReviewBuckets, type ReviewBuckets } from "../../shared/lib/review";
-import { useReviewSessionStore, type ReviewSessionType } from "../../shared/store/reviewSessionStore";
+import {
+  useReviewSessionStore,
+  type ReviewSessionType,
+} from "../../shared/store/reviewSessionStore";
 import styles from "./ReviewSetupPage.module.css";
 
 const EMPTY_BUCKETS: ReviewBuckets = { dueForReview: [], wrongAnswer: [], bookmarked: [] };

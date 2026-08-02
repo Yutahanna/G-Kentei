@@ -42,6 +42,8 @@ test.describe("データのエクスポート・インポート・初期化", ()
 
     await page.goto("/settings");
     await page.setInputFiles('input[type="file"]', badFilePath);
-    await expect(page.getByText("ファイルの内容がバックアップデータの形式と一致しません")).toBeVisible();
+    await expect(
+      page.getByText("ファイルの内容がバックアップデータの形式と一致しません"),
+    ).toBeVisible();
   });
 });

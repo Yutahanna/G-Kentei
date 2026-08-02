@@ -3,7 +3,10 @@ import { test, expect } from "@playwright/test";
 test.describe("章別ドリルのゴールデンパス", () => {
   test("教材を読む→ドリルを解く→結果画面→ホームに進捗が反映される", async ({ page }) => {
     await page.goto("/materials/ch02");
-    await page.getByRole("button", { name: /既読にする|読了/ }).first().click();
+    await page
+      .getByRole("button", { name: /既読にする|読了/ })
+      .first()
+      .click();
 
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch02");

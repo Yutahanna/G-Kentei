@@ -20,13 +20,8 @@
       "誤り。教材はむしろ「定義は論者によって幅がある」という前提そのものを理解しておくことが重要だとしており、シラバス上で単一の定義に統一されているとは述べていない。"
     ],
     "tags": {
-      "contentTags": [
-        "AIの定義の多様性",
-        "人工知能の定義"
-      ],
-      "skillTags": [
-        "暗記"
-      ],
+      "contentTags": ["AIの定義の多様性", "人工知能の定義"],
+      "skillTags": ["暗記"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -57,13 +52,8 @@
       "誤り。深層学習も人工知能を構成する技術の一つに過ぎず、人工知能全体と同義とはされていない。"
     ],
     "tags": {
-      "contentTags": [
-        "AIの定義の多様性",
-        "人工知能の定義"
-      ],
-      "skillTags": [
-        "暗記"
-      ],
+      "contentTags": ["AIの定義の多様性", "人工知能の定義"],
+      "skillTags": ["暗記"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -94,13 +84,8 @@
       "誤り。シンギュラリティはAIが人間の知能を超えて自己改良する可能性を指す章末の補足用語であり、実用化された技術がAIと呼ばれなくなる現象とは別の概念である。"
     ],
     "tags": {
-      "contentTags": [
-        "AI効果",
-        "電卓の例"
-      ],
-      "skillTags": [
-        "適用判断"
-      ],
+      "contentTags": ["AI効果", "電卓の例"],
+      "skillTags": ["適用判断"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -131,14 +116,8 @@
       "正しい。本文に明記されたAI効果の具体例である。"
     ],
     "tags": {
-      "contentTags": [
-        "AI効果",
-        "OCR",
-        "経路探索"
-      ],
-      "skillTags": [
-        "比較"
-      ],
+      "contentTags": ["AI効果", "OCR", "経路探索"],
+      "skillTags": ["比較"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -169,13 +148,8 @@
       "誤り。障害物を検知して進路を変える掃除ロボットは、人間があらかじめ用意したルールに基づき探索・推論を行うレベル2に近い例として挙げられている。"
     ],
     "tags": {
-      "contentTags": [
-        "人工知能レベルの4分類",
-        "レベル1"
-      ],
-      "skillTags": [
-        "比較"
-      ],
+      "contentTags": ["人工知能レベルの4分類", "レベル1"],
+      "skillTags": ["比較"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -206,14 +180,8 @@
       "誤り。レベル2は人間があらかじめ用意したルールや評価基準に基づいて探索・推論を行うタイプであり、特徴量の自動獲得を行う本問の例とは異なる。"
     ],
     "tags": {
-      "contentTags": [
-        "人工知能レベルの4分類",
-        "レベル4",
-        "特徴量の自動獲得"
-      ],
-      "skillTags": [
-        "適用判断"
-      ],
+      "contentTags": ["人工知能レベルの4分類", "レベル4", "特徴量の自動獲得"],
+      "skillTags": ["適用判断"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -229,12 +197,7 @@
     "sectionId": "ch01-s04",
     "difficulty": "basic",
     "question": "強いAIと弱いAIの区別を最初に明確にした人物は誰か。",
-    "choices": [
-      "アラン・チューリング",
-      "ジョン・マッカーシー",
-      "ジョン・サール",
-      "松尾豊"
-    ],
+    "choices": ["アラン・チューリング", "ジョン・マッカーシー", "ジョン・サール", "松尾豊"],
     "correctAnswer": 2,
     "explanation": "教材は「この区別を最初に明確にしたのは、哲学者ジョン・サールである」と明記している。",
     "choiceExplanations": [
@@ -244,13 +207,8 @@
       "誤り。松尾豊氏は第1節で人工知能の定義の一例として紹介された人物であり、強いAI・弱いAIの区別とは別の文脈である。"
     ],
     "tags": {
-      "contentTags": [
-        "強いAI・弱いAI",
-        "ジョン・サール"
-      ],
-      "skillTags": [
-        "暗記"
-      ],
+      "contentTags": ["強いAI・弱いAI", "ジョン・サール"],
+      "skillTags": ["暗記"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -281,13 +239,8 @@
       "正しい。本文がサールの主張として明記している内容である。"
     ],
     "tags": {
-      "contentTags": [
-        "強いAI・弱いAI",
-        "中国語の部屋"
-      ],
-      "skillTags": [
-        "適用判断"
-      ],
+      "contentTags": ["強いAI・弱いAI", "中国語の部屋"],
+      "skillTags": ["適用判断"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -318,13 +271,8 @@
       "誤り。1950年はアラン・チューリングがチューリングテストを提案した年であり、「人工知能」という言葉が初めて使われた会議ではない。"
     ],
     "tags": {
-      "contentTags": [
-        "AI研究の起源",
-        "ダートマス会議"
-      ],
-      "skillTags": [
-        "暗記"
-      ],
+      "contentTags": ["AI研究の起源", "ダートマス会議"],
+      "skillTags": ["暗記"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
@@ -355,13 +303,8 @@
       "誤り。マーヴィン・ミンスキーはダートマス会議の参加者の一人として名前が挙がっているが、チューリングテストの提案者ではない。"
     ],
     "tags": {
-      "contentTags": [
-        "AI研究の起源",
-        "チューリングテスト"
-      ],
-      "skillTags": [
-        "暗記"
-      ],
+      "contentTags": ["AI研究の起源", "チューリングテスト"],
+      "skillTags": ["暗記"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/04_第1章.md",
