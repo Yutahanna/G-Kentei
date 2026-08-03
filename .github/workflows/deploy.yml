@@ -11,6 +11,10 @@ jobs:
     permissions:
       contents: read
       deployments: write
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
     steps:
       - uses: actions/checkout@v4
 
@@ -46,9 +50,20 @@ jobs:
       - name: E2E tests
         run: npm run test:e2e
 
+      - name: Ensure Cloudflare Pages project exists
+        run: |
+          set -euo pipefail
+          if [ -z "$CLOUDFLARE_PROJECT_NAME" ]; then
+            echo "::error::CLOUDFLARE_PROJECT_NAME secret is not set."
+            exit 1
+          fi
+          if npx wrangler pages project list 2>&1 \
+              | grep -qE "(^|[^A-Za-z0-9_-])${CLOUDFLARE_PROJECT_NAME}([^A-Za-z0-9_-]|$)"; then
+            echo "Pages project '$CLOUDFLARE_PROJECT_NAME' already exists. Skipping creation."
+          else
+            echo "Pages project '$CLOUDFLARE_PROJECT_NAME' not found. Creating it..."
+            npx wrangler pages project create "$CLOUDFLARE_PROJECT_NAME" --production-branch=main
+          fi
+
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=main
+        run: npx wrangler pages deploy dist --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=main

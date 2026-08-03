@@ -79,8 +79,15 @@
   8. `npm run build`（production build、`dist/`を生成）
   9. `npx playwright install --with-deps chromium`（Playwrightの導入）
   10. `npm run test:e2e`（E2Eテスト、`vite preview`起動→Playwright 15件）
-  11. `cloudflare/wrangler-action@v3`で`dist/`をCloudflare Pagesへデプロイ
-      （1〜10がすべて成功した場合のみ実行される）
+  11. `wrangler pages project list`でCloudflare Pagesプロジェクトの有無を確認し、
+      存在しなければ`wrangler pages project create <CLOUDFLARE_PROJECT_NAME>
+--production-branch=main`で作成する（既に存在する場合は作成処理をスキップする）
+  12. `wrangler pages deploy dist --project-name=<CLOUDFLARE_PROJECT_NAME> --branch=main`で
+      `dist/`をデプロイする
+  - 11・12はいずれも1〜10がすべて成功した場合のみ実行される。Cloudflareダッシュボードでの
+    手動アップロード（Direct Upload）は前提にしていない。`wrangler`は`package.json`の
+    devDependencyとして固定バージョンを導入しており（`npm ci`でインストール済みのものを
+    `npx wrangler`で実行）、実行のたびに異なるバージョンが取得されることはない。
   - 既存の`.github/workflows/ci.yml`（push/pull_request全般に対するCIチェック、全ブランチ対象）は
     そのまま維持し、デプロイ専用の`deploy.yml`（`main`ブランチ限定）と役割を分離している。
 - 既存アプリのコード（`src/`、`vite.config.ts`、PWA設定、IndexedDBアクセス層）は無変更。
@@ -111,23 +118,32 @@ Cloudflareアカウントの作成・APIトークン発行・Access（Zero Trust
 本人のログイン・アカウント情報が必要なため、このセッションから代行できない。以下の手順を
 一度だけ実施すれば、以後は`main`ブランチへのpushで自動デプロイされる。
 
+**Pagesプロジェクトの作成はダッシュボードでの手動アップロード（Direct Upload）を使わない。**
+GitHub Actions（`deploy.yml`）が`wrangler pages project list`でプロジェクトの有無を確認し、
+存在しなければ`wrangler pages project create`で自動作成し、続けて`wrangler pages deploy`で
+`dist/`をデプロイする。そのため本人が行うのは、以下のCloudflareアカウント・トークン発行・
+GitHub Secrets登録・（初回デプロイ後の）Access設定のみでよい。
+
 1. **Cloudflareアカウント作成**（無料）: https://dash.cloudflare.com/sign-up を開き、メール
    アドレスとパスワードを登録する（クレジットカード登録は不要）。
-2. **Pagesプロジェクトの作成**: ログイン後のダッシュボード左メニューから
-   「Workers & Pages」→「Create」→「Pages」タブ→「Upload assets」を選び、プロジェクト名
-   （例: `g-kentei`）を入力して作成する。この画面ではファイルのアップロードを求められるが、
-   何かダミーファイル1つをアップロードして作成を完了させればよい（実際のデプロイ内容は
-   後でGitHub Actionsが上書きする）。プロジェクト名は上記GitHub Secretsの
-   `CLOUDFLARE_PROJECT_NAME`と必ず一致させる。
-3. **APIトークンの発行**: ダッシュボード右上のアイコン→「My Profile」→「API Tokens」タブ→
+2. **APIトークンの発行**: ダッシュボード右上のアイコン→「My Profile」→「API Tokens」タブ→
    「Create Token」→テンプレート一覧から「Edit Cloudflare Workers」を選ぶ（Pages編集権限を
    含む）→対象アカウントを選択して「Continue to summary」→「Create Token」。表示された
    トークン文字列をコピーする（この画面を閉じると再表示できないため、必ずこの時点でコピーする）。
+3. **アカウントIDの確認**: Cloudflareダッシュボードの右サイドバーに表示されるアカウントIDを
+   控える。
 4. **GitHub Secretsへの登録**: このリポジトリの「Settings」タブ→左メニュー「Secrets and
-   variables」→「Actions」→「New repository secret」で、上記表の3つを1つずつ登録する。
-5. **Cloudflare Zero Trust（Access）の設定**（認証の本体、下記「Cloudflare Access設定手順」を参照）。
-6. 設定完了後、`main`ブランチへのpush（またはGitHubの「Actions」タブから
-   `Deploy (Cloudflare Pages)`ワークフローを「Run workflow」で手動実行）でデプロイが始まる。
+   variables」→「Actions」→「New repository secret」で、下記「GitHub Secrets」表の3つを
+   1つずつ登録する。`CLOUDFLARE_PROJECT_NAME`はこの時点でCloudflare側に何も作らず、
+   使いたいプロジェクト名（例: `g-kentei`）を決めて値として入力するだけでよい。
+5. **初回デプロイの実行**: `main`ブランチへのpush、またはGitHubの「Actions」タブから
+   `Deploy (Cloudflare Pages)`ワークフローを「Run workflow」で手動実行する。品質検査・
+   E2Eテストがすべて成功すると、ワークフローが自動的にPagesプロジェクトを作成し
+   （2回目以降の実行では既存プロジェクトを検出してこの作成処理をスキップする）、`dist/`を
+   デプロイする。成功すると`https://<CLOUDFLARE_PROJECT_NAME>.pages.dev`が有効になる。
+6. **Cloudflare Zero Trust（Access）の設定**（認証の本体、下記「Cloudflare Access設定手順」を
+   参照）。**手順5でPagesのドメインが実際に発行された後でないと、Access側で対象ドメインを
+   指定できないため、必ず手順5の後に行うこと。**
 
 ## Cloudflare Access設定手順（画面の順序に沿った初心者向け手順）
 
