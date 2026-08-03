@@ -42,9 +42,9 @@ npm install
 npm run dev
 ```
 
-表示されるURL（既定では http://localhost:5173 ）をブラウザで開いてください。ホーム画面から教材閲覧・章別ドリル・設定にアクセスできます。フェーズ1時点では第1章のみ利用できます。
+表示されるURL（既定では http://localhost:5173 ）をブラウザで開いてください。ホーム画面から教材閲覧・章別ドリル・模擬試験・復習・設定にアクセスできます。全10章・250問（`questions/ch01`〜`ch10`）を収録済みです。
 
-学習履歴・問題の回答結果・復習状態はブラウザのIndexedDBに保存されます。設定画面から初期化できます。
+学習履歴・問題の回答結果・復習状態（SRS）・ブックマーク・模擬試験履歴はブラウザのIndexedDB（DB名 `g-kentei-db`）に保存されます。設定画面から初期化・エクスポート・インポートができます。
 
 ## 本番ビルド・プレビュー
 
@@ -58,9 +58,12 @@ npm run preview    # ビルド結果をローカルで確認
 ```bash
 npm run test        # Vitestによる単体テストを1回実行
 npm run test:watch  # ウォッチモードで実行
+npm run test:e2e    # PlaywrightによるE2Eテスト（本番相当ビルドに対して実行）
 ```
 
-対象: `tests/unit/` 配下（SRSロジック、採点ロジック、教材ビルドパイプラインのパーサー、問題データ読み込み）。
+単体テストの対象: `tests/unit/` 配下（SRSロジック、採点ロジック、教材ビルドパイプラインのパーサー、問題データ読み込み）。
+
+E2Eテストの対象: `tests/e2e/` 配下（ナビゲーション＋アクセシビリティ、ドリル・復習・模擬試験のゴールデンパス、設定画面のエクスポート／インポート）。`npm run test:e2e` は内部で `vite preview` を起動して本番ビルドに対して実行する。
 
 ## 教材・問題データの検証方法
 
@@ -89,10 +92,33 @@ npm run typecheck     # tsc -b --noEmit
 すべてまとめて実行する場合:
 
 ```bash
-npm run ci   # lint → typecheck → test → validate:questions → build
+npm run ci   # lint → format:check → typecheck → test → validate:questions → build
 ```
 
 GitHub Actions（`.github/workflows/ci.yml`）でも同じ内容をpush・PRごとに自動実行します。
+
+## デプロイ・配布形態
+
+このアプリは2つの配布形態を検討・実装しています。
+
+### 非公開Webアプリ（採用・現在の主な配布方針）
+
+Cloudflare Pages（静的ホスティング）+ Cloudflare Access（認証: 許可したメールアドレス宛の
+ワンタイムPIN）で、本人のみがURLからアクセスできる形で配信する。`main`ブランチへのpushを
+契機に、GitHub Actions（`.github/workflows/deploy.yml`）が `npm run ci` と `npm run test:e2e`
+の両方に合格した場合のみ自動デプロイする。
+
+- 詳細・設定手順・現在の進捗段階: [`docs/web-hosting-deployment.md`](docs/web-hosting-deployment.md)
+- 公開URL・ログイン方法などは同ドキュメントの「進捗段階」に応じて記載しており、本人による
+  Cloudflareダッシュボードでの設定が完了するまでは利用可能な状態にはならない。
+
+### Windowsデスクトップ版（参考・現在は未対応）
+
+Tauri（v2）でWindows向けにパッケージ化する試みを行ったが、Linuxサンドボックスからの
+クロスコンパイルに起因する `WebView2Loader.dll` 不足により、**現時点の成果物はWindows実機で
+起動できないことを確認済み**。SmartScreen警告への対処も含め、今回の対応範囲外として保留した。
+コード・生成物・原因は将来の再開に備えて `src-tauri/` と
+[`docs/desktop-packaging.md`](docs/desktop-packaging.md) にそのまま残している。
 
 ## 開発時の原則
 
