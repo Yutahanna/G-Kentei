@@ -19,6 +19,9 @@ playwright-report
 test-results
 *.tsbuildinfo
 
+# Claude Code local state (worktrees created for background subagents, etc.)
+.claude/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

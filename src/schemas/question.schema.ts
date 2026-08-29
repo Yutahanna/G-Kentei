@@ -17,6 +17,14 @@ export const reviewStatusSchema = z.enum(["draft", "approved", "needs_revision"]
 
 export const skillTagSchema = z.enum(["暗記", "比較", "関係性", "適用判断"]);
 
+/**
+ * 設問文が肯定形（「合致するものはどれか」）か否定形（「合致しないものはどれか」
+ * 「適切でないものはどれか」）かを区別するフィールド。省略時は肯定形として扱う
+ * （既存問題の後方互換のため必須にはしない）。
+ * 全問が肯定形に偏ると、設問文を読まず選択肢の見た目だけで解けてしまうため導入した。
+ */
+export const questionFormSchema = z.enum(["affirmative", "negative"]);
+
 export const questionTagsSchema = z
   .object({
     contentTags: z.array(z.string().min(1)).min(1),
@@ -31,6 +39,7 @@ export const questionSchema = z
     chapterId: z.string().regex(/^ch\d{2}$/),
     sectionId: z.string().regex(/^ch\d{2}-s\d{2}$/),
     difficulty: difficultySchema,
+    questionForm: questionFormSchema.optional(),
     question: z.string().min(1),
     choices: z.array(z.string().min(1)).length(4),
     correctAnswer: z.number().int().min(0).max(3),
@@ -50,5 +59,6 @@ export const questionSchema = z
 export type Difficulty = z.infer<typeof difficultySchema>;
 export type ReviewStatus = z.infer<typeof reviewStatusSchema>;
 export type SkillTag = z.infer<typeof skillTagSchema>;
+export type QuestionForm = z.infer<typeof questionFormSchema>;
 export type QuestionTags = z.infer<typeof questionTagsSchema>;
 export type Question = z.infer<typeof questionSchema>;

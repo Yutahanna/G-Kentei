@@ -18,8 +18,10 @@ import {
   checkQuestionCountsAgainstDesign,
   computeAnswerPositionDistribution,
   computeNearConceptRate,
+  computeQuestionFormDistribution,
   computeSectionDistribution,
   computeSkillTagDistribution,
+  findAbsoluteQualifierConcentration,
   findAnswerPositionSkewWarning,
   findChoiceLengthImbalances,
   findContentTagOverlaps,
@@ -221,6 +223,17 @@ function main(): void {
         `[${chapterId}] [${imbalance.questionId}]: 正答の文字数(${imbalance.correctLength})が最長の誤答(${imbalance.longestWrongLength})の${imbalance.ratio.toFixed(1)}倍あり、正答だけが極端に長い可能性があります。`,
       );
     }
+
+    for (const result of findAbsoluteQualifierConcentration(chapterQuestions)) {
+      warn(
+        `[${chapterId}] [${result.questionId}]: 誤答選択肢${result.wrongChoiceCount}件すべてに「すべて/常に/のみ/必ず/一切/絶対/唯一/完全に/決して」等の断定的な表現が含まれており、内容を読まず断定表現だけで消去できてしまう可能性があります。`,
+      );
+    }
+
+    const formDistribution = computeQuestionFormDistribution(chapterQuestions);
+    console.log(
+      `[${chapterId}] 設問形式別件数: 肯定形=${formDistribution.affirmative} / 否定形=${formDistribution.negative}`,
+    );
   }
 
   // レポート出力（章・節×問題数の対応表、節別・skillTags別分布を含む）

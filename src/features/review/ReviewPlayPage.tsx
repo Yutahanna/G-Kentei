@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
@@ -6,6 +6,7 @@ import { getChapter, getSection } from "../../shared/lib/content-loader";
 import { getQuestionProgress, saveQuestionProgress } from "../../shared/lib/db";
 import { applyAnswer } from "../../shared/lib/srs";
 import { scoreAnswer } from "../../shared/lib/scoring";
+import { buildChoiceOrderMap, getChoiceOrder } from "../../shared/lib/choiceOrder";
 import { useReviewSessionStore } from "../../shared/store/reviewSessionStore";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import styles from "../drill/DrillPlayPage.module.css";
@@ -37,6 +38,16 @@ export default function ReviewPlayPage() {
   const answered = lastFeedback !== null && lastFeedback.questionId === questionId;
   const { progress, reload, toggleBookmark } = useQuestionProgress(questionId);
 
+  // 選択肢の表示順はセッション開始時に1回だけ乱数で決め、以後は固定する。
+  // 位置（1〜4番目）だけを覚えて正答できてしまうことを防ぐため。
+  const choiceOrderMap = useMemo(() => {
+    const questions = questionIds
+      .map((id) => getQuestionById(id))
+      .filter((q): q is NonNullable<typeof q> => q !== undefined);
+    return buildChoiceOrderMap(questions);
+  }, [questionIds]);
+  const choiceOrder = question ? getChoiceOrder(choiceOrderMap, question) : [];
+
   useEffect(() => {
     setSelectedIndex(null);
   }, [questionId]);
@@ -54,7 +65,8 @@ export default function ReviewPlayPage() {
       if (!answered) {
         const num = Number.parseInt(e.key, 10);
         if (num >= 1 && num <= question.choices.length) {
-          void handleSelect(num - 1);
+          const originalIndex = choiceOrder[num - 1];
+          if (originalIndex !== undefined) void handleSelect(originalIndex);
         }
       } else if (e.key === "Enter" || e.key === "ArrowRight") {
         handleNext();
@@ -113,24 +125,25 @@ export default function ReviewPlayPage() {
       </div>
 
       <ul className={styles.choiceList}>
-        {question.choices.map((choice, index) => {
-          const isCorrectChoice = index === question.correctAnswer;
-          const isSelected = selectedIndex === index;
+        {choiceOrder.map((originalIndex, displayIndex) => {
+          const choice = question.choices[originalIndex]!;
+          const isCorrectChoice = originalIndex === question.correctAnswer;
+          const isSelected = selectedIndex === originalIndex;
           let className = styles.choiceButton;
           if (answered && isCorrectChoice) className += ` ${styles.choiceCorrect}`;
           if (answered && isSelected && !isCorrectChoice)
             className += ` ${styles.choiceIncorrectSelected}`;
 
           return (
-            <li key={index}>
+            <li key={originalIndex}>
               <button
                 type="button"
                 className={className}
-                onClick={() => void handleSelect(index)}
+                onClick={() => void handleSelect(originalIndex)}
                 disabled={answered}
                 aria-pressed={isSelected}
               >
-                <span className={styles.choiceKey}>{index + 1}</span>
+                <span className={styles.choiceKey}>{displayIndex + 1}</span>
                 <span>{choice}</span>
                 {answered && isCorrectChoice && <span className={styles.mark}>◯ 正解</span>}
                 {answered && isSelected && !isCorrectChoice && (
@@ -158,8 +171,8 @@ export default function ReviewPlayPage() {
           <div className={styles.explanationBlock}>
             <strong>各選択肢の説明</strong>
             <ol className={styles.choiceExplanationList}>
-              {question.choiceExplanations.map((exp, i) => (
-                <li key={i}>{exp}</li>
+              {choiceOrder.map((originalIndex) => (
+                <li key={originalIndex}>{question.choiceExplanations[originalIndex]}</li>
               ))}
             </ol>
           </div>

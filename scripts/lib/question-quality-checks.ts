@@ -416,6 +416,71 @@ const QUESTION_STEM_PATTERNS: { label: string; pattern: RegExp }[] = [
   },
 ];
 
+/**
+ * 誤答選択肢に集中しやすい、断定的な副詞・限定表現のリスト。
+ * 「すべての誤答がこの種の言い回しを含む」問題は、内容を読まずに
+ * 断定表現を機械的に消去するだけで正答できてしまうため検出対象とする。
+ * 数学用語としての「絶対値」や「非常に」に含まれる「常に」など、
+ * 断定のニュアンスを持たない部分文字列の誤検出は正規表現の否定先読み／後読みで除外する。
+ */
+export const ABSOLUTE_QUALIFIER_PATTERNS: { label: string; pattern: RegExp }[] = [
+  { label: "すべて", pattern: /すべて|全て/ },
+  { label: "常に", pattern: /(?<!非)常に/ },
+  { label: "のみ", pattern: /のみ/ },
+  { label: "必ず", pattern: /必ず/ },
+  { label: "一切", pattern: /一切/ },
+  { label: "絶対", pattern: /絶対(?!値)/ },
+  { label: "唯一", pattern: /唯一/ },
+  { label: "完全に", pattern: /完全に/ },
+  { label: "決して", pattern: /決して/ },
+];
+
+export interface AbsoluteQualifierConcentration {
+  questionId: string;
+  wrongChoiceCount: number;
+  wrongChoicesWithQualifier: number;
+}
+
+/**
+ * 誤答選択肢の「全部」が断定的な副詞・限定表現を含む問題を検出する。
+ * 誤答の一部だけが該当する場合は正当な紛らわしい誤答でありうるため対象外とし、
+ * 「断定表現の有無だけで機械的に消去できてしまう」全件一致のケースのみ拾う。
+ */
+export function findAbsoluteQualifierConcentration(
+  questions: Question[],
+): AbsoluteQualifierConcentration[] {
+  const results: AbsoluteQualifierConcentration[] = [];
+  for (const q of questions) {
+    const wrongIndexes = q.choices.map((_, i) => i).filter((i) => i !== q.correctAnswer);
+    if (wrongIndexes.length === 0) continue;
+    const wrongChoicesWithQualifier = wrongIndexes.filter((i) =>
+      ABSOLUTE_QUALIFIER_PATTERNS.some(({ pattern }) => pattern.test(q.choices[i]!)),
+    ).length;
+    if (wrongChoicesWithQualifier === wrongIndexes.length) {
+      results.push({
+        questionId: q.id,
+        wrongChoiceCount: wrongIndexes.length,
+        wrongChoicesWithQualifier,
+      });
+    }
+  }
+  return results;
+}
+
+/** 章内の設問文が肯定形（合致するもの）か否定形（合致しないもの）かの件数分布。 */
+export function computeQuestionFormDistribution(questions: Question[]): {
+  affirmative: number;
+  negative: number;
+} {
+  let affirmative = 0;
+  let negative = 0;
+  for (const q of questions) {
+    if (q.questionForm === "negative") negative++;
+    else affirmative++;
+  }
+  return { affirmative, negative };
+}
+
 export function computeQuestionStemFormatCounts(
   questions: Question[],
 ): { label: string; count: number }[] {
