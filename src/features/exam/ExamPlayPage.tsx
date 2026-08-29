@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
+import { buildChoiceOrderMap, getChoiceOrder } from "../../shared/lib/choiceOrder";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import styles from "./ExamPlayPage.module.css";
 
@@ -48,6 +49,15 @@ export default function ExamPlayPage() {
     }
   }, [isSubmitted, navigate]);
 
+  // 選択肢の表示順はセッション開始時に1回だけ乱数で決め、以後は固定する。
+  // 前の問題へ戻ったときに並びが変わると混乱するため、試験中は一貫させる。
+  const choiceOrderMap = useMemo(() => {
+    const questions = questionIds
+      .map((id) => getQuestionById(id))
+      .filter((q): q is NonNullable<typeof q> => q !== undefined);
+    return buildChoiceOrderMap(questions);
+  }, [questionIds]);
+
   if (questionIds.length === 0) {
     return (
       <div>
@@ -63,6 +73,7 @@ export default function ExamPlayPage() {
   const question = questionId ? getQuestionById(questionId) : undefined;
   if (!question || !questionId) return null;
 
+  const choiceOrder = getChoiceOrder(choiceOrderMap, question);
   const currentAnswer = answers[questionId];
   const answeredCount = Object.values(answers).filter((a) => a.selectedIndex !== null).length;
 
@@ -117,10 +128,11 @@ export default function ExamPlayPage() {
       </div>
 
       <ul className={styles.choiceList}>
-        {question.choices.map((choice, index) => {
-          const isSelected = currentAnswer?.selectedIndex === index;
+        {choiceOrder.map((originalIndex, displayIndex) => {
+          const choice = question.choices[originalIndex]!;
+          const isSelected = currentAnswer?.selectedIndex === originalIndex;
           return (
-            <li key={index}>
+            <li key={originalIndex}>
               <button
                 type="button"
                 className={
@@ -128,10 +140,10 @@ export default function ExamPlayPage() {
                     ? `${styles.choiceButton} ${styles.choiceSelected}`
                     : styles.choiceButton
                 }
-                onClick={() => selectAnswer(questionId, index)}
+                onClick={() => selectAnswer(questionId, originalIndex)}
                 aria-pressed={isSelected}
               >
-                <span className={styles.choiceKey}>{index + 1}</span>
+                <span className={styles.choiceKey}>{displayIndex + 1}</span>
                 <span>{choice}</span>
               </button>
             </li>
