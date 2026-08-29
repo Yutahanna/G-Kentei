@@ -136,24 +136,25 @@
     "chapterId": "ch10",
     "sectionId": "ch10-s08",
     "difficulty": "advanced",
-    "question": "Responsible AI・Trustworthy AIという考え方が、本章で学んだAI事業者ガイドラインの3層構造、AI倫理の基本原則、国際的なガバナンス動向とどのように関係するかについて、教材の内容に最も合致する理解はどれか。",
+    "questionForm": "negative",
+    "question": "「Responsible AI(責任あるAI)」「Trustworthy AI(信頼できるAI)」という考え方に関する説明として、教材の内容に合致しないものはどれか。",
     "choices": [
-      "「AIを社会に実装するからには、その責任を最後まで引き受ける」という姿勢が、AI事業者ガイドラインの3層構造、AI倫理の基本原則、国際的なガバナンス動向のすべてを貫く土台になっているとされている。",
-      "Responsible AI・Trustworthy AIは、AI事業者ガイドラインを完全に置き換える、新しい別の規制体系である。",
-      "Responsible AI・Trustworthy AIは、国際的なガバナンス動向とは矛盾する、日本独自の閉じた考え方である。",
-      "Responsible AI・Trustworthy AIは、AI倫理の基本原則のうち公平性のみを対象としており、透明性や安全性など他の原則は範囲に含まない。"
+      "Responsible AI・Trustworthy AIとは、公平性・透明性・安全性といった個々の原則を束ねる、AI開発から廃棄に至るまでのライフサイクル全体を通じて責任を持つという総合的な考え方である。",
+      "AIは一度社会に実装されると、単体のバグ修正では済まない広範な影響を及ぼしうるため、Responsible AI・Trustworthy AIという考え方が重視されるようになった。",
+      "Responsible AI・Trustworthy AIの考え方では、開発時に一度厳格な審査を行えばその役割は完了し、運用開始後は継続的なモニタリングを行う必要はないとされる。",
+      "Responsible AI・Trustworthy AIは、AI事業者ガイドラインの3層構造、AI倫理の基本原則、国際的なガバナンス動向を貫く土台になる考え方だとされる。"
     ],
-    "correctAnswer": 0,
-    "explanation": "教材は「この考え方は、本章で見てきたAI事業者ガイドラインの3層構造(開発者・提供者・利用者)、AI倫理の基本原則、国際的なガバナンス動向のすべてを貫く土台になっている。『AIを社会に実装するからには、その責任を最後まで引き受ける』という姿勢こそが、responsible AI・trustworthy AIという言葉の本質だと理解しておくとよい」と説明している。",
+    "correctAnswer": 2,
+    "explanation": "教材は「開発時の一時的なチェックだけでなく、運用開始後も継続的にモニタリングし、問題が見つかれば速やかに是正するという、いわば『AIのガバナンスをプロジェクトの一過程ではなく、組織の継続的な活動として組み込む』という発想が求められている」と説明しており、開発時の審査だけで完了し運用後のモニタリングは不要だという記述は本文と矛盾する。",
     "choiceExplanations": [
-      "正しい。本文が明記する、Responsible AI・Trustworthy AIと本章の他概念との関係そのものである。",
-      "誤り。教材はResponsible AI・Trustworthy AIをガイドラインを置き換えるものではなく、それらを貫く土台となる考え方として説明している。",
-      "誤り。教材はResponsible AI・Trustworthy AIを「国際的によく使われている」考え方と説明しており、国際的な動向と矛盾する日本独自の閉じた考え方ではない。",
-      "誤り。教材はAI倫理の基本原則(公平性・透明性・安全性など)全体を束ねる概念としてResponsible AI・Trustworthy AIを説明しており、公平性のみが対象ではない。"
+      "合致する。教材が説明するResponsible AI・Trustworthy AIの定義そのものであり、本問(合致しないものを選ぶ)の答えには当たらない。",
+      "合致する。教材が説明するこの考え方が重視される背景そのものであり、本問の答えには当たらない。",
+      "合致しない。教材は「開発時の一時的なチェックだけでなく、運用開始後も継続的にモニタリングし、問題が見つかれば速やかに是正する」ことが求められると説明しており、開発時の審査のみで完了し運用後のモニタリングは不要という記述は逆であり本文と矛盾する。本問の答えはこれである。",
+      "合致する。教材が説明するResponsible AI・Trustworthy AIと本章の他概念との関係そのものであり、本問の答えには当たらない。"
     ],
     "tags": {
       "contentTags": ["Responsible AI", "Trustworthy AI"],
-      "skillTags": ["関係性", "適用判断"],
+      "skillTags": ["比較"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/chapters/13_第10章.md",
