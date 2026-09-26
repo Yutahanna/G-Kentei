@@ -4,5 +4,6 @@ export type {
   ReviewStatus,
   SkillTag,
   QuestionForm,
+  QuestionStyle,
   QuestionTags,
 } from "../schemas/question.schema";

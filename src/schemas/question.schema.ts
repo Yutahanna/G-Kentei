@@ -25,6 +25,18 @@ export const skillTagSchema = z.enum(["暗記", "比較", "関係性", "適用�
  */
 export const questionFormSchema = z.enum(["affirmative", "negative"]);
 
+/**
+ * 設問の見せ方（出題スタイル）を区別するフィールド。省略時は"standard"
+ * （通常の4択・完全文選択式）として扱う（既存問題の後方互換のため必須にはしない）。
+ * "fill_in_blank": 設問文中に空欄（【　　】等）を含み、選択肢がその空欄に入る
+ * 語句・語句の組み合わせの候補となる出題スタイル。スキーマ・採点ロジックは
+ * standardと完全に同一（choices 4件からcorrectAnswerを選ぶ）で、question／choices
+ * の文面の書き方だけが異なる。実際のG検定にもこの出題スタイルが存在するとされる
+ * （公開されている出題比率の統計は確認できていない。確認基準日: 2026-09-26）。
+ */
+export const questionStyleSchema = z.enum(["standard", "fill_in_blank"]);
+
+
 export const questionTagsSchema = z
   .object({
     contentTags: z.array(z.string().min(1)).min(1),
@@ -40,6 +52,7 @@ export const questionSchema = z
     sectionId: z.string().regex(/^ch\d{2}-s\d{2}$/),
     difficulty: difficultySchema,
     questionForm: questionFormSchema.optional(),
+    questionStyle: questionStyleSchema.optional(),
     question: z.string().min(1),
     choices: z.array(z.string().min(1)).length(4),
     correctAnswer: z.number().int().min(0).max(3),
@@ -60,5 +73,6 @@ export type Difficulty = z.infer<typeof difficultySchema>;
 export type ReviewStatus = z.infer<typeof reviewStatusSchema>;
 export type SkillTag = z.infer<typeof skillTagSchema>;
 export type QuestionForm = z.infer<typeof questionFormSchema>;
+export type QuestionStyle = z.infer<typeof questionStyleSchema>;
 export type QuestionTags = z.infer<typeof questionTagsSchema>;
 export type Question = z.infer<typeof questionSchema>;
