@@ -265,12 +265,7 @@
     "difficulty": "basic",
     "questionStyle": "fill_in_blank",
     "question": "ディープラーニングの学習において、一部のニューロンをランダムに(一定の確率で)無効化しながら学習を進める、シンプルながら効果的な正則化手法がある。教材は、これを（　　）と呼んでいる。空欄に最もよく当てはまる語句として、教材の内容に適切なものはどれか。",
-    "choices": [
-      "Batch Normalization",
-      "L2正則化(Ridge回帰)",
-      "Dropout",
-      "Adam"
-    ],
+    "choices": ["Batch Normalization", "L2正則化(Ridge回帰)", "Dropout", "Adam"],
     "correctAnswer": 2,
     "explanation": "教材は「Dropoutは、学習の際に、ニューラルネットワークの一部のニューロンをランダムに(一定の確率で)無効化しながら学習を進める...正則化手法である」と説明しており、空欄には「Dropout」が入る。",
     "choiceExplanations": [

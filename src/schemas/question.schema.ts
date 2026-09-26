@@ -38,7 +38,6 @@ export const questionFormSchema = z.enum(["affirmative", "negative"]);
  */
 export const questionStyleSchema = z.enum(["standard", "fill_in_blank"]);
 
-
 export const questionTagsSchema = z
   .object({
     contentTags: z.array(z.string().min(1)).min(1),
