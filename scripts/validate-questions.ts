@@ -19,6 +19,7 @@ import {
   computeAnswerPositionDistribution,
   computeNearConceptRate,
   computeQuestionFormDistribution,
+  computeQuestionStyleDistribution,
   computeSectionDistribution,
   computeSkillTagDistribution,
   findAbsoluteQualifierConcentration,
@@ -233,6 +234,11 @@ function main(): void {
     const formDistribution = computeQuestionFormDistribution(chapterQuestions);
     console.log(
       `[${chapterId}] 設問形式別件数: 肯定形=${formDistribution.affirmative} / 否定形=${formDistribution.negative}`,
+    );
+
+    const styleDistribution = computeQuestionStyleDistribution(chapterQuestions);
+    console.log(
+      `[${chapterId}] 出題スタイル別件数: 通常=${styleDistribution.standard} / 穴埋め=${styleDistribution.fillInBlank}`,
     );
   }
 

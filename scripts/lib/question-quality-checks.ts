@@ -481,6 +481,20 @@ export function computeQuestionFormDistribution(questions: Question[]): {
   return { affirmative, negative };
 }
 
+/** 章内の設問が通常形式か穴埋め形式（fill_in_blank）かの件数分布。 */
+export function computeQuestionStyleDistribution(questions: Question[]): {
+  standard: number;
+  fillInBlank: number;
+} {
+  let standard = 0;
+  let fillInBlank = 0;
+  for (const q of questions) {
+    if (q.questionStyle === "fill_in_blank") fillInBlank++;
+    else standard++;
+  }
+  return { standard, fillInBlank };
+}
+
 export function computeQuestionStemFormatCounts(
   questions: Question[],
 ): { label: string; count: number }[] {
