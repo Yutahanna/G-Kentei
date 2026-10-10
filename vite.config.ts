@@ -8,6 +8,12 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
+      // registerSW()をsrc/main.tsxからvirtual:pwa-register経由で呼ぶことで、
+      // vite-plugin-pwaが自動的にinjectRegisterを無効化し(素のnavigator.serviceWorker.register()の
+      // 自動注入を止める)、Workbox側のskipWaiting/clientsClaimも引き続き有効になる。
+      // injectRegisterをここで明示的にfalseにしないこと
+      // （falseはnull/autoと異なり、Workbox側のskipWaiting/clientsClaim自動設定を無効化してしまい、
+      // 新しいService Workerが`waiting`のまま有効化されなくなる）。
       includeAssets: ["icon-192.png", "icon-512.png"],
       manifest: {
         name: "G検定 学習ドリル",
