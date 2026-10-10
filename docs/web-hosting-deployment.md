@@ -66,6 +66,20 @@
 ## 実装内容（① 実装完了・このリポジトリに含まれるコード）
 
 - `public/_redirects`: `/* /index.html 200`（SPAフォールバック）。
+- `public/_headers`（2026-10-10追加・ユーザー指摘対応）: `/sw.js`・`/registerSW.js`・
+  `/manifest.webmanifest`・`/index.html`に`Cache-Control: no-cache, no-store,
+must-revalidate`を明示する。経緯: 「模擬試験などの問題が、何度修正しても反映されない」
+  という指摘を受けて調査した結果、原因はデータそのものではなく、Service Workerの
+  更新伝播の遅延だった。`vite.config.ts`の`registerType: "autoUpdate"`は内部で
+  `skipWaiting: true`・`clientsClaim: true`を自動付与しており、アプリ自身は新しい
+  Service Workerを検知し次第即座に有効化・再読み込みする設計である。しかし
+  Cloudflare Pagesはデフォルトでは`sw.js`等の未ハッシュ化ファイルに対して明示的な
+  キャッシュ制御ヘッダーを付与しないため、エッジ側のキャッシュにより古い`sw.js`
+  自体が配信され続け、ブラウザが新デプロイの存在に気付けないケースがあった
+  （これが、ユーザー側で強制リロードしても改善しないことがあった根本原因と考えられる）。
+  `_headers`追加後は、このファイルが反映された回のデプロイ以降、ユーザー側の
+  一度だけの強制リロード（またはサイトデータのクリア）で最新版に切り替わり、
+  それ以降は通常のリロードだけで自動的に最新のデータへ更新される見込みである。
 - `.github/workflows/deploy.yml`: `main`ブランチへのpush、または手動実行
   （`workflow_dispatch`）をトリガーに、以下の順序で実行する。1つでも失敗した場合、
   それ以降のステップ（デプロイを含む）は実行されない。
