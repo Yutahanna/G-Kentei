@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
-import { getManifest } from "../../shared/lib/content-loader";
+import { getManifest, getSection } from "../../shared/lib/content-loader";
 import { saveStudySessionLog } from "../../shared/lib/db";
 import { scoreExam } from "../../shared/lib/examScoring";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
@@ -142,12 +142,44 @@ export default function ExamResultPage() {
               : r.correct
                 ? styles.correct
                 : styles.incorrect;
+          const section = question ? getSection(question.chapterId, question.sectionId) : undefined;
+
           return (
             <li key={r.questionId} className={styles.row}>
-              <span>
-                問題{index + 1}：{question?.question ?? r.questionId}
-              </span>
-              <span className={labelClass}>{label}</span>
+              <div className={styles.rowHeader}>
+                <span>
+                  問題{index + 1}：{question?.question ?? r.questionId}
+                </span>
+                <span className={labelClass}>{label}</span>
+              </div>
+
+              {!r.correct && question && (
+                <div className={styles.explanationBlock}>
+                  <p className={styles.answerLine}>
+                    <strong>あなたの回答：</strong>
+                    {r.selectedIndex === null ? "未回答" : question.choices[r.selectedIndex]}
+                  </p>
+                  <p className={styles.answerLine}>
+                    <strong>正解：</strong>
+                    {question.choices[question.correctAnswer]}
+                  </p>
+                  <p>
+                    <strong>解説</strong>
+                  </p>
+                  <p>{question.explanation}</p>
+                  <p className={styles.sourceRef}>
+                    教材参照：{question.sourceReference}
+                    {section && (
+                      <>
+                        {" "}
+                        <Link to={`/materials/${question.chapterId}#${section.sectionId}`}>
+                          教材の該当節を見る
+                        </Link>
+                      </>
+                    )}
+                  </p>
+                </div>
+              )}
             </li>
           );
         })}

@@ -18,12 +18,31 @@
 }
 
 .row {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
   padding: var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+}
+
+.rowHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.explanationBlock {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.answerLine {
+  margin: 0 0 var(--space-1);
+}
+
+.sourceRef {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-sm);
 }
 
 .correct {

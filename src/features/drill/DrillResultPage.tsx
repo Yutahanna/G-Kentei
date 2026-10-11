@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
+import { getSection } from "../../shared/lib/content-loader";
 import { saveStudySessionLog } from "../../shared/lib/db";
 import { summarizeDrillResults } from "../../shared/lib/scoring";
 import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
@@ -68,14 +69,46 @@ export default function DrillResultPage() {
       <ul className={styles.list}>
         {answers.map((answer, index) => {
           const question = getQuestionById(answer.questionId);
+          const section = question ? getSection(question.chapterId, question.sectionId) : undefined;
+
           return (
             <li key={answer.questionId} className={styles.row}>
-              <span>
-                問題{index + 1}：{question?.question ?? answer.questionId}
-              </span>
-              <span className={answer.correct ? styles.correct : styles.incorrect}>
-                {answer.correct ? "正解" : "不正解"}
-              </span>
+              <div className={styles.rowHeader}>
+                <span>
+                  問題{index + 1}：{question?.question ?? answer.questionId}
+                </span>
+                <span className={answer.correct ? styles.correct : styles.incorrect}>
+                  {answer.correct ? "正解" : "不正解"}
+                </span>
+              </div>
+
+              {!answer.correct && question && (
+                <div className={styles.explanationBlock}>
+                  <p className={styles.answerLine}>
+                    <strong>あなたの回答：</strong>
+                    {question.choices[answer.selectedIndex]}
+                  </p>
+                  <p className={styles.answerLine}>
+                    <strong>正解：</strong>
+                    {question.choices[question.correctAnswer]}
+                  </p>
+                  <p>
+                    <strong>解説</strong>
+                  </p>
+                  <p>{question.explanation}</p>
+                  <p className={styles.sourceRef}>
+                    教材参照：{question.sourceReference}
+                    {section && (
+                      <>
+                        {" "}
+                        <Link to={`/materials/${question.chapterId}#${section.sectionId}`}>
+                          教材の該当節を見る
+                        </Link>
+                      </>
+                    )}
+                  </p>
+                </div>
+              )}
             </li>
           );
         })}
