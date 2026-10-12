@@ -82,12 +82,14 @@ export default function DrillResultPage() {
                 </span>
               </div>
 
-              {!answer.correct && question && (
+              {question && (
                 <div className={styles.explanationBlock}>
-                  <p className={styles.answerLine}>
-                    <strong>あなたの回答：</strong>
-                    {question.choices[answer.selectedIndex]}
-                  </p>
+                  {!answer.correct && (
+                    <p className={styles.answerLine}>
+                      <strong>あなたの回答：</strong>
+                      {question.choices[answer.selectedIndex]}
+                    </p>
+                  )}
                   <p className={styles.answerLine}>
                     <strong>正解：</strong>
                     {question.choices[question.correctAnswer]}
