@@ -153,12 +153,14 @@ export default function ExamResultPage() {
                 <span className={labelClass}>{label}</span>
               </div>
 
-              {!r.correct && question && (
+              {question && (
                 <div className={styles.explanationBlock}>
-                  <p className={styles.answerLine}>
-                    <strong>あなたの回答：</strong>
-                    {r.selectedIndex === null ? "未回答" : question.choices[r.selectedIndex]}
-                  </p>
+                  {!r.correct && (
+                    <p className={styles.answerLine}>
+                      <strong>あなたの回答：</strong>
+                      {r.selectedIndex === null ? "未回答" : question.choices[r.selectedIndex]}
+                    </p>
+                  )}
                   <p className={styles.answerLine}>
                     <strong>正解：</strong>
                     {question.choices[question.correctAnswer]}
