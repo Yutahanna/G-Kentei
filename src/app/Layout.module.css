@@ -60,7 +60,7 @@
   padding: var(--space-5) var(--space-4) var(--space-7);
 }
 
-.pinnedBanner {
+.noticeBanner {
   max-width: 960px;
   margin: var(--space-3) auto 0;
   padding: var(--space-3) var(--space-4);
