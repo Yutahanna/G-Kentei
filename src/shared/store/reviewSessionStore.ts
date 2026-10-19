@@ -5,7 +5,7 @@ import { create } from "zustand";
  * drillSessionStoreと異なり、章をまたいだ問題IDの並びを保持する。
  */
 
-export type ReviewSessionType = "due_for_review" | "wrong_answer" | "bookmarked";
+export type ReviewSessionType = "mock_review" | "due_for_review" | "wrong_answer" | "bookmarked";
 
 export interface ReviewAnswerRecord {
   questionId: string;

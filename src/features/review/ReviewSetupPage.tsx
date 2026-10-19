@@ -11,31 +11,32 @@ import {
 } from "../../shared/store/reviewSessionStore";
 import styles from "./ReviewSetupPage.module.css";
 
-const EMPTY_BUCKETS: ReviewBuckets = { dueForReview: [], wrongAnswer: [], bookmarked: [] };
+const EMPTY_BUCKETS: ReviewBuckets = {
+  mockReview: [],
+  dueForReview: [],
+  wrongAnswer: [],
+  bookmarked: [],
+};
 
-const BUCKET_DEFS: {
+const BATCH_SIZES = [20, 30] as const;
+
+const SECONDARY_BUCKET_DEFS: {
   type: ReviewSessionType;
   key: keyof ReviewBuckets;
   title: string;
   description: string;
 }[] = [
   {
+    type: "wrong_answer",
+    key: "wrongAnswer",
+    title: "直近の回答が誤答の問題",
+    description: "ドリル・復習・模試を問わず、直近の回答が不正解だった問題です。",
+  },
+  {
     type: "due_for_review",
     key: "dueForReview",
     title: "SRSで復習が必要な問題",
     description: "間隔反復のスケジュールに基づき、そろそろ復習すべき問題です。",
-  },
-  {
-    type: "wrong_answer",
-    key: "wrongAnswer",
-    title: "誤答のみ復習",
-    description: "直近の回答が不正解だった問題だけを集めて復習します。",
-  },
-  {
-    type: "bookmarked",
-    key: "bookmarked",
-    title: "ブックマークした問題",
-    description: "ドリル中にブックマークした問題を復習します。",
   },
 ];
 
@@ -54,6 +55,7 @@ export default function ReviewSetupPage() {
   const [buckets, setBuckets] = useState<ReviewBuckets>(EMPTY_BUCKETS);
   const [isLoading, setIsLoading] = useState(true);
   const [chapterFilter, setChapterFilter] = useState("");
+  const [batchSize, setBatchSize] = useState<number>(BATCH_SIZES[0]);
   const startSession = useReviewSessionStore((s) => s.startSession);
 
   useEffect(() => {
@@ -73,21 +75,26 @@ export default function ReviewSetupPage() {
     if (!chapterFilter) return buckets;
     const filterFn = (id: string) => getQuestionById(id)?.chapterId === chapterFilter;
     return {
+      mockReview: buckets.mockReview.filter(filterFn),
       dueForReview: buckets.dueForReview.filter(filterFn),
       wrongAnswer: buckets.wrongAnswer.filter(filterFn),
       bookmarked: buckets.bookmarked.filter(filterFn),
     };
   }, [buckets, chapterFilter]);
 
-  function handleStart(type: ReviewSessionType, ids: string[]) {
-    startSession(type, shuffle(ids));
+  function handleStart(type: ReviewSessionType, ids: string[], limit?: number) {
+    startSession(type, shuffle(ids).slice(0, limit));
     void navigate("/review/play");
   }
+
+  const mockReviewIds = filteredBuckets.mockReview;
 
   return (
     <div>
       <h1>復習</h1>
-      <p>SRSの復習予定、誤答のみ、ブックマークの3種類から選んで復習できます。</p>
+      <p>
+        模擬試験で誤答・未回答だった問題と、ブックマークした問題から、20問・30問ずつ復習します。模試の誤答は、その後2回続けて正解すると対象から外れます。ブックマークは外すまで残ります。
+      </p>
 
       <div className={styles.filter}>
         <label htmlFor="review-chapter-filter">章で絞り込み</label>
@@ -105,8 +112,35 @@ export default function ReviewSetupPage() {
         </select>
       </div>
 
+      <Card>
+        <div className={styles.cardTitle}>模試の誤答・ブックマーク</div>
+        <div className={styles.count}>{isLoading ? "…" : `${mockReviewIds.length}問`}</div>
+        <div className={styles.batchRow} role="radiogroup" aria-label="1回の出題数">
+          {BATCH_SIZES.map((size) => (
+            <label key={size}>
+              <input
+                type="radio"
+                name="batch-size"
+                checked={batchSize === size}
+                onChange={() => setBatchSize(size)}
+              />
+              {size}問
+            </label>
+          ))}
+        </div>
+        <button
+          type="button"
+          className={buttonStyles.button}
+          disabled={isLoading || mockReviewIds.length === 0}
+          onClick={() => handleStart("mock_review", mockReviewIds, batchSize)}
+        >
+          {Math.min(batchSize, mockReviewIds.length)}問で復習を始める
+        </button>
+      </Card>
+
+      <h2 className={styles.secondaryHeading}>その他の復習</h2>
       <div className={styles.grid}>
-        {BUCKET_DEFS.map((def) => {
+        {SECONDARY_BUCKET_DEFS.map((def) => {
           const ids = filteredBuckets[def.key];
           return (
             <Card key={def.type}>
@@ -117,9 +151,9 @@ export default function ReviewSetupPage() {
                 type="button"
                 className={buttonStyles.button}
                 disabled={isLoading || ids.length === 0}
-                onClick={() => handleStart(def.type, ids)}
+                onClick={() => handleStart(def.type, ids, batchSize)}
               >
-                この復習を始める
+                {Math.min(batchSize, ids.length)}問で始める
               </button>
             </Card>
           );

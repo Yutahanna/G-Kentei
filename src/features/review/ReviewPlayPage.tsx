@@ -95,7 +95,13 @@ export default function ReviewPlayPage() {
     submitAnswer({ questionId: question.id, selectedIndex: index, correct: result.correct });
 
     const currentProgress = await getQuestionProgress(question.id);
-    const next = applyAnswer(currentProgress, result.correct ? "correct" : "incorrect", index);
+    const next = applyAnswer(
+      currentProgress,
+      result.correct ? "correct" : "incorrect",
+      index,
+      new Date(),
+      "review",
+    );
     await saveQuestionProgress(next);
     reload();
     setIsSaving(false);

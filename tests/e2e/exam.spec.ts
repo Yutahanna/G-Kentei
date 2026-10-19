@@ -22,10 +22,22 @@ test.describe("模擬試験のゴールデンパス", () => {
     await expect(page.getByText("教材ベース配分")).toBeVisible();
     await expect(page.locator('[class*="summaryValue"]').first()).toHaveText(/\d+ \/ 20/);
 
-    // 受験履歴に反映される
+    // 誤答・未回答が復習対象として記録される
+    const summary = await page.locator('[class*="summaryValue"]').first().innerText();
+    const wrongCount = 20 - Number(summary.split("/")[0]!.trim());
+    await expect(
+      page.getByText(/問を「復習」の模試の誤答・ブックマークに追加しました/),
+    ).toBeVisible();
+
+    // 受験履歴に反映され、出題済みの問題数が減る
     await page.getByRole("link", { name: "もう一度模擬試験を行う" }).click();
     await page.waitForURL("/exam");
     await expect(page.getByText("受験履歴")).toBeVisible();
+    await expect(page.getByText(/まだ出題されていない問題：230 \/ 250/)).toBeVisible();
+
+    await page.goto("/review");
+    const reviewCard = page.getByText("模試の誤答・ブックマーク", { exact: true }).locator("..");
+    await expect(reviewCard.locator('[class*="count"]')).toHaveText(`${wrongCount}問`);
   });
 
   test("後で確認フラグと問題ジャンプが機能する", async ({ page }) => {

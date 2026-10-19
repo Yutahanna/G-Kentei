@@ -1,9 +1,15 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
 import { getManifest, getSection } from "../../shared/lib/content-loader";
-import { saveStudySessionLog } from "../../shared/lib/db";
+import {
+  getQuestionProgress,
+  saveQuestionProgress,
+  saveStudySessionLog,
+} from "../../shared/lib/db";
+import { applyAnswer } from "../../shared/lib/srs";
+import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import { scoreExam } from "../../shared/lib/examScoring";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import styles from "./ExamResultPage.module.css";
@@ -14,12 +20,29 @@ const DIFFICULTY_LABEL: Record<string, string> = {
   advanced: "応用",
 };
 
+/** 模試の結果画面から、問題を復習対象（ブックマーク）に加える・外す。 */
+function BookmarkButton({ questionId, disabled }: { questionId: string; disabled: boolean }) {
+  const { progress, toggleBookmark } = useQuestionProgress(disabled ? undefined : questionId);
+  return (
+    <button
+      type="button"
+      className={buttonStyles.secondary}
+      disabled={disabled || progress === null}
+      onClick={() => void toggleBookmark()}
+      aria-pressed={progress?.bookmarked ?? false}
+    >
+      {progress?.bookmarked ? "★ ブックマーク済み" : "☆ ブックマーク"}
+    </button>
+  );
+}
+
 export default function ExamResultPage() {
   const questionIds = useExamSessionStore((s) => s.questionIds);
   const answers = useExamSessionStore((s) => s.answers);
   const isSubmitted = useExamSessionStore((s) => s.isSubmitted);
   const resetSession = useExamSessionStore((s) => s.resetSession);
   const hasSaved = useRef(false);
+  const [progressSaved, setProgressSaved] = useState(false);
   const manifest = getManifest();
   const chapterTitles = Object.fromEntries(manifest.chapters.map((c) => [c.chapterId, c.title]));
 
@@ -47,6 +70,22 @@ export default function ExamResultPage() {
       questionIds,
       scoreSummary: { correct: score.correct, total: score.total },
     });
+    // 問題ごとの正誤を学習履歴に記録する（誤答・未回答は復習の対象になる）。
+    void (async () => {
+      const answeredAt = new Date();
+      for (const r of score.results) {
+        const current = await getQuestionProgress(r.questionId);
+        const next = applyAnswer(
+          current,
+          r.correct ? "correct" : "incorrect",
+          r.selectedIndex ?? -1,
+          answeredAt,
+          "mock_exam",
+        );
+        await saveQuestionProgress(next);
+      }
+      setProgressSaved(true);
+    })();
   }, [questionIds, isSubmitted, questions, score]);
 
   if (questionIds.length === 0 || !isSubmitted) {
@@ -83,6 +122,12 @@ export default function ExamResultPage() {
           <div>未回答</div>
         </div>
       </div>
+
+      <p role="status">
+        {progressSaved
+          ? `誤答・未回答の${score.total - score.correct}問を「復習」の模試の誤答・ブックマークに追加しました。自信のなかった正解の問題は、下の一覧からブックマークすると復習に加わります。`
+          : "結果を学習履歴に記録しています…"}
+      </p>
 
       <h2>章別成績</h2>
       <table className={styles.table}>
@@ -152,6 +197,7 @@ export default function ExamResultPage() {
                 </span>
                 <span className={labelClass}>{label}</span>
               </div>
+              <BookmarkButton questionId={r.questionId} disabled={!progressSaved} />
 
               {question && (
                 <div className={styles.explanationBlock}>

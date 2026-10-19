@@ -93,6 +93,7 @@ export function selectExamQuestionIds(
   config: ExamCompositionConfig,
   questionIdsByChapter: Record<string, string[]>,
   random: () => number = Math.random,
+  seenQuestionIds: ReadonlySet<string> = new Set(),
 ): string[] {
   const availableByChapter = Object.fromEntries(
     Object.entries(questionIdsByChapter).map(([id, ids]) => [id, ids.length]),
@@ -101,7 +102,18 @@ export function selectExamQuestionIds(
 
   const selected: string[] = [];
   for (const [chapterId, count] of Object.entries(counts)) {
-    const pool = shuffle(questionIdsByChapter[chapterId] ?? [], random);
+    // 過去の模試で出題済みの問題は、未出題の問題を使い切った後にだけ使う。
+    const ids = questionIdsByChapter[chapterId] ?? [];
+    const pool = [
+      ...shuffle(
+        ids.filter((id) => !seenQuestionIds.has(id)),
+        random,
+      ),
+      ...shuffle(
+        ids.filter((id) => seenQuestionIds.has(id)),
+        random,
+      ),
+    ];
     selected.push(...pool.slice(0, count));
   }
   return shuffle(selected, random);

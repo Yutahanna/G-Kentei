@@ -9,6 +9,7 @@ import { useReviewSessionStore } from "../../shared/store/reviewSessionStore";
 import styles from "../drill/DrillResultPage.module.css";
 
 const SESSION_TYPE_LABEL: Record<string, string> = {
+  mock_review: "模試の誤答・ブックマーク復習",
   due_for_review: "SRS復習",
   wrong_answer: "誤答復習",
   bookmarked: "ブックマーク復習",

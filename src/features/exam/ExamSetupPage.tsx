@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import Card from "../../shared/ui/Card";
@@ -37,6 +37,16 @@ export default function ExamSetupPage() {
     });
   }, []);
 
+  const seenQuestionIds = useMemo(
+    () => new Set(history.flatMap((log) => log.questionIds)),
+    [history],
+  );
+  const totalQuestionCount = useMemo(
+    () => getAvailableChapterIds().reduce((sum, id) => sum + getQuestionsByChapter(id).length, 0),
+    [],
+  );
+  const unseenCount = totalQuestionCount - seenQuestionIds.size;
+
   const questionCount = useCustom ? customCount : PRESETS[selectedPreset]!.questionCount;
   const timeLimitMinutes = useCustom ? customMinutes : PRESETS[selectedPreset]!.timeLimitMinutes;
 
@@ -45,7 +55,13 @@ export default function ExamSetupPage() {
     const questionIdsByChapter = Object.fromEntries(
       chapterIds.map((id) => [id, getQuestionsByChapter(id).map((q) => q.id)]),
     );
-    const ids = selectExamQuestionIds(questionCount, EXAM_COMPOSITION_CONFIG, questionIdsByChapter);
+    const ids = selectExamQuestionIds(
+      questionCount,
+      EXAM_COMPOSITION_CONFIG,
+      questionIdsByChapter,
+      Math.random,
+      seenQuestionIds,
+    );
     startSession(ids, timeLimitMinutes);
     void navigate("/exam/play");
   }
@@ -55,6 +71,10 @@ export default function ExamSetupPage() {
       <h1>模擬試験</h1>
       <p>
         全10章から教材ベース配分（教材の分量に応じた比率）で出題します。この配分は本試験の公式配点ではありません。
+      </p>
+      <p>
+        この端末の模試でまだ出題されていない問題：{unseenCount} / {totalQuestionCount}
+        問。未出題の問題から優先して出題し、足りない章だけ出題済みの問題を使います。
       </p>
 
       <div className={styles.presetGrid}>
