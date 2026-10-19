@@ -11,10 +11,11 @@ import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import type { StudySessionLog } from "../../entities/progress";
 import styles from "./ExamSetupPage.module.css";
 
+// 本試験（教材 付録B: 100分・145問程度、1問あたり約41秒）と同じ時間配分にそろえる。
 const PRESETS = [
-  { questionCount: 20, timeLimitMinutes: 20, label: "20問（20分）" },
-  { questionCount: 50, timeLimitMinutes: 50, label: "50問（50分）" },
-  { questionCount: 90, timeLimitMinutes: 90, label: "90問（90分）" },
+  { questionCount: 20, timeLimitMinutes: 14, label: "20問（14分）" },
+  { questionCount: 50, timeLimitMinutes: 34, label: "50問（34分）" },
+  { questionCount: 90, timeLimitMinutes: 62, label: "90問（62分）" },
 ];
 
 export default function ExamSetupPage() {

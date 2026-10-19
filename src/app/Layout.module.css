@@ -59,3 +59,13 @@
   margin: 0 auto;
   padding: var(--space-5) var(--space-4) var(--space-7);
 }
+
+.pinnedBanner {
+  max-width: 960px;
+  margin: var(--space-3) auto 0;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-incorrect);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  font-weight: 700;
+}

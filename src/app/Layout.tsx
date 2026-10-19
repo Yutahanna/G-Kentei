@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import styles from "./Layout.module.css";
 import { useTheme } from "../shared/hooks/useTheme";
+import { getProductionHostForPinnedDeployment } from "../shared/lib/buildInfo";
 
 const NAV_ITEMS = [
   { to: "/", label: "ホーム", end: true },
@@ -13,6 +14,7 @@ const NAV_ITEMS = [
 
 export default function Layout() {
   useTheme();
+  const productionHost = getProductionHostForPinnedDeployment(window.location.host);
 
   return (
     <div className={styles.shell}>
@@ -37,6 +39,13 @@ export default function Layout() {
           </nav>
         </div>
       </header>
+      {productionHost && (
+        <div role="alert" className={styles.pinnedBanner}>
+          このURLは過去のある時点に固定された版のため、教材・問題の修正が反映されません。最新版は{" "}
+          <a href={`https://${productionHost}/`}>https://{productionHost}/</a>{" "}
+          を開き、ブックマーク・ホーム画面のアプリも登録し直してください（学習履歴はURLごとに別保存のため、設定画面のエクスポート・インポートで移せます）。
+        </div>
+      )}
       <main className={styles.main}>
         <Outlet />
       </main>

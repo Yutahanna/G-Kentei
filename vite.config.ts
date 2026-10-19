@@ -2,6 +2,22 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import { resolve } from "path";
+import { execSync } from "child_process";
+
+// 設定画面に表示するビルド情報。VITE_接頭辞のprocess.envはimport.meta.envへ自動で公開される。
+// CIではGITHUB_SHA、ローカルではgitのHEADを使い、どちらも取れない場合は空文字にする。
+function resolveBuildSha(): string {
+  if (process.env.GITHUB_SHA) return process.env.GITHUB_SHA;
+  try {
+    return execSync("git rev-parse HEAD", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim();
+  } catch {
+    return "";
+  }
+}
+process.env.VITE_BUILD_SHA = resolveBuildSha();
+process.env.VITE_BUILD_TIME = new Date().toISOString();
 
 export default defineConfig({
   plugins: [
