@@ -33,7 +33,9 @@ test.describe("模擬試験のゴールデンパス", () => {
     await page.getByRole("link", { name: "もう一度模擬試験を行う" }).click();
     await page.waitForURL("/exam");
     await expect(page.getByText("受験履歴")).toBeVisible();
-    await expect(page.getByText(/まだ出題されていない問題：230 \/ 250/)).toBeVisible();
+    const unseenText = await page.getByText(/まだ出題されていない問題：/).innerText();
+    const [, unseen, total] = /：(\d+) \/ (\d+)/.exec(unseenText)!;
+    expect(Number(total) - Number(unseen)).toBe(20);
 
     await page.goto("/review");
     const reviewCard = page.getByText("模試の誤答・ブックマーク", { exact: true }).locator("..");

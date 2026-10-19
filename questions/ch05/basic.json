@@ -319,5 +319,383 @@
     "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-011",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "question": "CNNにおけるプーリングの役割に関する説明として、教材の内容として適切なものはどれか。",
+    "choices": [
+      "小さな窓(フィルタ)を画像の上でスライドさせ、窓の範囲の値とフィルタの重みを掛け合わせて足し合わせることで、縦線などの特定のパターンを検出する。",
+      "小さな領域の中から代表値(最大値など)だけを残して情報を間引き、多少の位置ズレがあっても同じ特徴として認識できるようにするとともに、計算量を削減する。",
+      "画像全体を同じフィルタでスキャンすることで、パターンが画像のどこにあっても検出できるようにし、パラメータ数を大幅に削減する。",
+      "最終段で特徴を受け取り、「これは猫である確率90%」のような最終的な分類結果を出力する。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材はプーリングを「小さな領域(例えば2×2ピクセル)の中から代表値(最大値を取る最大値プーリングが代表的)だけを残し、情報を間引いて縮小する操作」と説明し、これにより「多少の位置ズレがあっても同じ特徴として認識できるようになり(位置に対する頑健性)、同時に計算量も削減できる」としている。",
+    "choiceExplanations": [
+      "不適切である。これは畳み込み(フィルタによるパターン検出)の説明であり、プーリングの説明ではない。",
+      "適切である。教材が説明するプーリングの操作と効果(位置ズレへの頑健性と計算量の削減)そのものである。本問の答えはこれである。",
+      "不適切である。これは畳み込みにおける「重み共有」の説明であり、プーリングの説明ではない。",
+      "不適切である。最終的な分類の出力は、教材では最後の全結合層の役割として説明されている。"
+    ],
+    "tags": {
+      "contentTags": ["プーリング"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.1 CNN（畳み込みニューラルネットワーク）と画像認識",
+    "sourceReference": "第5章 1節（CNNと画像認識）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-012",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "questionStyle": "fill_in_blank",
+    "question": "CNNでは、1つのフィルタで画像全体をスキャンすることで、そのパターンが画像のどこにあっても検出できるようになり、パラメータ数も大幅に削減できる。教材はこの性質を（　　）と呼んでいる。空欄に最もよく当てはまる語句として、教材の内容に適切なものはどれか。",
+    "choices": ["スキップ接続", "最大値プーリング", "重み共有", "マルチヘッドアテンション"],
+    "correctAnswer": 2,
+    "explanation": "教材は「画像全体を同じフィルタでスキャンすることで、そのパターンが画像のどこにあっても検出できるようになる(これを『重み共有』と呼び、パラメータ数を大幅に削減する効果もある)」と説明しており、空欄には「重み共有」が入る。",
+    "choiceExplanations": [
+      "不適切である。スキップ接続はResNetが導入した、ある層の入力を数層先の出力に直接足し合わせる仕組みであり、同じフィルタで画像全体をスキャンする性質の呼び名ではない。",
+      "不適切である。最大値プーリングは小さな領域から最大値だけを残して情報を間引く操作であり、同じフィルタを画像全体で使い回す性質の呼び名ではない。",
+      "適切である。教材が「重み共有」と呼ぶ性質そのものである。本問の答えはこれである。",
+      "不適切である。マルチヘッドアテンションはTransformerでSelf-Attentionを複数のヘッドで並列に行う仕組みであり、CNNのフィルタの性質ではない。"
+    ],
+    "tags": {
+      "contentTags": ["重み共有", "畳み込み"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.1 CNN（畳み込みニューラルネットワーク）と画像認識",
+    "sourceReference": "第5章 1節（CNNと画像認識）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-013",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "question": "3×3という小さなフィルタだけを使い、それを何層も積み重ねることで、シンプルな構造のまま層を深くするという発想を示したCNNのモデルとして、教材の内容として適切なものはどれか。",
+    "choices": ["GoogLeNet", "VGG", "LeNet", "ResNet"],
+    "correctAnswer": 1,
+    "explanation": "教材はVGG(2014年、オックスフォード大学)について「3×3という小さなフィルタだけを使い、それを何層も積み重ねることで、シンプルな構造のまま層を深くする(16層・19層のVGG16・VGG19が有名)という発想を示した」と説明している。",
+    "choiceExplanations": [
+      "不適切である。GoogLeNetは異なるサイズの畳み込みフィルタを並列に並べるInceptionモジュールを導入したモデルである。",
+      "適切である。教材が説明するVGGの特徴そのものである。本問の答えはこれである。",
+      "不適切である。LeNetは手書き数字認識のために考案された、CNNの原型となるモデルである。",
+      "不適切である。ResNetはスキップ接続(残差接続)を導入し、100層を超える深いネットワークの学習を可能にしたモデルである。"
+    ],
+    "tags": {
+      "contentTags": ["VGG"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.1 CNN（畳み込みニューラルネットワーク）と画像認識",
+    "sourceReference": "第5章 1節（CNNと画像認識）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-014",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s02",
+    "difficulty": "basic",
+    "question": "GRU(Gated Recurrent Unit)に関する説明として、教材の内容として適切なものはどれか。",
+    "choices": [
+      "隠れ状態とは別にセル状態を持ち、入力ゲート・忘却ゲート・出力ゲートの3種類のゲートで記憶を制御する。",
+      "LSTMを簡略化したモデルで、更新ゲートとリセットゲートの2つのゲートを使い、セル状態と隠れ状態を統合することで計算量を抑えている。",
+      "系列を1つずつ順番に処理する構造を持たないため、系列全体を一度に並列に処理でき、GPUによる並列計算と相性が良い。",
+      "各単語をQuery・Key・Valueの3種類のベクトルに変換し、QueryとKeyの内積をもとに重みを求める。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材はGRUを「LSTMをより簡略化したモデルであり(2014年)、ゲートの数を2つ(更新ゲート・リセットゲート)に減らし、セル状態と隠れ状態を統合することで、LSTMに近い性能をより少ないパラメータ・計算量で実現しようとしたもの」と説明している。",
+    "choiceExplanations": [
+      "不適切である。セル状態と3種類のゲート(入力・忘却・出力)を持つのはLSTMの説明であり、GRUはゲートを2つに減らしセル状態と隠れ状態を統合している。",
+      "適切である。教材が説明するGRUの特徴そのものである。本問の答えはこれである。",
+      "不適切である。教材はGRUを含むRNN系列モデル共通の弱点として「系列を1つずつ順番にしか処理できない」逐次処理の制約を挙げており、並列処理できるのはTransformerの特徴である。",
+      "不適切である。Query・Key・Valueによる関連度計算はTransformerのSelf-Attentionの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["GRU", "LSTM"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.2 RNN・LSTM・GRUと系列データ処理",
+    "sourceReference": "第5章 2節（RNN・LSTM・GRU）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-015",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s03",
+    "difficulty": "basic",
+    "questionStyle": "fill_in_blank",
+    "question": "Transformerは系列を並列に処理するため、そのままでは単語の並び順の情報が失われてしまう。この問題を補うために、各単語の埋め込みベクトルに系列中の位置を表す情報を加算する仕組みを、教材は（　　）と呼んでいる。空欄に最もよく当てはまる語句として、教材の内容に適切なものはどれか。",
+    "choices": [
+      "Multi-head Attention",
+      "Layer Normalization",
+      "Positional Encoding(位置エンコーディング)",
+      "隠れ状態"
+    ],
+    "correctAnswer": 2,
+    "explanation": "教材は「Transformerは系列を並列に処理するため、そのままでは『単語の並び順』の情報が失われてしまう」とし、「各単語の埋め込みベクトルに、その単語が系列の何番目にあるかを表す位置情報(サイン・コサイン関数を使ったパターンなど)を加算し、順序の情報を人工的に埋め込んでいる」仕組みをPositional Encoding(位置エンコーディング)として説明している。",
+    "choiceExplanations": [
+      "不適切である。Multi-head AttentionはSelf-Attentionを複数のヘッドに分けて並列に行い、多面的な関係性を捉える仕組みであり、順序情報を付与する仕組みではない。",
+      "不適切である。Layer Normalizationは各ブロックに組み込まれた、学習を安定させる正規化層であり、順序情報を付与する仕組みではない。",
+      "適切である。教材が説明するPositional Encoding(位置エンコーディング)そのものである。本問の答えはこれである。",
+      "不適切である。隠れ状態はRNNが過去の情報を要約して保持する内部メモリであり、Transformerで順序情報を補う仕組みではない。"
+    ],
+    "tags": {
+      "contentTags": ["Positional Encoding", "Transformer"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.3 Attention機構とTransformer",
+    "sourceReference": "第5章 3節（Attention機構とTransformer）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-016",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s03",
+    "difficulty": "basic",
+    "questionForm": "negative",
+    "question": "Multi-head Attention(マルチヘッドアテンション)に関する説明として、教材の内容として不適切なものはどれか。",
+    "choices": [
+      "Transformerが並列処理によって失ってしまう単語の並び順の情報を、ヘッドの数を増やすことで復元する仕組みである。",
+      "それぞれのヘッドは、文法的な係り受けや意味的な類似性など、異なる観点で注意の重みを学習できる。",
+      "複数のヘッドの結果を組み合わせることで、単一のAttentionだけでは捉えきれない多面的な関係性を同時に捉えられる。",
+      "Self-Attentionの計算を、複数の「頭(ヘッド)」に分けて並列に何セットも行う仕組みである。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材はMulti-head Attentionを「Self-Attentionの計算を1回だけでなく、複数の『頭(ヘッド)』に分けて並列に何セットも行う仕組み」と説明している。並列処理で失われる順序情報を補うのはPositional Encodingの役割であり、Multi-head Attentionの説明ではない。",
+    "choiceExplanations": [
+      "不適切である。並列処理で失われる順序情報を補うのは、位置情報を埋め込みベクトルに加算するPositional Encodingの役割であり、Multi-head Attentionの説明とは異なる。不適切である本問の答えはこれである。",
+      "適切である。教材は各ヘッドが「文法的な係り受け」や「意味的な類似性」など異なる観点で注意の重みを学習できると説明しており、本問の答えには当たらない。",
+      "適切である。教材が説明するMulti-head Attentionの効果そのものであり、本問の答えには当たらない。",
+      "適切である。教材が説明するMulti-head Attentionの仕組みそのものであり、本問(不適切なものを選ぶ)の答えには当たらない。"
+    ],
+    "tags": {
+      "contentTags": ["Multi-head Attention"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.3 Attention機構とTransformer",
+    "sourceReference": "第5章 3節（Attention機構とTransformer）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-017",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s05",
+    "difficulty": "basic",
+    "question": "BERTの事前学習の方法に関する説明として、教材の内容として適切なものはどれか。",
+    "choices": [
+      "これまでの単語の並びから、次に来る単語を一方向に予測させる。",
+      "文章の一部を隠して(マスクして)、隠された単語を前後の文脈両方から予測させる。",
+      "人間が回答の優劣を順位づけしたデータから報酬モデルを学習させる。",
+      "生成器と識別器という2つのネットワークを互いに競わせる。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材はBERTについて「文章の一部を隠して(マスクして)、その隠された単語を前後の文脈両方から予測させる、という学習方法(マスク言語モデル)で事前学習される」と説明している。",
+    "choiceExplanations": [
+      "不適切である。次の単語を一方向に予測する学習方法(次単語予測)は、GPT系列の事前学習の説明である。",
+      "適切である。教材が説明するBERTの事前学習方法(マスク言語モデル)そのものである。本問の答えはこれである。",
+      "不適切である。人間の順位づけから報酬モデルを学習するのは、RLHFの2段階目の説明である。",
+      "不適切である。生成器と識別器を競わせるのは、GANの学習方法の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["BERT", "マスク言語モデル"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.5 大規模言語モデル(GPT系列・BERT)",
+    "sourceReference": "第5章 5節（大規模言語モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-018",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "basic",
+    "question": "拡散モデル(Diffusion Model)の仕組みに関する説明として、教材の内容として適切なものはどれか。",
+    "choices": [
+      "データを平均と分散を持つ正規分布などの確率分布として圧縮し、その分布からサンプリングした値をデコーダーに通して新しいデータを生成する。",
+      "本物そっくりの偽データを作るネットワークと、それが本物か偽物かを見破るネットワークを競わせることで学習する。",
+      "画像に少しずつノイズを加えて完全なノイズにする過程を定義し、そのノイズを少しずつ取り除いて元の画像に戻す過程をニューラルネットワークに学習させる。",
+      "入力を1つの決まったベクトルに圧縮し、そこから元の入力を復元するように学習する。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "教材は拡散モデルについて「きれいな画像に少しずつノイズ...を加えていき、最終的に完全なノイズにしてしまう過程(拡散過程)」をまず定義し、「その『ノイズを少しずつ取り除いて元の画像に戻す過程(逆拡散過程)』をニューラルネットワークに学習させる」と説明している。",
+    "choiceExplanations": [
+      "不適切である。データを確率分布として圧縮し、そこからサンプリングして生成するのはVAEの説明である。",
+      "不適切である。生成器と識別器を競わせて学習するのはGANの説明である。",
+      "適切である。教材が説明する拡散モデルの拡散過程と逆拡散過程そのものである。本問の答えはこれである。",
+      "不適切である。入力を1つの決まったベクトルに圧縮するのは通常のオートエンコーダーの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["拡散モデル"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.6 生成AIの主要技術: GAN・VAE・拡散モデル",
+    "sourceReference": "第5章 6節（GAN・VAE・拡散モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-019",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s07",
+    "difficulty": "basic",
+    "question": "教材において、「モデルの出力を、人間にとって望ましい・安全な・有用な方向に近づける」という取り組み全体を指す言葉として、適切なものはどれか。",
+    "choices": [
+      "アライメント",
+      "プロンプトエンジニアリング",
+      "ファインチューニング",
+      "In-context learning"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は「この『モデルの出力を、人間にとって望ましい・安全な・有用な方向に近づける』という取り組み全体をアライメント(alignment)と呼び、その代表的な実現手法がRLHF」であると説明している。",
+    "choiceExplanations": [
+      "適切である。教材が「アライメント」と呼ぶ取り組みそのものである。本問の答えはこれである。",
+      "不適切である。プロンプトエンジニアリングは、モデルの重みを変えずに指示文の工夫で望む出力を引き出す技術を指す。",
+      "不適切である。ファインチューニングは事前学習済みモデルの重みを初期値として、対象タスクのデータで追加学習して微調整する手法であり、人間の価値観に近づける取り組み全体を指す言葉ではない。",
+      "不適切である。In-context learningは、プロンプト内の情報だけを手がかりにその場でタスクに適応したかのように振る舞う大規模言語モデルの性質を指す。"
+    ],
+    "tags": {
+      "contentTags": ["アライメント"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": ["第10章:AI倫理との接続"]
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.7 RLHFとアライメント",
+    "sourceReference": "第5章 7節（RLHFとアライメント）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-020",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s09",
+    "difficulty": "basic",
+    "question": "ハルシネーションが起きる理由に関する説明として、教材の内容として適切なものはどれか。",
+    "choices": [
+      "言語モデルが統計的にもっともらしい単語の並びを生成することを学習しているにすぎず、内部に事実かどうかを検証する仕組みを本質的には持たないため。",
+      "言語モデルが外部の文書データベースを検索し、その検索結果をそのまま回答として出力するため。",
+      "学習時に一部のニューロンをランダムに無効化しながら学習を進めるため。",
+      "モデルの規模がある閾値を超えると、それまで見られなかった能力が急に現れるため。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材はハルシネーションについて「言語モデルが『統計的にもっともらしい単語の並びを生成する』ことを学習しているにすぎず、内部に『事実かどうかを検証する仕組み』を本質的には持たないために起きる、生成AIの根本的な課題」と説明している。",
+    "choiceExplanations": [
+      "適切である。教材が説明するハルシネーションの原因そのものである。本問の答えはこれである。",
+      "不適切である。外部の文書を検索してプロンプトに含めるのはRAGの仕組みであり、教材はRAGをハルシネーション対策として説明している。",
+      "不適切である。これは過学習を防ぐ正則化手法であるDropoutの説明であり、ハルシネーションの原因ではない。",
+      "不適切である。規模の拡大に伴い急に能力が現れる現象は「創発的能力」の説明であり、ハルシネーションの原因として教材が挙げているものではない。"
+    ],
+    "tags": {
+      "contentTags": ["ハルシネーション"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": ["第6章:生成AIのリスクとの接続"]
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.9 RAG(検索拡張生成)とハルシネーション",
+    "sourceReference": "第5章 9節（RAGとハルシネーション）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-021",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s11",
+    "difficulty": "basic",
+    "questionForm": "negative",
+    "question": "過学習と正則化に関する説明として、教材の内容として不適切なものはどれか。",
+    "choices": [
+      "過学習とは、訓練データに対して精度が高くなりすぎるあまり、未知のデータに対する精度がかえって落ちてしまう問題である。",
+      "過学習は、訓練データの細部の癖やノイズまで丸暗記してしまい、背後にある本質的なパターンを捉えられなくなっている状態に例えられる。",
+      "正則化とは、モデルが訓練データにより強く適合するよう表現力を高め、訓練データに対する精度を最大化するための工夫の総称である。",
+      "Batch Normalizationは学習を安定させるだけでなく、副次的に軽い正則化効果も持つことが知られている。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "教材は正則化を「過学習を防ぎ、モデルの汎化性能(未知のデータに対する性能)を高めるための工夫」の総称として説明している。訓練データへの適合を強めて訓練データの精度を最大化するという説明は、本文と逆である。",
+    "choiceExplanations": [
+      "適切である。教材が説明する過学習の定義そのものであり、本問(不適切なものを選ぶ)の答えには当たらない。",
+      "適切である。教材が過学習をたとえた説明そのものであり、本問の答えには当たらない。",
+      "不適切である。教材は正則化を、過学習を防ぎ未知のデータへの汎化性能を高める工夫の総称と説明しており、訓練データへの適合を強める工夫とする記述は本文と矛盾する。不適切である本問の答えはこれである。",
+      "適切である。教材はBatch Normalizationが副次的に軽い正則化効果を持つと説明しており、本問の答えには当たらない。"
+    ],
+    "tags": {
+      "contentTags": ["過学習", "正則化"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": ["第3章:過学習との接続"]
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.11 正則化技術(Dropout・Batch Normalization)",
+    "sourceReference": "第5章 11節（正則化技術）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-022",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "basic",
+    "question": "SGD(確率的勾配降下法)の利点に関する説明として、教材の内容として適切なものはどれか。",
+    "choices": [
+      "パラメータごとに過去の勾配の大きさの累積に応じて学習率を自動的に調整できる。",
+      "全データを毎回使うより計算が速く、適度なノイズが加わることで局所的な最適解に安易にはまり込みにくい。",
+      "一次モーメントと二次モーメントを、過去の情報を指数関数的に減衰させながら蓄積して使える。",
+      "これまでの更新の勢い(慣性)を加味することで、振動しやすい方向の動きを打ち消し合える。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材はSGDについて、ミニバッチごとに勾配を計算して重みを更新するため「全データを毎回使うより計算が速く、また適度なノイズが加わることで、局所的な最適解...に安易にはまり込みにくいという利点もある」と説明している。",
+    "choiceExplanations": [
+      "不適切である。パラメータごとに学習率を自動調整するのはAdaGradの説明である。",
+      "適切である。教材が説明するSGDの利点そのものである。本問の答えはこれである。",
+      "不適切である。一次モーメントと二次モーメントを組み合わせて使うのはAdamの説明である。",
+      "不適切である。更新の勢い(慣性)を加味するのはMomentumの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["SGD", "最適化手法"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.12 最適化手法(SGD・Momentum・AdaGrad・Adam)",
+    "sourceReference": "第5章 12節（最適化手法）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-19",
+    "reviewStatus": "draft"
   }
 ]

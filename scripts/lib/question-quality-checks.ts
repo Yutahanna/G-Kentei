@@ -287,8 +287,15 @@ export function findAnswerPositionSkewWarning(questions: Question[]): string | n
   return null;
 }
 
-/** 章の問題数が設計値（既定: 25問、基礎10/標準10/応用5）と一致しているかを確認する。 */
+/**
+ * 章の問題数が設計値（既定: 25問、基礎10/標準10/応用5）と一致しているかを確認する。
+ * 弱点章の問題プール拡充（2026-10-19）で一部の章は25問を超えるため、章ごとの総数を
+ * EXPECTED_TOTAL_BY_CHAPTERで上書きし、難易度は基礎:標準:応用=2:2:1の比率で求める。
+ */
 export const EXPECTED_TOTAL_QUESTIONS = 25;
+export const EXPECTED_TOTAL_BY_CHAPTER: Record<string, number> = {
+  ch05: 55,
+};
 export const EXPECTED_COUNT_BY_DIFFICULTY: Record<Question["difficulty"], number> = {
   basic: 10,
   standard: 10,
@@ -305,18 +312,22 @@ export interface DesignCountCheckResult {
   }[];
 }
 
-export function checkQuestionCountsAgainstDesign(questions: Question[]): DesignCountCheckResult {
+export function checkQuestionCountsAgainstDesign(
+  questions: Question[],
+  expectedTotal: number = EXPECTED_TOTAL_QUESTIONS,
+): DesignCountCheckResult {
   const actualTotal = questions.length;
+  const scale = expectedTotal / EXPECTED_TOTAL_QUESTIONS;
   const mismatchedDifficulties: DesignCountCheckResult["mismatchedDifficulties"] = [];
   for (const difficulty of ["basic", "standard", "advanced"] as const) {
     const actual = questions.filter((q) => q.difficulty === difficulty).length;
-    const expected = EXPECTED_COUNT_BY_DIFFICULTY[difficulty];
+    const expected = EXPECTED_COUNT_BY_DIFFICULTY[difficulty] * scale;
     if (actual !== expected) {
       mismatchedDifficulties.push({ difficulty, expected, actual });
     }
   }
   return {
-    totalMatches: actualTotal === EXPECTED_TOTAL_QUESTIONS,
+    totalMatches: actualTotal === expectedTotal,
     actualTotal,
     mismatchedDifficulties,
   };
