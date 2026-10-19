@@ -519,3 +519,18 @@ export function computeQuestionStemFormatCounts(
   }
   return [...counts.entries()].map(([label, count]) => ({ label, count }));
 }
+
+/**
+ * 解説・選択肢別解説で選択肢を番号(「選択肢3」「index2」など)で指していないかを確認する。
+ * 出題時に選択肢の並び順をシャッフルするため、番号は画面上の並びと一致しない
+ * (2026-10-19のサンプリング品質チェックで16問見つかり、内容で指す表現に修正した)。
+ */
+const CHOICE_POSITION_REFERENCE = /選択肢\s*[0-9０-９]|index\s*[0-9]/;
+
+export function findChoicePositionReferences(questions: Question[]): string[] {
+  return questions
+    .filter((q) =>
+      [q.explanation, ...q.choiceExplanations].some((text) => CHOICE_POSITION_REFERENCE.test(text)),
+    )
+    .map((q) => q.id);
+}

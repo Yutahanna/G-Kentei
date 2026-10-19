@@ -7,6 +7,7 @@ import { saveStudySessionLog } from "../../shared/lib/db";
 import { summarizeDrillResults } from "../../shared/lib/scoring";
 import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
 import styles from "./DrillResultPage.module.css";
+import AsOfDateNote from "../../shared/ui/AsOfDateNote";
 
 export default function DrillResultPage() {
   const { chapterId } = useParams<{ chapterId: string }>();
@@ -98,6 +99,7 @@ export default function DrillResultPage() {
                     <strong>解説</strong>
                   </p>
                   <p>{question.explanation}</p>
+                  <AsOfDateNote asOfDate={question.asOfDate} />
                   <p className={styles.sourceRef}>
                     教材参照：{question.sourceReference}
                     {section && (

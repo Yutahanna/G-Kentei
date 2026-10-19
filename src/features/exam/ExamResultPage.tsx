@@ -13,6 +13,7 @@ import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import { scoreExam } from "../../shared/lib/examScoring";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import styles from "./ExamResultPage.module.css";
+import AsOfDateNote from "../../shared/ui/AsOfDateNote";
 
 const DIFFICULTY_LABEL: Record<string, string> = {
   basic: "基礎",
@@ -215,6 +216,7 @@ export default function ExamResultPage() {
                     <strong>解説</strong>
                   </p>
                   <p>{question.explanation}</p>
+                  <AsOfDateNote asOfDate={question.asOfDate} />
                   <p className={styles.sourceRef}>
                     教材参照：{question.sourceReference}
                     {section && (

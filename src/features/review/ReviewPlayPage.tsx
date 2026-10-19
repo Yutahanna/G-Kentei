@@ -11,6 +11,7 @@ import { useReviewSessionStore } from "../../shared/store/reviewSessionStore";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import styles from "../drill/DrillPlayPage.module.css";
 import localStyles from "./ReviewPlayPage.module.css";
+import AsOfDateNote from "../../shared/ui/AsOfDateNote";
 
 const DIFFICULTY_LABEL: Record<string, string> = {
   basic: "基礎",
@@ -172,6 +173,7 @@ export default function ReviewPlayPage() {
           <div className={styles.explanationBlock}>
             <strong>解説</strong>
             <p>{question.explanation}</p>
+            <AsOfDateNote asOfDate={question.asOfDate} />
           </div>
 
           <div className={styles.explanationBlock}>

@@ -16,6 +16,7 @@ import { manifestSchema, type Manifest } from "../src/schemas/content.schema";
 import {
   buildConceptVocabulary,
   checkQuestionCountsAgainstDesign,
+  findChoicePositionReferences,
   EXPECTED_TOTAL_BY_CHAPTER,
   EXPECTED_TOTAL_QUESTIONS,
   computeAnswerPositionDistribution,
@@ -129,6 +130,12 @@ function main(): void {
         }
       }
     });
+  }
+
+  for (const id of findChoicePositionReferences(allQuestions.map((x) => x.question))) {
+    error(
+      `[${id}]: 解説で選択肢を番号で指しています（出題時は選択肢の順番が入れ替わるため、内容で指してください）。`,
+    );
   }
 
   for (const [id, occurrences] of idOccurrences) {
