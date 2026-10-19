@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { useTheme } from "../../shared/hooks/useTheme";
 import { clearAllData, exportAllData, importAllData } from "../../shared/lib/db";
+import { BUILD_SHA, BUILD_TIME, formatBuildTime } from "../../shared/lib/buildInfo";
 import { exportedDataSchema } from "../../schemas/progress.schema";
 import type { ThemeSetting } from "../../entities/progress";
 import styles from "./SettingsPage.module.css";
@@ -132,6 +133,21 @@ export default function SettingsPage() {
             {importMessage.text}
           </p>
         )}
+      </fieldset>
+
+      <fieldset className={styles.fieldset}>
+        <legend className={styles.legend}>アプリのバージョン</legend>
+        <dl className={styles.versionList}>
+          <dt>更新日時</dt>
+          <dd>{formatBuildTime(BUILD_TIME)}</dd>
+          <dt>コミット</dt>
+          <dd>{BUILD_SHA ? BUILD_SHA.slice(0, 7) : "不明"}</dd>
+          <dt>表示中のURL</dt>
+          <dd>{window.location.host}</dd>
+        </dl>
+        <p>
+          最新のデプロイと更新日時・コミットが一致しない場合は、古い版が表示されています。ページを再読み込みしてください。
+        </p>
       </fieldset>
 
       <fieldset className={styles.fieldset}>

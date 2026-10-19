@@ -36,3 +36,15 @@
 .errorText {
   color: var(--color-incorrect);
 }
+
+.versionList {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: 0 0 var(--space-3);
+}
+
+.versionList dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}

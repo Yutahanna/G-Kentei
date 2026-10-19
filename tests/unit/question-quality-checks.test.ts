@@ -3,6 +3,7 @@ import type { Question } from "../../src/schemas/question.schema";
 import {
   buildConceptVocabulary,
   checkQuestionCountsAgainstDesign,
+  findChoicePositionReferences,
   computeAnswerPositionDistribution,
   computeNearConceptRate,
   computeQuestionStemFormatCounts,
@@ -375,5 +376,19 @@ describe("computeQuestionStemFormatCounts", () => {
     const counts = computeQuestionStemFormatCounts(questions);
     const total = counts.reduce((sum, c) => sum + c.count, 0);
     expect(total).toBe(3);
+  });
+});
+
+describe("findChoicePositionReferences", () => {
+  it("解説で選択肢を番号で指している問題を検出する", () => {
+    const questions = [
+      makeQuestion({ id: "ok", explanation: "誤りとする記述は本文と矛盾する。" }),
+      makeQuestion({ id: "num", explanation: "とする選択肢4は本文と矛盾する。" }),
+      makeQuestion({
+        id: "index",
+        choiceExplanations: ["a", "b", "c", "記述(index2)は誤り"],
+      }),
+    ];
+    expect(findChoicePositionReferences(questions)).toEqual(["num", "index"]);
   });
 });

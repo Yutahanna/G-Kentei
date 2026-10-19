@@ -71,4 +71,33 @@ describe("examComposition（模擬試験の出題配分）", () => {
     expect(ids).toHaveLength(50);
     expect(new Set(ids).size).toBe(50);
   });
+
+  it("selectExamQuestionIdsは過去の模試で出題済みの問題を、未出題を使い切るまで選ばない", () => {
+    const questionIdsByChapter = Object.fromEntries(
+      EXAM_COMPOSITION_CONFIG.perChapter.map((c) => [c.chapterId, makeIds(c.chapterId, 25)]),
+    );
+    const first = selectExamQuestionIds(90, EXAM_COMPOSITION_CONFIG, questionIdsByChapter);
+    const seen = new Set(first);
+    const second = selectExamQuestionIds(
+      90,
+      EXAM_COMPOSITION_CONFIG,
+      questionIdsByChapter,
+      Math.random,
+      seen,
+    );
+    expect(second).toHaveLength(90);
+    expect(new Set(second).size).toBe(90);
+    // 章ごとに未出題が残っている限り出題済みは選ばれないため、重複は未出題の不足分だけになる。
+    const unseenByChapter = Object.fromEntries(
+      Object.entries(questionIdsByChapter).map(([ch, ids]) => [
+        ch,
+        ids.filter((id) => !seen.has(id)).length,
+      ]),
+    );
+    for (const [ch, ids] of Object.entries(questionIdsByChapter)) {
+      const picked = second.filter((id) => ids.includes(id));
+      const reused = picked.filter((id) => seen.has(id)).length;
+      expect(reused).toBe(Math.max(0, picked.length - unseenByChapter[ch]!));
+    }
+  });
 });

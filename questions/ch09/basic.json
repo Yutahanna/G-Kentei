@@ -29,7 +29,7 @@
     "sourceHeading": "9.1 個人情報保護法",
     "sourceReference": "第9章 1節（個人情報保護法）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -63,7 +63,7 @@
     "sourceHeading": "9.1 個人情報保護法",
     "sourceReference": "第9章 1節（個人情報保護法）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -97,7 +97,7 @@
     "sourceHeading": "9.2 著作権法とAI",
     "sourceReference": "第9章 2節（著作権法とAI）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -130,7 +130,7 @@
     "sourceHeading": "9.3 特許法とAI関連発明",
     "sourceReference": "第9章 3節（特許法とAI関連発明）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -163,7 +163,7 @@
     "sourceHeading": "9.3 特許法とAI関連発明",
     "sourceReference": "第9章 3節（特許法とAI関連発明）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -197,7 +197,7 @@
     "sourceHeading": "9.4 不正競争防止法と営業秘密",
     "sourceReference": "第9章 4節（不正競争防止法と営業秘密）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -231,7 +231,7 @@
     "sourceHeading": "9.5 独占禁止法とAI・データ",
     "sourceReference": "第9章 5節（独占禁止法とAI・データ）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -260,7 +260,7 @@
     "sourceHeading": "9.5 独占禁止法とAI・データ",
     "sourceReference": "第9章 5節（独占禁止法とAI・データ）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -293,7 +293,7 @@
     "sourceHeading": "9.6 契約実務とAI・データ契約ガイドライン",
     "sourceReference": "第9章 6節（契約実務とAI・データ契約ガイドライン）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -326,7 +326,7 @@
     "sourceHeading": "9.7 製造物責任法（PL法）とAI",
     "sourceReference": "第9章 7節（製造物責任法（PL法）とAI）",
     "contentVersion": "800048eed62e897e782724a469066ec43443afb2b42a96a0834097dd2aafa61b",
-    "asOfDate": "2026-08-01",
+    "asOfDate": "2026-07-29",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   }

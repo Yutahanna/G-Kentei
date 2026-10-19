@@ -27,7 +27,33 @@ export function selectBookmarkedQuestionIds(allProgress: QuestionProgress[]): st
   return allProgress.filter((p) => p.bookmarked).map((p) => p.questionId);
 }
 
+/** 模試で誤答した問題は、その後この回数だけ続けて正解すると復習対象から外れる。 */
+export const MOCK_REVIEW_GRADUATION_STREAK = 2;
+
+/**
+ * 模試で誤答し、その後まだMOCK_REVIEW_GRADUATION_STREAK回続けて正解していない問題か。
+ * 模試の未回答も誤答として扱う（ExamResultPageでincorrectとして記録する）。
+ */
+export function needsMockReview(progress: QuestionProgress): boolean {
+  const lastMockWrong = progress.history.findLastIndex(
+    (h) => h.source === "mock_exam" && h.result === "incorrect",
+  );
+  if (lastMockWrong === -1) return false;
+  let streak = 0;
+  for (let i = progress.history.length - 1; i > lastMockWrong; i--) {
+    if (progress.history[i]!.result !== "correct") break;
+    streak++;
+  }
+  return streak < MOCK_REVIEW_GRADUATION_STREAK;
+}
+
+/** 復習の主対象：模試の誤答（未卒業）とブックマークした問題。 */
+export function selectMockReviewQuestionIds(allProgress: QuestionProgress[]): string[] {
+  return allProgress.filter((p) => p.bookmarked || needsMockReview(p)).map((p) => p.questionId);
+}
+
 export interface ReviewBuckets {
+  mockReview: string[];
   dueForReview: string[];
   wrongAnswer: string[];
   bookmarked: string[];
@@ -36,6 +62,7 @@ export interface ReviewBuckets {
 export async function getReviewBuckets(now: Date = new Date()): Promise<ReviewBuckets> {
   const allProgress = await listAllQuestionProgress();
   return {
+    mockReview: selectMockReviewQuestionIds(allProgress),
     dueForReview: selectDueForReviewQuestionIds(allProgress, now),
     wrongAnswer: selectWrongAnswerQuestionIds(allProgress),
     bookmarked: selectBookmarkedQuestionIds(allProgress),

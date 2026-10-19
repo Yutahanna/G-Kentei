@@ -74,4 +74,12 @@ describe("srs.applyAnswer", () => {
     expect(progress.history[0]).toMatchObject({ result: "correct", selectedIndex: 2 });
     expect(progress.history[1]).toMatchObject({ result: "incorrect", selectedIndex: 1 });
   });
+
+  it("記録元を指定すると履歴に残る（未指定なら付けない）", () => {
+    const base = createInitialProgress("q1");
+    expect(applyAnswer(base, "incorrect", -1, NOW, "mock_exam").history[0]?.source).toBe(
+      "mock_exam",
+    );
+    expect(applyAnswer(base, "correct", 0, NOW).history[0]).not.toHaveProperty("source");
+  });
 });

@@ -16,6 +16,9 @@ import { manifestSchema, type Manifest } from "../src/schemas/content.schema";
 import {
   buildConceptVocabulary,
   checkQuestionCountsAgainstDesign,
+  findChoicePositionReferences,
+  EXPECTED_TOTAL_BY_CHAPTER,
+  EXPECTED_TOTAL_QUESTIONS,
   computeAnswerPositionDistribution,
   computeNearConceptRate,
   computeQuestionFormDistribution,
@@ -129,6 +132,12 @@ function main(): void {
     });
   }
 
+  for (const id of findChoicePositionReferences(allQuestions.map((x) => x.question))) {
+    error(
+      `[${id}]: 解説で選択肢を番号で指しています（出題時は選択肢の順番が入れ替わるため、内容で指してください）。`,
+    );
+  }
+
   for (const [id, occurrences] of idOccurrences) {
     if (occurrences.length > 1) {
       error(
@@ -186,10 +195,11 @@ function main(): void {
       `[${chapterId}] 近接概念を含む誤答選択肢の割合: ${(chapterRate * 100).toFixed(0)}%（${totalNearConceptHits}/${totalWrong}）`,
     );
 
-    const countCheck = checkQuestionCountsAgainstDesign(chapterQuestions);
+    const expectedTotal = EXPECTED_TOTAL_BY_CHAPTER[chapterId] ?? EXPECTED_TOTAL_QUESTIONS;
+    const countCheck = checkQuestionCountsAgainstDesign(chapterQuestions, expectedTotal);
     if (!countCheck.totalMatches) {
       warn(
-        `[${chapterId}]: 総問題数が設計値と一致しません（設計値25問 / 実際${countCheck.actualTotal}問）。`,
+        `[${chapterId}]: 総問題数が設計値と一致しません（設計値${expectedTotal}問 / 実際${countCheck.actualTotal}問）。`,
       );
     }
     for (const mismatch of countCheck.mismatchedDifficulties) {

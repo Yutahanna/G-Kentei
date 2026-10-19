@@ -7,8 +7,10 @@ import { saveStudySessionLog } from "../../shared/lib/db";
 import { summarizeDrillResults } from "../../shared/lib/scoring";
 import { useReviewSessionStore } from "../../shared/store/reviewSessionStore";
 import styles from "../drill/DrillResultPage.module.css";
+import AsOfDateNote from "../../shared/ui/AsOfDateNote";
 
 const SESSION_TYPE_LABEL: Record<string, string> = {
+  mock_review: "模試の誤答・ブックマーク復習",
   due_for_review: "SRS復習",
   wrong_answer: "誤答復習",
   bookmarked: "ブックマーク復習",
@@ -110,6 +112,7 @@ export default function ReviewResultPage() {
                     <strong>解説</strong>
                   </p>
                   <p>{question.explanation}</p>
+                  <AsOfDateNote asOfDate={question.asOfDate} />
                   <p className={styles.sourceRef}>
                     教材参照：{question.sourceReference}
                     {section && (

@@ -287,8 +287,17 @@ export function findAnswerPositionSkewWarning(questions: Question[]): string | n
   return null;
 }
 
-/** 章の問題数が設計値（既定: 25問、基礎10/標準10/応用5）と一致しているかを確認する。 */
+/**
+ * 章の問題数が設計値（既定: 25問、基礎10/標準10/応用5）と一致しているかを確認する。
+ * 弱点章の問題プール拡充（2026-10-19）で一部の章は25問を超えるため、章ごとの総数を
+ * EXPECTED_TOTAL_BY_CHAPTERで上書きし、難易度は基礎:標準:応用=2:2:1の比率で求める。
+ */
 export const EXPECTED_TOTAL_QUESTIONS = 25;
+export const EXPECTED_TOTAL_BY_CHAPTER: Record<string, number> = {
+  ch03: 45,
+  ch04: 45,
+  ch05: 55,
+};
 export const EXPECTED_COUNT_BY_DIFFICULTY: Record<Question["difficulty"], number> = {
   basic: 10,
   standard: 10,
@@ -305,18 +314,22 @@ export interface DesignCountCheckResult {
   }[];
 }
 
-export function checkQuestionCountsAgainstDesign(questions: Question[]): DesignCountCheckResult {
+export function checkQuestionCountsAgainstDesign(
+  questions: Question[],
+  expectedTotal: number = EXPECTED_TOTAL_QUESTIONS,
+): DesignCountCheckResult {
   const actualTotal = questions.length;
+  const scale = expectedTotal / EXPECTED_TOTAL_QUESTIONS;
   const mismatchedDifficulties: DesignCountCheckResult["mismatchedDifficulties"] = [];
   for (const difficulty of ["basic", "standard", "advanced"] as const) {
     const actual = questions.filter((q) => q.difficulty === difficulty).length;
-    const expected = EXPECTED_COUNT_BY_DIFFICULTY[difficulty];
+    const expected = EXPECTED_COUNT_BY_DIFFICULTY[difficulty] * scale;
     if (actual !== expected) {
       mismatchedDifficulties.push({ difficulty, expected, actual });
     }
   }
   return {
-    totalMatches: actualTotal === EXPECTED_TOTAL_QUESTIONS,
+    totalMatches: actualTotal === expectedTotal,
     actualTotal,
     mismatchedDifficulties,
   };
@@ -505,4 +518,19 @@ export function computeQuestionStemFormatCounts(
     counts.set(label, (counts.get(label) ?? 0) + 1);
   }
   return [...counts.entries()].map(([label, count]) => ({ label, count }));
+}
+
+/**
+ * 解説・選択肢別解説で選択肢を番号(「選択肢3」「index2」など)で指していないかを確認する。
+ * 出題時に選択肢の並び順をシャッフルするため、番号は画面上の並びと一致しない
+ * (2026-10-19のサンプリング品質チェックで16問見つかり、内容で指す表現に修正した)。
+ */
+const CHOICE_POSITION_REFERENCE = /選択肢\s*[0-9０-９]|index\s*[0-9]/;
+
+export function findChoicePositionReferences(questions: Question[]): string[] {
+  return questions
+    .filter((q) =>
+      [q.explanation, ...q.choiceExplanations].some((text) => CHOICE_POSITION_REFERENCE.test(text)),
+    )
+    .map((q) => q.id);
 }

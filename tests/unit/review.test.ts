@@ -3,6 +3,8 @@ import {
   selectBookmarkedQuestionIds,
   selectDueForReviewQuestionIds,
   selectWrongAnswerQuestionIds,
+  needsMockReview,
+  selectMockReviewQuestionIds,
 } from "../../src/shared/lib/review";
 import { createInitialProgress } from "../../src/entities/progress";
 import type { QuestionProgress } from "../../src/entities/progress";
@@ -51,5 +53,52 @@ describe("review（復習対象の選定ロジック）", () => {
 
     const result = selectBookmarkedQuestionIds([bookmarked, notBookmarked]);
     expect(result).toEqual(["q1"]);
+  });
+
+  describe("模試の誤答・ブックマーク復習", () => {
+    const t = (n: number) => `2026-10-19T00:0${n}:00.000Z`;
+
+    it("模試で誤答した問題は、その後2回続けて正解するまで対象に残る", () => {
+      const wrong = {
+        answeredAt: t(0),
+        result: "incorrect",
+        selectedIndex: 1,
+        source: "mock_exam",
+      } as const;
+      const ok = (n: number) =>
+        ({ answeredAt: t(n), result: "correct", selectedIndex: 0, source: "review" }) as const;
+      const ng = (n: number) =>
+        ({ answeredAt: t(n), result: "incorrect", selectedIndex: 2, source: "review" }) as const;
+
+      expect(needsMockReview(withHistory("q", [wrong]))).toBe(true);
+      expect(needsMockReview(withHistory("q", [wrong, ok(1)]))).toBe(true);
+      expect(needsMockReview(withHistory("q", [wrong, ok(1), ok(2)]))).toBe(false);
+      expect(needsMockReview(withHistory("q", [wrong, ok(1), ng(2), ok(3)]))).toBe(true);
+      expect(needsMockReview(withHistory("q", [wrong, ok(1), ng(2), ok(3), ok(4)]))).toBe(false);
+    });
+
+    it("ドリルだけの誤答や、記録元の無い古い履歴は対象にしない", () => {
+      expect(
+        needsMockReview(
+          withHistory("q", [
+            { answeredAt: t(0), result: "incorrect", selectedIndex: 1, source: "drill" },
+          ]),
+        ),
+      ).toBe(false);
+      expect(
+        needsMockReview(
+          withHistory("q", [{ answeredAt: t(0), result: "incorrect", selectedIndex: 1 }]),
+        ),
+      ).toBe(false);
+    });
+
+    it("ブックマークした問題は正誤にかかわらず対象に含める", () => {
+      const bookmarked = { ...createInitialProgress("b"), bookmarked: true };
+      const mockWrong = withHistory("m", [
+        { answeredAt: t(0), result: "incorrect", selectedIndex: -1, source: "mock_exam" },
+      ]);
+      const other = createInitialProgress("o");
+      expect(selectMockReviewQuestionIds([bookmarked, mockWrong, other])).toEqual(["b", "m"]);
+    });
   });
 });

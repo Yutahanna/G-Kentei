@@ -41,14 +41,14 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await expect(page.getByRole("button", { name: "★ ブックマーク済み" })).toBeVisible();
 
     await page.goto("/review");
-    const bookmarkCard = page.getByText("ブックマークした問題").locator("..");
-    await expect(bookmarkCard.getByText(/[1-9]\d*問/)).toBeVisible();
-    await bookmarkCard.getByRole("button", { name: "この復習を始める" }).click();
+    const reviewCard = page.getByText("模試の誤答・ブックマーク", { exact: true }).locator("..");
+    await expect(reviewCard.locator('[class*="count"]')).toHaveText(/^[1-9]\d*問$/);
+    await reviewCard.getByRole("button", { name: /問で復習を始める/ }).click();
 
     await page.waitForURL("**/review/play");
     await page.locator('button[class*="choiceButton"]').first().click();
     await page.getByRole("button", { name: /結果を見る|次の問題へ/ }).click();
     await page.waitForURL("**/review/result");
-    await expect(page.locator("h1")).toContainText("ブックマーク復習の結果");
+    await expect(page.locator("h1")).toContainText("模試の誤答・ブックマーク復習の結果");
   });
 });

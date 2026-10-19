@@ -1,4 +1,4 @@
-import type { QuestionProgress } from "../../entities/progress";
+import type { AnswerSource, QuestionProgress } from "../../entities/progress";
 
 /**
  * 間隔反復（SRS）ロジック。docs/phase0-design.md 8.4節の簡易Leitner方式を実装する。
@@ -47,9 +47,13 @@ export function applyAnswer(
   result: "correct" | "incorrect",
   selectedIndex: number,
   now: Date = new Date(),
+  source?: AnswerSource,
 ): QuestionProgress {
   const nowIso = now.toISOString();
-  const history = [...progress.history, { answeredAt: nowIso, result, selectedIndex }];
+  const history = [
+    ...progress.history,
+    { answeredAt: nowIso, result, selectedIndex, ...(source ? { source } : {}) },
+  ];
 
   if (result === "correct") {
     const srsStage = Math.min(progress.srsStage + 1, MAX_SRS_STAGE);

@@ -5,10 +5,13 @@
 
 export type ProgressStatus = "not_started" | "learning" | "due_for_review" | "mastered";
 
+export type AnswerSource = "drill" | "review" | "mock_exam";
+
 export interface AnswerHistoryEntry {
   answeredAt: string;
   result: "correct" | "incorrect";
-  selectedIndex: number;
+  selectedIndex: number; // 模擬試験の未回答は-1
+  source?: AnswerSource; // 2026-10-19以前の履歴には無い
 }
 
 export interface QuestionProgress {
