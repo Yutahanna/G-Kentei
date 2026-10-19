@@ -32,7 +32,7 @@ test.describe("データのエクスポート・インポート・初期化", ()
     await page.reload();
     await page.goto("/");
     await page.selectOption("#dashboard-chapter-select", "ch04");
-    await expect(page.getByText("1 / 25", { exact: true })).toBeVisible();
+    await expect(page.getByText("1 / 45", { exact: true })).toBeVisible();
   });
 
   test("不正な形式のファイルをインポートするとエラーになり、データは変更されない", async ({

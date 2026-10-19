@@ -294,6 +294,8 @@ export function findAnswerPositionSkewWarning(questions: Question[]): string | n
  */
 export const EXPECTED_TOTAL_QUESTIONS = 25;
 export const EXPECTED_TOTAL_BY_CHAPTER: Record<string, number> = {
+  ch03: 45,
+  ch04: 45,
   ch05: 55,
 };
 export const EXPECTED_COUNT_BY_DIFFICULTY: Record<Question["difficulty"], number> = {
