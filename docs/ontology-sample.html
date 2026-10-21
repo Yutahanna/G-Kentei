@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>弱点オントロジー サンプル</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --line:#d0d7de; --head:#eef2f8; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#16181d; --fg:#e6e8eb; --muted:#9aa4b2; --line:#3a404a; --head:#232833; }
+  }
+  body { background:var(--bg); color:var(--fg); font-family:"Hiragino Sans","Noto Sans JP",Arial,sans-serif; font-size:15px; line-height:1.6; margin:0; padding:24px 16px; }
+  main { max-width:980px; margin:0 auto; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  h2 { font-size:1.2rem; margin:32px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p.note { color:var(--muted); font-size:.9rem; margin:4px 0; }
+  table { border-collapse:collapse; width:100%; margin:8px 0 16px; font-size:.9rem; }
+  th, td { border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+  th { background:var(--head); }
+  .diagram { overflow-x:auto; border:1px solid var(--line); border-radius:6px; padding:8px; background:#ffffff; }
+  .tag { display:inline-block; padding:0 6px; border-radius:4px; font-size:.8rem; color:#fff; white-space:nowrap; }
+  .isa{background:#2f6fdb}.partof{background:#6a54c8}.contrast{background:#c2410c}.critic{background:#b4232a}.time{background:#4b5563}.solve{background:#15803d}
+  .miss { color:#b4232a; font-weight:bold; }
+</style>
+</head>
+<body>
+<main>
+<h1>弱点オントロジー（サンプル）</h1>
+<p class="note">根拠：materials/chapters/ の本文（参照節を各行に記載）。「あなたの誤答」欄は 2026/10/19〜21 の模試・復習の記録から。</p>
+<p class="note">関係の種類：
+<span class="tag isa">is-a 一種</span>
+<span class="tag partof">part-of 一部</span>
+<span class="tag contrast">対比</span>
+<span class="tag critic">批判・反論</span>
+<span class="tag time">時系列・終焉</span>
+<span class="tag solve">解決・応答</span></p>
+
+<h2>1. 「AIは本当に理解しているか」の4概念（第1章4・5節、第2章1・5節）</h2>
+<p class="note">2つの軸に分けると混線しません。一方の枠＝知能をどう<b>判定する</b>か、もう一方の枠＝AIが現実で<b>行き詰まる</b>理由。2つの枠をつなぐ線は1本（点線）だけ。</p>
+<div class="diagram"><pre class="mermaid">
+flowchart TB
+  subgraph J["知能をどう判定するか（1-4, 1-5）"]
+    direction TB
+    TT["チューリングテスト<br/>1950・チューリング<br/>外から見た振る舞いを評価"]
+    CR["中国語の部屋<br/>サール<br/>振る舞いだけでは理解を示せない"]
+    SA["強いAI<br/>意識・理解を持ちうる"]
+    WA["弱いAI<br/>知的な道具"]
+    NOW["現在のAI<br/>（生成AIを含む）"]
+  end
+  subgraph L["AIが現実で行き詰まる理由（2-1, 2-5）"]
+    direction TB
+    TP["トイプロブレム<br/>迷路・パズル"]
+    FP["フレーム問題<br/>考慮すべき範囲を絞れない<br/>（デネットのロボット例）"]
+    B1["第1次AIブームの終焉"]
+    SG["シンボルグラウンディング問題<br/>1990・ハルナッド<br/>記号と実世界の意味が結び付かない"]
+    EM["身体性"]
+  end
+  SA <-->|対比| WA
+  NOW -->|is-a| WA
+  CR -->|批判| SA
+  CR -->|反論| TT
+  TT -.->|弱いAI的な基準| WA
+  TP -->|現実とのギャップ| FP
+  FP -->|終焉の原因| B1
+  FP <-->|対比| SG
+  EM -->|応答| SG
+  SG -.->|関連| CR
+  linkStyle 0 stroke:#c2410c,stroke-width:2px
+  linkStyle 1 stroke:#2f6fdb,stroke-width:2px
+  linkStyle 2 stroke:#b4232a,stroke-width:2px
+  linkStyle 3 stroke:#b4232a,stroke-width:2px
+  linkStyle 4 stroke:#2f6fdb
+  linkStyle 5 stroke:#4b5563,stroke-width:2px
+  linkStyle 6 stroke:#4b5563,stroke-width:2px
+  linkStyle 7 stroke:#c2410c,stroke-width:2px
+  linkStyle 8 stroke:#15803d,stroke-width:2px
+  linkStyle 9 stroke:#888
+</pre></div>
+
+<table>
+<tr><th>A</th><th>関係</th><th>B</th><th>根拠</th><th>あなたの誤答との対応</th></tr>
+<tr><td>強いAI</td><td><span class="tag contrast">対比</span></td><td>弱いAI</td><td>1-4、1章章末「重要な区別」</td><td>正しく区別できている（1章章末の問題で（あ）は正解）</td></tr>
+<tr><td>中国語の部屋</td><td><span class="tag critic">批判</span></td><td>強いAI</td><td>1-4「強いAI批判の根拠とした」</td><td>—</td></tr>
+<tr><td>中国語の部屋</td><td><span class="tag critic">反論</span></td><td>チューリングテスト（振る舞いでの判定）</td><td>1-5、1章章末「振る舞いだけでは意味理解を証明できないと指摘」</td><td class="miss">1-4の問題で、「チューリングテストは理解の有無には答えない」を×と判断した</td></tr>
+<tr><td>現在のAI（生成AIを含む）</td><td><span class="tag isa">is-a</span></td><td>弱いAI</td><td>1-4</td><td>—</td></tr>
+<tr><td>トイプロブレムと現実のギャップ</td><td><span class="tag time">伏線</span></td><td>フレーム問題</td><td>1-5</td><td>—</td></tr>
+<tr><td>フレーム問題</td><td><span class="tag time">終焉の原因</span></td><td>第1次AIブーム</td><td>2-1</td><td class="miss">寓話の問題（2-1）が無回答</td></tr>
+<tr><td>フレーム問題</td><td><span class="tag contrast">対比</span></td><td>シンボルグラウンディング問題</td><td>1章章末「絞れない／結び付けにくい」</td><td class="miss">1章章末の問題で（う）（え）を入れ替えた。判定の軸と行き詰まりの軸が混ざっている</td></tr>
+<tr><td>身体性</td><td><span class="tag solve">応答</span></td><td>シンボルグラウンディング問題</td><td>2-5「この問題への一つの応答として」</td><td>—</td></tr>
+<tr><td>シンボルグラウンディング問題</td><td>関連</td><td>中国語の部屋</td><td>2-5「第1章の中国語の部屋の議論とも関連」</td><td>2つの軸をまたぐ唯一の関係。ここで混線しやすい</td></tr>
+</table>
+<p class="note"><b>混同注意（AI効果）</b>：AI効果（1-2）の背景は「原理が分かったものを知能と呼びたがらない傾向」で、AIは時代とともに変わる相対的な概念とされる。身体性とは別の概念。<span class="miss">あなたは「AIは相対的な概念」を×と判断した。</span></p>
+
+<h2>2. 物体検出の系譜（6.1・6.2）</h2>
+<div class="diagram"><pre class="mermaid">
+flowchart TB
+  CNN["CNN（5.1）<br/>画像認識の土台"]
+  CLS["画像分類<br/>画像全体のカテゴリ"]
+  OD["物体検出<br/>位置（矩形）＋カテゴリ"]
+  TWO["2段階方式<br/>候補領域→分類<br/>精度重視"]
+  ONE["1段階方式<br/>画像全体を1回で予測<br/>速度重視"]
+  R1["R-CNN（2014）<br/>候補領域ごとにCNN→遅い"]
+  R2["Fast R-CNN"]
+  R3["Faster R-CNN<br/>候補領域の抽出もNNに組み込む"]
+  Y["YOLO"]
+  S["SSD"]
+  M["Mask R-CNN（2017）<br/>＋マスク予測"]
+  IS["インスタンス<br/>セグメンテーション"]
+  CNN -->|part-of 土台| OD
+  CLS -->|発展| OD
+  TWO <-->|対比| ONE
+  R1 -->|is-a| TWO
+  R2 -->|is-a| TWO
+  R3 -->|is-a| TWO
+  Y -->|is-a| ONE
+  S -->|is-a| ONE
+  R2 -->|遅さを改善| R1
+  R3 -->|さらに高速化| R2
+  M -->|拡張| R3
+  M -->|実現| IS
+  linkStyle 0 stroke:#6a54c8,stroke-width:2px
+  linkStyle 1 stroke:#4b5563
+  linkStyle 2 stroke:#c2410c,stroke-width:2px
+  linkStyle 3 stroke:#2f6fdb,stroke-width:2px
+  linkStyle 4 stroke:#2f6fdb,stroke-width:2px
+  linkStyle 5 stroke:#2f6fdb,stroke-width:3px
+  linkStyle 6 stroke:#2f6fdb,stroke-width:2px
+  linkStyle 7 stroke:#2f6fdb,stroke-width:2px
+  linkStyle 8 stroke:#15803d,stroke-width:2px
+  linkStyle 9 stroke:#15803d,stroke-width:2px
+  linkStyle 10 stroke:#4b5563
+  linkStyle 11 stroke:#4b5563
+</pre></div>
+
+<table>
+<tr><th>A</th><th>関係</th><th>B</th><th>根拠</th><th>あなたの誤答との対応</th></tr>
+<tr><td>物体検出</td><td>発展</td><td>画像分類</td><td>6.1「位置とカテゴリを同時に特定」</td><td>—</td></tr>
+<tr><td>2段階方式（精度重視）</td><td><span class="tag contrast">対比</span></td><td>1段階方式（速度重視）</td><td>6.1</td><td>—</td></tr>
+<tr><td>R-CNN／Fast R-CNN／<b>Faster R-CNN</b></td><td><span class="tag isa">is-a</span></td><td>2段階方式</td><td>6.1「R-CNN系列…精度重視のアプローチ」</td><td class="miss">「Faster R-CNNは1段階方式へ転換」を誤りと見抜けなかった（2日続けて）</td></tr>
+<tr><td>YOLO／SSD</td><td><span class="tag isa">is-a</span></td><td>1段階方式</td><td>6.1</td><td>—</td></tr>
+<tr><td>Fast R-CNN</td><td><span class="tag solve">解決</span></td><td>R-CNNの遅さ（候補領域ごとにCNNの計算をやり直す）</td><td>6.1</td><td class="miss">「R-CNNは遅い」を×と判断した（2日続けて）</td></tr>
+<tr><td>Faster R-CNN</td><td><span class="tag solve">解決</span></td><td>候補領域の抽出もNNに組み込んで高速化</td><td>6.1</td><td>高速化しても2段階のまま、という点が抜けていた</td></tr>
+<tr><td>Mask R-CNN</td><td>拡張</td><td>Faster R-CNN → インスタンスセグメンテーション</td><td>6.2</td><td>—</td></tr>
+</table>
+
+<h2>3. 選択肢の読み方</h2>
+<table>
+<tr><th>誤りの選択肢の作り方（関係のすり替え）</th><th>今回の例</th><th>チェックする問い</th></tr>
+<tr><td>is-a のすり替え</td><td>Faster R-CNN を1段階方式にする</td><td>この用語は、どの分類（方式・学習形式など）の一種か？</td></tr>
+<tr><td>対比ペアの入れ替え</td><td>（う）（え）の入れ替え、BERTとGPTの逆転</td><td>このペアは、どの軸で対になっているか？</td></tr>
+<tr><td>批判の向きの反転</td><td>中国語の部屋が「理解が伴うことを証明する」</td><td>誰が、何に反論したのか？</td></tr>
+<tr><td>時期のずらし</td><td>積層事前学習が「現在でも必須」</td><td>いつの話か？ 後に何が置き換えたか？</td></tr>
+<tr><td>part-of の取り違え</td><td>サポートベクターを「最も離れた点」とする</td><td>その要素は全体のどこにあるか？</td></tr>
+</table>
+</main>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "default", flowchart: { htmlLabels: true, curve: "basis" } });
+</script>
+</body>
+</html>
