@@ -22,9 +22,17 @@ test.describe("模擬試験のゴールデンパス", () => {
     await expect(page.getByText("教材ベース配分")).toBeVisible();
     await expect(page.locator('[class*="summaryValue"]').first()).toHaveText(/\d+ \/ 20/);
 
-    // 誤答・未回答が復習対象として記録される
     const summary = await page.locator('[class*="summaryValue"]').first().innerText();
     const wrongCount = 20 - Number(summary.split("/")[0]!.trim());
+
+    // 問題ごとに全選択肢（各4つ）と選択肢ごとの説明を表示し、正解に印を付ける
+    await expect(page.locator('li[class*="choiceItem"]')).toHaveCount(80);
+    await expect(page.locator('li[class*="choiceCorrect"]')).toHaveCount(20);
+    await expect(page.locator('[class*="choiceExplanation"]')).toHaveCount(80);
+    // 不正解・未回答の問題は最初から開き、正解の問題は折りたたむ
+    await expect(page.locator("details[open]")).toHaveCount(wrongCount);
+
+    // 誤答・未回答が復習対象として記録される
     await expect(
       page.getByText(/問を「復習」の模試の誤答・ブックマークに追加しました/),
     ).toBeVisible();

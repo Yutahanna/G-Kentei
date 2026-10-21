@@ -1,9 +1,11 @@
 import { create } from "zustand";
+import type { ChoiceOrderMap } from "../lib/choiceOrder";
 
 /**
  * 模擬試験の実行中状態。ドリルと異なり、正誤はその場で表示せず、
  * 全問題を対象に「回答（選択肢インデックス）」と「後で確認フラグ」だけを保持する。
  * 採点は結果画面でshared/lib/examScoring.tsを使って行う。
+ * 選択肢の表示順も保持し、結果画面で受験中と同じ並びを再現する。
  */
 
 export interface ExamAnswerState {
@@ -14,11 +16,16 @@ export interface ExamAnswerState {
 interface ExamSessionState {
   questionIds: string[];
   answers: Record<string, ExamAnswerState>;
+  choiceOrderMap: ChoiceOrderMap;
   currentIndex: number;
   timeLimitMinutes: number;
   startedAt: string | null;
   isSubmitted: boolean;
-  startSession: (questionIds: string[], timeLimitMinutes: number) => void;
+  startSession: (
+    questionIds: string[],
+    timeLimitMinutes: number,
+    choiceOrderMap?: ChoiceOrderMap,
+  ) => void;
   selectAnswer: (questionId: string, index: number) => void;
   toggleFlag: (questionId: string) => void;
   goTo: (index: number) => void;
@@ -33,14 +40,16 @@ function emptyAnswers(questionIds: string[]): Record<string, ExamAnswerState> {
 export const useExamSessionStore = create<ExamSessionState>((set) => ({
   questionIds: [],
   answers: {},
+  choiceOrderMap: {},
   currentIndex: 0,
   timeLimitMinutes: 0,
   startedAt: null,
   isSubmitted: false,
-  startSession: (questionIds, timeLimitMinutes) =>
+  startSession: (questionIds, timeLimitMinutes, choiceOrderMap = {}) =>
     set({
       questionIds,
       answers: emptyAnswers(questionIds),
+      choiceOrderMap,
       currentIndex: 0,
       timeLimitMinutes,
       startedAt: new Date().toISOString(),
@@ -73,6 +82,7 @@ export const useExamSessionStore = create<ExamSessionState>((set) => ({
     set({
       questionIds: [],
       answers: {},
+      choiceOrderMap: {},
       currentIndex: 0,
       timeLimitMinutes: 0,
       startedAt: null,
