@@ -56,9 +56,10 @@ describe("review（復習対象の選定ロジック）", () => {
   });
 
   describe("模試の誤答・ブックマーク復習", () => {
-    const t = (n: number) => `2026-10-19T00:0${n}:00.000Z`;
+    // n日後の正午（UTC）。タイムゾーンに関係なく別の日付になるよう12時を基準にする。
+    const t = (n: number) => new Date(Date.UTC(2026, 9, 19 + n, 12)).toISOString();
 
-    it("模試で誤答した問題は、その後2回続けて正解するまで対象に残る", () => {
+    it("模試で誤答した問題は、その後別々の2日で続けて正解するまで対象に残る", () => {
       const wrong = {
         answeredAt: t(0),
         result: "incorrect",
@@ -75,6 +76,25 @@ describe("review（復習対象の選定ロジック）", () => {
       expect(needsMockReview(withHistory("q", [wrong, ok(1), ok(2)]))).toBe(false);
       expect(needsMockReview(withHistory("q", [wrong, ok(1), ng(2), ok(3)]))).toBe(true);
       expect(needsMockReview(withHistory("q", [wrong, ok(1), ng(2), ok(3), ok(4)]))).toBe(false);
+    });
+
+    it("同じ日に何回正解しても1日と数え、対象から外さない", () => {
+      const wrong = {
+        answeredAt: t(0),
+        result: "incorrect",
+        selectedIndex: 1,
+        source: "mock_exam",
+      } as const;
+      const okAt = (answeredAt: string) =>
+        ({ answeredAt, result: "correct", selectedIndex: 0, source: "review" }) as const;
+      const day1 = (minute: number) => new Date(Date.UTC(2026, 9, 20, 12, minute)).toISOString();
+
+      expect(
+        needsMockReview(withHistory("q", [wrong, okAt(day1(0)), okAt(day1(5)), okAt(day1(10))])),
+      ).toBe(true);
+      expect(
+        needsMockReview(withHistory("q", [wrong, okAt(day1(0)), okAt(day1(5)), okAt(t(2))])),
+      ).toBe(false);
     });
 
     it("ドリルだけの誤答や、記録元の無い古い履歴は対象にしない", () => {

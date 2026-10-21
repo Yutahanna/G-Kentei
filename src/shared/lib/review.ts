@@ -27,11 +27,20 @@ export function selectBookmarkedQuestionIds(allProgress: QuestionProgress[]): st
   return allProgress.filter((p) => p.bookmarked).map((p) => p.questionId);
 }
 
-/** 模試で誤答した問題は、その後この回数だけ続けて正解すると復習対象から外れる。 */
+/**
+ * 模試で誤答した問題は、その後この日数ぶん続けて正解すると復習対象から外れる。
+ * 同じ日の正解は何回でも1回と数える（直前に見た答えの記憶だけで外れないようにする）。
+ */
 export const MOCK_REVIEW_GRADUATION_STREAK = 2;
 
+/** 端末のローカル時刻での日付キー（YYYY-M-D）。 */
+function localDateKey(iso: string): string {
+  const d = new Date(iso);
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+}
+
 /**
- * 模試で誤答し、その後まだMOCK_REVIEW_GRADUATION_STREAK回続けて正解していない問題か。
+ * 模試で誤答し、その後まだMOCK_REVIEW_GRADUATION_STREAK日ぶん続けて正解していない問題か。
  * 模試の未回答も誤答として扱う（ExamResultPageでincorrectとして記録する）。
  */
 export function needsMockReview(progress: QuestionProgress): boolean {
@@ -39,12 +48,13 @@ export function needsMockReview(progress: QuestionProgress): boolean {
     (h) => h.source === "mock_exam" && h.result === "incorrect",
   );
   if (lastMockWrong === -1) return false;
-  let streak = 0;
+  const correctDays = new Set<string>();
   for (let i = progress.history.length - 1; i > lastMockWrong; i--) {
-    if (progress.history[i]!.result !== "correct") break;
-    streak++;
+    const entry = progress.history[i]!;
+    if (entry.result !== "correct") break;
+    correctDays.add(localDateKey(entry.answeredAt));
   }
-  return streak < MOCK_REVIEW_GRADUATION_STREAK;
+  return correctDays.size < MOCK_REVIEW_GRADUATION_STREAK;
 }
 
 /** 復習の主対象：模試の誤答（未卒業）とブックマークした問題。 */
