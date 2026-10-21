@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import Card from "../../shared/ui/Card";
 import { getAvailableChapterIds } from "../../shared/lib/content-loader";
-import { getQuestionsByChapter } from "../../shared/lib/question-loader";
+import { getQuestionById, getQuestionsByChapter } from "../../shared/lib/question-loader";
+import { buildChoiceOrderMap } from "../../shared/lib/choiceOrder";
 import { selectExamQuestionIds } from "../../shared/lib/examComposition";
 import { EXAM_COMPOSITION_CONFIG } from "../../shared/config/examComposition";
 import { listAllStudySessionLogs } from "../../shared/lib/db";
@@ -62,7 +63,11 @@ export default function ExamSetupPage() {
       Math.random,
       seenQuestionIds,
     );
-    startSession(ids, timeLimitMinutes);
+    // 選択肢の表示順は開始時に1回だけ決め、受験中と結果画面で同じ並びを使う。
+    const questions = ids
+      .map((id) => getQuestionById(id))
+      .filter((q): q is NonNullable<typeof q> => q !== undefined);
+    startSession(ids, timeLimitMinutes, buildChoiceOrderMap(questions));
     void navigate("/exam/play");
   }
 

@@ -11,6 +11,7 @@ import {
 import { applyAnswer } from "../../shared/lib/srs";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import { scoreExam } from "../../shared/lib/examScoring";
+import { getChoiceOrder } from "../../shared/lib/choiceOrder";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import styles from "./ExamResultPage.module.css";
 import AsOfDateNote from "../../shared/ui/AsOfDateNote";
@@ -40,6 +41,7 @@ function BookmarkButton({ questionId, disabled }: { questionId: string; disabled
 export default function ExamResultPage() {
   const questionIds = useExamSessionStore((s) => s.questionIds);
   const answers = useExamSessionStore((s) => s.answers);
+  const choiceOrderMap = useExamSessionStore((s) => s.choiceOrderMap);
   const isSubmitted = useExamSessionStore((s) => s.isSubmitted);
   const resetSession = useExamSessionStore((s) => s.resetSession);
   const hasSaved = useRef(false);
@@ -201,17 +203,43 @@ export default function ExamResultPage() {
               <BookmarkButton questionId={r.questionId} disabled={!progressSaved} />
 
               {question && (
-                <div className={styles.explanationBlock}>
-                  {!r.correct && (
+                // 不正解・未回答は最初から開き、正解した問題は折りたたんでおく。
+                <details className={styles.details} open={!r.correct}>
+                  <summary className={styles.detailsSummary}>選択肢と解説</summary>
+                  {r.selectedIndex === null && (
                     <p className={styles.answerLine}>
-                      <strong>あなたの回答：</strong>
-                      {r.selectedIndex === null ? "未回答" : question.choices[r.selectedIndex]}
+                      <strong>あなたの回答：</strong>未回答
                     </p>
                   )}
-                  <p className={styles.answerLine}>
-                    <strong>正解：</strong>
-                    {question.choices[question.correctAnswer]}
-                  </p>
+                  <ul className={styles.choiceList}>
+                    {getChoiceOrder(choiceOrderMap, question).map((originalIndex, displayIndex) => {
+                      const isCorrectChoice = originalIndex === question.correctAnswer;
+                      const isSelected = r.selectedIndex === originalIndex;
+                      let className = styles.choiceItem;
+                      if (isCorrectChoice) className += ` ${styles.choiceCorrect}`;
+                      if (isSelected && !isCorrectChoice)
+                        className += ` ${styles.choiceIncorrectSelected}`;
+                      return (
+                        <li key={originalIndex} className={className}>
+                          <div className={styles.choiceLine}>
+                            <span className={styles.choiceKey}>{displayIndex + 1}</span>
+                            <span className={styles.choiceText}>
+                              {question.choices[originalIndex]}
+                            </span>
+                            {(isCorrectChoice || isSelected) && (
+                              <span className={styles.mark}>
+                                {isCorrectChoice ? "◯ 正解" : "✕"}
+                                {isSelected && "（あなたの回答）"}
+                              </span>
+                            )}
+                          </div>
+                          <p className={styles.choiceExplanation}>
+                            {question.choiceExplanations[originalIndex]}
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
                   <p>
                     <strong>解説</strong>
                   </p>
@@ -228,7 +256,7 @@ export default function ExamResultPage() {
                       </>
                     )}
                   </p>
-                </div>
+                </details>
               )}
             </li>
           );

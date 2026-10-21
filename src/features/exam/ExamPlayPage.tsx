@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
-import { buildChoiceOrderMap, getChoiceOrder } from "../../shared/lib/choiceOrder";
+import { getChoiceOrder } from "../../shared/lib/choiceOrder";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import styles from "./ExamPlayPage.module.css";
 
@@ -16,6 +16,9 @@ function formatRemaining(ms: number): string {
 export default function ExamPlayPage() {
   const navigate = useNavigate();
   const questionIds = useExamSessionStore((s) => s.questionIds);
+  // 選択肢の表示順はセッション開始時に1回だけ決めてストアに保持する（ExamSetupPage参照）。
+  // 前の問題へ戻ったときや結果画面で並びが変わると混乱するため、一貫させる。
+  const choiceOrderMap = useExamSessionStore((s) => s.choiceOrderMap);
   const answers = useExamSessionStore((s) => s.answers);
   const currentIndex = useExamSessionStore((s) => s.currentIndex);
   const timeLimitMinutes = useExamSessionStore((s) => s.timeLimitMinutes);
@@ -48,15 +51,6 @@ export default function ExamPlayPage() {
       void navigate("/exam/result", { replace: true });
     }
   }, [isSubmitted, navigate]);
-
-  // 選択肢の表示順はセッション開始時に1回だけ乱数で決め、以後は固定する。
-  // 前の問題へ戻ったときに並びが変わると混乱するため、試験中は一貫させる。
-  const choiceOrderMap = useMemo(() => {
-    const questions = questionIds
-      .map((id) => getQuestionById(id))
-      .filter((q): q is NonNullable<typeof q> => q !== undefined);
-    return buildChoiceOrderMap(questions);
-  }, [questionIds]);
 
   if (questionIds.length === 0) {
     return (
