@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
@@ -44,8 +44,10 @@ export default function ExamResultPage() {
   const choiceOrderMap = useExamSessionStore((s) => s.choiceOrderMap);
   const isSubmitted = useExamSessionStore((s) => s.isSubmitted);
   const resetSession = useExamSessionStore((s) => s.resetSession);
-  const hasSaved = useRef(false);
-  const [progressSaved, setProgressSaved] = useState(false);
+  const startedAt = useExamSessionStore((s) => s.startedAt);
+  const isRecorded = useExamSessionStore((s) => s.isRecorded);
+  const markRecorded = useExamSessionStore((s) => s.markRecorded);
+  const [progressSaved, setProgressSaved] = useState(isRecorded);
   const manifest = getManifest();
   const chapterTitles = Object.fromEntries(manifest.chapters.map((c) => [c.chapterId, c.title]));
 
@@ -60,12 +62,15 @@ export default function ExamResultPage() {
   const score = useMemo(() => scoreExam(questions, answerIndexMap), [questions, answerIndexMap]);
 
   useEffect(() => {
-    if (hasSaved.current || questionIds.length === 0 || !isSubmitted) return;
-    hasSaved.current = true;
+    // 結果画面を開き直しても(戻る操作など)同じ模試を二重に記録しない。
+    if (useExamSessionStore.getState().isRecorded || questionIds.length === 0 || !isSubmitted) {
+      return;
+    }
+    markRecorded();
     const now = new Date().toISOString();
     const chapterIds = Array.from(new Set(questions.map((q) => q.chapterId)));
     void saveStudySessionLog({
-      sessionId: `mock-exam-${Date.now()}`,
+      sessionId: `mock-exam-${startedAt ?? now}`,
       type: "mock_exam",
       startedAt: now,
       endedAt: now,
@@ -89,7 +94,7 @@ export default function ExamResultPage() {
       }
       setProgressSaved(true);
     })();
-  }, [questionIds, isSubmitted, questions, score]);
+  }, [questionIds, isSubmitted, questions, score, startedAt, markRecorded]);
 
   if (questionIds.length === 0 || !isSubmitted) {
     return (
