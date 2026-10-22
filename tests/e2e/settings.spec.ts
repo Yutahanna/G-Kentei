@@ -46,4 +46,11 @@ test.describe("データのエクスポート・インポート・初期化", ()
       page.getByText("ファイルの内容がバックアップデータの形式と一致しません"),
     ).toBeVisible();
   });
+
+  test("アプリのバージョン欄に問題数（合計と章別）が表示される", async ({ page }) => {
+    await page.goto("/settings");
+    await expect(
+      page.getByText(/^全360問（第1章 25・第2章 25・.*第9章 45・第10章 45）$/),
+    ).toBeVisible();
+  });
 });

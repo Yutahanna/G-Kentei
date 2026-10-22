@@ -3,6 +3,8 @@ import buttonStyles from "../../shared/ui/Button.module.css";
 import { useTheme } from "../../shared/hooks/useTheme";
 import { clearAllData, exportAllData, importAllData } from "../../shared/lib/db";
 import { BUILD_SHA, BUILD_TIME, formatBuildTime } from "../../shared/lib/buildInfo";
+import { getManifest } from "../../shared/lib/content-loader";
+import { getAllQuestions, getQuestionsByChapter } from "../../shared/lib/question-loader";
 import { exportedDataSchema } from "../../schemas/progress.schema";
 import type { ThemeSetting } from "../../entities/progress";
 import styles from "./SettingsPage.module.css";
@@ -13,8 +15,19 @@ const THEME_OPTIONS: { value: ThemeSetting; label: string }[] = [
   { value: "system", label: "端末の設定に合わせる" },
 ];
 
+/** 配信中の版に含まれる問題数。問題を追加した版に更新されたかを確かめる目安にする。 */
+function getQuestionPoolSummary(): { total: number; byChapter: string } {
+  const byChapter = getManifest()
+    .chapters.map(
+      (c) => `第${Number(c.chapterId.slice(2))}章 ${getQuestionsByChapter(c.chapterId).length}`,
+    )
+    .join("・");
+  return { total: getAllQuestions().length, byChapter };
+}
+
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
+  const questionPool = getQuestionPoolSummary();
   const [resetDone, setResetDone] = useState(false);
   const [importMessage, setImportMessage] = useState<{
     type: "success" | "error";
@@ -142,6 +155,10 @@ export default function SettingsPage() {
           <dd>{formatBuildTime(BUILD_TIME)}</dd>
           <dt>コミット</dt>
           <dd>{BUILD_SHA ? BUILD_SHA.slice(0, 7) : "不明"}</dd>
+          <dt>問題数</dt>
+          <dd>
+            全{questionPool.total}問（{questionPool.byChapter}）
+          </dd>
           <dt>表示中のURL</dt>
           <dd>{window.location.host}</dd>
         </dl>
