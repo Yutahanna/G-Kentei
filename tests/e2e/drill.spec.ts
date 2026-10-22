@@ -32,6 +32,20 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await expect(page.getByText("10 / 25", { exact: true })).toBeVisible();
   });
 
+  test("出題数は既定で10問になり、全問を選ぶと章の全問が出る", async ({ page }) => {
+    await page.goto("/drill");
+    await page.locator("select").first().selectOption("ch05");
+    await expect(page.getByText(/該当する問題: 55問（今回の出題: 10問）/)).toBeVisible();
+    await page.getByRole("button", { name: "ドリルを開始する" }).click();
+    await page.waitForURL("**/drill/ch05/play");
+    await expect(page.getByText(/問題 1 \/ 10/)).toBeVisible();
+
+    await page.goto("/drill");
+    await page.locator("select").first().selectOption("ch05");
+    await page.locator("#count-all").check();
+    await expect(page.getByText(/該当する問題: 55問（今回の出題: 55問）/)).toBeVisible();
+  });
+
   test("ブックマークした問題は復習メニューに現れ、復習セッションを完了できる", async ({ page }) => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch06");
