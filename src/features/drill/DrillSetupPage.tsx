@@ -3,6 +3,12 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getAvailableChapterIds, getChapter, getManifest } from "../../shared/lib/content-loader";
 import { filterQuestions } from "../../shared/lib/question-loader";
+import { listAllQuestionProgress } from "../../shared/lib/db";
+import {
+  DEFAULT_DRILL_COUNT,
+  DRILL_COUNT_OPTIONS,
+  selectDrillQuestionIds,
+} from "../../shared/lib/drillSelection";
 import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
 import type { Difficulty } from "../../entities/question";
 import styles from "./DrillSetupPage.module.css";
@@ -12,15 +18,6 @@ const DIFFICULTY_OPTIONS: { value: Difficulty; label: string }[] = [
   { value: "standard", label: "標準" },
   { value: "advanced", label: "応用" },
 ];
-
-function shuffle<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j]!, result[i]!];
-  }
-  return result;
-}
 
 export default function DrillSetupPage() {
   const navigate = useNavigate();
@@ -47,6 +44,8 @@ export default function DrillSetupPage() {
   ]);
   const [sectionId, setSectionId] = useState(initialSectionId);
   const [randomize, setRandomize] = useState(true);
+  // nullは全問
+  const [questionCount, setQuestionCount] = useState<number | null>(DEFAULT_DRILL_COUNT);
   const startSession = useDrillSessionStore((s) => s.startSession);
 
   useEffect(() => {
@@ -64,10 +63,11 @@ export default function DrillSetupPage() {
     );
   }
 
-  function handleStart() {
+  async function handleStart() {
     const ids = matchingQuestions.map((q) => q.id);
-    const ordered = randomize ? shuffle(ids) : ids;
-    startSession(chapterId, ordered);
+    const allProgress = await listAllQuestionProgress();
+    const progressById = new Map(allProgress.map((p) => [p.questionId, p]));
+    startSession(chapterId, selectDrillQuestionIds(ids, progressById, questionCount, randomize));
     void navigate(`/drill/${chapterId}/play`);
   }
 
@@ -118,6 +118,27 @@ export default function DrillSetupPage() {
         </fieldset>
 
         <fieldset className={styles.fieldset}>
+          <legend className={styles.legend}>出題数</legend>
+          <div className={styles.radioGroup}>
+            {[...DRILL_COUNT_OPTIONS, null].map((size) => (
+              <div key={size ?? "all"} className={styles.checkboxRow}>
+                <input
+                  type="radio"
+                  id={`count-${size ?? "all"}`}
+                  name="questionCount"
+                  checked={questionCount === size}
+                  onChange={() => setQuestionCount(size)}
+                />
+                <label htmlFor={`count-${size ?? "all"}`}>{size ? `${size}問` : "全問"}</label>
+              </div>
+            ))}
+          </div>
+          <p className={styles.hint}>
+            間違えた問題・まだ正解が安定していない問題・未回答の問題の順に優先して選びます。
+          </p>
+        </fieldset>
+
+        <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>出題順</legend>
           <div className={styles.checkboxRow}>
             <input
@@ -130,12 +151,18 @@ export default function DrillSetupPage() {
           </div>
         </fieldset>
 
-        <p className={styles.count}>該当する問題: {matchingQuestions.length}問</p>
+        <p className={styles.count}>
+          該当する問題: {matchingQuestions.length}問（今回の出題:{" "}
+          {questionCount === null
+            ? matchingQuestions.length
+            : Math.min(questionCount, matchingQuestions.length)}
+          問）
+        </p>
 
         <button
           type="button"
           className={buttonStyles.button}
-          onClick={handleStart}
+          onClick={() => void handleStart()}
           disabled={matchingQuestions.length === 0}
         >
           ドリルを開始する
