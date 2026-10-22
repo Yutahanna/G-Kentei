@@ -291,12 +291,15 @@ export function findAnswerPositionSkewWarning(questions: Question[]): string | n
  * 章の問題数が設計値（既定: 25問、基礎10/標準10/応用5）と一致しているかを確認する。
  * 弱点章の問題プール拡充（2026-10-19）で一部の章は25問を超えるため、章ごとの総数を
  * EXPECTED_TOTAL_BY_CHAPTERで上書きし、難易度は基礎:標準:応用=2:2:1の比率で求める。
+ * 第9・10章は、出題比重が増えているとされる法律・倫理分野として2026-10-22に拡充した。
  */
 export const EXPECTED_TOTAL_QUESTIONS = 25;
 export const EXPECTED_TOTAL_BY_CHAPTER: Record<string, number> = {
   ch03: 45,
   ch04: 45,
   ch05: 55,
+  ch09: 45,
+  ch10: 45,
 };
 export const EXPECTED_COUNT_BY_DIFFICULTY: Record<Question["difficulty"], number> = {
   basic: 10,
