@@ -62,3 +62,28 @@ test.describe("模擬試験のゴールデンパス", () => {
     await expect(page.getByText("問題 5 / 20")).toBeVisible();
   });
 });
+
+test("結果画面を開き直しても模試の結果を二重に記録しない", async ({ page }) => {
+  await page.goto("/exam");
+  await page.getByRole("button", { name: /模擬試験を開始する/ }).click();
+  await page.waitForURL("**/exam/play");
+  for (let i = 0; i < 20; i++) {
+    await page.locator('button[class*="choiceButton"]').first().click();
+    if (i < 19) await page.getByRole("button", { name: "次の問題へ" }).click();
+  }
+  await page.getByRole("button", { name: "提出する" }).click();
+  await page.waitForURL("**/exam/result");
+  await expect(
+    page.getByText(/問を「復習」の模試の誤答・ブックマークに追加しました/),
+  ).toBeVisible();
+
+  // 別の画面へ移動してから戻る（結果画面が再表示される）
+  await page.getByRole("link", { name: "復習" }).first().click();
+  await page.waitForURL("**/review");
+  await page.goBack();
+  await page.waitForURL("**/exam/result");
+  await expect(page.locator("h1")).toContainText("模擬試験の結果");
+
+  await page.goto("/exam");
+  await expect(page.locator('[class*="historyList"] > li')).toHaveCount(1);
+});

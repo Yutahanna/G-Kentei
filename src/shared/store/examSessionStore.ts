@@ -21,6 +21,8 @@ interface ExamSessionState {
   timeLimitMinutes: number;
   startedAt: string | null;
   isSubmitted: boolean;
+  /** 結果を学習履歴に記録済みか。結果画面を開き直しても二重に記録しないためのフラグ。 */
+  isRecorded: boolean;
   startSession: (
     questionIds: string[],
     timeLimitMinutes: number,
@@ -30,6 +32,7 @@ interface ExamSessionState {
   toggleFlag: (questionId: string) => void;
   goTo: (index: number) => void;
   submit: () => void;
+  markRecorded: () => void;
   resetSession: () => void;
 }
 
@@ -45,6 +48,7 @@ export const useExamSessionStore = create<ExamSessionState>((set) => ({
   timeLimitMinutes: 0,
   startedAt: null,
   isSubmitted: false,
+  isRecorded: false,
   startSession: (questionIds, timeLimitMinutes, choiceOrderMap = {}) =>
     set({
       questionIds,
@@ -54,6 +58,7 @@ export const useExamSessionStore = create<ExamSessionState>((set) => ({
       timeLimitMinutes,
       startedAt: new Date().toISOString(),
       isSubmitted: false,
+      isRecorded: false,
     }),
   selectAnswer: (questionId, index) =>
     set((state) => ({
@@ -78,6 +83,7 @@ export const useExamSessionStore = create<ExamSessionState>((set) => ({
     })),
   goTo: (index) => set({ currentIndex: index }),
   submit: () => set({ isSubmitted: true }),
+  markRecorded: () => set({ isRecorded: true }),
   resetSession: () =>
     set({
       questionIds: [],
@@ -87,5 +93,6 @@ export const useExamSessionStore = create<ExamSessionState>((set) => ({
       timeLimitMinutes: 0,
       startedAt: null,
       isSubmitted: false,
+      isRecorded: false,
     }),
 }));
