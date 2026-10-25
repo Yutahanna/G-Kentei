@@ -1,6 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("模擬試験のゴールデンパス", () => {
+  test("本試験と同じ145問・100分を選んで開始できる", async ({ page }) => {
+    await page.goto("/exam");
+    await page.getByText("145問（100分・本試験と同じ）").click();
+    await page.getByRole("button", { name: "模擬試験を開始する（145問・100分）" }).click();
+    await page.waitForURL("**/exam/play");
+    await expect(page.getByText(/1\s*\/\s*145/).first()).toBeVisible();
+  });
+
   test("20問の模擬試験を最後まで解いて結果画面を確認できる", async ({ page }) => {
     await page.goto("/exam");
     await expect(page.getByText("この配分は本試験の公式配点ではありません")).toBeVisible();

@@ -17,6 +17,7 @@ const PRESETS = [
   { questionCount: 20, timeLimitMinutes: 14, label: "20問（14分）" },
   { questionCount: 50, timeLimitMinutes: 34, label: "50問（34分）" },
   { questionCount: 90, timeLimitMinutes: 62, label: "90問（62分）" },
+  { questionCount: 145, timeLimitMinutes: 100, label: "145問（100分・本試験と同じ）" },
 ];
 
 export default function ExamSetupPage() {

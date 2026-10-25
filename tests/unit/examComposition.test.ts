@@ -30,6 +30,27 @@ describe("examComposition（模擬試験の出題配分）", () => {
     }
   });
 
+  it("現在の問題数（第3〜5・9・10章が45〜55問）で、本試験と同じ145問を章の保有数内で配分できる", () => {
+    const availableByChapter: Record<string, number> = {
+      ch01: 25,
+      ch02: 25,
+      ch03: 45,
+      ch04: 45,
+      ch05: 55,
+      ch06: 25,
+      ch07: 25,
+      ch08: 25,
+      ch09: 45,
+      ch10: 45,
+    };
+    const counts = allocateExamQuestionCounts(145, EXAM_COMPOSITION_CONFIG, availableByChapter);
+    expect(Object.values(counts).reduce((a, b) => a + b, 0)).toBe(145);
+    for (const [chapterId, count] of Object.entries(counts)) {
+      expect(count).toBeGreaterThan(0);
+      expect(count).toBeLessThanOrEqual(availableByChapter[chapterId]!);
+    }
+  });
+
   it("均等な重みでは、章ごとの配分がほぼ均等になる", () => {
     const config: ExamCompositionConfig = {
       version: "test",
