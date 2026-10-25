@@ -406,6 +406,52 @@ export function findChoiceLengthImbalances(questions: Question[]): ChoiceLengthI
   return results;
 }
 
+/**
+ * 章全体で「正答が一番長い選択肢」になっている問題の割合を求める。
+ * 1問ずつの比率(findChoiceLengthImbalances)では目立たない「正答が少しだけ長い」問題が
+ * 積み重なると、全体では「最も長い選択肢を選べば当たる」手がかりになる
+ * (2026-10-25の点検で、肯定形の通常問題の83%で正答が単独最長だった)。
+ * 否定形は正答が「誤った記述」側であり、穴埋めは語句の組み合わせで長さが揃うため、
+ * 肯定形の通常問題だけを対象にする。偶然なら約25%になる。
+ */
+export const CORRECT_LONGEST_RATE_LIMIT = 0.4;
+
+export interface CorrectLongestRate {
+  total: number;
+  correctLongest: number;
+  rate: number;
+}
+
+export function computeCorrectLongestRate(questions: Question[]): CorrectLongestRate {
+  const targets = questions.filter(
+    (q) =>
+      (q.questionStyle ?? "standard") === "standard" &&
+      (q.questionForm ?? "affirmative") === "affirmative",
+  );
+  const correctLongest = targets.filter((q) => {
+    const correctLength = q.choices[q.correctAnswer]?.length ?? 0;
+    return q.choices.every((c, i) => i === q.correctAnswer || c.length < correctLength);
+  }).length;
+  return {
+    total: targets.length,
+    correctLongest,
+    rate: targets.length === 0 ? 0 : correctLongest / targets.length,
+  };
+}
+
+/**
+ * 選択肢の文末に「〜とする説明である。」のような、選択肢を説明として言い直す表現が
+ * 付いていないかを確認する。2026-10-25の点検で誤答だけに47か所付いており(正答には0か所)、
+ * 文末だけで誤答を見分けられる手がかりになっていた。
+ */
+const META_DESCRIPTION_ENDING = /とする説明である。?$/;
+
+export function findMetaDescriptionChoices(questions: Question[]): string[] {
+  return questions
+    .filter((q) => q.choices.some((c) => META_DESCRIPTION_ENDING.test(c)))
+    .map((q) => q.id);
+}
+
 /** 応用問題に事例適用型（skillTagsに「適用判断」を含む）問題が最低1問含まれるかを確認する。 */
 export function hasCaseApplicationInAdvanced(questions: Question[]): boolean {
   const advanced = questions.filter((q) => q.difficulty === "advanced");
