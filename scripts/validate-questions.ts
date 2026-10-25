@@ -20,7 +20,9 @@ import {
   EXPECTED_TOTAL_BY_CHAPTER,
   EXPECTED_TOTAL_QUESTIONS,
   computeAnswerPositionDistribution,
+  computeCorrectLongestRate,
   computeNearConceptRate,
+  CORRECT_LONGEST_RATE_LIMIT,
   computeQuestionFormDistribution,
   computeQuestionStyleDistribution,
   computeSectionDistribution,
@@ -30,6 +32,7 @@ import {
   findChoiceLengthImbalances,
   findContentTagOverlaps,
   findExtremePhraseUsages,
+  findMetaDescriptionChoices,
   findSimilarPairs,
   hasCaseApplicationInAdvanced,
   NEAR_CONCEPT_MIN_HITS,
@@ -232,6 +235,22 @@ function main(): void {
     for (const imbalance of findChoiceLengthImbalances(chapterQuestions)) {
       warn(
         `[${chapterId}] [${imbalance.questionId}]: 正答の文字数(${imbalance.correctLength})が最長の誤答(${imbalance.longestWrongLength})の${imbalance.ratio.toFixed(1)}倍あり、正答だけが極端に長い可能性があります。`,
+      );
+    }
+
+    const longestRate = computeCorrectLongestRate(chapterQuestions);
+    console.log(
+      `[${chapterId}] 正答が最長の選択肢になっている割合（肯定形の通常問題）: ${(longestRate.rate * 100).toFixed(0)}%（${longestRate.correctLongest}/${longestRate.total}）`,
+    );
+    if (longestRate.rate > CORRECT_LONGEST_RATE_LIMIT) {
+      error(
+        `[${chapterId}]: 肯定形の通常問題のうち、正答が最も長い選択肢になっている問題が${(longestRate.rate * 100).toFixed(0)}%（${longestRate.correctLongest}/${longestRate.total}問）あり、上限${CORRECT_LONGEST_RATE_LIMIT * 100}%を超えています。「最も長い選択肢を選べば当たる」手がかりにならないよう、選択肢の長さをそろえてください。`,
+      );
+    }
+
+    for (const questionId of findMetaDescriptionChoices(chapterQuestions)) {
+      error(
+        `[${chapterId}] [${questionId}]: 選択肢の文末が「〜とする説明である。」になっています。誤答だけに付くと文末で見分けられてしまうため、他の選択肢と同じ文体で書いてください。`,
       );
     }
 

@@ -5,6 +5,7 @@ import {
   checkQuestionCountsAgainstDesign,
   findChoicePositionReferences,
   computeAnswerPositionDistribution,
+  computeCorrectLongestRate,
   computeNearConceptRate,
   computeQuestionStemFormatCounts,
   computeSectionDistribution,
@@ -13,6 +14,7 @@ import {
   findChoiceLengthImbalances,
   findContentTagOverlaps,
   findExtremePhraseUsages,
+  findMetaDescriptionChoices,
   findSimilarPairs,
   hasCaseApplicationInAdvanced,
   jaccardSimilarity,
@@ -329,6 +331,56 @@ describe("findChoiceLengthImbalances", () => {
       ],
     });
     expect(findChoiceLengthImbalances([q])).toHaveLength(0);
+  });
+});
+
+describe("computeCorrectLongestRate", () => {
+  it("肯定形の通常問題のうち、正答が単独で最も長い問題の割合を求める", () => {
+    const longest = makeQuestion({
+      id: "q1",
+      correctAnswer: 0,
+      choices: ["正答がいちばん長い選択肢です", "誤答B", "誤答C", "誤答D"],
+    });
+    const notLongest = makeQuestion({
+      id: "q2",
+      correctAnswer: 1,
+      choices: ["誤答だけが長くなっている選択肢です", "正答", "誤答C", "誤答D"],
+    });
+    const tie = makeQuestion({
+      id: "q3",
+      correctAnswer: 0,
+      choices: ["同じ長さA", "同じ長さB", "誤答C", "誤答D"],
+    });
+    expect(computeCorrectLongestRate([longest, notLongest, tie])).toEqual({
+      total: 3,
+      correctLongest: 1,
+      rate: 1 / 3,
+    });
+  });
+
+  it("否定形と穴埋めの問題は対象外とする", () => {
+    const negative = makeQuestion({
+      id: "q1",
+      questionForm: "negative",
+      choices: ["正答がいちばん長い選択肢です", "誤答B", "誤答C", "誤答D"],
+    });
+    const fill = makeQuestion({
+      id: "q2",
+      questionStyle: "fill_in_blank",
+      choices: ["正答がいちばん長い選択肢です", "誤答B", "誤答C", "誤答D"],
+    });
+    expect(computeCorrectLongestRate([negative, fill]).total).toBe(0);
+  });
+});
+
+describe("findMetaDescriptionChoices", () => {
+  it("文末が「〜とする説明である。」の選択肢を含む問題を検出する", () => {
+    const flagged = makeQuestion({
+      id: "q1",
+      choices: ["正答。", "AはBであるとする説明である。", "誤答C", "誤答D"],
+    });
+    const clean = makeQuestion({ id: "q2" });
+    expect(findMetaDescriptionChoices([flagged, clean])).toEqual(["q1"]);
   });
 });
 
