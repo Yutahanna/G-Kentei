@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
@@ -20,11 +20,12 @@ export default function ReviewResultPage() {
   const answers = useReviewSessionStore((s) => s.answers);
   const sessionType = useReviewSessionStore((s) => s.sessionType);
   const resetSession = useReviewSessionStore((s) => s.resetSession);
-  const hasSaved = useRef(false);
+  const isRecorded = useReviewSessionStore((s) => s.isRecorded);
+  const markRecorded = useReviewSessionStore((s) => s.markRecorded);
 
   useEffect(() => {
-    if (hasSaved.current || answers.length === 0 || sessionType === null) return;
-    hasSaved.current = true;
+    if (isRecorded || answers.length === 0 || sessionType === null) return;
+    markRecorded();
     const now = new Date().toISOString();
     const chapterIds = Array.from(
       new Set(
@@ -45,7 +46,7 @@ export default function ReviewResultPage() {
         total: answers.length,
       },
     });
-  }, [answers, sessionType]);
+  }, [answers, sessionType, isRecorded, markRecorded]);
 
   if (answers.length === 0 || sessionType === null) {
     return (

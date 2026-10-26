@@ -65,4 +65,35 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.waitForURL("**/review/result");
     await expect(page.locator("h1")).toContainText("模試の誤答・ブックマーク復習の結果");
   });
+
+  test("ドリルの途中でページを読み込み直しても、同じ問題・同じ選択肢の並びから再開できる", async ({
+    page,
+  }) => {
+    await page.goto("/drill");
+    await page.locator("select").first().selectOption("ch09");
+    await page.locator("#count-20").check();
+    await page.getByRole("button", { name: "ドリルを開始する" }).click();
+    await page.waitForURL("**/drill/ch09/play");
+
+    for (let i = 0; i < 3; i++) {
+      await page.locator('button[class*="choiceButton"]').first().click();
+      await page.getByRole("button", { name: /次の問題へ/ }).click();
+    }
+    await expect(page.getByText(/問題 4 \/ 20/)).toBeVisible();
+    const heading = await page.locator("h1").first().innerText();
+    const choices = await page.locator('button[class*="choiceButton"]').allInnerTexts();
+
+    await page.reload();
+
+    await expect(page.getByText(/問題 4 \/ 20/)).toBeVisible();
+    await expect(page.locator("h1").first()).toHaveText(heading);
+    expect(await page.locator('button[class*="choiceButton"]').allInnerTexts()).toEqual(choices);
+
+    // 回答直後に読み込み直しても、正誤表示と選んだ選択肢が残る
+    await page.locator('button[class*="choiceButton"]').first().click();
+    await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
+    await page.reload();
+    await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
+    await expect(page.locator('button[aria-pressed="true"][class*="choiceButton"]')).toHaveCount(1);
+  });
 });

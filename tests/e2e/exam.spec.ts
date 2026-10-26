@@ -95,3 +95,38 @@ test("結果画面を開き直しても模試の結果を二重に記録しな�
   await page.goto("/exam");
   await expect(page.locator('[class*="historyList"] > li')).toHaveCount(1);
 });
+
+test("結果画面を読み込み直しても模試の結果を二重に記録しない", async ({ page }) => {
+  await page.goto("/exam");
+  await page.getByRole("button", { name: /模擬試験を開始する/ }).click();
+  await page.waitForURL("**/exam/play");
+  for (let i = 0; i < 20; i++) {
+    await page.locator('button[class*="choiceButton"]').first().click();
+    if (i < 19) await page.getByRole("button", { name: "次の問題へ" }).click();
+  }
+  await page.getByRole("button", { name: "提出する" }).click();
+  await page.waitForURL("**/exam/result");
+  await expect(page.locator("h1")).toContainText("模擬試験の結果");
+
+  await page.reload();
+  await expect(page.locator("h1")).toContainText("模擬試験の結果");
+
+  await page.goto("/exam");
+  await expect(page.locator('[class*="historyList"] > li')).toHaveCount(1);
+});
+
+test("模擬試験の途中でページを読み込み直しても、回答と残り時間を保ったまま再開できる", async ({
+  page,
+}) => {
+  await page.goto("/exam");
+  await page.getByRole("button", { name: /模擬試験を開始する/ }).click();
+  await page.waitForURL("**/exam/play");
+  await page.locator('button[class*="choiceButton"]').first().click();
+  await page.getByRole("button", { name: "次の問題へ" }).click();
+  await expect(page.getByText(/問題 2 \/ 20（回答済み 1問）/)).toBeVisible();
+
+  await page.reload();
+
+  await expect(page.getByText(/問題 2 \/ 20（回答済み 1問）/)).toBeVisible();
+  await expect(page.getByText(/残り時間/)).toBeVisible();
+});

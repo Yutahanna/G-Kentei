@@ -4,6 +4,7 @@ import Card from "../../shared/ui/Card";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getManifest } from "../../shared/lib/content-loader";
 import { getQuestionById } from "../../shared/lib/question-loader";
+import { buildChoiceOrderMap } from "../../shared/lib/choiceOrder";
 import { getReviewBuckets, type ReviewBuckets } from "../../shared/lib/review";
 import {
   useReviewSessionStore,
@@ -83,7 +84,12 @@ export default function ReviewSetupPage() {
   }, [buckets, chapterFilter]);
 
   function handleStart(type: ReviewSessionType, ids: string[], limit?: number) {
-    startSession(type, shuffle(ids).slice(0, limit));
+    const selectedIds = shuffle(ids).slice(0, limit);
+    // 選択肢の表示順は開始時に1回だけ決め、読み込み直しても同じ並びを使う。
+    const questions = selectedIds
+      .map((id) => getQuestionById(id))
+      .filter((q): q is NonNullable<typeof q> => q !== undefined);
+    startSession(type, selectedIds, buildChoiceOrderMap(questions));
     void navigate("/review/play");
   }
 

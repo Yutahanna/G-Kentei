@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
@@ -6,7 +6,7 @@ import { getChapter, getSection } from "../../shared/lib/content-loader";
 import { getQuestionProgress, saveQuestionProgress } from "../../shared/lib/db";
 import { applyAnswer } from "../../shared/lib/srs";
 import { scoreAnswer } from "../../shared/lib/scoring";
-import { buildChoiceOrderMap, getChoiceOrder } from "../../shared/lib/choiceOrder";
+import { getChoiceOrder } from "../../shared/lib/choiceOrder";
 import { useReviewSessionStore } from "../../shared/store/reviewSessionStore";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import styles from "../drill/DrillPlayPage.module.css";
@@ -29,7 +29,8 @@ export default function ReviewPlayPage() {
   const goToNext = useReviewSessionStore((s) => s.goToNext);
   const lastFeedback = useReviewSessionStore((s) => s.lastFeedback);
 
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const choiceOrderMap = useReviewSessionStore((s) => s.choiceOrderMap);
+  const [pendingIndex, setPendingIndex] = useState<number | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
   const questionId = questionIds[currentIndex];
@@ -37,20 +38,14 @@ export default function ReviewPlayPage() {
   const chapter = question ? getChapter(question.chapterId) : undefined;
   const section = question ? getSection(question.chapterId, question.sectionId) : undefined;
   const answered = lastFeedback !== null && lastFeedback.questionId === questionId;
+  // 読み込み直した直後でも選んだ選択肢を示せるよう、回答済みなら保存した回答を使う。
+  const selectedIndex = answered ? lastFeedback.selectedIndex : pendingIndex;
   const { progress, reload, toggleBookmark } = useQuestionProgress(questionId);
 
-  // 選択肢の表示順はセッション開始時に1回だけ乱数で決め、以後は固定する。
-  // 位置（1〜4番目）だけを覚えて正答できてしまうことを防ぐため。
-  const choiceOrderMap = useMemo(() => {
-    const questions = questionIds
-      .map((id) => getQuestionById(id))
-      .filter((q): q is NonNullable<typeof q> => q !== undefined);
-    return buildChoiceOrderMap(questions);
-  }, [questionIds]);
   const choiceOrder = question ? getChoiceOrder(choiceOrderMap, question) : [];
 
   useEffect(() => {
-    setSelectedIndex(null);
+    setPendingIndex(null);
   }, [questionId]);
 
   useEffect(() => {
@@ -90,7 +85,7 @@ export default function ReviewPlayPage() {
 
   async function handleSelect(index: number) {
     if (answered || isSaving || !question) return;
-    setSelectedIndex(index);
+    setPendingIndex(index);
     setIsSaving(true);
     const result = scoreAnswer(question, index);
     submitAnswer({ questionId: question.id, selectedIndex: index, correct: result.correct });
