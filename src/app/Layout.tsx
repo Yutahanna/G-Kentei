@@ -4,6 +4,7 @@ import buttonStyles from "../shared/ui/Button.module.css";
 import { useTheme } from "../shared/hooks/useTheme";
 import { getProductionHostForPinnedDeployment } from "../shared/lib/buildInfo";
 import { useUpdateStatus } from "../shared/hooks/useUpdateStatus";
+import { applyUpdate } from "../shared/lib/registerServiceWorker";
 
 const NAV_ITEMS = [
   { to: "/", label: "ホーム", end: true },
@@ -52,12 +53,14 @@ export default function Layout() {
       {(updateStatus === "update-available" || updateStatus === "auth-expired") && (
         <div role="alert" className={styles.noticeBanner}>
           {updateStatus === "update-available"
-            ? "新しい版（教材・問題の修正）が配信されています。"
+            ? "新しい版（教材・問題の修正）が配信されています。解いている途中のドリルや模試は、再読み込みしても続きから再開できます。"
             : "ログインの有効期限が切れているため、最新版を確認できません。再読み込みしてログインしてください。"}{" "}
           <button
             type="button"
             className={buttonStyles.button}
-            onClick={() => window.location.reload()}
+            onClick={() =>
+              void (updateStatus === "update-available" ? applyUpdate() : window.location.reload())
+            }
           >
             再読み込みする
           </button>

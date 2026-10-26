@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getAvailableChapterIds, getChapter, getManifest } from "../../shared/lib/content-loader";
-import { filterQuestions } from "../../shared/lib/question-loader";
+import { filterQuestions, getQuestionById } from "../../shared/lib/question-loader";
+import { buildChoiceOrderMap } from "../../shared/lib/choiceOrder";
 import { listAllQuestionProgress } from "../../shared/lib/db";
 import {
   DEFAULT_DRILL_COUNT,
@@ -67,7 +68,13 @@ export default function DrillSetupPage() {
     const ids = matchingQuestions.map((q) => q.id);
     const allProgress = await listAllQuestionProgress();
     const progressById = new Map(allProgress.map((p) => [p.questionId, p]));
-    startSession(chapterId, selectDrillQuestionIds(ids, progressById, questionCount, randomize));
+    const selectedIds = selectDrillQuestionIds(ids, progressById, questionCount, randomize);
+    // 選択肢の表示順は開始時に1回だけ決め、読み込み直しても同じ並びを使う。
+    // 位置（1〜4番目）だけを覚えて正答できてしまうことを防ぐため。
+    const questions = selectedIds
+      .map((id) => getQuestionById(id))
+      .filter((q): q is NonNullable<typeof q> => q !== undefined);
+    startSession(chapterId, selectedIds, buildChoiceOrderMap(questions));
     void navigate(`/drill/${chapterId}/play`);
   }
 

@@ -42,13 +42,14 @@ export default defineConfig({
     react(),
     versionJsonPlugin(),
     VitePWA({
-      registerType: "autoUpdate",
+      // "prompt": 新しい版を見つけても自動では切り替えず、画面上部のお知らせから利用者が
+      // 再読み込みしたときに切り替える。"autoUpdate"だと、ドリルや模試の途中でも新しい版の
+      // 有効化と同時にページが自動で読み込み直されていた（2026-10-26）。
+      // 切り替えはsrc/shared/lib/registerServiceWorker.tsのapplyUpdate()が行う。
+      registerType: "prompt",
       // registerSW()をsrc/main.tsxからvirtual:pwa-register経由で呼ぶことで、
-      // vite-plugin-pwaが自動的にinjectRegisterを無効化し(素のnavigator.serviceWorker.register()の
-      // 自動注入を止める)、Workbox側のskipWaiting/clientsClaimも引き続き有効になる。
-      // injectRegisterをここで明示的にfalseにしないこと
-      // （falseはnull/autoと異なり、Workbox側のskipWaiting/clientsClaim自動設定を無効化してしまい、
-      // 新しいService Workerが`waiting`のまま有効化されなくなる）。
+      // vite-plugin-pwaが自動的にinjectRegisterを無効化する(素のnavigator.serviceWorker.register()の
+      // 自動注入を止める)。injectRegisterをここで明示的にfalseにしないこと。
       includeAssets: ["icon-192.png", "icon-512.png"],
       manifest: {
         name: "G検定 学習ドリル",

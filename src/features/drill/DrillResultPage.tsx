@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
@@ -14,11 +14,12 @@ export default function DrillResultPage() {
   const answers = useDrillSessionStore((s) => s.answers);
   const sessionChapterId = useDrillSessionStore((s) => s.chapterId);
   const resetSession = useDrillSessionStore((s) => s.resetSession);
-  const hasSaved = useRef(false);
+  const isRecorded = useDrillSessionStore((s) => s.isRecorded);
+  const markRecorded = useDrillSessionStore((s) => s.markRecorded);
 
   useEffect(() => {
-    if (hasSaved.current || answers.length === 0 || sessionChapterId !== chapterId) return;
-    hasSaved.current = true;
+    if (isRecorded || answers.length === 0 || sessionChapterId !== chapterId) return;
+    markRecorded();
     const now = new Date().toISOString();
     void saveStudySessionLog({
       sessionId: `drill-${Date.now()}`,
@@ -32,7 +33,7 @@ export default function DrillResultPage() {
         total: answers.length,
       },
     });
-  }, [answers, sessionChapterId, chapterId]);
+  }, [answers, sessionChapterId, chapterId, isRecorded, markRecorded]);
 
   if (answers.length === 0 || sessionChapterId !== chapterId) {
     return (
