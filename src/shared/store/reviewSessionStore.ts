@@ -27,10 +27,13 @@ interface ReviewSessionState {
   choiceOrderMap: ChoiceOrderMap;
   /** 結果を学習履歴に記録済みか。結果画面を読み込み直しても二重に記録しないためのフラグ。 */
   isRecorded: boolean;
+  /** 復習対象が出題数に足りず補充した問題のID。 */
+  supplementIds: string[];
   startSession: (
     sessionType: ReviewSessionType,
     questionIds: string[],
     choiceOrderMap?: ChoiceOrderMap,
+    supplementIds?: string[],
   ) => void;
   submitAnswer: (record: ReviewAnswerRecord) => void;
   goToNext: () => void;
@@ -48,7 +51,8 @@ export const useReviewSessionStore = create<ReviewSessionState>()(
       lastFeedback: null,
       choiceOrderMap: {},
       isRecorded: false,
-      startSession: (sessionType, questionIds, choiceOrderMap = {}) =>
+      supplementIds: [],
+      startSession: (sessionType, questionIds, choiceOrderMap = {}, supplementIds = []) =>
         set({
           sessionType,
           questionIds,
@@ -57,6 +61,7 @@ export const useReviewSessionStore = create<ReviewSessionState>()(
           lastFeedback: null,
           choiceOrderMap,
           isRecorded: false,
+          supplementIds,
         }),
       submitAnswer: (record) =>
         set((state) => ({
@@ -78,6 +83,7 @@ export const useReviewSessionStore = create<ReviewSessionState>()(
           lastFeedback: null,
           choiceOrderMap: {},
           isRecorded: false,
+          supplementIds: [],
         }),
     }),
     { name: "g-kentei-review-session", storage: sessionStateStorage },

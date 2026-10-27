@@ -35,6 +35,7 @@ export const studySessionLogSchema = z.object({
   chapterIds: z.array(z.string()),
   questionIds: z.array(z.string()),
   scoreSummary: z.object({ correct: z.number().int(), total: z.number().int() }).optional(),
+  supplementQuestionIds: z.array(z.string()).optional(),
 });
 
 export const materialReadStateSchema = z.object({

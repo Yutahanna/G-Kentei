@@ -5,7 +5,11 @@ import buttonStyles from "../../shared/ui/Button.module.css";
 import { getManifest } from "../../shared/lib/content-loader";
 import { getQuestionById } from "../../shared/lib/question-loader";
 import { buildChoiceOrderMap } from "../../shared/lib/choiceOrder";
-import { getReviewBuckets, type ReviewBuckets } from "../../shared/lib/review";
+import {
+  composeReviewSession,
+  getReviewBuckets,
+  type ReviewBuckets,
+} from "../../shared/lib/review";
 import {
   useReviewSessionStore,
   type ReviewSessionType,
@@ -17,6 +21,7 @@ const EMPTY_BUCKETS: ReviewBuckets = {
   dueForReview: [],
   wrongAnswer: [],
   bookmarked: [],
+  fill: [],
 };
 
 const BATCH_SIZES = [20, 30] as const;
@@ -41,13 +46,22 @@ const SECONDARY_BUCKET_DEFS: {
   },
 ];
 
-function shuffle<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j]!, result[i]!];
-  }
-  return result;
+/** 復習対象と、足りない分の補充（何度も間違えた問題・ブックマーク）の内訳。 */
+function planCounts(primary: string[], fill: string[], limit: number) {
+  const primaryCount = Math.min(primary.length, limit);
+  const primarySet = new Set(primary);
+  const fillCount = Math.min(fill.filter((id) => !primarySet.has(id)).length, limit - primaryCount);
+  return { primaryCount, fillCount, total: primaryCount + fillCount };
+}
+
+function PlanSummary({ primaryCount, fillCount }: { primaryCount: number; fillCount: number }) {
+  if (fillCount === 0) return null;
+  return (
+    <p className={styles.cardDescription}>
+      復習対象 {primaryCount}問＋補充 {fillCount}
+      問（何度も間違えた問題・ブックマークから）
+    </p>
+  );
 }
 
 export default function ReviewSetupPage() {
@@ -80,26 +94,32 @@ export default function ReviewSetupPage() {
       dueForReview: buckets.dueForReview.filter(filterFn),
       wrongAnswer: buckets.wrongAnswer.filter(filterFn),
       bookmarked: buckets.bookmarked.filter(filterFn),
+      fill: buckets.fill.filter(filterFn),
     };
   }, [buckets, chapterFilter]);
 
-  function handleStart(type: ReviewSessionType, ids: string[], limit?: number) {
-    const selectedIds = shuffle(ids).slice(0, limit);
+  function handleStart(type: ReviewSessionType, ids: string[], limit: number) {
+    const { questionIds: selectedIds, supplementIds } = composeReviewSession(
+      ids,
+      filteredBuckets.fill,
+      limit,
+    );
     // 選択肢の表示順は開始時に1回だけ決め、読み込み直しても同じ並びを使う。
     const questions = selectedIds
       .map((id) => getQuestionById(id))
       .filter((q): q is NonNullable<typeof q> => q !== undefined);
-    startSession(type, selectedIds, buildChoiceOrderMap(questions));
+    startSession(type, selectedIds, buildChoiceOrderMap(questions), supplementIds);
     void navigate("/review/play");
   }
 
   const mockReviewIds = filteredBuckets.mockReview;
+  const mockPlan = planCounts(mockReviewIds, filteredBuckets.fill, batchSize);
 
   return (
     <div>
       <h1>復習</h1>
       <p>
-        模擬試験で誤答・未回答だった問題と、ブックマークした問題から、20問・30問ずつ復習します。模試の誤答は、その後別々の2日で続けて正解すると対象から外れます（同じ日の正解は1回と数えます）。ブックマークは外すまで残ります。
+        模擬試験で誤答・未回答だった問題と、ブックマークした問題から、20問・30問ずつ復習します。対象が出題数に足りないときは、何度も間違えた問題（2回以上間違え、まだ3回続けて正解していない問題）とブックマークした問題で補います。それでも足りないときは、ある分だけ出題します。模試の誤答は、その後別々の2日で続けて正解すると対象から外れます（同じ日の正解は1回と数えます）。ブックマークは外すまで残ります。
       </p>
 
       <div className={styles.filter}>
@@ -134,13 +154,14 @@ export default function ReviewSetupPage() {
             </label>
           ))}
         </div>
+        {!isLoading && <PlanSummary {...mockPlan} />}
         <button
           type="button"
           className={buttonStyles.button}
-          disabled={isLoading || mockReviewIds.length === 0}
+          disabled={isLoading || mockPlan.total === 0}
           onClick={() => handleStart("mock_review", mockReviewIds, batchSize)}
         >
-          {Math.min(batchSize, mockReviewIds.length)}問で復習を始める
+          {mockPlan.total}問で復習を始める
         </button>
       </Card>
 
@@ -148,18 +169,20 @@ export default function ReviewSetupPage() {
       <div className={styles.grid}>
         {SECONDARY_BUCKET_DEFS.map((def) => {
           const ids = filteredBuckets[def.key];
+          const plan = planCounts(ids, filteredBuckets.fill, batchSize);
           return (
             <Card key={def.type}>
               <div className={styles.cardTitle}>{def.title}</div>
               <p className={styles.cardDescription}>{def.description}</p>
               <div className={styles.count}>{isLoading ? "…" : `${ids.length}問`}</div>
+              {!isLoading && <PlanSummary {...plan} />}
               <button
                 type="button"
                 className={buttonStyles.button}
-                disabled={isLoading || ids.length === 0}
+                disabled={isLoading || plan.total === 0}
                 onClick={() => handleStart(def.type, ids, batchSize)}
               >
-                {Math.min(batchSize, ids.length)}問で始める
+                {plan.total}問で始める
               </button>
             </Card>
           );

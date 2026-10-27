@@ -5,6 +5,9 @@ import {
   selectWrongAnswerQuestionIds,
   needsMockReview,
   selectMockReviewQuestionIds,
+  selectReviewFillQuestionIds,
+  composeReviewSession,
+  isRepeatedMistake,
 } from "../../src/shared/lib/review";
 import { createInitialProgress } from "../../src/entities/progress";
 import type { QuestionProgress } from "../../src/entities/progress";
@@ -120,5 +123,50 @@ describe("review（復習対象の選定ロジック）", () => {
       const other = createInitialProgress("o");
       expect(selectMockReviewQuestionIds([bookmarked, mockWrong, other])).toEqual(["b", "m"]);
     });
+  });
+});
+
+describe("復習の補充（何度も間違えた問題・ブックマーク）", () => {
+  const base = (id: string, fields: Partial<QuestionProgress>): QuestionProgress => ({
+    ...createInitialProgress(id),
+    ...fields,
+  });
+
+  it("2回以上間違え、まだ3回続けて正解していない問題を「何度も間違えた問題」とみなす", () => {
+    expect(isRepeatedMistake(base("a", { incorrectCount: 2, correctStreak: 2 }))).toBe(true);
+    expect(isRepeatedMistake(base("a", { incorrectCount: 2, correctStreak: 3 }))).toBe(false);
+    expect(isRepeatedMistake(base("a", { incorrectCount: 1, correctStreak: 0 }))).toBe(false);
+  });
+
+  it("何度も間違えた＋ブックマーク → 何度も間違えた → ブックマークの順に並べ、それ以外は含めない", () => {
+    const all = [
+      base("bookmarkOnly", { bookmarked: true, attempts: 3, correctStreak: 3 }),
+      base("repeated2", { incorrectCount: 2, attempts: 3 }),
+      base("repeated4", { incorrectCount: 4, attempts: 5 }),
+      base("both", { incorrectCount: 2, bookmarked: true, attempts: 2 }),
+      base("onceWrong", { incorrectCount: 1, attempts: 1 }),
+      base("unseen", {}),
+    ];
+    expect(selectReviewFillQuestionIds(all)).toEqual([
+      "both",
+      "repeated4",
+      "repeated2",
+      "bookmarkOnly",
+    ]);
+  });
+
+  it("復習対象が足りない分だけ補充候補の先頭から補い、重複させない", () => {
+    const result = composeReviewSession(["p1", "p2"], ["f1", "p2", "f2", "f3"], 4);
+    expect([...result.questionIds].sort()).toEqual(["f1", "f2", "p1", "p2"]);
+    expect(result.supplementIds).toEqual(["f1", "f2"]);
+  });
+
+  it("復習対象が出題数以上あれば補充しない。補充しても足りなければある分だけ出題する", () => {
+    const enough = composeReviewSession(["p1", "p2", "p3"], ["f1"], 2);
+    expect(enough.questionIds).toHaveLength(2);
+    expect(enough.supplementIds).toEqual([]);
+
+    const short = composeReviewSession(["p1"], ["f1"], 20);
+    expect([...short.questionIds].sort()).toEqual(["f1", "p1"]);
   });
 });

@@ -96,4 +96,24 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
     await expect(page.locator('button[aria-pressed="true"][class*="choiceButton"]')).toHaveCount(1);
   });
+
+  test("復習対象が出題数に足りないときは、ブックマークした問題で補って出題する", async ({
+    page,
+  }) => {
+    await page.goto("/drill");
+    await page.locator("select").first().selectOption("ch06");
+    await page.getByRole("button", { name: "ドリルを開始する" }).click();
+    await page.waitForURL("**/drill/ch06/play");
+    await page.getByRole("button", { name: /ブックマーク/ }).click();
+    await expect(page.getByRole("button", { name: "★ ブックマーク済み" })).toBeVisible();
+
+    // 誤答が1問もない状態で「直近の回答が誤答の問題」を開くと、ブックマークで補う
+    await page.goto("/review");
+    const wrongCard = page.getByText("直近の回答が誤答の問題", { exact: true }).locator("..");
+    await expect(wrongCard.locator('[class*="count"]')).toHaveText("0問");
+    await expect(wrongCard.getByText(/復習対象 0問＋補充 1問/)).toBeVisible();
+    await wrongCard.getByRole("button", { name: "1問で始める" }).click();
+    await page.waitForURL("**/review/play");
+    await expect(page.locator('button[class*="choiceButton"]').first()).toBeVisible();
+  });
 });
