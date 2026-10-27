@@ -22,6 +22,7 @@ export default function ReviewResultPage() {
   const resetSession = useReviewSessionStore((s) => s.resetSession);
   const isRecorded = useReviewSessionStore((s) => s.isRecorded);
   const markRecorded = useReviewSessionStore((s) => s.markRecorded);
+  const supplementIds = useReviewSessionStore((s) => s.supplementIds);
 
   useEffect(() => {
     if (isRecorded || answers.length === 0 || sessionType === null) return;
@@ -45,8 +46,10 @@ export default function ReviewResultPage() {
         correct: answers.filter((a) => a.correct).length,
         total: answers.length,
       },
+      // 補充の順番が弱点を拾えているかを後から確かめられるよう、補充した問題を残す。
+      ...(supplementIds.length > 0 ? { supplementQuestionIds: supplementIds } : {}),
     });
-  }, [answers, sessionType, isRecorded, markRecorded]);
+  }, [answers, sessionType, isRecorded, markRecorded, supplementIds]);
 
   if (answers.length === 0 || sessionType === null) {
     return (

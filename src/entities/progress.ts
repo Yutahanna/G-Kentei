@@ -50,6 +50,8 @@ export interface StudySessionLog {
   chapterIds: string[];
   questionIds: string[];
   scoreSummary?: { correct: number; total: number };
+  /** 復習で、対象が出題数に足りず補充した問題のID（questionIdsの部分集合）。2026-10-27以前の記録には無い。 */
+  supplementQuestionIds?: string[];
 }
 
 export interface MaterialReadState {

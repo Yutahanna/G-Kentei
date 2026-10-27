@@ -62,11 +62,86 @@ export function selectMockReviewQuestionIds(allProgress: QuestionProgress[]): st
   return allProgress.filter((p) => p.bookmarked || needsMockReview(p)).map((p) => p.questionId);
 }
 
+/**
+ * 復習対象が1回の出題数（20問・30問）に足りないときに補う問題。
+ * 「何度も間違えた問題」と「本人がブックマークした問題」に限り、理由のはっきりしない問題
+ * （未回答の問題など）では埋めない。補っても足りなければ、ある分だけ出題する。
+ * 何度も間違えた問題でも、その後この回数だけ続けて正解していれば身についたとみなして外す。
+ */
+export const REPEATED_MISTAKE_MIN_COUNT = 2;
+export const REPEATED_MISTAKE_GRADUATION_STREAK = 3;
+
+export function isRepeatedMistake(progress: QuestionProgress): boolean {
+  return (
+    progress.incorrectCount >= REPEATED_MISTAKE_MIN_COUNT &&
+    progress.correctStreak < REPEATED_MISTAKE_GRADUATION_STREAK
+  );
+}
+
+/**
+ * 補充に使う問題を優先順に並べる。
+ * 1. 何度も間違えた問題で、ブックマークもしている問題
+ * 2. 何度も間違えた問題
+ * 3. ブックマークした問題（正解・不正解を問わない）
+ * 同じ順位の中では、間違えた回数が多い問題、最後に答えたのが古い問題を先にする。
+ */
+export function selectReviewFillQuestionIds(allProgress: QuestionProgress[]): string[] {
+  const rank = (p: QuestionProgress): number => {
+    const repeated = isRepeatedMistake(p);
+    if (repeated && p.bookmarked) return 0;
+    if (repeated) return 1;
+    if (p.bookmarked) return 2;
+    return -1;
+  };
+  return allProgress
+    .map((p) => ({ p, r: rank(p) }))
+    .filter(({ r }) => r >= 0)
+    .sort(
+      (a, b) =>
+        a.r - b.r ||
+        b.p.incorrectCount - a.p.incorrectCount ||
+        (a.p.lastAnsweredAt ?? "").localeCompare(b.p.lastAnsweredAt ?? ""),
+    )
+    .map(({ p }) => p.questionId);
+}
+
+export interface ComposedReviewSession {
+  questionIds: string[];
+  /** 補充した問題のID（questionIdsの部分集合）。 */
+  supplementIds: string[];
+}
+
+/**
+ * 復習対象（primaryIds）から最大limit問をランダムに選び、足りない分を
+ * 補充候補（fillIds、優先順）から先頭順に補う。出題順は全体でシャッフルする。
+ */
+export function composeReviewSession(
+  primaryIds: string[],
+  fillIds: string[],
+  limit: number,
+  random: () => number = Math.random,
+): ComposedReviewSession {
+  const shuffle = <T>(items: T[]): T[] => {
+    const result = [...items];
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [result[i], result[j]] = [result[j]!, result[i]!];
+    }
+    return result;
+  };
+  const primary = shuffle(primaryIds).slice(0, limit);
+  const taken = new Set(primary);
+  const supplementIds = fillIds.filter((id) => !taken.has(id)).slice(0, limit - primary.length);
+  return { questionIds: shuffle([...primary, ...supplementIds]), supplementIds };
+}
+
 export interface ReviewBuckets {
   mockReview: string[];
   dueForReview: string[];
   wrongAnswer: string[];
   bookmarked: string[];
+  /** 出題数に足りないときの補充候補（優先順）。 */
+  fill: string[];
 }
 
 export async function getReviewBuckets(now: Date = new Date()): Promise<ReviewBuckets> {
@@ -76,5 +151,6 @@ export async function getReviewBuckets(now: Date = new Date()): Promise<ReviewBu
     dueForReview: selectDueForReviewQuestionIds(allProgress, now),
     wrongAnswer: selectWrongAnswerQuestionIds(allProgress),
     bookmarked: selectBookmarkedQuestionIds(allProgress),
+    fill: selectReviewFillQuestionIds(allProgress),
   };
 }
