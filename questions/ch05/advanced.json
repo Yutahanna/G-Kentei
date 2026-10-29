@@ -353,5 +353,70 @@
     "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-advanced-012",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "advanced",
+    "question": "ある病院が、大量の一般画像で学習済みのCNNモデルを使って、手元にある少量の医療画像を分類したい。学習済みモデルの重みを初期値とし、医療画像のデータでモデル全体または一部を追加学習して微調整する方法として、教材の内容に最も適切なものはどれか。",
+    "choices": [
+      "Zero-shot学習",
+      "RLHFによる報酬モデルの学習",
+      "VAEによる新しい画像の生成",
+      "ファインチューニング"
+    ],
+    "correctAnswer": 3,
+    "explanation": "教材はファインチューニングを「転移学習の代表的な手法の1つで、事前学習済みのモデルの重みを初期値として使い、対象タスクの(比較的少量の)データで、モデル全体または一部を追加学習して微調整すること」と説明し、大量の画像で学習済みのCNNを少量の医療画像の分類に応用する例を挙げている。",
+    "choiceExplanations": [
+      "誤り。Zero-shot学習は、例を与えず指示文だけで大規模言語モデルにタスクを実行させる方式であり、重みを追加学習で微調整する方法ではない。",
+      "誤り。RLHFの報酬モデルは、人間による回答の順位付けから「ある回答がどれだけ好ましいか」を予測するために学習するモデルであり、画像分類の微調整の方法ではない。",
+      "誤り。VAEは、データを確率分布として圧縮し、そこからサンプリングして新しいデータを生成する手法であり、学習済みモデルを分類タスクに微調整する方法ではない。",
+      "正しい。事前学習済みの重みを初期値にして、少量の対象データで微調整する方法である。"
+    ],
+    "tags": {
+      "contentTags": ["ファインチューニング", "転移学習"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.4 事前学習・転移学習・ファインチューニングと基盤モデル",
+    "sourceReference": "第5章 4節（事前学習・転移学習・ファインチューニングと基盤モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-advanced-013",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s03",
+    "difficulty": "advanced",
+    "questionForm": "negative",
+    "question": "Transformerに関する用語とその説明の組み合わせとして、教材の内容として不適切なものはどれか。",
+    "choices": [
+      "Layer Normalization ― 学習時に一部のニューロンをランダムに無効化して過学習を防ぐ",
+      "Self-Attention ― QueryとKeyの内積から重みを求め、その重みでValueを加重平均する",
+      "Positional Encoding ― 単語の並び順の情報を、各単語の埋め込みベクトルに加算して補う",
+      "Source-Target Attention ― 出力側のQueryが、入力側のKey・Valueを参照する"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は、Layer Normalizationを残差接続とともにTransformerの各ブロックに組み込まれた「学習を安定させる正規化層」と説明している。学習時に一部のニューロンをランダムに無効化して過学習を防ぐのはDropoutであり、正規化層と正則化手法は目的が異なる。",
+    "choiceExplanations": [
+      "不適切(正答)。一部のニューロンをランダムに無効化するのはDropoutであり、Layer Normalizationは学習を安定させる正規化層である。",
+      "適切。教材はSelf-Attentionを、Query・Key・Valueに変換し、QueryとKeyの内積から重みを求めてValueを加重平均する仕組みと説明している。",
+      "適切。教材はPositional Encodingを、並列処理で失われる並び順の情報を埋め込みベクトルに加算して補う仕組みと説明している。",
+      "適切。教材は章末整理でSource-Target Attentionを、出力側のQueryが入力側のKey・Valueを参照するAttentionと説明している。"
+    ],
+    "tags": {
+      "contentTags": ["Layer Normalization", "Dropout", "Transformer"],
+      "skillTags": ["比較"],
+      "crossChapterTags": ["第5章11節のDropoutとの混同"]
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.3 Attention機構とTransformer",
+    "sourceReference": "第5章 3節（Attention機構とTransformer）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]

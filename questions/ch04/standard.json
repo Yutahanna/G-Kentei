@@ -583,5 +583,113 @@
     "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-standard-019",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s03",
+    "difficulty": "standard",
+    "question": "ハイパーパラメータの探索方法のうち、候補の全組合せを試す方法はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["ランダムサーチ", "グリッドサーチ", "k分割交差検証", "勾配降下法"],
+    "correctAnswer": 1,
+    "explanation": "教材は章末整理で「グリッドサーチ／ランダムサーチ（B）：候補の全組合せを試す／候補をランダムに試すハイパーパラメータ探索」と整理している。",
+    "choiceExplanations": [
+      "誤り。ランダムサーチは、候補をランダムに試すハイパーパラメータ探索であり、全組合せを試すわけではない。",
+      "正しい。候補の全組合せを試すハイパーパラメータ探索である。",
+      "誤り。k分割交差検証は、データの分け方を入れ替えながらk回学習・評価して平均を取る性能評価の手法であり、ハイパーパラメータの候補を選ぶ探索方法の名前ではない。",
+      "誤り。勾配降下法は、勾配の逆方向に重みを少しずつ動かす重みの更新の考え方であり、ハイパーパラメータの探索方法ではない。"
+    ],
+    "tags": {
+      "contentTags": ["グリッドサーチ", "ランダムサーチ", "ハイパーパラメータ"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": ["第3章の交差検証との区別"]
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
+    "sourceReference": "第4章 章末整理（本文を補う用語：グリッドサーチ・ランダムサーチ）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-standard-020",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s06",
+    "difficulty": "standard",
+    "question": "オートエンコーダーを1層ずつ順番に学習させて積み重ね、各層を事前学習しておいてから最後にラベル付きデータで全体を微調整する、2006年頃にジェフリー・ヒントンらが提唱した手法はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["多層パーセプトロン", "誤差逆伝播法", "積層自己符号化器", "敵対的生成ネットワーク"],
+    "correctAnswer": 2,
+    "explanation": "教材は、積層自己符号化器(stacked autoencoder)を「オートエンコーダーを1層ずつ順番に学習させ、積み重ねていく手法」とし、2006年頃にヒントンらが提唱した、事前学習のあとラベル付きデータで全体をファインチューニングすることで深いネットワークを学習できるようにした手法と説明している。",
+    "choiceExplanations": [
+      "誤り。多層パーセプトロンは入力層と出力層の間に隠れ層を挟んだネットワークの構造を指し、1層ずつの事前学習の手法ではない。",
+      "誤り。誤差逆伝播法は、出力側の誤差を逆向きに伝えて各層の勾配を計算する手法であり、1986年にラメルハートらの論文で広く知られるようになった。",
+      "正しい。オートエンコーダーを積み重ねて1層ずつ事前学習する手法である。",
+      "誤り。敵対的生成ネットワーク(GAN)は、生成器と識別器を競わせて学習する生成モデルである。"
+    ],
+    "tags": {
+      "contentTags": ["積層自己符号化器", "事前学習"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": ["第5章のGANとの区別"]
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
+    "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-standard-021",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s07",
+    "difficulty": "standard",
+    "question": "画像に写っているものを1000種類のカテゴリの中から当てる画像認識コンペティションで、2012年にAlexNetが従来手法を大きく引き離して優勝した大会はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["ImageNet", "GLUE", "ResNet", "ILSVRC"],
+    "correctAnswer": 3,
+    "explanation": "教材は、2012年のILSVRC(ImageNet Large Scale Visual Recognition Challenge)を「画像に写っているものを1000種類のカテゴリの中から当てるという、当時世界最大級の画像認識コンペティション」と説明し、この大会でAlexNetが優勝したとしている。",
+    "choiceExplanations": [
+      "誤り。ImageNetは、1000万枚を超えるラベル付き画像データセットであり、コンペティションそのものの名前ではない。",
+      "誤り。GLUEは、自然言語モデルを比較するベンチマークとして第6章で補足されている用語である。",
+      "誤り。ResNetは、2015年にスキップ接続を導入したCNNのモデルであり、大会の名前ではない。",
+      "正しい。AlexNetが2012年に優勝した画像認識コンペティションである。"
+    ],
+    "tags": {
+      "contentTags": ["ILSVRC", "AlexNet", "ImageNet"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": ["第6章 章末整理のGLUEとの区別"]
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
+    "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-standard-022",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s03",
+    "difficulty": "standard",
+    "question": "モデルを大きくしていくと、一度悪化した汎化性能が再び改善する現象を何と呼ぶか。教材の内容として最も適切なものはどれか。",
+    "choices": ["二重降下現象", "勾配消失問題", "過学習", "dying ReLU"],
+    "correctAnswer": 0,
+    "explanation": "教材は章末整理で「二重降下現象（C）：モデルを大きくすると一度悪化した汎化性能が再び改善する現象」と整理している。",
+    "choiceExplanations": [
+      "正しい。一度悪化した汎化性能が、モデルを大きくすると再び改善する現象である。",
+      "誤り。勾配消失問題は、逆伝播の過程で勾配が小さくなり、入力層に近い層が学習されなくなる現象である。",
+      "誤り。過学習は、訓練データには高精度だが未知のデータで精度が落ちる現象であり、汎化性能が再び改善する現象を指す言葉ではない。",
+      "誤り。dying ReLUは、ReLUで入力が負の範囲になったニューロンが学習に寄与しなくなる問題である。"
+    ],
+    "tags": {
+      "contentTags": ["二重降下現象", "汎化性能"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
+    "sourceReference": "第4章 章末整理（本文を補う用語：二重降下現象）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]

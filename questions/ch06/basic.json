@@ -325,5 +325,114 @@
     "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-basic-011",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s01",
+    "difficulty": "basic",
+    "question": "候補領域の抽出と分類を別々の段階に分けず、画像全体を1回だけCNNに通して物体の位置とカテゴリを同時に予測する、名前が「一度だけ見る」を意味する物体検出の手法はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["YOLO", "R-CNN", "Mask R-CNN", "U-Net"],
+    "correctAnswer": 0,
+    "explanation": "教材はYOLO(You Only Look Once)を、候補領域の抽出と分類を分けず、画像全体を1回だけCNNに通して物体の位置とカテゴリを同時に予測する1段階方式の手法とし、処理速度が非常に速くリアルタイム性が求められる応用に向くと説明している。",
+    "choiceExplanations": [
+      "正しい。1段階で位置とカテゴリを同時に予測する、速度重視の手法である。",
+      "誤り。R-CNNは、候補領域を数千個切り出してそれぞれをCNNで分類する2段階方式で、非常に遅いという課題があった。",
+      "誤り。Mask R-CNNは、Faster R-CNNを拡張して物体の輪郭(マスク)まで予測するインスタンスセグメンテーションの手法である。",
+      "誤り。U-Netは、エンコーダーとデコーダーがU字型に連結されたセマンティックセグメンテーションのモデルである。"
+    ],
+    "tags": {
+      "contentTags": ["YOLO", "物体検出"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "6.1 画像認識の応用: 物体検出",
+    "sourceReference": "第6章 1節（物体検出）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-basic-012",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s02",
+    "difficulty": "basic",
+    "question": "Faster R-CNNを拡張し、バウンディングボックスとカテゴリの予測に加えて、物体の輪郭(マスク)まで同時に予測できるようにした、インスタンスセグメンテーションの代表的な手法はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["U-Net", "Mask R-CNN", "YOLO", "Fast R-CNN"],
+    "correctAnswer": 1,
+    "explanation": "教材はMask R-CNN(2017年)を「Faster R-CNN(物体検出モデル)を拡張し、バウンディングボックスとカテゴリの予測に加えて、その領域内の物体の輪郭(マスク)まで同時に予測できるようにしたモデル」と説明し、インスタンスセグメンテーションの代表的な手法としている。",
+    "choiceExplanations": [
+      "誤り。U-Netは、医療画像などのセマンティックセグメンテーション(同じカテゴリの個体を区別しない)の代表的なモデルである。",
+      "正しい。物体検出とマスク予測を組み合わせたインスタンスセグメンテーションの手法である。",
+      "誤り。YOLOは、画像全体を1回だけCNNに通して位置とカテゴリを予測する1段階方式の物体検出手法であり、輪郭(マスク)は予測しない。",
+      "誤り。Fast R-CNNは、R-CNNを改善した物体検出の手法であり、物体の輪郭(マスク)を予測する手法ではない。"
+    ],
+    "tags": {
+      "contentTags": ["Mask R-CNN", "インスタンスセグメンテーション"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "6.2 画像認識の応用: セグメンテーション",
+    "sourceReference": "第6章 2節（セグメンテーション）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-basic-013",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "basic",
+    "questionStyle": "fill_in_blank",
+    "question": "次の説明の（　　）に入る語句として、教材の内容に最も適切なものはどれか。「文書要約のうち、元の文中の文をそのまま抜き出してまとめる方式を（　　）要約と呼ぶ。」",
+    "choices": ["生成型", "ルールベース型", "抽出型", "シナリオ型"],
+    "correctAnswer": 2,
+    "explanation": "教材は文書要約について、「元の文中の文をそのまま抜き出す『抽出型要約』と、元の文とは異なる表現で新たに文章を生成する『生成型(抽象型)要約』がある」と説明している。",
+    "choiceExplanations": [
+      "誤り。生成型(抽象型)要約は、元の文とは異なる表現で新たに文章を生成する方式であり、大規模言語モデルの登場で質が大きく向上した。",
+      "誤り。ルールベースは、かつての機械翻訳で単語や句を辞書的に置き換える手法として登場する言葉であり、文書要約の方式の名前ではない。",
+      "正しい。元の文をそのまま抜き出す方式を抽出型要約と呼ぶ。",
+      "誤り。シナリオに沿った応答は、従来型のチャットボットの設計として説明されており、文書要約の方式の名前ではない。"
+    ],
+    "tags": {
+      "contentTags": ["抽出型要約", "文書要約"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "6.3 自然言語処理の応用",
+    "sourceReference": "第6章 3節（自然言語処理の応用）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-basic-014",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "basic",
+    "question": "人間の棋譜を一切使わず、ルールだけを与えて自己対局のみで学習するという、さらに徹底した強化学習のアプローチを示したAlphaGoの後継はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["AlphaGo", "DQN", "Actor-Critic", "AlphaZero"],
+    "correctAnswer": 3,
+    "explanation": "教材は「その後継のAlphaZeroでは、人間の棋譜を一切使わず、ルールだけを与えて自己対局のみで学習する、さらに徹底した強化学習のアプローチも示されている」と説明している。",
+    "choiceExplanations": [
+      "誤り。AlphaGoは、人間のプロ棋士の棋譜データで基本的な打ち方を学んでから、自己対局による強化学習で方策を磨き上げた。",
+      "誤り。DQNは、Q学習と深層学習を組み合わせて高次元入力から行動価値を学ぶ手法として章末で補足されており、AlphaGoの後継の名前ではない。",
+      "誤り。Actor-Criticは、方策を決めるActorと価値を評価するCriticを組み合わせる強化学習の手法として第3章の章末で補足されており、AlphaGoの後継の名前ではない。",
+      "正しい。棋譜を使わず、ルールと自己対局だけで学習したAlphaGoの後継である。"
+    ],
+    "tags": {
+      "contentTags": ["AlphaZero", "AlphaGo", "自己対局"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": ["第3章 章末整理のActor-Criticとの区別"]
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "6.5 強化学習の応用: AlphaGo・ロボティクス・自動運転",
+    "sourceReference": "第6章 5節（強化学習の応用）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]

@@ -317,5 +317,114 @@
     "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-standard-011",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s01",
+    "difficulty": "standard",
+    "question": "R-CNN系列のうち、候補領域の抽出自体もニューラルネットワークに組み込んで高速化したモデルはどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["R-CNN", "Faster R-CNN", "Fast R-CNN", "SSD(Single Shot MultiBox Detector)"],
+    "correctAnswer": 1,
+    "explanation": "教材は、R-CNNを改善したFast R-CNN、「さらに候補領域の抽出自体もニューラルネットワークに組み込んで高速化したFaster R-CNN」へと発展したと説明している。",
+    "choiceExplanations": [
+      "誤り。R-CNNは、候補領域を数千個切り出してそれぞれをCNNで分類するため非常に遅いという課題があった、系列の最初のモデルである。",
+      "正しい。候補領域の抽出もニューラルネットワークに組み込んで高速化したモデルである。",
+      "誤り。Fast R-CNNはR-CNNを改善したモデルだが、候補領域の抽出までニューラルネットワークに組み込んだのはその次のFaster R-CNNである。",
+      "誤り。SSDは、候補領域の抽出と分類を分けずに1回の処理で位置とカテゴリを予測する1段階方式の手法であり、R-CNN系列ではない。"
+    ],
+    "tags": {
+      "contentTags": ["Faster R-CNN", "R-CNN"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "6.1 画像認識の応用: 物体検出",
+    "sourceReference": "第6章 1節（物体検出）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-standard-012",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "question": "Q学習と深層学習を組み合わせ、画像などの高次元の入力から行動価値を学ぶ手法の系列はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["方策勾配法", "AlphaZero", "DQN", "Actor-Critic"],
+    "correctAnswer": 2,
+    "explanation": "教材は章末整理で「DQN系列（B）：Q学習と深層学習を組み合わせ、画像など高次元入力から行動価値を学ぶ」と整理している。",
+    "choiceExplanations": [
+      "誤り。方策勾配法は、Q値を経由せず方策そのものを報酬が高まる方向に直接調整する手法である。",
+      "誤り。AlphaZeroは、人間の棋譜を使わずルールと自己対局だけで学習したAlphaGoの後継であり、Q学習と深層学習の組み合わせを指す名前ではない。",
+      "正しい。Q学習と深層学習を組み合わせた手法の系列である。",
+      "誤り。Actor-Criticは、方策を決めるActorと価値を評価するCriticを組み合わせる手法として第3章の章末で補足されている。"
+    ],
+    "tags": {
+      "contentTags": ["DQN", "Q学習"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": ["第3章 章末整理のActor-Criticとの区別"]
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "章末整理：求める出力からタスクを見分ける（本文を補う用語）",
+    "sourceReference": "第6章 章末整理（本文を補う用語：DQN系列）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-standard-013",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "standard",
+    "question": "音声処理に関する用語のうち、教材の章末整理で「音声認識で使う特徴量」と説明されているものはどれか。",
+    "choices": ["MFCC", "FFT", "フォルマント", "TF-IDF"],
+    "correctAnswer": 0,
+    "explanation": "教材は章末整理で「FFT・MFCC・フォルマント（B）：音声を周波数成分へ変換する手法、音声認識で使う特徴量、声道の共鳴周波数」と整理しており、音声認識で使う特徴量にあたるのはMFCCである。",
+    "choiceExplanations": [
+      "正しい。音声認識で使う特徴量として整理されている。",
+      "誤り。FFTは、音声を周波数成分へ変換する手法として整理されている。",
+      "誤り。フォルマントは、声道の共鳴周波数として整理されている。",
+      "誤り。TF-IDFは、文書内での単語の重要度を用いる古典的な文書表現であり、音声の特徴量ではない。"
+    ],
+    "tags": {
+      "contentTags": ["MFCC", "音声認識"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "章末整理：求める出力からタスクを見分ける（本文を補う用語）",
+    "sourceReference": "第6章 章末整理（本文を補う用語：FFT・MFCC・フォルマント）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-standard-014",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "standard",
+    "questionStyle": "fill_in_blank",
+    "question": "次の説明の（　　）に入る語句として、教材の内容に最も適切なものはどれか。「word2vecのうち、中心語から周辺語を予測する方式を（　　）と呼ぶ。」",
+    "choices": ["CBOW", "TF-IDF", "N-gram", "Skip-gram"],
+    "correctAnswer": 3,
+    "explanation": "教材は章末整理で「word2vec・CBOW・Skip-gram・fastText（A）：単語を意味的なベクトルで表す。CBOWは周辺語から中心語、Skip-gramは中心語から周辺語を予測する」と整理している。",
+    "choiceExplanations": [
+      "誤り。CBOWは、周辺語から中心語を予測する方式であり、予測の向きが逆である。",
+      "誤り。TF-IDFは、文書内での単語の重要度を用いる古典的な文書表現であり、word2vecの方式ではない。",
+      "誤り。N-gramは、連続する語のまとまりを用いる古典的な文書表現であり、word2vecの方式ではない。",
+      "正しい。中心語から周辺語を予測する方式である。"
+    ],
+    "tags": {
+      "contentTags": ["Skip-gram", "CBOW", "word2vec"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/09_第6章.md",
+    "sourceHeading": "章末整理：求める出力からタスクを見分ける（本文を補う用語）",
+    "sourceReference": "第6章 章末整理（本文を補う用語：word2vec・CBOW・Skip-gram）",
+    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]

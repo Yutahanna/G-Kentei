@@ -697,5 +697,118 @@
     "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-023",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "question": "異なるサイズの畳み込みフィルタを並列に並べて結果を結合する「Inceptionモジュール」を導入し、横方向の多様性を持たせることで効率的に精度を上げたCNNのモデルはどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["VGG", "ResNet", "GoogLeNet", "Vision Transformer"],
+    "correctAnswer": 2,
+    "explanation": "教材はGoogLeNet(2014年、Google)を「『Inceptionモジュール』という、異なるサイズの畳み込みフィルタを並列に並べて結果を結合する構造を導入し」、横方向の多様性を持たせて効率的に精度を上げたモデルと説明している。",
+    "choiceExplanations": [
+      "誤り。VGGは、3×3の小さなフィルタだけを何層も積み重ねて、シンプルな構造のまま層を深くしたモデルである。",
+      "誤り。ResNetは、ある層の入力を数層先の出力に直接足し合わせるスキップ接続を導入したモデルである。",
+      "正しい。Inceptionモジュールで並列構造を導入したモデルである。",
+      "誤り。Vision Transformerは、画像をパッチに分割してTransformerに入力する手法であり、畳み込みフィルタを並列に並べるCNNのモデルではない。"
+    ],
+    "tags": {
+      "contentTags": ["GoogLeNet", "Inceptionモジュール"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.1 CNN（畳み込みニューラルネットワーク）と画像認識",
+    "sourceReference": "第5章 1節（CNNと画像認識）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-024",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s02",
+    "difficulty": "basic",
+    "question": "LSTMを簡略化し、ゲートを更新ゲートとリセットゲートの2つに減らしてセル状態と隠れ状態を統合することで、LSTMに近い性能をより少ない計算量で実現しようとしたモデルはどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["RNN", "LSTM", "Transformer", "GRU"],
+    "correctAnswer": 3,
+    "explanation": "教材はGRU(Gated Recurrent Unit)を「LSTMをより簡略化したモデルであり(2014年)、ゲートの数を2つ(更新ゲート・リセットゲート)に減らし、セル状態と隠れ状態を統合する」ことで、より少ないパラメータ・計算量でLSTMに近い性能を目指したものと説明している。",
+    "choiceExplanations": [
+      "誤り。RNNは、隠れ状態を使って過去の情報を記憶しながら系列データを処理する基本的なモデルで、ゲート機構を持たない。",
+      "誤り。LSTMは、入力・忘却・出力の3つのゲートとセル状態を持つモデルであり、2つのゲートに簡略化したものではない。",
+      "誤り。Transformerは、逐次処理をやめてAttention機構で系列を並列に処理するモデルであり、ゲートで記憶を管理する仕組みではない。",
+      "正しい。更新・リセットの2ゲートを持つ、LSTMを簡略化したモデルである。"
+    ],
+    "tags": {
+      "contentTags": ["GRU", "LSTM", "ゲート"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.2 RNN・LSTM・GRUと系列データ処理",
+    "sourceReference": "第5章 2節（RNN・LSTM・GRU）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-025",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "question": "畳み込みで、カーネル(フィルタ)の要素の間隔を空けることで、計算量を大きく増やさずに受容野を広げる手法はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": [
+      "Atrous(Dilated) Convolution",
+      "Depthwise Separable Convolution",
+      "最大値プーリング",
+      "スキップ接続"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は章末整理で「Atrous／Dilated Convolution（B）：カーネル要素の間隔を空け、計算量を大きく増やさず受容野を広げる」と整理している。",
+    "choiceExplanations": [
+      "正しい。カーネル要素の間隔を空けて受容野を広げる畳み込みである。",
+      "誤り。Depthwise Separable Convolutionは、空間方向とチャネル方向の計算を分けて軽量化する畳み込みで、MobileNetと関連すると整理されている。",
+      "誤り。最大値プーリングは、小さな領域の中から最大値だけを残して情報を間引き、縮小する操作である。",
+      "誤り。スキップ接続は、ある層の入力を数層先の出力に直接足し合わせるResNetの仕組みである。"
+    ],
+    "tags": {
+      "contentTags": ["Atrous Convolution", "Dilated Convolution", "畳み込み"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "章末整理：技術を「何の弱点を解いたか」で結ぶ（本文を補う用語）",
+    "sourceReference": "第5章 章末整理（本文を補う用語：Atrous／Dilated Convolution）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-basic-026",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s08",
+    "difficulty": "basic",
+    "question": "タスクの入力と模範的な出力のペアをプロンプトの中に少数例示してから、本番の入力を与える方式を何と呼ぶか。教材の内容として最も適切なものはどれか。",
+    "choices": ["Zero-shot学習", "Few-shot学習", "ファインチューニング", "転移学習"],
+    "correctAnswer": 1,
+    "explanation": "教材はFew-shot学習を「タスクの入力と模範的な出力のペアを、プロンプトの中に少数(2〜数個程度)例示してから、本番の入力を与える方式」と説明している。モデルの重みは更新しない。",
+    "choiceExplanations": [
+      "誤り。Zero-shot学習は、タスクの例を1つも与えず、指示文だけでモデルにタスクを実行させる方式である。",
+      "正しい。プロンプトに少数の例を含める方式であり、重みは更新しない。",
+      "誤り。ファインチューニングは、事前学習済みモデルの重みを対象タスクのデータで追加学習して微調整するものであり、重みの更新を伴う。",
+      "誤り。転移学習は、ある領域・タスクで学習して得られた知識(モデルの重み)を別の領域・タスクに転用することであり、プロンプトに例を示す方式の名前ではない。"
+    ],
+    "tags": {
+      "contentTags": ["Few-shot学習", "In-context learning"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.8 プロンプトエンジニアリングとIn-context Learning",
+    "sourceReference": "第5章 8節（プロンプトエンジニアリング）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]

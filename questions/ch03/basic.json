@@ -572,5 +572,113 @@
     "contentVersion": "595be63caa179ce7f49d84dbd3ca47150a81af3d1d855c7e110d18faac761dc6",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-basic-019",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s05",
+    "difficulty": "basic",
+    "question": "線形回帰に、重みの二乗の合計にペナルティを課すL2正則化を適用したモデルを何と呼ぶか。教材の内容として最も適切なものはどれか。",
+    "choices": ["Ridge回帰", "Lasso回帰", "ロジスティック回帰", "Elastic Net"],
+    "correctAnswer": 0,
+    "explanation": "教材は「L2正則化は、重みの二乗の合計にペナルティを課す方法で、線形回帰にL2正則化を適用したモデルをRidge回帰と呼ぶ」と説明している。",
+    "choiceExplanations": [
+      "正しい。L2正則化（重みの二乗の合計へのペナルティ）を線形回帰に適用したモデルである。",
+      "誤り。Lasso回帰は、重みの絶対値の合計にペナルティを課すL1正則化を線形回帰に適用したモデルである。",
+      "誤り。ロジスティック回帰は、線形結合をシグモイド関数で確率に変換して分類に用いる手法であり、正則化の名称ではない。",
+      "誤り。Elastic Netは、L1正則化とL2正則化の両方を組み合わせた手法として紹介されている。"
+    ],
+    "tags": {
+      "contentTags": ["Ridge回帰", "L2正則化"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/06_第3章.md",
+    "sourceHeading": "5. 過学習と汎化性能、そして正則化",
+    "sourceReference": "第3章 5節（過学習と汎化性能、正則化）",
+    "contentVersion": "595be63caa179ce7f49d84dbd3ca47150a81af3d1d855c7e110d18faac761dc6",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-basic-020",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s04",
+    "difficulty": "basic",
+    "question": "多数の変数の間の相関関係に着目し、データの分散が最も大きくなる方向を新しい軸として順に見つけ、少数の軸にデータを要約する手法はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["k-means法", "主成分分析(PCA)", "t-SNE", "ウォード法による階層型クラスタリング"],
+    "correctAnswer": 1,
+    "explanation": "教材は主成分分析(PCA)を「データのばらつき(分散)が最も大きくなる方向を新しい軸(第1主成分)として見つけ、次にその軸と直交する方向で2番目に分散が大きい軸(第2主成分)を見つける」ことで、少数の主成分にデータを要約する次元削減の手法と説明している。",
+    "choiceExplanations": [
+      "誤り。k-means法は、似たデータ点同士をk個のグループにまとめるクラスタリングの手法であり、変数の数を減らす手法ではない。",
+      "正しい。分散が最大になる方向を主成分として順に見つける次元削減の代表的手法である。",
+      "誤り。t-SNEは高次元データを低次元に配置して可視化する手法として章末で補足されているが、分散が最大の方向を軸として順に見つける手法ではない。",
+      "誤り。ウォード法は、クラスタ内のばらつきの増加が小さくなるようにデータを統合していく階層型クラスタリングであり、次元削減の手法ではない。"
+    ],
+    "tags": {
+      "contentTags": ["主成分分析(PCA)", "次元削減"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/06_第3章.md",
+    "sourceHeading": "4. 教師なし学習の代表手法——クラスタリング(k-means)と次元削減(PCA)",
+    "sourceReference": "第3章 4節（教師なし学習の代表手法）",
+    "contentVersion": "595be63caa179ce7f49d84dbd3ca47150a81af3d1d855c7e110d18faac761dc6",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-basic-021",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s03",
+    "difficulty": "basic",
+    "question": "SVM(サポートベクターマシン)において、2つのクラスを分ける境界線から最も近い位置にあるデータ点を何と呼ぶか。教材の内容として最も適切なものはどれか。",
+    "choices": ["マージン", "カーネル関数", "サポートベクター", "ブートストラップサンプル"],
+    "correctAnswer": 2,
+    "explanation": "教材は、SVMが「境界線から最も近いデータ点(サポートベクター)までの距離(マージン)が最大になるように境界を決める」と説明している。境界に最も近いデータ点がサポートベクター、そこまでの距離がマージンである。",
+    "choiceExplanations": [
+      "誤り。マージンは、境界線からサポートベクターまでの距離(余白)を指し、データ点そのものではない。",
+      "誤り。カーネル関数は、直線で分けられないデータを高次元空間に写像するカーネル法で使われる関数であり、データ点の呼び名ではない。",
+      "正しい。境界線から最も近いデータ点をサポートベクターと呼ぶ。",
+      "誤り。ブートストラップサンプルは、ランダムフォレストで元のデータから復元抽出して作るデータセットを指す。"
+    ],
+    "tags": {
+      "contentTags": ["SVM", "サポートベクター", "マージン"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/06_第3章.md",
+    "sourceHeading": "3. 代表的アルゴリズム",
+    "sourceReference": "第3章 3節（代表的アルゴリズム）",
+    "contentVersion": "595be63caa179ce7f49d84dbd3ca47150a81af3d1d855c7e110d18faac761dc6",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-basic-022",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s04",
+    "difficulty": "basic",
+    "question": "ECサイトで「あなたと購買履歴が似ている利用者は、こんな商品も買っています」のように、似た利用者の行動をもとに商品を推薦する手法はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["コンテンツベース", "トピックモデル(LDA)", "k-means法", "協調フィルタリング"],
+    "correctAnswer": 3,
+    "explanation": "教材は章末整理で「協調フィルタリング／コンテンツベース（B）：似た利用者の行動を使う／アイテムの属性を使う推薦手法。新規利用者や新規商品ではコールドスタートが起こりやすい」と整理している。似た利用者の行動を使うのは協調フィルタリングである。",
+    "choiceExplanations": [
+      "誤り。コンテンツベースは、アイテムの属性を使う推薦手法として整理されており、似た利用者の行動を使う手法ではない。",
+      "誤り。トピックモデル(LDA)は、文書が複数の潜在的な話題の混合からできていると考えて話題構成を推定する手法であり、推薦手法ではない。",
+      "誤り。k-means法は、クラスタ数kを事前に指定して似たデータをグループに分けるクラスタリングの手法であり、推薦手法として整理されているものではない。",
+      "正しい。似た利用者の行動を使う推薦手法である。"
+    ],
+    "tags": {
+      "contentTags": ["協調フィルタリング", "コンテンツベース", "推薦"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/06_第3章.md",
+    "sourceHeading": "章末整理：本文にない周辺手法を補う（本文を補う用語）",
+    "sourceReference": "第3章 章末整理（本文を補う用語：協調フィルタリング・コンテンツベース）",
+    "contentVersion": "595be63caa179ce7f49d84dbd3ca47150a81af3d1d855c7e110d18faac761dc6",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]
