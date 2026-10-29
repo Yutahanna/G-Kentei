@@ -82,6 +82,9 @@ export default function ExamSetupPage() {
         この端末の模試でまだ出題されていない問題：{unseenCount} / {totalQuestionCount}
         問。未出題の問題から優先して出題し、足りない章だけ出題済みの問題を使います。
       </p>
+      <p>
+        受験画面は本試験の受験サイトに近い操作にしています。開始すると時間は止まりません。「この問題をチェックする」で★を付け、「すべての問題を確認する」で一覧から見直せます。「試験を終了する」は確認画面でもう一度押すと採点されます。
+      </p>
 
       <div className={styles.presetGrid}>
         {PRESETS.map((preset, index) => (
