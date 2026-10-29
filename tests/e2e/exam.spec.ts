@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { runAxeAudit } from "./utils/axe";
 
 test.describe("模擬試験のゴールデンパス", () => {
   test("本試験と同じ145問・100分を選んで開始できる", async ({ page }) => {
@@ -23,7 +24,8 @@ test.describe("模擬試験のゴールデンパス", () => {
         await page.getByRole("button", { name: "次の問題へ" }).click();
       }
     }
-    await page.getByRole("button", { name: "提出する" }).click();
+    await page.getByRole("button", { name: "試験を終了する" }).click();
+    await page.getByRole("button", { name: "試験を終了する" }).first().click();
 
     await page.waitForURL("**/exam/result");
     await expect(page.locator("h1")).toContainText("模擬試験の結果");
@@ -63,11 +65,37 @@ test.describe("模擬試験のゴールデンパス", () => {
     await page.getByRole("button", { name: /模擬試験を開始する/ }).click();
     await page.waitForURL("**/exam/play");
 
-    await page.getByRole("button", { name: "後で確認する" }).click();
-    await expect(page.getByRole("button", { name: /後で確認：オン/ })).toBeVisible();
+    await page.getByLabel("この問題をチェックする").check();
+    await expect(page.getByText("★")).toBeVisible();
+    expect(await runAxeAudit(page)).toEqual([]);
 
-    await page.locator('button[class*="jumpButton"]').nth(4).click();
-    await expect(page.getByText("問題 5 / 20")).toBeVisible();
+    await page.getByRole("button", { name: "すべての問題を確認する" }).click();
+    const grid = page.getByRole("list", { name: "問題一覧" });
+    await expect(grid.getByRole("button")).toHaveCount(20);
+    expect(await runAxeAudit(page)).toEqual([]);
+    await expect(grid.getByRole("button").first()).toContainText("★");
+    await grid.getByRole("button", { name: /問題5\s*未解答/ }).click();
+    await expect(page.getByText(/問題 5 \/ 20/)).toBeVisible();
+  });
+
+  test("試験を終了するは確認画面を経てから採点され、確認画面から解答に戻れる", async ({ page }) => {
+    await page.goto("/exam");
+    await page.getByRole("button", { name: /模擬試験を開始する/ }).click();
+    await page.waitForURL("**/exam/play");
+    await page.locator('button[class*="choiceButton"]').first().click();
+
+    await page.getByRole("button", { name: "試験を終了する" }).click();
+    await expect(page.getByText("試験を終了しますか？")).toBeVisible();
+    await expect(page.getByText("未解答 19問・チェック（★） 0問")).toBeVisible();
+    expect(await runAxeAudit(page)).toEqual([]);
+    expect(page.url()).toContain("/exam/play");
+
+    await page.getByRole("button", { name: "解答を続ける" }).click();
+    await expect(page.getByText(/問題 1 \/ 20（回答済み 1問）/)).toBeVisible();
+
+    await page.getByRole("button", { name: "試験を終了する" }).click();
+    await page.getByRole("button", { name: "試験を終了する" }).first().click();
+    await page.waitForURL("**/exam/result");
   });
 });
 
@@ -79,7 +107,8 @@ test("結果画面を開き直しても模試の結果を二重に記録しな�
     await page.locator('button[class*="choiceButton"]').first().click();
     if (i < 19) await page.getByRole("button", { name: "次の問題へ" }).click();
   }
-  await page.getByRole("button", { name: "提出する" }).click();
+  await page.getByRole("button", { name: "試験を終了する" }).click();
+  await page.getByRole("button", { name: "試験を終了する" }).first().click();
   await page.waitForURL("**/exam/result");
   await expect(
     page.getByText(/問を「復習」の模試の誤答・ブックマークに追加しました/),
@@ -104,7 +133,8 @@ test("結果画面を読み込み直しても模試の結果を二重に記録�
     await page.locator('button[class*="choiceButton"]').first().click();
     if (i < 19) await page.getByRole("button", { name: "次の問題へ" }).click();
   }
-  await page.getByRole("button", { name: "提出する" }).click();
+  await page.getByRole("button", { name: "試験を終了する" }).click();
+  await page.getByRole("button", { name: "試験を終了する" }).first().click();
   await page.waitForURL("**/exam/result");
   await expect(page.locator("h1")).toContainText("模擬試験の結果");
 
