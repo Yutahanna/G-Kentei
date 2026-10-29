@@ -562,5 +562,119 @@
     "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-basic-019",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s04",
+    "difficulty": "basic",
+    "question": "出力を−1〜1の範囲になめらかに押し込める活性化関数で、シグモイド関数を原点対称にしたようなものはどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["シグモイド関数", "tanh関数", "ReLU", "softmax関数"],
+    "correctAnswer": 1,
+    "explanation": "教材はtanh(ハイパボリックタンジェント)関数を「出力を−1〜1の範囲になめらかに押し込める関数で、シグモイドを原点対称にしたようなもの」と説明し、出力が0を中心に分布するためシグモイドより学習が安定しやすいとしている。",
+    "choiceExplanations": [
+      "誤り。シグモイド関数の出力範囲は0〜1であり、原点対称ではない。",
+      "正しい。出力範囲が−1〜1で、0を中心に分布する活性化関数である。",
+      "誤り。ReLUは入力が0以下なら0、0より大きければそのまま出力する関数であり、出力が−1〜1に収まるわけではない。",
+      "誤り。softmax関数は複数の出力値を合計が1になる確率分布に変換する関数であり、分類問題の出力層で使われる。"
+    ],
+    "tags": {
+      "contentTags": ["tanh関数", "活性化関数"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "4.4 活性化関数",
+    "sourceReference": "第4章 4節（活性化関数）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-basic-020",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s04",
+    "difficulty": "basic",
+    "question": "複数の出力値を「合計が1になる確率分布」に変換し、多クラス分類の出力層で使われる関数はどれか。教材の内容として最も適切なものはどれか。",
+    "choices": ["ステップ関数", "シグモイド関数", "softmax関数", "Leaky ReLU"],
+    "correctAnswer": 2,
+    "explanation": "教材はsoftmax関数を「複数の出力値を『合計が1になる確率分布』に変換する関数」で、分類問題の出力層で使われると説明している。全出力の合計が1になるため各クラスである確率として解釈でき、交差エントロピー誤差と組み合わせることで学習しやすくなる。",
+    "choiceExplanations": [
+      "誤り。ステップ関数は、閾値を超えたら1、超えなければ0を返す階段状の関数で、単純パーセプトロンで使われる。",
+      "誤り。シグモイド関数は1つの値を0〜1に押し込める関数であり、複数の出力の合計を1にそろえる関数ではない。",
+      "正しい。出力全体を合計1の確率分布に変換する、分類の出力層で使われる関数である。",
+      "誤り。Leaky ReLUは、負の領域でもわずかな傾きを残したReLUの改良版である。"
+    ],
+    "tags": {
+      "contentTags": ["softmax関数", "活性化関数"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "4.4 活性化関数",
+    "sourceReference": "第4章 4節（活性化関数）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-basic-021",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s02",
+    "difficulty": "basic",
+    "questionStyle": "fill_in_blank",
+    "question": "次の説明の（　　）に入る語句として、教材の内容に最も適切なものはどれか。「単純パーセプトロンは、入力の空間（2つの入力があれば平面）を、1本の直線で2つの領域に分けることしかできない。これを（　　）と呼ぶ。」",
+    "choices": ["線形分離", "勾配消失", "重み共有", "次元削減"],
+    "correctAnswer": 0,
+    "explanation": "教材は「単純パーセプトロンは、入力の空間(2つの入力があれば平面)を、1本の直線でスパッと2つの領域に分けることしかできない(これを『線形分離』と呼ぶ)」と説明している。XORはこの方法では分けられない線形分離不可能問題である。",
+    "choiceExplanations": [
+      "正しい。1本の直線で2つの領域に分けることを線形分離と呼ぶ。",
+      "誤り。勾配消失は、逆伝播の過程で勾配が層を経るごとに小さくなり、入力層に近い層が学習されなくなる現象である。",
+      "誤り。重み共有は、CNNで画像全体を同じフィルタでスキャンすることを指す言葉として第5章で説明されている。",
+      "誤り。次元削減は、データの情報をできるだけ保ちながら変数の数を減らす手法として第3章で説明されている。"
+    ],
+    "tags": {
+      "contentTags": ["線形分離", "単純パーセプトロン"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": ["第5章の重み共有との区別"]
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "4.2 単純パーセプトロンの限界とXOR問題",
+    "sourceReference": "第4章 2節（単純パーセプトロンの限界とXOR問題）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-basic-022",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s01",
+    "difficulty": "basic",
+    "question": "1958年に、脳の神経細胞の発火の仕組みを単純化した数理モデル「パーセプトロン」を提案した人物はだれか。教材の内容として最も適切なものはどれか。",
+    "choices": [
+      "マービン・ミンスキーとシーモア・パパート",
+      "デビッド・ラメルハート",
+      "ジェフリー・ヒントン",
+      "フランク・ローゼンブラット"
+    ],
+    "correctAnswer": 3,
+    "explanation": "教材は「パーセプトロンは1958年にフランク・ローゼンブラットが提案した、脳の神経細胞の働きを単純化したモデルである」と説明している。",
+    "choiceExplanations": [
+      "誤り。ミンスキーとパパートは、1969年に著書『Perceptrons』で単純パーセプトロンの限界(XOR問題)を数学的に証明した人物であり、パーセプトロンの提案者ではない。",
+      "誤り。デビッド・ラメルハートは、1986年の論文で誤差逆伝播法を広く知らしめた人物として紹介されている。",
+      "誤り。ジェフリー・ヒントンは、2006年頃に積層自己符号化器による事前学習を提唱した人物として紹介されている。",
+      "正しい。1958年にパーセプトロンを提案した人物である。"
+    ],
+    "tags": {
+      "contentTags": ["パーセプトロン", "ローゼンブラット"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
+    "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]

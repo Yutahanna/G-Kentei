@@ -289,5 +289,70 @@
     "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-advanced-010",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s05",
+    "difficulty": "advanced",
+    "question": "活性化関数にReLUを使った深いネットワークを学習させる際に、層を通る信号や勾配の大きさを保ちやすくするための重みの初期化を選びたい。教材が章末整理でReLU系と結び付けて覚えるよう示している初期化として、最も適切なものはどれか。",
+    "choices": [
+      "Xavier初期化",
+      "He初期化",
+      "積層自己符号化器による事前学習",
+      "Dropoutによるニューロンの無効化"
+    ],
+    "correctAnswer": 1,
+    "explanation": "教材は章末整理で、Xavier初期化とHe初期化を「層を通る信号や勾配の大きさを保ちやすくする初期化」とし、「Xavierはシグモイド・tanh系、HeはReLU系と結び付けて覚える」と整理している。",
+    "choiceExplanations": [
+      "誤り。Xavier初期化は、シグモイド・tanh系の活性化関数と結び付けて覚える初期化として整理されている。",
+      "正しい。ReLU系の活性化関数と結び付けて覚える初期化である。",
+      "誤り。積層自己符号化器による事前学習は、オートエンコーダーを1層ずつ学習させて良い初期値を作る手法であり、ReLU系と結び付けて覚える重みの初期化の名前ではない。",
+      "誤り。Dropoutは、学習時に一部のニューロンをランダムに無効化して過学習を防ぐ正則化手法であり、重みの初期化ではない。"
+    ],
+    "tags": {
+      "contentTags": ["He初期化", "Xavier初期化", "勾配消失問題"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": ["第5章のDropoutとの区別"]
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
+    "sourceReference": "第4章 章末整理（本文を補う用語：Xavier初期化・He初期化）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-advanced-011",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s06",
+    "difficulty": "advanced",
+    "questionForm": "negative",
+    "question": "ニューラルネットワークの歴史に関する、年・人物と業績の組み合わせとして、教材の内容として不適切なものはどれか。",
+    "choices": [
+      "1958年 フランク・ローゼンブラット ― パーセプトロンを提案した",
+      "1969年 ミンスキーとパパート ― 単純パーセプトロンの限界を数学的に証明した",
+      "2006年頃 ヤン・ルカン ― 積層自己符号化器による事前学習を提唱した",
+      "1986年 ラメルハートら ― 論文によって誤差逆伝播法を広く知らしめた"
+    ],
+    "correctAnswer": 2,
+    "explanation": "教材は、2006年頃に積層自己符号化器による事前学習を提唱したのはジェフリー・ヒントンらであると説明している。ヤン・ルカンは第5章で、1998年に手書き数字認識のCNNの原型であるLeNetを考案した人物として登場する。",
+    "choiceExplanations": [
+      "適切。教材は、パーセプトロンを1958年にフランク・ローゼンブラットが提案したと説明している。",
+      "適切。教材は、1969年にミンスキーとパパートが著書『Perceptrons』で単純パーセプトロンの限界を数学的に証明したと説明している。",
+      "不適切(正答)。積層自己符号化器による事前学習を提唱したのはジェフリー・ヒントンらであり、ヤン・ルカンはLeNetの考案者である。",
+      "適切。教材は、誤差逆伝播法が1986年にラメルハートらの論文によって広く知られるようになったと説明している。"
+    ],
+    "tags": {
+      "contentTags": ["積層自己符号化器", "ヒントン", "人物と業績"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": ["第5章のLeNet（ヤン・ルカン）との混同"]
+    },
+    "sourceFile": "materials/chapters/07_第4章.md",
+    "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
+    "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
+    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]

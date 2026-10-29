@@ -292,12 +292,14 @@ export function findAnswerPositionSkewWarning(questions: Question[]): string | n
  * 弱点章の問題プール拡充（2026-10-19）で一部の章は25問を超えるため、章ごとの総数を
  * EXPECTED_TOTAL_BY_CHAPTERで上書きし、難易度は基礎:標準:応用=2:2:1の比率で求める。
  * 第9・10章は、出題比重が増えているとされる法律・倫理分野として2026-10-22に拡充した。
+ * 第3〜6章は、公式テキストの章末問題に多い「説明から用語名を選ぶ」形式を補うため2026-10-29に拡充した。
  */
 export const EXPECTED_TOTAL_QUESTIONS = 25;
 export const EXPECTED_TOTAL_BY_CHAPTER: Record<string, number> = {
-  ch03: 45,
-  ch04: 45,
-  ch05: 55,
+  ch03: 55,
+  ch04: 55,
+  ch05: 65,
+  ch06: 35,
   ch09: 45,
   ch10: 45,
 };

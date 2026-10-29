@@ -712,5 +712,119 @@
     "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-standard-023",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s03",
+    "difficulty": "standard",
+    "question": "Self-Attentionの計算を複数の「頭」に分けて並列に何セットも行い、文法的な係り受けや意味的な類似性など異なる観点の関係性を同時に捉えられるようにした仕組みはどれか。教材の内容として最も適切なものはどれか。",
+    "choices": [
+      "Positional Encoding",
+      "Source-Target Attention",
+      "Multi-head Attention",
+      "Layer Normalization"
+    ],
+    "correctAnswer": 2,
+    "explanation": "教材はMulti-head Attentionを「Self-Attentionの計算を1回だけでなく、複数の『頭(ヘッド)』に分けて並列に何セットも行う仕組み」とし、各ヘッドが異なる観点で注意の重みを学習することで多面的な関係性を捉えられると説明している。",
+    "choiceExplanations": [
+      "誤り。Positional Encodingは、各単語の埋め込みベクトルに系列中の位置を表す情報を加算し、並び順の情報を補う仕組みである。",
+      "誤り。Source-Target Attentionは、出力側のQueryが入力側のKey・Valueを参照するAttentionとして章末で補足されている。",
+      "正しい。複数のヘッドで異なる観点の関係を同時に捉える仕組みである。",
+      "誤り。Layer Normalizationは、学習を安定させるためにTransformerの各ブロックに組み込まれている正規化層である。"
+    ],
+    "tags": {
+      "contentTags": ["Multi-head Attention", "Transformer"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.3 Attention機構とTransformer",
+    "sourceReference": "第5章 3節（Attention機構とTransformer）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-standard-024",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "standard",
+    "questionStyle": "fill_in_blank",
+    "question": "次の説明の（　　）に入る語句として、教材の内容に最も適切なものはどれか。「GANは生成される画像の質が非常に高くシャープになりやすい反面、生成器と識別器を同時に安定して学習させるのが難しく、学習が発散したり、特定のパターンばかり生成する（　　）が起きやすい。」",
+    "choices": ["勾配消失", "過学習", "ハルシネーション", "モード崩壊"],
+    "correctAnswer": 3,
+    "explanation": "教材はGANの課題として、「学習が発散したり、特定のパターンばかり生成する『モード崩壊』が起きやすい」ことを挙げている。",
+    "choiceExplanations": [
+      "誤り。勾配消失は、逆伝播の過程で勾配が層を経るごとに小さくなり、入力層に近い層が学習されなくなる現象であり、特定のパターンばかり生成する現象ではない。",
+      "誤り。過学習は、訓練データには高精度だが未知のデータには対応できなくなる現象である。",
+      "誤り。ハルシネーションは、生成AIがもっともらしい誤情報を自信を持って生成してしまう現象として、主に大規模言語モデルの文脈で説明されている。",
+      "正しい。特定のパターンばかり生成してしまうGANの課題をモード崩壊と呼ぶ。"
+    ],
+    "tags": {
+      "contentTags": ["GAN", "モード崩壊"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.6 生成AIの主要技術: GAN・VAE・拡散モデル",
+    "sourceReference": "第5章 6節（GAN・VAE・拡散モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-standard-025",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s05",
+    "difficulty": "standard",
+    "question": "大規模言語モデルで、モデルの規模がある閾値を超えると、それまで見られなかった複雑な推論や指示への柔軟な対応などの能力が急に現れる現象を何と呼ぶか。教材の内容として最も適切なものはどれか。",
+    "choices": ["創発的能力", "スケーリング則", "In-context learning", "アライメント"],
+    "correctAnswer": 0,
+    "explanation": "教材は「モデルの規模がある閾値を超えると、それまで見られなかった能力(複雑な推論、指示への柔軟な対応など)が急に現れる現象は『創発的能力(emergent abilities)』と呼ばれ」ると説明している。",
+    "choiceExplanations": [
+      "正しい。規模がある閾値を超えると急に現れる能力を創発的能力と呼ぶ。",
+      "誤り。スケーリング則は、モデルサイズ・データ量・計算量を増やすと、性能がある程度予測可能な形で向上し続ける傾向を指し、急に現れる能力のことではない。",
+      "誤り。In-context learningは、プロンプト内の情報だけを手がかりに、重みを更新せずにその場でタスクに適応したかのように振る舞える性質である。",
+      "誤り。アライメントは、AIの出力を人間にとって望ましい・安全な・有用な方向に近づける取り組み全体を指す。"
+    ],
+    "tags": {
+      "contentTags": ["創発的能力", "スケーリング則"],
+      "skillTags": ["暗記", "比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.5 大規模言語モデル(GPT系列・BERT)",
+    "sourceReference": "第5章 5節（大規模言語モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-standard-026",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s02",
+    "difficulty": "standard",
+    "question": "RNNの学習で、系列を時間方向に展開し、隠れ状態の更新を何度も遡って誤差逆伝播を計算する方法を何と呼ぶか。教材の内容として最も適切なものはどれか。",
+    "choices": ["教師強制", "BPTT", "Attention機構", "勾配降下法"],
+    "correctAnswer": 1,
+    "explanation": "教材は、系列が長くなるほど「誤差逆伝播の際に隠れ状態の更新を何度も遡って計算する必要があり(これをBPTT: Backpropagation Through Timeと呼ぶ)」と説明し、章末整理でもBPTTを「RNNを時間方向に展開して逆伝播する学習法」としている。",
+    "choiceExplanations": [
+      "誤り。教師強制は、学習時に前時点の正解を次の入力に使う方法として章末で補足されており、時間方向に逆伝播を計算する方法の名前ではない。",
+      "正しい。RNNを時間方向に展開して逆伝播する学習法である。",
+      "誤り。Attention機構は、系列中のどの要素と強く関連するかを直接計算する仕組みであり、RNNの学習方法の名前ではない。",
+      "誤り。勾配降下法は、勾配の方向に重みを少しずつ動かしていく一般的な更新の考え方であり、RNNを時間方向に展開する点を表す名前ではない。"
+    ],
+    "tags": {
+      "contentTags": ["BPTT", "RNN"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": ["第4章の勾配降下法との区別"]
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.2 RNN・LSTM・GRUと系列データ処理",
+    "sourceReference": "第5章 2節（RNN・LSTM・GRU）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-10-29",
+    "reviewStatus": "draft"
   }
 ]
