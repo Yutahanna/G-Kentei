@@ -29,13 +29,13 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.getByRole("link", { name: "ホームに戻る" }).click();
     await page.waitForURL("/");
     await page.selectOption("#dashboard-chapter-select", "ch02");
-    await expect(page.getByText("10 / 25", { exact: true })).toBeVisible();
+    await expect(page.getByText("10 / 27", { exact: true })).toBeVisible();
   });
 
   test("出題数は既定で10問になり、全問を選ぶと章の全問が出る", async ({ page }) => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
-    await expect(page.getByText(/該当する問題: 65問（今回の出題: 10問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 68問（今回の出題: 10問）/)).toBeVisible();
     await page.getByRole("button", { name: "ドリルを開始する" }).click();
     await page.waitForURL("**/drill/ch05/play");
     await expect(page.getByText(/問題 1 \/ 10/)).toBeVisible();
@@ -43,7 +43,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
     await page.locator("#count-all").check();
-    await expect(page.getByText(/該当する問題: 65問（今回の出題: 65問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 68問（今回の出題: 68問）/)).toBeVisible();
   });
 
   test("ブックマークした問題は復習メニューに現れ、復習セッションを完了できる", async ({ page }) => {
@@ -115,5 +115,40 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await wrongCard.getByRole("button", { name: "1問で始める" }).click();
     await page.waitForURL("**/review/play");
     await expect(page.locator('button[class*="choiceButton"]').first()).toBeVisible();
+  });
+
+  test("すべて選ぶ問題は複数選んでから「回答する」で採点され、選び漏れが分かる", async ({
+    page,
+  }) => {
+    await page.goto("/drill");
+    await page.locator("select").first().selectOption("ch08");
+    await page.locator("#difficulty-basic").uncheck();
+    await page.locator("#difficulty-advanced").uncheck();
+    await page.locator("#count-all").check();
+    await page.getByRole("button", { name: "ドリルを開始する" }).click();
+    await page.waitForURL("**/drill/ch08/play");
+
+    const choices = page.locator('button[class*="choiceButton"]');
+    // 第8章の標準問題には、すべて選ぶ問題が1問含まれる。出題順はランダムなので、現れるまで進める。
+    for (let i = 0; i < 20; i++) {
+      if (await page.getByText(/すべて選び、「回答する」を押してください/).isVisible()) break;
+      await choices.first().click();
+      await page.getByRole("button", { name: /次の問題へ|結果を見る/ }).click();
+    }
+    await expect(choices).toHaveCount(5);
+    const submit = page.getByRole("button", { name: /回答する（\d+つ選択中）/ });
+    await expect(submit).toBeDisabled();
+
+    // 1つ選んだだけでは採点されず、選択を切り替えられる
+    await choices.nth(0).click();
+    await expect(page.getByText(/正解です|不正解です/)).toHaveCount(0);
+    await choices.nth(1).click();
+    await choices.nth(1).click();
+    await expect(page.getByRole("button", { name: "回答する（1つ選択中）" })).toBeEnabled();
+    await page.getByRole("button", { name: "回答する（1つ選択中）" }).click();
+
+    // 正解は2〜4個なので、1つだけ選んだ回答は不正解になり、選ばなかった正解に「選び漏れ」が付く
+    await expect(page.getByText("✕ 不正解です")).toBeVisible();
+    await expect(page.getByText(/選び漏れ/).first()).toBeVisible();
   });
 });

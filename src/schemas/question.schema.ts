@@ -38,6 +38,20 @@ export const questionFormSchema = z.enum(["affirmative", "negative"]);
  */
 export const questionStyleSchema = z.enum(["standard", "fill_in_blank"]);
 
+/**
+ * 解答の形式。省略時は"single"（4択から1つを選ぶ。correctAnswerで正解を示す）。
+ * "multiple": 5つの選択肢から当てはまるものをすべて選ぶ形式（「適切なものをすべて選べ」
+ * 「不適切なものをすべて選べ」）。correctAnswersで正解を2〜4個示し、選んだ組が正解と
+ * 完全に一致した場合だけ正解とする（部分点なし。本試験の採点方法は公表されていないため）。
+ * 本試験の受験サイトが複数の正解を持つ問題に対応していることは、JDLA「受験当日の操作
+ * マニュアル」Ver12R00のチュートリアル（正解が3つあるサンプル問題）で確認した（2026-11-01）。
+ */
+export const answerTypeSchema = z.enum(["single", "multiple"]);
+
+export const MULTIPLE_CHOICE_COUNT = 5;
+export const MULTIPLE_MIN_CORRECT = 2;
+export const MULTIPLE_MAX_CORRECT = 4;
+
 export const questionTagsSchema = z
   .object({
     contentTags: z.array(z.string().min(1)).min(1),
@@ -54,11 +68,13 @@ export const questionSchema = z
     difficulty: difficultySchema,
     questionForm: questionFormSchema.optional(),
     questionStyle: questionStyleSchema.optional(),
+    answerType: answerTypeSchema.optional(),
     question: z.string().min(1),
-    choices: z.array(z.string().min(1)).length(4),
-    correctAnswer: z.number().int().min(0).max(3),
+    choices: z.array(z.string().min(1)).min(4).max(MULTIPLE_CHOICE_COUNT),
+    correctAnswer: z.number().int().min(0).max(3).optional(),
+    correctAnswers: z.array(z.number().int().min(0)).optional(),
     explanation: z.string().min(1),
-    choiceExplanations: z.array(z.string().min(1)).length(4),
+    choiceExplanations: z.array(z.string().min(1)).min(4).max(MULTIPLE_CHOICE_COUNT),
     tags: questionTagsSchema,
     sourceFile: z.string().min(1),
     sourceHeading: z.string().min(1),
@@ -68,12 +84,37 @@ export const questionSchema = z
     createdAt: z.string().min(1),
     reviewStatus: reviewStatusSchema,
   })
-  .strict();
+  .strict()
+  .superRefine((q, ctx) => {
+    const issue = (message: string) => ctx.addIssue({ code: z.ZodIssueCode.custom, message });
+    if (q.choiceExplanations.length !== q.choices.length) {
+      issue("choiceExplanationsはchoicesと同じ数にする");
+    }
+    if ((q.answerType ?? "single") === "single") {
+      if (q.choices.length !== 4) issue("1つを選ぶ問題の選択肢は4つにする");
+      if (q.correctAnswer === undefined) issue("1つを選ぶ問題にはcorrectAnswerが必要");
+      if (q.correctAnswers !== undefined) issue("1つを選ぶ問題にcorrectAnswersは使わない");
+      return;
+    }
+    if (q.choices.length !== MULTIPLE_CHOICE_COUNT) {
+      issue(`すべて選ぶ問題の選択肢は${MULTIPLE_CHOICE_COUNT}つにする`);
+    }
+    if (q.correctAnswer !== undefined) issue("すべて選ぶ問題にcorrectAnswerは使わない");
+    const answers = q.correctAnswers ?? [];
+    if (answers.length < MULTIPLE_MIN_CORRECT || answers.length > MULTIPLE_MAX_CORRECT) {
+      issue(`すべて選ぶ問題の正解は${MULTIPLE_MIN_CORRECT}〜${MULTIPLE_MAX_CORRECT}個にする`);
+    }
+    if (new Set(answers).size !== answers.length) issue("correctAnswersに重複がある");
+    if (answers.some((i) => i >= q.choices.length)) issue("correctAnswersが選択肢の範囲外");
+    if (!q.question.includes("すべて選べ"))
+      issue("すべて選ぶ問題の設問文には「すべて選べ」を含める");
+  });
 
 export type Difficulty = z.infer<typeof difficultySchema>;
 export type ReviewStatus = z.infer<typeof reviewStatusSchema>;
 export type SkillTag = z.infer<typeof skillTagSchema>;
 export type QuestionForm = z.infer<typeof questionFormSchema>;
 export type QuestionStyle = z.infer<typeof questionStyleSchema>;
+export type AnswerType = z.infer<typeof answerTypeSchema>;
 export type QuestionTags = z.infer<typeof questionTagsSchema>;
 export type Question = z.infer<typeof questionSchema>;

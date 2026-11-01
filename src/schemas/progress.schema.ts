@@ -11,6 +11,7 @@ export const answerHistoryEntrySchema = z.object({
   answeredAt: z.string().min(1),
   result: z.enum(["correct", "incorrect"]),
   selectedIndex: z.number().int(),
+  selectedIndices: z.array(z.number().int()).optional(),
   source: z.enum(["drill", "review", "mock_exam"]).optional(),
 });
 

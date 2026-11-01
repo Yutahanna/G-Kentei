@@ -8,6 +8,7 @@ import { summarizeDrillResults } from "../../shared/lib/scoring";
 import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
 import styles from "./DrillResultPage.module.css";
 import AsOfDateNote from "../../shared/ui/AsOfDateNote";
+import { formatChoices, getCorrectIndices } from "../../shared/lib/answer";
 
 export default function DrillResultPage() {
   const { chapterId } = useParams<{ chapterId: string }>();
@@ -46,9 +47,7 @@ export default function DrillResultPage() {
     );
   }
 
-  const summary = summarizeDrillResults(
-    answers.map((a) => ({ correct: a.correct, selectedIndex: a.selectedIndex, correctAnswer: -1 })),
-  );
+  const summary = summarizeDrillResults(answers);
 
   return (
     <div>
@@ -89,12 +88,12 @@ export default function DrillResultPage() {
                   {!answer.correct && (
                     <p className={styles.answerLine}>
                       <strong>あなたの回答：</strong>
-                      {question.choices[answer.selectedIndex]}
+                      {formatChoices(question, answer.selected)}
                     </p>
                   )}
                   <p className={styles.answerLine}>
                     <strong>正解：</strong>
-                    {question.choices[question.correctAnswer]}
+                    {formatChoices(question, getCorrectIndices(question))}
                   </p>
                   <p>
                     <strong>解説</strong>

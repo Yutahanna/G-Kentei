@@ -1,7 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { ChoiceOrderMap } from "../lib/choiceOrder";
-import { sessionStateStorage } from "./sessionPersistence";
+import {
+  migrateAnswerListState,
+  SESSION_STATE_VERSION,
+  sessionStateStorage,
+} from "./sessionPersistence";
 
 /**
  * 復習セッション（SRS復習・誤答復習・ブックマーク）の実行中状態。
@@ -13,7 +17,8 @@ export type ReviewSessionType = "mock_review" | "due_for_review" | "wrong_answer
 
 export interface ReviewAnswerRecord {
   questionId: string;
-  selectedIndex: number;
+  /** 選んだ選択肢の元インデックス（1つを選ぶ問題では1要素）。 */
+  selected: number[];
   correct: boolean;
 }
 
@@ -86,6 +91,11 @@ export const useReviewSessionStore = create<ReviewSessionState>()(
           supplementIds: [],
         }),
     }),
-    { name: "g-kentei-review-session", storage: sessionStateStorage },
+    {
+      name: "g-kentei-review-session",
+      storage: sessionStateStorage,
+      version: SESSION_STATE_VERSION,
+      migrate: (persisted) => migrateAnswerListState(persisted) as never,
+    },
   ),
 );

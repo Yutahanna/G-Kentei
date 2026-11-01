@@ -36,9 +36,11 @@ test.describe("模擬試験のゴールデンパス", () => {
     const wrongCount = 20 - Number(summary.split("/")[0]!.trim());
 
     // 問題ごとに全選択肢（各4つ）と選択肢ごとの説明を表示し、正解に印を付ける
-    await expect(page.locator('li[class*="choiceItem"]')).toHaveCount(80);
-    await expect(page.locator('li[class*="choiceCorrect"]')).toHaveCount(20);
-    await expect(page.locator('[class*="choiceExplanation"]')).toHaveCount(80);
+    // すべて選ぶ問題（5択・正解2〜4個）が混ざることがあるため、選択肢と正解の数は下限で確かめる
+    const choiceCount = await page.locator('li[class*="choiceItem"]').count();
+    expect(choiceCount).toBeGreaterThanOrEqual(80);
+    expect(await page.locator('li[class*="choiceCorrect"]').count()).toBeGreaterThanOrEqual(20);
+    await expect(page.locator('[class*="choiceExplanation"]')).toHaveCount(choiceCount);
     // 不正解・未回答の問題は最初から開き、正解の問題は折りたたむ
     await expect(page.locator("details[open]")).toHaveCount(wrongCount);
 

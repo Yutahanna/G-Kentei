@@ -112,6 +112,12 @@
   margin-bottom: var(--space-4);
 }
 
+.multipleHint {
+  margin: calc(-1 * var(--space-2)) 0 var(--space-3);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
 .choiceList {
   display: grid;
   gap: var(--space-3);

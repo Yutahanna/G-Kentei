@@ -10,7 +10,9 @@ export type AnswerSource = "drill" | "review" | "mock_exam";
 export interface AnswerHistoryEntry {
   answeredAt: string;
   result: "correct" | "incorrect";
-  selectedIndex: number; // 模擬試験の未回答は-1
+  selectedIndex: number; // 模擬試験の未回答は-1。すべて選ぶ問題では1つ目の選択
+  /** すべて選ぶ問題で2つ以上選んだときの全選択。2026-11-01以前の履歴には無い。 */
+  selectedIndices?: number[];
   source?: AnswerSource; // 2026-10-19以前の履歴には無い
 }
 

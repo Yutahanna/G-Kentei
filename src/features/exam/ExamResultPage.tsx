@@ -11,6 +11,7 @@ import {
 import { applyAnswer } from "../../shared/lib/srs";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import { scoreExam } from "../../shared/lib/examScoring";
+import { isCorrectChoice as isCorrectChoiceOf } from "../../shared/lib/answer";
 import { getChoiceOrder } from "../../shared/lib/choiceOrder";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import styles from "./ExamResultPage.module.css";
@@ -56,7 +57,7 @@ export default function ExamResultPage() {
     [questionIds],
   );
   const answerIndexMap = useMemo(
-    () => Object.fromEntries(Object.entries(answers).map(([id, a]) => [id, a.selectedIndex])),
+    () => Object.fromEntries(Object.entries(answers).map(([id, a]) => [id, a.selected])),
     [answers],
   );
   const score = useMemo(() => scoreExam(questions, answerIndexMap), [questions, answerIndexMap]);
@@ -86,7 +87,7 @@ export default function ExamResultPage() {
         const next = applyAnswer(
           current,
           r.correct ? "correct" : "incorrect",
-          r.selectedIndex ?? -1,
+          r.selected,
           answeredAt,
           "mock_exam",
         );
@@ -188,9 +189,9 @@ export default function ExamResultPage() {
       <ul className={styles.list}>
         {score.results.map((r, index) => {
           const question = getQuestionById(r.questionId);
-          const label = r.selectedIndex === null ? "未回答" : r.correct ? "正解" : "不正解";
+          const label = r.selected.length === 0 ? "未回答" : r.correct ? "正解" : "不正解";
           const labelClass =
-            r.selectedIndex === null
+            r.selected.length === 0
               ? styles.unanswered
               : r.correct
                 ? styles.correct
@@ -211,15 +212,15 @@ export default function ExamResultPage() {
                 // 不正解・未回答は最初から開き、正解した問題は折りたたんでおく。
                 <details className={styles.details} open={!r.correct}>
                   <summary className={styles.detailsSummary}>選択肢と解説</summary>
-                  {r.selectedIndex === null && (
+                  {r.selected.length === 0 && (
                     <p className={styles.answerLine}>
                       <strong>あなたの回答：</strong>未回答
                     </p>
                   )}
                   <ul className={styles.choiceList}>
                     {getChoiceOrder(choiceOrderMap, question).map((originalIndex, displayIndex) => {
-                      const isCorrectChoice = originalIndex === question.correctAnswer;
-                      const isSelected = r.selectedIndex === originalIndex;
+                      const isCorrectChoice = isCorrectChoiceOf(question, originalIndex);
+                      const isSelected = r.selected.includes(originalIndex);
                       let className = styles.choiceItem;
                       if (isCorrectChoice) className += ` ${styles.choiceCorrect}`;
                       if (isSelected && !isCorrectChoice)

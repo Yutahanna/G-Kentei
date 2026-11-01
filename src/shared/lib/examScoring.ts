@@ -1,10 +1,12 @@
 import type { Question, Difficulty } from "../../entities/question";
+import { isCorrectSelection } from "./answer";
 
 export interface ExamQuestionResult {
   questionId: string;
   chapterId: string;
   difficulty: Difficulty;
-  selectedIndex: number | null;
+  /** 選んだ選択肢の元インデックス。空配列は未回答。 */
+  selected: number[];
   correct: boolean;
 }
 
@@ -28,22 +30,22 @@ export interface ExamScore {
 
 export function scoreExam(
   questions: Question[],
-  answers: Record<string, number | null | undefined>,
+  answers: Record<string, readonly number[] | undefined>,
 ): ExamScore {
   const results: ExamQuestionResult[] = questions.map((q) => {
-    const selectedIndex = answers[q.id] ?? null;
+    const selected = [...(answers[q.id] ?? [])];
     return {
       questionId: q.id,
       chapterId: q.chapterId,
       difficulty: q.difficulty,
-      selectedIndex,
-      correct: selectedIndex !== null && selectedIndex === q.correctAnswer,
+      selected,
+      correct: selected.length > 0 && isCorrectSelection(q, selected),
     };
   });
 
   const total = results.length;
   const correct = results.filter((r) => r.correct).length;
-  const unanswered = results.filter((r) => r.selectedIndex === null).length;
+  const unanswered = results.filter((r) => r.selected.length === 0).length;
   const incorrect = total - correct - unanswered;
 
   const chapterMap = new Map<string, ExamChapterScore>();
@@ -63,13 +65,13 @@ export function scoreExam(
     };
     chapterEntry.total += 1;
     if (r.correct) chapterEntry.correct += 1;
-    if (r.selectedIndex === null) chapterEntry.unanswered += 1;
+    if (r.selected.length === 0) chapterEntry.unanswered += 1;
     chapterMap.set(r.chapterId, chapterEntry);
 
     const diffEntry = difficultyMap[r.difficulty];
     diffEntry.total += 1;
     if (r.correct) diffEntry.correct += 1;
-    if (r.selectedIndex === null) diffEntry.unanswered += 1;
+    if (r.selected.length === 0) diffEntry.unanswered += 1;
   }
 
   return {
