@@ -826,5 +826,104 @@
     "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-standard-027",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s11",
+    "difficulty": "standard",
+    "answerType": "multiple",
+    "question": "DropoutとBatch Normalizationに関する記述として、教材の内容として適切なものを全て選べ。",
+    "choices": [
+      "Batch Normalizationは、層への入力の分布をミニバッチごとに平均0・分散1に正規化し、学習を安定・高速化させる。",
+      "Batch Normalizationは学習を安定させる効果だけを持ち、過学習を抑える効果はまったく持たない。",
+      "Dropoutでは、推論時にも学習時と同じ割合のニューロンをランダムに無効化して予測を行う。",
+      "Dropoutは、学習時に一部のニューロンをランダムに無効化し、特定のニューロンへの過度な依存を防ぐ。"
+    ],
+    "correctAnswers": [0, 3],
+    "explanation": "教材は、Dropoutを学習時に一部のニューロンをランダムに無効化して頑健な特徴学習を促す手法（推論時は全ニューロンを使い出力をスケーリングする）、Batch Normalizationを層への入力の分布をミニバッチ単位で正規化して学習を安定・高速化させる手法（副次的な正則化効果も持つ）と説明している。",
+    "choiceExplanations": [
+      "正しい。教材が説明するBatch Normalizationの仕組みと効果そのものである。",
+      "誤り。教材は、Batch Normalizationは副次的に軽い正則化効果（過学習の抑制）も持つと説明している。",
+      "誤り。教材は、推論時には全てのニューロンを使い、学習時に無効化した割合に応じて出力をスケーリングすると説明している。",
+      "正しい。教材が説明するDropoutの仕組みと効果そのものである。"
+    ],
+    "tags": {
+      "contentTags": ["Dropout", "Batch Normalization", "正則化"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.11 正則化技術(Dropout・Batch Normalization)",
+    "sourceReference": "第5章 11節（Dropout・Batch Normalization）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-11-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-standard-028",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "standard",
+    "answerType": "multiple",
+    "question": "ニューラルネットワークの最適化手法に関する記述として、教材の内容として適切なものを全て選べ。",
+    "choices": [
+      "AdaGradは、学習が進んでも学習率が小さくなりすぎることがないため、学習が止まってしまう心配がない。",
+      "Adamは、パラメータごとに学習率を調整する仕組みを持たず、すべての重みを同じ歩幅で更新する。",
+      "Momentumは、これまでの更新の勢いを加味して重みを更新し、SGDの振動を抑えて収束を速める。",
+      "Adamは、MomentumとAdaGradの発想を組み合わせた手法であり、現在最も広く使われている最適化手法の1つである。"
+    ],
+    "correctAnswers": [2, 3],
+    "explanation": "教材は、最適化手法の発展を「素朴な勾配降下（SGD）」→「勢いを加味する（Momentum）」→「パラメータごとに学習率を変える（AdaGrad）」→「両方を組み合わせて弱点を補う（Adam）」というリレーとして説明している。AdaGradには学習率が減衰しすぎる弱点があり、Adamはそれを回避しつつパラメータごとに学習率を自動調整できる。",
+    "choiceExplanations": [
+      "誤り。教材は、AdaGradは学習が進むにつれて勾配の累積が大きくなり、学習率が過度に小さくなって学習が事実上止まってしまう弱点があったと説明している。",
+      "誤り。教材は、Adamはパラメータごとに適切な学習率を自動調整できると説明している。",
+      "正しい。教材が説明するMomentumの仕組みと効果そのものである。",
+      "正しい。教材が説明するAdamの位置づけそのものである。"
+    ],
+    "tags": {
+      "contentTags": ["SGD", "Momentum", "AdaGrad", "Adam"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.12 最適化手法(SGD・Momentum・AdaGrad・Adam)",
+    "sourceReference": "第5章 12節（最適化手法）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-11-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-standard-029",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "standard",
+    "answerType": "multiple",
+    "question": "事前学習・転移学習・ファインチューニングと基盤モデルに関する記述として、教材の内容として適切なものを全て選べ。",
+    "choices": [
+      "事前学習では、特定のタスク用にラベル付けされた少量のデータだけを使い、そのタスク専用のモデルを一から作る。",
+      "転移学習は、ある領域・タスクで学習して得た知識（モデルの重み）を、別の領域・タスクに転用することである。",
+      "ファインチューニングは、事前学習済みモデルの重みを初期値とし、対象タスクの比較的少量のデータで追加学習して微調整することである。",
+      "基盤モデルは、大量かつ多様なデータで事前学習され、多様な下流タスクに適応させて使える汎用性の高い大規模モデルを指す。"
+    ],
+    "correctAnswers": [1, 2, 3],
+    "explanation": "教材は、事前学習を大量の（多くの場合ラベルなしの）データで汎用的な特徴を学ぶ段階、転移学習をその知識を別のタスクへ転用すること、ファインチューニングを転移学習の代表的な実現手段（追加学習による微調整）と整理している。基盤モデルは、大量多様なデータで事前学習され多様な下流タスクに適応できる汎用大規模モデルであり、GPT・BERTなどが代表例である。",
+    "choiceExplanations": [
+      "誤り。教材は事前学習を、特定のタスク用データではなく、大量の（多くの場合ラベルなしの）データで汎用的な特徴やパターンを学習させる段階と説明している。",
+      "正しい。教材が説明する転移学習の定義そのものである。",
+      "正しい。教材が説明するファインチューニングの定義そのものである。",
+      "正しい。教材が説明する基盤モデル（Foundation Model）の定義そのものである。"
+    ],
+    "tags": {
+      "contentTags": ["事前学習", "転移学習", "ファインチューニング", "基盤モデル"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/chapters/08_第5章.md",
+    "sourceHeading": "5.4 事前学習・転移学習・ファインチューニングと基盤モデル",
+    "sourceReference": "第5章 4節（事前学習・転移学習・ファインチューニングと基盤モデル）",
+    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
+    "createdAt": "2026-11-01",
+    "reviewStatus": "draft"
   }
 ]

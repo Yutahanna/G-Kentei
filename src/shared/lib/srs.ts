@@ -45,14 +45,21 @@ function computeNextStageOnIncorrect(progress: QuestionProgress): number {
 export function applyAnswer(
   progress: QuestionProgress,
   result: "correct" | "incorrect",
-  selectedIndex: number,
+  selected: readonly number[],
   now: Date = new Date(),
   source?: AnswerSource,
 ): QuestionProgress {
   const nowIso = now.toISOString();
+  // selectedIndexは従来どおり1つ目の選択（未回答は-1）。複数選んだときは全体をselectedIndicesに残す。
   const history = [
     ...progress.history,
-    { answeredAt: nowIso, result, selectedIndex, ...(source ? { source } : {}) },
+    {
+      answeredAt: nowIso,
+      result,
+      selectedIndex: selected[0] ?? -1,
+      ...(selected.length > 1 ? { selectedIndices: [...selected] } : {}),
+      ...(source ? { source } : {}),
+    },
   ];
 
   if (result === "correct") {

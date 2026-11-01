@@ -30,6 +30,8 @@ import {
   findAbsoluteQualifierConcentration,
   findAnswerPositionSkewWarning,
   findChoiceLengthImbalances,
+  findMultipleAnswerIssues,
+  computeMultipleCorrectCountDistribution,
   findContentTagOverlaps,
   findExtremePhraseUsages,
   findMetaDescriptionChoices,
@@ -260,6 +262,10 @@ function main(): void {
       );
     }
 
+    for (const message of findMultipleAnswerIssues(chapterQuestions)) {
+      error(`[${chapterId}] ${message}`);
+    }
+
     const formDistribution = computeQuestionFormDistribution(chapterQuestions);
     console.log(
       `[${chapterId}] 設問形式別件数: 肯定形=${formDistribution.affirmative} / 否定形=${formDistribution.negative}`,
@@ -314,6 +320,24 @@ function main(): void {
     reportLines.push("");
   }
   writeFileSync(REPORT_PATH, `${reportLines.join("\n")}\n`, "utf-8");
+
+  // 全て選ぶ問題の正解の個数が1種類に偏ると、個数を推測する手がかりになる。
+  const multipleCounts = computeMultipleCorrectCountDistribution(
+    allQuestions.map((q) => q.question),
+  );
+  const multipleTotal = Object.values(multipleCounts).reduce((sum, n) => sum + n, 0);
+  if (multipleTotal > 0) {
+    console.log(
+      `全て選ぶ問題: ${multipleTotal}問（正解の個数別 ${Object.entries(multipleCounts)
+        .map(([k, n]) => `${k}個=${n}`)
+        .join(" / ")}）`,
+    );
+    if (multipleTotal >= 5 && Object.keys(multipleCounts).length < 2) {
+      error(
+        "全て選ぶ問題の正解の個数が1種類しかありません。個数を推測できないよう混ぜてください。",
+      );
+    }
+  }
 
   // 分布は章ごとの内訳としてコンソールにも出す（節別）
   for (const [chapterId, chapterQuestions] of questionsByChapter) {

@@ -10,6 +10,7 @@
  *   npm run review -- ch03 --focused    # 重点レビュー対象のみ詳細表示、他は簡易表示（第3章以降）
  *   npm run review:ch01                 # ch01専用のショートカット（詳細表示）
  */
+import { getCorrectIndices, isCorrectChoice } from "../src/shared/lib/answer";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { globSync } from "node:fs";
@@ -191,7 +192,7 @@ function renderQuestionDetail(q: Question, index: number): string[] {
   lines.push("");
   lines.push("**選択肢**：");
   q.choices.forEach((choice, i) => {
-    const marker = i === q.correctAnswer ? "◯ 正解" : "✕";
+    const marker = isCorrectChoice(q, i) ? "◯ 正解" : "✕";
     lines.push(`${i + 1}. ${choice} — **${marker}**`);
   });
   lines.push("");
@@ -334,7 +335,9 @@ function main(): void {
       lines.push("|---|---|---|---|---|");
       restQuestions.forEach((q) => {
         lines.push(
-          `| ${q.id} | ${DIFFICULTY_LABEL[q.difficulty]} | ${q.question} | ${q.choices[q.correctAnswer]} | ${q.tags.contentTags.join(" / ")} |`,
+          `| ${q.id} | ${DIFFICULTY_LABEL[q.difficulty]} | ${q.question} | ${getCorrectIndices(q)
+            .map((i) => q.choices[i])
+            .join(" ／ ")} | ${q.tags.contentTags.join(" / ")} |`,
         );
       });
     }

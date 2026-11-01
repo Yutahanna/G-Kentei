@@ -1,7 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { ChoiceOrderMap } from "../lib/choiceOrder";
-import { sessionStateStorage } from "./sessionPersistence";
+import {
+  migrateAnswerMapState,
+  SESSION_STATE_VERSION,
+  sessionStateStorage,
+} from "./sessionPersistence";
 
 /**
  * 模擬試験の実行中状態。ドリルと異なり、正誤はその場で表示せず、
@@ -13,7 +17,8 @@ import { sessionStateStorage } from "./sessionPersistence";
  */
 
 export interface ExamAnswerState {
-  selectedIndex: number | null;
+  /** 選んだ選択肢の元インデックス。空配列は未回答。 */
+  selected: number[];
   flagged: boolean;
 }
 
@@ -32,7 +37,8 @@ interface ExamSessionState {
     timeLimitMinutes: number,
     choiceOrderMap?: ChoiceOrderMap,
   ) => void;
-  selectAnswer: (questionId: string, index: number) => void;
+  /** 回答を置き換える（1つを選ぶ問題は[index]、すべて選ぶ問題は切り替え後の配列を渡す）。 */
+  setAnswer: (questionId: string, selected: number[]) => void;
   toggleFlag: (questionId: string) => void;
   goTo: (index: number) => void;
   submit: () => void;
@@ -41,7 +47,7 @@ interface ExamSessionState {
 }
 
 function emptyAnswers(questionIds: string[]): Record<string, ExamAnswerState> {
-  return Object.fromEntries(questionIds.map((id) => [id, { selectedIndex: null, flagged: false }]));
+  return Object.fromEntries(questionIds.map((id) => [id, { selected: [], flagged: false }]));
 }
 
 export const useExamSessionStore = create<ExamSessionState>()(
@@ -66,13 +72,12 @@ export const useExamSessionStore = create<ExamSessionState>()(
           isSubmitted: false,
           isRecorded: false,
         }),
-      selectAnswer: (questionId, index) =>
+      setAnswer: (questionId, selected) =>
         set((state) => ({
           answers: {
             ...state.answers,
             [questionId]: {
-              ...state.answers[questionId],
-              selectedIndex: index,
+              selected,
               flagged: state.answers[questionId]?.flagged ?? false,
             },
           },
@@ -82,7 +87,7 @@ export const useExamSessionStore = create<ExamSessionState>()(
           answers: {
             ...state.answers,
             [questionId]: {
-              selectedIndex: state.answers[questionId]?.selectedIndex ?? null,
+              selected: state.answers[questionId]?.selected ?? [],
               flagged: !(state.answers[questionId]?.flagged ?? false),
             },
           },
@@ -102,6 +107,11 @@ export const useExamSessionStore = create<ExamSessionState>()(
           isRecorded: false,
         }),
     }),
-    { name: "g-kentei-exam-session", storage: sessionStateStorage },
+    {
+      name: "g-kentei-exam-session",
+      storage: sessionStateStorage,
+      version: SESSION_STATE_VERSION,
+      migrate: (persisted) => migrateAnswerMapState(persisted) as never,
+    },
   ),
 );

@@ -1,7 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { ChoiceOrderMap } from "../lib/choiceOrder";
-import { sessionStateStorage } from "./sessionPersistence";
+import {
+  migrateAnswerListState,
+  SESSION_STATE_VERSION,
+  sessionStateStorage,
+} from "./sessionPersistence";
 
 /**
  * 章別ドリルの実行中セッション状態。複数コンポーネント（出題画面・結果画面）が
@@ -12,7 +16,8 @@ import { sessionStateStorage } from "./sessionPersistence";
 
 export interface DrillAnswerRecord {
   questionId: string;
-  selectedIndex: number;
+  /** 選んだ選択肢の元インデックス（1つを選ぶ問題では1要素）。 */
+  selected: number[];
   correct: boolean;
 }
 
@@ -75,6 +80,11 @@ export const useDrillSessionStore = create<DrillSessionState>()(
           isRecorded: false,
         }),
     }),
-    { name: "g-kentei-drill-session", storage: sessionStateStorage },
+    {
+      name: "g-kentei-drill-session",
+      storage: sessionStateStorage,
+      version: SESSION_STATE_VERSION,
+      migrate: (persisted) => migrateAnswerListState(persisted) as never,
+    },
   ),
 );

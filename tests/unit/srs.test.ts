@@ -7,7 +7,7 @@ const NOW = new Date("2026-08-01T00:00:00.000Z");
 describe("srs.applyAnswer", () => {
   it("初回正解で not_started から learning へ進み、段階が1つ進む", () => {
     const progress = createInitialProgress("q1");
-    const next = applyAnswer(progress, "correct", 0, NOW);
+    const next = applyAnswer(progress, "correct", [0], NOW);
 
     expect(next.status).toBe("learning");
     expect(next.srsStage).toBe(1);
@@ -21,7 +21,7 @@ describe("srs.applyAnswer", () => {
   it("正解を繰り返すと段階4で mastered になる", () => {
     let progress = createInitialProgress("q1");
     for (let i = 0; i < MAX_SRS_STAGE; i++) {
-      progress = applyAnswer(progress, "correct", 0, NOW);
+      progress = applyAnswer(progress, "correct", [0], NOW);
     }
 
     expect(progress.srsStage).toBe(MAX_SRS_STAGE);
@@ -30,7 +30,7 @@ describe("srs.applyAnswer", () => {
 
   it("初回誤答は段階0で早期再出題になる", () => {
     const progress = createInitialProgress("q1");
-    const next = applyAnswer(progress, "incorrect", 2, NOW);
+    const next = applyAnswer(progress, "incorrect", [2], NOW);
 
     expect(next.status).toBe("due_for_review");
     expect(next.srsStage).toBe(0);
@@ -40,11 +40,11 @@ describe("srs.applyAnswer", () => {
 
   it("連続誤答は段階0に戻る（早期再出題）", () => {
     let progress = createInitialProgress("q1");
-    progress = applyAnswer(progress, "correct", 0, NOW); // stage 1
-    progress = applyAnswer(progress, "correct", 0, NOW); // stage 2
-    progress = applyAnswer(progress, "incorrect", 1, NOW); // 1回目の誤答: stage 2->0 (drop 2)
+    progress = applyAnswer(progress, "correct", [0], NOW); // stage 1
+    progress = applyAnswer(progress, "correct", [0], NOW); // stage 2
+    progress = applyAnswer(progress, "incorrect", [1], NOW); // 1回目の誤答: stage 2->0 (drop 2)
     const beforeSecondWrong = progress.srsStage;
-    progress = applyAnswer(progress, "incorrect", 1, NOW); // 連続誤答: 早期再出題で0
+    progress = applyAnswer(progress, "incorrect", [1], NOW); // 連続誤答: 早期再出題で0
 
     expect(beforeSecondWrong).toBe(0);
     expect(progress.srsStage).toBe(0);
@@ -53,13 +53,13 @@ describe("srs.applyAnswer", () => {
   it("非連続の誤答は段階0へ戻さず1〜2段階だけ下げる", () => {
     let progress = createInitialProgress("q1");
     // stage を 3 まで育てる（正解を3回）
-    progress = applyAnswer(progress, "correct", 0, NOW); // stage1
-    progress = applyAnswer(progress, "correct", 0, NOW); // stage2
-    progress = applyAnswer(progress, "correct", 0, NOW); // stage3
+    progress = applyAnswer(progress, "correct", [0], NOW); // stage1
+    progress = applyAnswer(progress, "correct", [0], NOW); // stage2
+    progress = applyAnswer(progress, "correct", [0], NOW); // stage3
     expect(progress.srsStage).toBe(3);
 
     // 誤答（直前は正解なので「連続誤答」ではない）: 2段階下げて1になる
-    progress = applyAnswer(progress, "incorrect", 1, NOW);
+    progress = applyAnswer(progress, "incorrect", [1], NOW);
     expect(progress.srsStage).toBe(1);
     expect(progress.status).toBe("due_for_review");
     expect(progress.correctStreak).toBe(0);
@@ -67,8 +67,8 @@ describe("srs.applyAnswer", () => {
 
   it("回答履歴が記録される", () => {
     let progress = createInitialProgress("q1");
-    progress = applyAnswer(progress, "correct", 2, NOW);
-    progress = applyAnswer(progress, "incorrect", 1, NOW);
+    progress = applyAnswer(progress, "correct", [2], NOW);
+    progress = applyAnswer(progress, "incorrect", [1], NOW);
 
     expect(progress.history).toHaveLength(2);
     expect(progress.history[0]).toMatchObject({ result: "correct", selectedIndex: 2 });
@@ -77,9 +77,22 @@ describe("srs.applyAnswer", () => {
 
   it("記録元を指定すると履歴に残る（未指定なら付けない）", () => {
     const base = createInitialProgress("q1");
-    expect(applyAnswer(base, "incorrect", -1, NOW, "mock_exam").history[0]?.source).toBe(
+    expect(applyAnswer(base, "incorrect", [], NOW, "mock_exam").history[0]?.source).toBe(
       "mock_exam",
     );
-    expect(applyAnswer(base, "correct", 0, NOW).history[0]).not.toHaveProperty("source");
+    expect(applyAnswer(base, "correct", [0], NOW).history[0]).not.toHaveProperty("source");
+  });
+});
+
+describe("srs.applyAnswer（すべて選ぶ問題）", () => {
+  it("2つ以上選んだ回答は selectedIndices に全体を残し、未回答は selectedIndex を -1 にする", () => {
+    const base = createInitialProgress("q1");
+    expect(applyAnswer(base, "correct", [1, 3], NOW).history[0]).toMatchObject({
+      selectedIndex: 1,
+      selectedIndices: [1, 3],
+    });
+    const unanswered = applyAnswer(base, "incorrect", [], NOW).history[0];
+    expect(unanswered?.selectedIndex).toBe(-1);
+    expect(unanswered).not.toHaveProperty("selectedIndices");
   });
 });

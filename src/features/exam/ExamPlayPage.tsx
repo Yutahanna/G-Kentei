@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getQuestionById } from "../../shared/lib/question-loader";
 import { getChoiceOrder } from "../../shared/lib/choiceOrder";
+import { isMultipleAnswer, toggleSelection } from "../../shared/lib/answer";
 import { useExamSessionStore, type ExamAnswerState } from "../../shared/store/examSessionStore";
 import styles from "./ExamPlayPage.module.css";
 
@@ -12,6 +13,7 @@ import styles from "./ExamPlayPage.module.css";
  * - 問題画面は1問ずつ。「この問題をチェックする」で★を付け、下部の「前の問題へ」「すべての問題を確認する」「次の問題へ」で移動する。
  * - 「すべての問題を確認する」で、問題番号と解答済み・未解答・★の一覧を表示する。
  * - 文字サイズを3段階で変更できる。
+ * - すべて選ぶ問題（answerType: "multiple"）は☐／☑で複数選べる。1つ以上選ぶと解答済みになる。
  */
 
 type View = "question" | "overview" | "confirm";
@@ -42,7 +44,7 @@ function formatRemaining(ms: number): string {
 }
 
 function isAnswered(a: ExamAnswerState | undefined): boolean {
-  return a?.selectedIndex !== null && a?.selectedIndex !== undefined;
+  return (a?.selected.length ?? 0) > 0;
 }
 
 export default function ExamPlayPage() {
@@ -56,7 +58,7 @@ export default function ExamPlayPage() {
   const timeLimitMinutes = useExamSessionStore((s) => s.timeLimitMinutes);
   const startedAt = useExamSessionStore((s) => s.startedAt);
   const isSubmitted = useExamSessionStore((s) => s.isSubmitted);
-  const selectAnswer = useExamSessionStore((s) => s.selectAnswer);
+  const setAnswer = useExamSessionStore((s) => s.setAnswer);
   const toggleFlag = useExamSessionStore((s) => s.toggleFlag);
   const goTo = useExamSessionStore((s) => s.goTo);
   const submit = useExamSessionStore((s) => s.submit);
@@ -120,6 +122,7 @@ export default function ExamPlayPage() {
   if (!question || !questionId) return null;
 
   const choiceOrder = getChoiceOrder(choiceOrderMap, question);
+  const multiple = isMultipleAnswer(question);
   const currentAnswer = answers[questionId];
   const answeredCount = questionIds.filter((id) => isAnswered(answers[id])).length;
   const unansweredCount = questionIds.length - answeredCount;
@@ -210,11 +213,17 @@ export default function ExamPlayPage() {
           </label>
 
           <h1 className={styles.question}>{question.question}</h1>
+          {multiple && (
+            <p className={styles.multipleHint}>
+              当てはまるものをすべて選んでください（複数選択）。
+            </p>
+          )}
 
           <ul className={styles.choiceList}>
             {choiceOrder.map((originalIndex) => {
               const choice = question.choices[originalIndex]!;
-              const isSelected = currentAnswer?.selectedIndex === originalIndex;
+              const selected = currentAnswer?.selected ?? [];
+              const isSelected = selected.includes(originalIndex);
               return (
                 <li key={originalIndex}>
                   <button
@@ -224,11 +233,16 @@ export default function ExamPlayPage() {
                         ? `${styles.choiceButton} ${styles.choiceSelected}`
                         : styles.choiceButton
                     }
-                    onClick={() => selectAnswer(questionId, originalIndex)}
+                    onClick={() =>
+                      setAnswer(
+                        questionId,
+                        multiple ? toggleSelection(selected, originalIndex) : [originalIndex],
+                      )
+                    }
                     aria-pressed={isSelected}
                   >
                     <span className={styles.radio} aria-hidden="true">
-                      {isSelected ? "●" : "○"}
+                      {multiple ? (isSelected ? "☑" : "☐") : isSelected ? "●" : "○"}
                     </span>
                     <span>{choice}</span>
                   </button>

@@ -8,28 +8,49 @@ import {
   EXPECTED_TOTAL_BY_CHAPTER,
   EXPECTED_TOTAL_QUESTIONS,
 } from "../../scripts/lib/question-quality-checks";
+import { isMultipleAnswer } from "../../src/shared/lib/answer";
 
 const CHAPTER_IDS = Array.from({ length: 10 }, (_, i) => `ch${String(i + 1).padStart(2, "0")}`);
 const expectedTotal = (chapterId: string) =>
   EXPECTED_TOTAL_BY_CHAPTER[chapterId] ?? EXPECTED_TOTAL_QUESTIONS;
 const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(id), 0);
+// すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加している（2026-11-01、全20問）。
+const MULTIPLE_TOTAL = 20;
+const single = (chapterId: string) =>
+  getQuestionsByChapter(chapterId).filter((q) => !isMultipleAnswer(q));
 
 describe("question-loader（全10章）", () => {
-  it.each(CHAPTER_IDS)("%sの問題を設計値の問題数だけ読み込む", (chapterId) => {
-    const questions = getQuestionsByChapter(chapterId);
-    expect(questions).toHaveLength(expectedTotal(chapterId));
+  it.each(CHAPTER_IDS)("%sの1つを選ぶ問題を設計値の問題数だけ読み込む", (chapterId) => {
+    expect(single(chapterId)).toHaveLength(expectedTotal(chapterId));
   });
 
-  it.each(CHAPTER_IDS)("%sは難易度ごとに基礎:標準:応用=2:2:1である", (chapterId) => {
+  it.each(CHAPTER_IDS)("%sの1つを選ぶ問題は難易度ごとに基礎:標準:応用=2:2:1である", (chapterId) => {
     const unit = expectedTotal(chapterId) / 5;
-    expect(filterQuestions({ chapterId, difficulties: ["basic"] })).toHaveLength(unit * 2);
-    expect(filterQuestions({ chapterId, difficulties: ["standard"] })).toHaveLength(unit * 2);
-    expect(filterQuestions({ chapterId, difficulties: ["advanced"] })).toHaveLength(unit);
+    const count = (difficulty: "basic" | "standard" | "advanced") =>
+      filterQuestions({ chapterId, difficulties: [difficulty] }).filter((q) => !isMultipleAnswer(q))
+        .length;
+    expect(count("basic")).toBe(unit * 2);
+    expect(count("standard")).toBe(unit * 2);
+    expect(count("advanced")).toBe(unit);
   });
 
-  it("全問題が4択で、正答インデックスが範囲内である", () => {
+  it("全て選ぶ問題は全体で20問あり、4択で正解が2〜3個の肯定形である", () => {
+    const multiple = CHAPTER_IDS.flatMap((id) => getQuestionsByChapter(id)).filter(
+      isMultipleAnswer,
+    );
+    expect(multiple).toHaveLength(MULTIPLE_TOTAL);
+    for (const q of multiple) {
+      expect(q.choices).toHaveLength(4);
+      expect(q.choiceExplanations).toHaveLength(4);
+      expect(q.questionForm ?? "affirmative").toBe("affirmative");
+      expect(q.correctAnswers!.length).toBeGreaterThanOrEqual(2);
+      expect(q.correctAnswers!.length).toBeLessThanOrEqual(3);
+    }
+  });
+
+  it("1つを選ぶ問題は4択で、正答インデックスが範囲内である", () => {
     for (const chapterId of CHAPTER_IDS) {
-      for (const q of getQuestionsByChapter(chapterId)) {
+      for (const q of single(chapterId)) {
         expect(q.choices).toHaveLength(4);
         expect(q.choiceExplanations).toHaveLength(4);
         expect(q.correctAnswer).toBeGreaterThanOrEqual(0);
@@ -42,7 +63,7 @@ describe("question-loader（全10章）", () => {
     const ids = CHAPTER_IDS.flatMap((chapterId) =>
       getQuestionsByChapter(chapterId).map((q) => q.id),
     );
-    expect(ids).toHaveLength(ALL_EXPECTED_TOTAL);
+    expect(ids).toHaveLength(ALL_EXPECTED_TOTAL + MULTIPLE_TOTAL);
     expect(new Set(ids).size).toBe(ids.length);
   });
 

@@ -5,5 +5,6 @@ export type {
   SkillTag,
   QuestionForm,
   QuestionStyle,
+  AnswerType,
   QuestionTags,
 } from "../schemas/question.schema";

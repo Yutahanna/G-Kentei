@@ -5,6 +5,7 @@
  * docs/phase0-design.md 10節（品質基準・章ごとのレビューサイクル）に対応する。
  */
 import type { Question } from "../../src/schemas/question.schema";
+import { isCorrectChoice, isMultipleAnswer } from "../../src/shared/lib/answer";
 
 export interface SimilarPair {
   aId: string;
@@ -138,7 +139,7 @@ export function computeNearConceptRate(
   let wrongChoiceCount = 0;
 
   question.choices.forEach((choice, index) => {
-    if (index === question.correctAnswer) return;
+    if (isCorrectChoice(question, index)) return;
     wrongChoiceCount++;
     const matched = vocabulary.some((term) => choice.includes(term));
     if (matched) {
@@ -252,13 +253,14 @@ export function computeAnswerPositionDistribution(
   questions: Question[],
 ): AnswerPositionDistribution {
   const countByIndex: [number, number, number, number] = [0, 0, 0, 0];
-  for (const q of questions) {
+  // 全て選ぶ問題は正解が複数あるため、正答位置の集計は1つを選ぶ問題だけで行う。
+  for (const q of questions.filter((question) => !isMultipleAnswer(question))) {
     if (q.correctAnswer === 0) countByIndex[0]++;
     else if (q.correctAnswer === 1) countByIndex[1]++;
     else if (q.correctAnswer === 2) countByIndex[2]++;
     else if (q.correctAnswer === 3) countByIndex[3]++;
   }
-  const total = questions.length;
+  const total = countByIndex.reduce((sum, c) => sum + c, 0);
   const rateByIndex = countByIndex.map((c) => (total === 0 ? 0 : c / total)) as [
     number,
     number,
@@ -323,6 +325,8 @@ export function checkQuestionCountsAgainstDesign(
   questions: Question[],
   expectedTotal: number = EXPECTED_TOTAL_QUESTIONS,
 ): DesignCountCheckResult {
+  // 全て選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加しているため数えない。
+  questions = questions.filter((q) => !isMultipleAnswer(q));
   const actualTotal = questions.length;
   const scale = expectedTotal / EXPECTED_TOTAL_QUESTIONS;
   const mismatchedDifficulties: DesignCountCheckResult["mismatchedDifficulties"] = [];
@@ -368,7 +372,7 @@ export function findExtremePhraseUsages(questions: Question[]): ExtremePhraseRes
   for (const q of questions) {
     const matchedChoiceIndexes: number[] = [];
     q.choices.forEach((choice, index) => {
-      if (index === q.correctAnswer) return;
+      if (isCorrectChoice(q, index)) return;
       if (EXTREME_PHRASES.some((phrase) => choice.includes(phrase))) {
         matchedChoiceIndexes.push(index);
       }
@@ -396,6 +400,8 @@ const CHOICE_LENGTH_RATIO_THRESHOLD = 1.6;
 export function findChoiceLengthImbalances(questions: Question[]): ChoiceLengthImbalance[] {
   const results: ChoiceLengthImbalance[] = [];
   for (const q of questions) {
+    // 全て選ぶ問題はfindMultipleAnswerIssuesで別に確認する。
+    if (q.correctAnswer === undefined) continue;
     const correctLength = q.choices[q.correctAnswer]?.length ?? 0;
     const wrongLengths = q.choices.filter((_, i) => i !== q.correctAnswer).map((c) => c.length);
     const longestWrongLength = Math.max(...wrongLengths, 0);
@@ -427,10 +433,12 @@ export interface CorrectLongestRate {
 export function computeCorrectLongestRate(questions: Question[]): CorrectLongestRate {
   const targets = questions.filter(
     (q) =>
+      !isMultipleAnswer(q) &&
       (q.questionStyle ?? "standard") === "standard" &&
       (q.questionForm ?? "affirmative") === "affirmative",
   );
   const correctLongest = targets.filter((q) => {
+    if (q.correctAnswer === undefined) return false;
     const correctLength = q.choices[q.correctAnswer]?.length ?? 0;
     return q.choices.every((c, i) => i === q.correctAnswer || c.length < correctLength);
   }).length;
@@ -515,7 +523,7 @@ export function findAbsoluteQualifierConcentration(
 ): AbsoluteQualifierConcentration[] {
   const results: AbsoluteQualifierConcentration[] = [];
   for (const q of questions) {
-    const wrongIndexes = q.choices.map((_, i) => i).filter((i) => i !== q.correctAnswer);
+    const wrongIndexes = q.choices.map((_, i) => i).filter((i) => !isCorrectChoice(q, i));
     if (wrongIndexes.length === 0) continue;
     const wrongChoicesWithQualifier = wrongIndexes.filter((i) =>
       ABSOLUTE_QUALIFIER_PATTERNS.some(({ pattern }) => pattern.test(q.choices[i]!)),
@@ -584,4 +592,39 @@ export function findChoicePositionReferences(questions: Question[]): string[] {
       [q.explanation, ...q.choiceExplanations].some((text) => CHOICE_POSITION_REFERENCE.test(text)),
     )
     .map((q) => q.id);
+}
+
+/**
+ * 全て選ぶ問題（answerType: "multiple"）の手がかりを確認する。
+ * - 正解の選択肢がすべて誤答より長い（長さだけで正解の組が分かる）問題
+ * - 設問文の「適切」「不適切」とquestionFormが食い違う問題
+ * 章をまたいで、正解の個数が1種類に偏っていないかはcomputeMultipleCorrectCountDistributionで見る。
+ */
+export function findMultipleAnswerIssues(questions: Question[]): string[] {
+  const issues: string[] = [];
+  for (const q of questions.filter(isMultipleAnswer)) {
+    const correct = q.choices.filter((_, i) => isCorrectChoice(q, i)).map((c) => c.length);
+    const wrong = q.choices.filter((_, i) => !isCorrectChoice(q, i)).map((c) => c.length);
+    if (Math.min(...correct) > Math.max(...wrong)) {
+      issues.push(`${q.id}: 正解の選択肢がすべて誤答より長い`);
+    }
+    const negativeStem = q.question.includes("不適切なもの");
+    const negativeForm = (q.questionForm ?? "affirmative") === "negative";
+    if (negativeStem !== negativeForm) {
+      issues.push(`${q.id}: 設問文の「適切／不適切」とquestionFormが一致しない`);
+    }
+  }
+  return issues;
+}
+
+/** 全て選ぶ問題の正解の個数ごとの問題数（例: {2: 8, 3: 9, 4: 3}）。 */
+export function computeMultipleCorrectCountDistribution(
+  questions: Question[],
+): Record<number, number> {
+  const counts: Record<number, number> = {};
+  for (const q of questions.filter(isMultipleAnswer)) {
+    const n = q.correctAnswers?.length ?? 0;
+    counts[n] = (counts[n] ?? 0) + 1;
+  }
+  return counts;
 }

@@ -7,6 +7,11 @@ import { getQuestionProgress, saveQuestionProgress } from "../../shared/lib/db";
 import { applyAnswer } from "../../shared/lib/srs";
 import { scoreAnswer } from "../../shared/lib/scoring";
 import { getChoiceOrder } from "../../shared/lib/choiceOrder";
+import {
+  isCorrectChoice as isCorrectChoiceOf,
+  isMultipleAnswer,
+  toggleSelection,
+} from "../../shared/lib/answer";
 import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import styles from "./DrillPlayPage.module.css";
@@ -30,7 +35,8 @@ export default function DrillPlayPage() {
   const sessionChapterId = useDrillSessionStore((s) => s.chapterId);
   const choiceOrderMap = useDrillSessionStore((s) => s.choiceOrderMap);
 
-  const [pendingIndex, setPendingIndex] = useState<number | null>(null);
+  // すべて選ぶ問題で、「回答する」を押す前に選んでいる選択肢。
+  const [pending, setPending] = useState<number[]>([]);
   const [isSaving, setIsSaving] = useState(false);
 
   const questionId = questionIds[currentIndex];
@@ -38,13 +44,14 @@ export default function DrillPlayPage() {
   const section = question ? getSection(question.chapterId, question.sectionId) : undefined;
   const answered = lastFeedback !== null && lastFeedback.questionId === questionId;
   // 読み込み直した直後でも選んだ選択肢を示せるよう、回答済みなら保存した回答を使う。
-  const selectedIndex = answered ? lastFeedback.selectedIndex : pendingIndex;
+  const selected = answered ? lastFeedback.selected : pending;
+  const multiple = question ? isMultipleAnswer(question) : false;
   const { progress, reload, toggleBookmark } = useQuestionProgress(questionId);
 
   const choiceOrder = question ? getChoiceOrder(choiceOrderMap, question) : [];
 
   useEffect(() => {
-    setPendingIndex(null);
+    setPending([]);
   }, [questionId]);
 
   useEffect(() => {
@@ -64,6 +71,9 @@ export default function DrillPlayPage() {
         if (num >= 1 && num <= question.choices.length) {
           const originalIndex = choiceOrder[num - 1];
           if (originalIndex !== undefined) void handleSelect(originalIndex);
+        } else if (multiple && e.key === "Enter" && pending.length > 0) {
+          e.preventDefault();
+          void submitSelection(pending);
         }
       } else if (e.key === "Enter" || e.key === "ArrowRight") {
         handleNext();
@@ -86,16 +96,25 @@ export default function DrillPlayPage() {
 
   async function handleSelect(index: number) {
     if (answered || isSaving || !question) return;
-    setPendingIndex(index);
+    if (multiple) {
+      setPending((current) => toggleSelection(current, index));
+      return;
+    }
+    await submitSelection([index]);
+  }
+
+  async function submitSelection(selection: number[]) {
+    if (answered || isSaving || !question || selection.length === 0) return;
+    setPending(selection);
     setIsSaving(true);
-    const result = scoreAnswer(question, index);
-    submitAnswer({ questionId: question.id, selectedIndex: index, correct: result.correct });
+    const result = scoreAnswer(question, selection);
+    submitAnswer({ questionId: question.id, selected: selection, correct: result.correct });
 
     const currentProgress = await getQuestionProgress(question.id);
     const next = applyAnswer(
       currentProgress,
       result.correct ? "correct" : "incorrect",
-      index,
+      selection,
       new Date(),
       "drill",
     );
@@ -129,8 +148,8 @@ export default function DrillPlayPage() {
       <ul className={styles.choiceList}>
         {choiceOrder.map((originalIndex, displayIndex) => {
           const choice = question.choices[originalIndex]!;
-          const isCorrectChoice = originalIndex === question.correctAnswer;
-          const isSelected = selectedIndex === originalIndex;
+          const isCorrectChoice = isCorrectChoiceOf(question, originalIndex);
+          const isSelected = selected.includes(originalIndex);
           let className = styles.choiceButton;
           if (answered && isCorrectChoice) className += ` ${styles.choiceCorrect}`;
           if (answered && isSelected && !isCorrectChoice)
@@ -146,8 +165,17 @@ export default function DrillPlayPage() {
                 aria-pressed={isSelected}
               >
                 <span className={styles.choiceKey}>{displayIndex + 1}</span>
+                {multiple && (
+                  <span className={styles.checkMark} aria-hidden="true">
+                    {isSelected ? "☑" : "☐"}
+                  </span>
+                )}
                 <span>{choice}</span>
-                {answered && isCorrectChoice && <span className={styles.mark}>◯ 正解</span>}
+                {answered && isCorrectChoice && (
+                  <span className={styles.mark}>
+                    ◯ 正解{multiple && !isSelected && "（選び漏れ）"}
+                  </span>
+                )}
                 {answered && isSelected && !isCorrectChoice && (
                   <span className={styles.mark}>✕</span>
                 )}
@@ -156,6 +184,22 @@ export default function DrillPlayPage() {
           );
         })}
       </ul>
+
+      {multiple && !answered && (
+        <div className={styles.multipleActions}>
+          <p className={styles.multipleHint}>
+            当てはまるものをすべて選び、「回答する」を押してください（複数選択）。
+          </p>
+          <button
+            type="button"
+            className={buttonStyles.button}
+            onClick={() => void submitSelection(pending)}
+            disabled={pending.length === 0 || isSaving}
+          >
+            回答する（{pending.length}つ選択中）
+          </button>
+        </div>
+      )}
 
       {answered && (
         <div
