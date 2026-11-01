@@ -34,16 +34,17 @@ describe("question-loader（全10章）", () => {
     expect(count("advanced")).toBe(unit);
   });
 
-  it("すべて選ぶ問題は全体で20問あり、5択で正解が2〜4個である", () => {
+  it("全て選ぶ問題は全体で20問あり、4択で正解が2〜3個の肯定形である", () => {
     const multiple = CHAPTER_IDS.flatMap((id) => getQuestionsByChapter(id)).filter(
       isMultipleAnswer,
     );
     expect(multiple).toHaveLength(MULTIPLE_TOTAL);
     for (const q of multiple) {
-      expect(q.choices).toHaveLength(5);
-      expect(q.choiceExplanations).toHaveLength(5);
+      expect(q.choices).toHaveLength(4);
+      expect(q.choiceExplanations).toHaveLength(4);
+      expect(q.questionForm ?? "affirmative").toBe("affirmative");
       expect(q.correctAnswers!.length).toBeGreaterThanOrEqual(2);
-      expect(q.correctAnswers!.length).toBeLessThanOrEqual(4);
+      expect(q.correctAnswers!.length).toBeLessThanOrEqual(3);
     }
   });
 

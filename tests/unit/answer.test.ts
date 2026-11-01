@@ -26,10 +26,10 @@ const base = {
 const multiple = {
   ...base,
   answerType: "multiple",
-  question: "適切なものをすべて選べ。",
-  choices: ["a", "b", "c", "d", "e"],
-  choiceExplanations: ["a", "b", "c", "d", "e"],
-  correctAnswers: [4, 0],
+  question: "適切なものを全て選べ。",
+  choices: ["a", "b", "c", "d"],
+  choiceExplanations: ["a", "b", "c", "d"],
+  correctAnswers: [3, 0],
 } as const;
 
 describe("answer（1つを選ぶ問題とすべて選ぶ問題の共通処理）", () => {
@@ -49,12 +49,12 @@ describe("answer（1つを選ぶ問題とすべて選ぶ問題の共通処理）
 
   it("すべて選ぶ問題は順序に関係なく完全一致で正解、過不足があれば不正解", () => {
     const q = multiple as unknown as Question;
-    expect(getCorrectIndices(q)).toEqual([0, 4]);
-    expect(isCorrectChoice(q, 4)).toBe(true);
-    expect(isCorrectSelection(q, [4, 0])).toBe(true);
+    expect(getCorrectIndices(q)).toEqual([0, 3]);
+    expect(isCorrectChoice(q, 3)).toBe(true);
+    expect(isCorrectSelection(q, [3, 0])).toBe(true);
     expect(isCorrectSelection(q, [0])).toBe(false);
-    expect(isCorrectSelection(q, [0, 1, 4])).toBe(false);
-    expect(formatChoices(q, [0, 4])).toBe("a ／ e");
+    expect(isCorrectSelection(q, [0, 1, 3])).toBe(false);
+    expect(formatChoices(q, [0, 3])).toBe("a ／ d");
   });
 
   it("選択の切り替えで追加・解除できる", () => {
@@ -68,12 +68,30 @@ describe("questionSchema（すべて選ぶ問題の検証）", () => {
     expect(questionSchema.safeParse(multiple).success).toBe(true);
   });
 
-  it("選択肢が5つでない・正解が1つ・設問文に「すべて選べ」が無い場合は通らない", () => {
-    expect(questionSchema.safeParse({ ...multiple, choices: ["a", "b", "c", "d"] }).success).toBe(
-      false,
-    );
+  it("選択肢が4〜6つでない・正解が1つや4つ・指示文が無い・否定形の場合は通らない", () => {
+    expect(questionSchema.safeParse({ ...multiple, choices: ["a", "b", "c"] }).success).toBe(false);
     expect(questionSchema.safeParse({ ...multiple, correctAnswers: [1] }).success).toBe(false);
+    expect(
+      questionSchema.safeParse({
+        ...multiple,
+        choices: ["a", "b", "c", "d", "e"],
+        choiceExplanations: ["a", "b", "c", "d", "e"],
+        correctAnswers: [0, 1, 2, 3],
+      }).success,
+    ).toBe(false);
     expect(questionSchema.safeParse({ ...multiple, question: "どれか。" }).success).toBe(false);
+    expect(questionSchema.safeParse({ ...multiple, questionForm: "negative" }).success).toBe(false);
+  });
+
+  it("「いくつでも選べ」の指示と6つの選択肢も受け付ける", () => {
+    expect(
+      questionSchema.safeParse({
+        ...multiple,
+        question: "適切なものをいくつでも選べ。",
+        choices: ["a", "b", "c", "d", "e", "f"],
+        choiceExplanations: ["a", "b", "c", "d", "e", "f"],
+      }).success,
+    ).toBe(true);
   });
 
   it("1つを選ぶ問題にcorrectAnswerが無ければ通らない", () => {

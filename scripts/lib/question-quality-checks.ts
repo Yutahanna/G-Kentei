@@ -253,7 +253,7 @@ export function computeAnswerPositionDistribution(
   questions: Question[],
 ): AnswerPositionDistribution {
   const countByIndex: [number, number, number, number] = [0, 0, 0, 0];
-  // すべて選ぶ問題は正解が複数あるため、正答位置の集計は1つを選ぶ問題だけで行う。
+  // 全て選ぶ問題は正解が複数あるため、正答位置の集計は1つを選ぶ問題だけで行う。
   for (const q of questions.filter((question) => !isMultipleAnswer(question))) {
     if (q.correctAnswer === 0) countByIndex[0]++;
     else if (q.correctAnswer === 1) countByIndex[1]++;
@@ -325,7 +325,7 @@ export function checkQuestionCountsAgainstDesign(
   questions: Question[],
   expectedTotal: number = EXPECTED_TOTAL_QUESTIONS,
 ): DesignCountCheckResult {
-  // すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加しているため数えない。
+  // 全て選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加しているため数えない。
   questions = questions.filter((q) => !isMultipleAnswer(q));
   const actualTotal = questions.length;
   const scale = expectedTotal / EXPECTED_TOTAL_QUESTIONS;
@@ -400,7 +400,7 @@ const CHOICE_LENGTH_RATIO_THRESHOLD = 1.6;
 export function findChoiceLengthImbalances(questions: Question[]): ChoiceLengthImbalance[] {
   const results: ChoiceLengthImbalance[] = [];
   for (const q of questions) {
-    // すべて選ぶ問題はfindMultipleAnswerIssuesで別に確認する。
+    // 全て選ぶ問題はfindMultipleAnswerIssuesで別に確認する。
     if (q.correctAnswer === undefined) continue;
     const correctLength = q.choices[q.correctAnswer]?.length ?? 0;
     const wrongLengths = q.choices.filter((_, i) => i !== q.correctAnswer).map((c) => c.length);
@@ -595,7 +595,7 @@ export function findChoicePositionReferences(questions: Question[]): string[] {
 }
 
 /**
- * すべて選ぶ問題（answerType: "multiple"）の手がかりを確認する。
+ * 全て選ぶ問題（answerType: "multiple"）の手がかりを確認する。
  * - 正解の選択肢がすべて誤答より長い（長さだけで正解の組が分かる）問題
  * - 設問文の「適切」「不適切」とquestionFormが食い違う問題
  * 章をまたいで、正解の個数が1種類に偏っていないかはcomputeMultipleCorrectCountDistributionで見る。
@@ -608,7 +608,7 @@ export function findMultipleAnswerIssues(questions: Question[]): string[] {
     if (Math.min(...correct) > Math.max(...wrong)) {
       issues.push(`${q.id}: 正解の選択肢がすべて誤答より長い`);
     }
-    const negativeStem = q.question.includes("不適切なものをすべて選べ");
+    const negativeStem = q.question.includes("不適切なもの");
     const negativeForm = (q.questionForm ?? "affirmative") === "negative";
     if (negativeStem !== negativeForm) {
       issues.push(`${q.id}: 設問文の「適切／不適切」とquestionFormが一致しない`);
@@ -617,7 +617,7 @@ export function findMultipleAnswerIssues(questions: Question[]): string[] {
   return issues;
 }
 
-/** すべて選ぶ問題の正解の個数ごとの問題数（例: {2: 8, 3: 9, 4: 3}）。 */
+/** 全て選ぶ問題の正解の個数ごとの問題数（例: {2: 8, 3: 9, 4: 3}）。 */
 export function computeMultipleCorrectCountDistribution(
   questions: Question[],
 ): Record<number, number> {

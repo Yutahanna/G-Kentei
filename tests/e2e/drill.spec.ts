@@ -135,7 +135,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
       await choices.first().click();
       await page.getByRole("button", { name: /次の問題へ|結果を見る/ }).click();
     }
-    await expect(choices).toHaveCount(5);
+    await expect(choices).toHaveCount(4);
     const submit = page.getByRole("button", { name: /回答する（\d+つ選択中）/ });
     await expect(submit).toBeDisabled();
 
@@ -147,7 +147,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await expect(page.getByRole("button", { name: "回答する（1つ選択中）" })).toBeEnabled();
     await page.getByRole("button", { name: "回答する（1つ選択中）" }).click();
 
-    // 正解は2〜4個なので、1つだけ選んだ回答は不正解になり、選ばなかった正解に「選び漏れ」が付く
+    // 正解は2〜3個なので、1つだけ選んだ回答は不正解になり、選ばなかった正解に「選び漏れ」が付く
     await expect(page.getByText("✕ 不正解です")).toBeVisible();
     await expect(page.getByText(/選び漏れ/).first()).toBeVisible();
   });

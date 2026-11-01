@@ -321,20 +321,20 @@ function main(): void {
   }
   writeFileSync(REPORT_PATH, `${reportLines.join("\n")}\n`, "utf-8");
 
-  // すべて選ぶ問題の正解の個数が1種類に偏ると、個数を推測する手がかりになる。
+  // 全て選ぶ問題の正解の個数が1種類に偏ると、個数を推測する手がかりになる。
   const multipleCounts = computeMultipleCorrectCountDistribution(
     allQuestions.map((q) => q.question),
   );
   const multipleTotal = Object.values(multipleCounts).reduce((sum, n) => sum + n, 0);
   if (multipleTotal > 0) {
     console.log(
-      `すべて選ぶ問題: ${multipleTotal}問（正解の個数別 ${Object.entries(multipleCounts)
+      `全て選ぶ問題: ${multipleTotal}問（正解の個数別 ${Object.entries(multipleCounts)
         .map(([k, n]) => `${k}個=${n}`)
         .join(" / ")}）`,
     );
     if (multipleTotal >= 5 && Object.keys(multipleCounts).length < 2) {
       error(
-        "すべて選ぶ問題の正解の個数が1種類しかありません。個数を推測できないよう混ぜてください。",
+        "全て選ぶ問題の正解の個数が1種類しかありません。個数を推測できないよう混ぜてください。",
       );
     }
   }

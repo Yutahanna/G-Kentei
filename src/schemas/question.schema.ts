@@ -40,17 +40,20 @@ export const questionStyleSchema = z.enum(["standard", "fill_in_blank"]);
 
 /**
  * 解答の形式。省略時は"single"（4択から1つを選ぶ。correctAnswerで正解を示す）。
- * "multiple": 5つの選択肢から当てはまるものをすべて選ぶ形式（「適切なものをすべて選べ」
- * 「不適切なものをすべて選べ」）。correctAnswersで正解を2〜4個示し、選んだ組が正解と
- * 完全に一致した場合だけ正解とする（部分点なし。本試験の採点方法は公表されていないため）。
- * 本試験の受験サイトが複数の正解を持つ問題に対応していることは、JDLA「受験当日の操作
- * マニュアル」Ver12R00のチュートリアル（正解が3つあるサンプル問題）で確認した（2026-11-01）。
+ * "multiple": 当てはまるものを全て選ぶ形式（「適切なものを全て選べ」「適切なものをいくつでも選べ」）。
+ * correctAnswersで正解を2〜3個示し、選んだ組が正解と完全に一致した場合だけ正解とする（部分点なし。
+ * 本試験の採点方法は公表されていないため）。
+ * 形式は公式テキストの章末問題（第7章の6問）に合わせた: 指示は「全て選べ」「いくつでも選べ」、
+ * 選択肢は主に4つ（6つが1問）、正解は2〜3個、否定形（不適切なものを全て選べ）は無い（確認基準日: 2026-11-01）。
+ * 本試験の受験サイトが複数の正解を持つ問題に対応していることは、JDLA「受験当日の操作マニュアル」Ver12R00の
+ * チュートリアル（正解が3つあるサンプル問題）で確認した。
  */
 export const answerTypeSchema = z.enum(["single", "multiple"]);
 
-export const MULTIPLE_CHOICE_COUNT = 5;
+export const MULTIPLE_MIN_CHOICES = 4;
+export const MULTIPLE_MAX_CHOICES = 6;
 export const MULTIPLE_MIN_CORRECT = 2;
-export const MULTIPLE_MAX_CORRECT = 4;
+export const MULTIPLE_MAX_CORRECT = 3;
 
 export const questionTagsSchema = z
   .object({
@@ -70,11 +73,11 @@ export const questionSchema = z
     questionStyle: questionStyleSchema.optional(),
     answerType: answerTypeSchema.optional(),
     question: z.string().min(1),
-    choices: z.array(z.string().min(1)).min(4).max(MULTIPLE_CHOICE_COUNT),
+    choices: z.array(z.string().min(1)).min(4).max(MULTIPLE_MAX_CHOICES),
     correctAnswer: z.number().int().min(0).max(3).optional(),
     correctAnswers: z.array(z.number().int().min(0)).optional(),
     explanation: z.string().min(1),
-    choiceExplanations: z.array(z.string().min(1)).min(4).max(MULTIPLE_CHOICE_COUNT),
+    choiceExplanations: z.array(z.string().min(1)).min(4).max(MULTIPLE_MAX_CHOICES),
     tags: questionTagsSchema,
     sourceFile: z.string().min(1),
     sourceHeading: z.string().min(1),
@@ -96,18 +99,22 @@ export const questionSchema = z
       if (q.correctAnswers !== undefined) issue("1つを選ぶ問題にcorrectAnswersは使わない");
       return;
     }
-    if (q.choices.length !== MULTIPLE_CHOICE_COUNT) {
-      issue(`すべて選ぶ問題の選択肢は${MULTIPLE_CHOICE_COUNT}つにする`);
+    if (q.choices.length < MULTIPLE_MIN_CHOICES || q.choices.length > MULTIPLE_MAX_CHOICES) {
+      issue(`全て選ぶ問題の選択肢は${MULTIPLE_MIN_CHOICES}〜${MULTIPLE_MAX_CHOICES}つにする`);
     }
-    if (q.correctAnswer !== undefined) issue("すべて選ぶ問題にcorrectAnswerは使わない");
+    if (q.correctAnswer !== undefined) issue("全て選ぶ問題にcorrectAnswerは使わない");
     const answers = q.correctAnswers ?? [];
     if (answers.length < MULTIPLE_MIN_CORRECT || answers.length > MULTIPLE_MAX_CORRECT) {
-      issue(`すべて選ぶ問題の正解は${MULTIPLE_MIN_CORRECT}〜${MULTIPLE_MAX_CORRECT}個にする`);
+      issue(`全て選ぶ問題の正解は${MULTIPLE_MIN_CORRECT}〜${MULTIPLE_MAX_CORRECT}個にする`);
     }
     if (new Set(answers).size !== answers.length) issue("correctAnswersに重複がある");
     if (answers.some((i) => i >= q.choices.length)) issue("correctAnswersが選択肢の範囲外");
-    if (!q.question.includes("すべて選べ"))
-      issue("すべて選ぶ問題の設問文には「すべて選べ」を含める");
+    if (!/(全て|いくつでも)選べ/.test(q.question)) {
+      issue("全て選ぶ問題の設問文には「全て選べ」または「いくつでも選べ」を含める");
+    }
+    if (q.questionForm === "negative") {
+      issue("全て選ぶ問題は肯定形にする（公式テキストに否定形は無い）");
+    }
   });
 
 export type Difficulty = z.infer<typeof difficultySchema>;
