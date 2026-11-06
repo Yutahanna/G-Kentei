@@ -33,6 +33,7 @@ import ch09Terms from "../../../questions/ch09/terms.json";
 import ch10Basic from "../../../questions/ch10/basic.json";
 import ch10Standard from "../../../questions/ch10/standard.json";
 import ch10Advanced from "../../../questions/ch10/advanced.json";
+import ch10Terms from "../../../questions/ch10/terms.json";
 import {
   questionSchema,
   type Question,
@@ -81,6 +82,7 @@ const allQuestions: Question[] = [
   ...ch10Basic,
   ...ch10Standard,
   ...ch10Advanced,
+  ...ch10Terms,
 ].map((q) => questionSchema.parse(q));
 
 export function getAllQuestions(): Question[] {

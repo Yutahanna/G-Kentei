@@ -1,0 +1,411 @@
+[
+  {
+    "id": "ch10-term-001",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ソフト・ローの説明として、最も適切なものはどれか。",
+    "choices": [
+      "法的な拘束力があり、違反すると罰則などで強制される規範。",
+      "ガイドラインや自主規制など、法的な拘束力はないが関係者の行動を方向づける規範。",
+      "国会の議決を経て制定され、行政機関がその執行に責任を負う規範。",
+      "国際条約として批准され、締約国に国内法の整備を義務づける規範。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "法的な拘束力はないが、早く作れて、技術の変化に合わせて直しやすい。",
+    "choiceExplanations": [
+      "誤りである。ハード・ローの説明である。",
+      "正しい（本問の答え）。法的な拘束力はないが、早く作れて、技術の変化に合わせて直しやすい。",
+      "誤りである。法律の説明であり、ハード・ローに当たる。",
+      "誤りである。締約国を法的に拘束する条約の説明であり、ソフト・ローには当たらない。"
+    ],
+    "tags": {
+      "contentTags": ["ソフト・ロー", "ハード・ロー"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "ハード・ローとソフト・ロー（p.381）",
+    "sourceReference": "補遺「倫理とガバナンス」ハード・ローとソフト・ロー（公式テキスト p.381）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-002",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s02",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "経済産業省の「AI原則実践のためのガバナンス・ガイドライン」がとる、環境やリスクの分析、ゴールの設定、システムの設計、運用、評価を繰り返し回して、状況の変化に合わせて見直していく考え方を何と呼ぶか。",
+    "choices": [
+      "リスクベースアプローチ",
+      "プライバシー・バイ・デザイン",
+      "アジャイル・ガバナンス",
+      "マルチステークホルダー"
+    ],
+    "correctAnswer": 2,
+    "explanation": "正解は「アジャイル・ガバナンス」である。一度決めて終わりにせず、分析から評価までを繰り返して見直す。",
+    "choiceExplanations": [
+      "誤りである。リスクベースアプローチは、リスクの大きさに応じて対策・規制の強さを変える考え方であり、見直しを繰り返す進め方を指す語ではない。",
+      "誤りである。プライバシー・バイ・デザインは、設計の段階からプライバシー保護を組み込む考え方である。",
+      "正しい（本問の答え）。一度決めて終わりにせず、分析から評価までを繰り返して見直す。",
+      "誤りである。マルチステークホルダーは、政府・企業・研究者・市民社会など多様な関係者で検討するという、参加する主体の考え方である。"
+    ],
+    "tags": {
+      "contentTags": ["アジャイル・ガバナンス", "AI原則実践のためのガバナンス・ガイドライン"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "日本の主なガイドラインの流れ（p.382〜383）",
+    "sourceReference": "補遺「倫理とガバナンス」日本の主なガイドラインの流れ（公式テキスト p.383。根拠：経済産業省「AI原則実践のためのガバナンス・ガイドライン」ver1.1）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-003",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "内閣府の「人間中心のAI社会原則」（2019年）に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "教育・リテラシーの原則が、原則の1つとして含まれている。",
+      "公正競争確保の原則が、原則の1つとして含まれている。",
+      "イノベーションの原則が、原則の1つとして含まれている。",
+      "違反した開発者に罰則を科す、法的な拘束力のある規範である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "人間中心のAI社会原則を、罰則のある法的な規範とする記述が誤りである。人間中心のAI社会原則は基本理念と原則を示したもので、罰則のある法律ではない。",
+    "choiceExplanations": [
+      "適切である。7つの原則の1つである。",
+      "適切である。7つの原則の1つである。",
+      "適切である。7つの原則の1つである。",
+      "不適切である（本問の答え）。人間中心のAI社会原則は基本理念と原則を示したもので、罰則のある法律ではない。"
+    ],
+    "tags": {
+      "contentTags": ["人間中心のAI社会原則"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "日本の主なガイドラインの流れ（p.382〜383）",
+    "sourceReference": "補遺「倫理とガバナンス」日本の主なガイドラインの流れ（公式テキスト p.382。根拠：内閣府「人間中心のAI社会原則」）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-004",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "米国の国立標準技術研究所（NIST）が2023年に公表した、組織がAIのリスクを管理するための自主的な枠組みで、統治（Govern）・把握（Map）・測定（Measure）・管理（Manage）の4つの機能からなるものはどれか。",
+    "choices": [
+      "AI RISK MANAGEMENT FRAMEWORK",
+      "Blueprint for an AI Bill of Rights",
+      "Ethics guidelines for trustworthy AI",
+      "Recommendation of the Council on Artificial Intelligence"
+    ],
+    "correctAnswer": 0,
+    "explanation": "正解は「AI RISK MANAGEMENT FRAMEWORK」である。AI RMFと略される。法的な拘束力はない。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。AI RMFと略される。法的な拘束力はない。",
+      "誤りである。Blueprint for an AI Bill of Rightsは、米国ホワイトハウス科学技術政策局が2022年に示した、市民を守るための5つの原則である。",
+      "誤りである。Ethics guidelines for trustworthy AIは、EUのハイレベル専門家会合が2019年に示した、信頼できるAIの7つの要件である。",
+      "誤りである。Recommendation of the Council on Artificial Intelligenceは、OECDが2019年に採択したAI原則である。"
+    ],
+    "tags": {
+      "contentTags": ["AI RMF", "NIST"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "海外の主な枠組み（p.383〜384）",
+    "sourceReference": "補遺「倫理とガバナンス」海外の主な枠組み（公式テキスト p.383。根拠：NIST「AI Risk Management Framework 1.0」）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-005",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s04",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "海外のAIに関する枠組みの説明として、不適切なものはどれか。",
+    "choices": [
+      "米国のBlueprint for an AI Bill of Rightsは、違反した事業者に罰則を科す連邦法である。",
+      "EU AI Actは、リスクの大きさに応じて義務を変える、法的な拘束力のある規則である。",
+      "EUのEthics guidelines for trustworthy AIは、信頼できるAIの7つの要件を示した、拘束力のない倫理ガイドラインである。",
+      "OECDのAI原則は、政府間で合意したAIの原則で、2024年に改訂された。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Blueprint for an AI Bill of Rightsを、罰則を科す連邦法とする記述が誤りである。Blueprint for an AI Bill of Rightsは、5つの原則を示した拘束力のない文書で、法律ではない。",
+    "choiceExplanations": [
+      "不適切である（本問の答え）。Blueprint for an AI Bill of Rightsは、5つの原則を示した拘束力のない文書で、法律ではない。",
+      "適切である。EU AI Actはハード・ローであり、リスクベースアプローチをとる。",
+      "適切である。人間の主体性と監督、技術的な堅牢性と安全性などの7つの要件を示した。",
+      "適切である。2019年に採択され、2024年に改訂された。"
+    ],
+    "tags": {
+      "contentTags": [
+        "EU AI Act",
+        "Ethics guidelines for trustworthy AI",
+        "Blueprint for an AI Bill of Rights"
+      ],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "海外の主な枠組み（p.383〜384）",
+    "sourceReference": "補遺「倫理とガバナンス」海外の主な枠組み（公式テキスト p.384。根拠：EU AI規則、EUハイレベル専門家会合「Ethics guidelines for trustworthy AI」、OECD AI原則、米国「Blueprint for an AI Bill of Rights」）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-006",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "AIのプライバシー上の問題のうち、「推論段階」の問題の例として、最も適切なものはどれか。",
+    "choices": [
+      "店舗の利用者に知らせないまま、カメラで顔を撮影して保存した。",
+      "利用目的を示さないまま、アプリで位置情報を集めた。",
+      "購買履歴から、本人が明かしていない妊娠を推測し、それに合わせた広告を出した。",
+      "集めた個人データを、本人の同意なく第三者に提供した。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "集めたデータそのものではなく、AIが推論した結果が、本人が明かしていない事柄に踏み込んでいる。",
+    "choiceExplanations": [
+      "誤りである。知らせずに撮影・保存するのは、データ収集段階の問題である。",
+      "誤りである。目的を示さずに集めるのは、データ収集段階の問題である。",
+      "正しい（本問の答え）。集めたデータそのものではなく、AIが推論した結果が、本人が明かしていない事柄に踏み込んでいる。",
+      "誤りである。第三者提供は、集めたデータの扱いの問題であり、AIの推論の結果による問題ではない。"
+    ],
+    "tags": {
+      "contentTags": ["推論段階", "データ収集段階", "プライバシー"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "データ収集段階と推論段階（p.387）",
+    "sourceReference": "補遺「倫理とガバナンス」データ収集段階と推論段階（公式テキスト p.387）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-007",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "経済産業省と総務省の「カメラ画像利活用ガイドブック」に示された配慮事項に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "撮影していることや利用目的を、掲示などで事前に分かりやすく知らせる。",
+      "不要になった画像や特徴量は削除する。",
+      "生活者からの問い合わせに対応する窓口を設ける。",
+      "ガイドブックに沿って運用すれば、個人情報保護法の義務は適用されなくなる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "ガイドブックに沿えば個人情報保護法の義務が適用されなくなるという記述が誤りである。ガイドブックは法律ではなく、個人情報保護法の義務はガイドブックとは別にかかる。",
+    "choiceExplanations": [
+      "適切である。事前の告知は、ガイドブックの主な配慮事項である。",
+      "適切である。必要な範囲を超えて保存しないことが求められる。",
+      "適切である。問い合わせの窓口を設けることが求められる。",
+      "不適切である（本問の答え）。ガイドブックは法律ではなく、個人情報保護法の義務はガイドブックとは別にかかる。"
+    ],
+    "tags": {
+      "contentTags": ["カメラ画像利活用ガイドブック"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "カメラ画像利活用ガイドブック（索引なし）",
+    "sourceReference": "補遺「倫理とガバナンス」カメラ画像利活用ガイドブック（公式テキスト p.387。根拠：経済産業省・総務省「カメラ画像利活用ガイドブック」ver3.0）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-008",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s06",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "郵便番号のように、性別や人種などのセンシティブ属性そのものではないが、それと強く関係しているために、間接的にセンシティブ属性を表してしまう変数を何と呼ぶか。",
+    "choices": ["代理変数", "目的変数", "潜在変数", "ダミー変数"],
+    "correctAnswer": 0,
+    "explanation": "正解は「代理変数」である。センシティブ属性を入力から除外しても、それと強く関連する代理変数を通じて、差別的な判断や偏りが残る可能性がある。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。センシティブ属性を入力から除外しても、それと強く関連する代理変数を通じて、差別的な判断や偏りが残る可能性がある。",
+      "誤りである。目的変数は、モデルが予測する対象の変数である。",
+      "誤りである。潜在変数は、直接は観測されず、観測データの背後にあると仮定する変数である。",
+      "誤りである。ダミー変数は、カテゴリを0と1などの数値で表した変数である。"
+    ],
+    "tags": {
+      "contentTags": ["代理変数", "センシティブ属性"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "センシティブ属性と代理変数（索引なし）",
+    "sourceReference": "補遺「倫理とガバナンス」センシティブ属性と代理変数（公式テキスト p.385）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-009",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s06",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "AIの公平性の定義と対処に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "集団ごとに、よい判定を受ける割合を等しくするという定義がある。",
+      "公平性の複数の定義は、どのようなデータでも常にすべてを同時に満たすことができる。",
+      "本来よい判定を受けるべき人のうち、実際によい判定を受ける割合を、集団ごとに等しくするという定義がある。",
+      "判定のしきい値を集団ごとに調整するなど、学習の後で偏りを補正する方法がある。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "公平性の複数の定義を常にすべて同時に満たせるという記述が誤りである。集団ごとに元の割合（基準率）が異なる場合など、複数の公平性の指標を同時に満たすことが難しい、または不可能になる場合がある。",
+    "choiceExplanations": [
+      "適切である。デモグラフィック・パリティと呼ばれる定義である。",
+      "不適切である（本問の答え）。集団ごとに元の割合（基準率）が異なる場合など、複数の公平性の指標を同時に満たすことが難しい、または不可能になる場合がある。",
+      "適切である。機会の均等と呼ばれる定義である。",
+      "適切である。学習の前・学習の中・学習の後の3つの段階で対処する方法がある。"
+    ],
+    "tags": {
+      "contentTags": ["公平性の定義"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "公平性の定義（索引なし）",
+    "sourceReference": "補遺「倫理とガバナンス」公平性の定義（公式テキスト p.385）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-010",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "AIへの攻撃のうち、学習データに不正なデータを混ぜて、モデルの性能を落としたり、特定の入力で誤った判断をさせたりするものを何と呼ぶか。",
+    "choices": ["モデル窃取", "メンバーシップ推論", "敵対的事例", "データ汚染"],
+    "correctAnswer": 3,
+    "explanation": "正解は「データ汚染」である。データポイズニングともいう。学習の段階を狙う攻撃である。",
+    "choiceExplanations": [
+      "誤りである。モデル窃取は、モデルに多数の問い合わせをし、入出力の組から同じように動くモデルを作って盗む攻撃である。",
+      "誤りである。メンバーシップ推論は、ある人のデータが学習に使われたかどうかを、モデルの出力から推定する攻撃である。",
+      "誤りである。敵対的事例は、典型的には学習済みモデルに与える入力を細工して誤った判断を誘うものである。学習データそのものを汚染する攻撃とは区別される。",
+      "正しい（本問の答え）。データポイズニングともいう。学習の段階を狙う攻撃である。"
+    ],
+    "tags": {
+      "contentTags": ["データ汚染", "モデル窃取", "メンバーシップ推論"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "学習データとモデルを狙う攻撃（索引なし）",
+    "sourceReference": "補遺「倫理とガバナンス」学習データとモデルを狙う攻撃（公式テキスト p.389）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-011",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s07",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "推薦アルゴリズムが利用者の好みに合う情報ばかりを表示するため、利用者が異なる意見の情報に触れにくくなる現象を何と呼ぶか。",
+    "choices": ["エコーチェンバー", "フィルターバブル", "ディープフェイク", "データドリフト"],
+    "correctAnswer": 1,
+    "explanation": "正解は「フィルターバブル」である。イーライ・パリサーが名付けた。",
+    "choiceExplanations": [
+      "誤りである。エコーチェンバーは、考え方の似た人同士が集まる場で、同じ意見が反響し合って強まる現象である。アルゴリズムによる情報の選別ではなく、人同士のやりとりによる意見の増幅が中心である。",
+      "正しい（本問の答え）。イーライ・パリサーが名付けた。",
+      "誤りである。ディープフェイクは、深層学習で作った、本物と見分けにくい偽の画像・動画・音声である。",
+      "誤りである。データドリフトは、運用中に入力データの分布が学習時などの分布から変化する現象である。モデルの性能低下につながる場合があるが、必ず低下するとは限らない。"
+    ],
+    "tags": {
+      "contentTags": ["フィルターバブル", "エコーチェンバー"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "フィルターバブルとエコーチェンバー（索引なし）",
+    "sourceReference": "補遺「倫理とガバナンス」フィルターバブルとエコーチェンバー（公式テキスト p.389）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch10-term-012",
+    "chapterId": "ch10",
+    "sectionId": "ch10-s08",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "AIガバナンスの手法に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "モニタリングでは、運用中のAIの性能や公平性を継続的に監視する。",
+      "トレーサビリティを確保するため、データやモデルの版、判断のログなどを記録しておく。",
+      "人間の関与は、AIの出力を人間が形式的に承認する手続きさえあれば十分である。",
+      "内部監査は、開発・運用の部門から独立した立場で、ガバナンスの仕組みが働いているかを確かめる。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "形式的な承認の手続きさえあれば人間の関与として十分であるという記述が誤りである。形だけの承認では意味がなく、人間がAIの判断を覆せる権限と、判断に必要な情報・時間を持つことが大切である。",
+    "choiceExplanations": [
+      "適切である。入力データの分布の変化（データドリフト）などを検知し、必要に応じて性能を評価する。",
+      "適切である。あとからさかのぼって原因を追跡できるようにする。",
+      "不適切である（本問の答え）。形だけの承認では意味がなく、人間がAIの判断を覆せる権限と、判断に必要な情報・時間を持つことが大切である。",
+      "適切である。内部監査の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["人間の関与", "モニタリング", "トレーサビリティ"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
+    "sourceHeading": "人間の関与（索引なし）",
+    "sourceReference": "補遺「倫理とガバナンス」人間の関与（公式テキスト p.392）",
+    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  }
+]
