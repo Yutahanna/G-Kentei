@@ -6,5 +6,6 @@ export type {
   QuestionForm,
   QuestionStyle,
   AnswerType,
+  QuestionCategory,
   QuestionTags,
 } from "../schemas/question.schema";

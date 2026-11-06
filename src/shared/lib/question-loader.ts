@@ -16,6 +16,7 @@ import ch05Advanced from "../../../questions/ch05/advanced.json";
 import ch06Basic from "../../../questions/ch06/basic.json";
 import ch06Standard from "../../../questions/ch06/standard.json";
 import ch06Advanced from "../../../questions/ch06/advanced.json";
+import ch06Terms from "../../../questions/ch06/terms.json";
 import ch07Basic from "../../../questions/ch07/basic.json";
 import ch07Standard from "../../../questions/ch07/standard.json";
 import ch07Advanced from "../../../questions/ch07/advanced.json";
@@ -28,11 +29,16 @@ import ch09Advanced from "../../../questions/ch09/advanced.json";
 import ch10Basic from "../../../questions/ch10/basic.json";
 import ch10Standard from "../../../questions/ch10/standard.json";
 import ch10Advanced from "../../../questions/ch10/advanced.json";
-import { questionSchema, type Question, type Difficulty } from "../../schemas/question.schema";
+import {
+  questionSchema,
+  type Question,
+  type Difficulty,
+  type QuestionCategory,
+} from "../../schemas/question.schema";
 
 /**
  * questions/ 配下の問題データを読み込む唯一の入り口。
- * 第1章〜第10章、全250問を対象とする。
+ * 第1章〜第10章の問題と、補遺を出典とする用語確認の問題（category: "term_check"）を対象とする。
  */
 
 const allQuestions: Question[] = [
@@ -54,6 +60,7 @@ const allQuestions: Question[] = [
   ...ch06Basic,
   ...ch06Standard,
   ...ch06Advanced,
+  ...ch06Terms,
   ...ch07Basic,
   ...ch07Standard,
   ...ch07Advanced,
@@ -76,6 +83,19 @@ export function getQuestionsByChapter(chapterId: string): Question[] {
   return allQuestions.filter((q) => q.chapterId === chapterId);
 }
 
+/** 用語確認の問題（補遺が出典）かどうか。 */
+export function isTermCheck(q: Question): boolean {
+  return (q.category ?? "chapter") === "term_check";
+}
+
+/**
+ * 模擬試験の出題候補。用語確認の問題は補遺と公式テキスト本文との照合が一部未実施のため、
+ * 模擬試験には含めない（章別ドリルと復習で使う）。
+ */
+export function getExamQuestionsByChapter(chapterId: string): Question[] {
+  return getQuestionsByChapter(chapterId).filter((q) => !isTermCheck(q));
+}
+
 export function getQuestionsBySection(sectionId: string): Question[] {
   return allQuestions.filter((q) => q.sectionId === sectionId);
 }
@@ -87,10 +107,12 @@ export function getQuestionById(id: string): Question | undefined {
 export function filterQuestions(options: {
   chapterId?: string;
   difficulties?: Difficulty[];
+  category?: QuestionCategory;
 }): Question[] {
   return allQuestions.filter((q) => {
     if (options.chapterId && q.chapterId !== options.chapterId) return false;
     if (options.difficulties && !options.difficulties.includes(q.difficulty)) return false;
+    if (options.category && (q.category ?? "chapter") !== options.category) return false;
     return true;
   });
 }

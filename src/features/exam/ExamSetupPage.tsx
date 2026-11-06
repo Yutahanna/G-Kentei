@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import Card from "../../shared/ui/Card";
 import { getAvailableChapterIds } from "../../shared/lib/content-loader";
-import { getQuestionById, getQuestionsByChapter } from "../../shared/lib/question-loader";
+import { getQuestionById, getExamQuestionsByChapter } from "../../shared/lib/question-loader";
 import { buildChoiceOrderMap } from "../../shared/lib/choiceOrder";
 import { selectExamQuestionIds } from "../../shared/lib/examComposition";
 import { EXAM_COMPOSITION_CONFIG } from "../../shared/config/examComposition";
@@ -44,7 +44,8 @@ export default function ExamSetupPage() {
     [history],
   );
   const totalQuestionCount = useMemo(
-    () => getAvailableChapterIds().reduce((sum, id) => sum + getQuestionsByChapter(id).length, 0),
+    () =>
+      getAvailableChapterIds().reduce((sum, id) => sum + getExamQuestionsByChapter(id).length, 0),
     [],
   );
   const unseenCount = totalQuestionCount - seenQuestionIds.size;
@@ -55,7 +56,7 @@ export default function ExamSetupPage() {
   function handleStart() {
     const chapterIds = getAvailableChapterIds();
     const questionIdsByChapter = Object.fromEntries(
-      chapterIds.map((id) => [id, getQuestionsByChapter(id).map((q) => q.id)]),
+      chapterIds.map((id) => [id, getExamQuestionsByChapter(id).map((q) => q.id)]),
     );
     const ids = selectExamQuestionIds(
       questionCount,
