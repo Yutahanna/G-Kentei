@@ -19,8 +19,8 @@ const expectedTotal = (chapterId: string) =>
 const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(id), 0);
 // すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加している（2026-11-01、全20問）。
 const MULTIPLE_TOTAL = 20;
-// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第6章に30問・第9章に12問）。
-const TERM_CHECK_TOTAL = 42;
+// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第6章に30問・第9章に12問・第10章に12問）。
+const TERM_CHECK_TOTAL = 54;
 // 計算問題（category: "calculation"、補遺が出典）も別枠（2026-11-06、第3章2問・第5章3問・第8章13問）。
 const CALCULATION_TOTAL = 18;
 const single = (chapterId: string) =>
@@ -89,6 +89,7 @@ describe("question-loader（全10章）", () => {
     expect(terms.some((q) => examIds.has(q.id))).toBe(false);
     expect(filterQuestions({ chapterId: "ch06", category: "term_check" })).toHaveLength(30);
     expect(filterQuestions({ chapterId: "ch09", category: "term_check" })).toHaveLength(12);
+    expect(filterQuestions({ chapterId: "ch10", category: "term_check" })).toHaveLength(12);
   });
 
   it("計算問題は補遺を出典とし、模擬試験の出題候補には入らない", () => {
