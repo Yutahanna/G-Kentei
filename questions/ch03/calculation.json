@@ -20,10 +20,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceFile": "materials/supplements/8_数理統計と計算_ORG.md",
     "sourceHeading": "混同行列から計算する指標",
     "sourceReference": "補遺「数理・統計と計算」混同行列から計算する指標",
-    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "contentVersion": "e0ff27913aa8c999ef16ccae4c05263c1bab79cefe64c89c6b5991141fcc51fe",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -48,10 +48,10 @@
       "skillTags": ["適用判断"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceFile": "materials/supplements/8_数理統計と計算_ORG.md",
     "sourceHeading": "混同行列から計算する指標",
     "sourceReference": "補遺「数理・統計と計算」混同行列から計算する指標",
-    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "contentVersion": "e0ff27913aa8c999ef16ccae4c05263c1bab79cefe64c89c6b5991141fcc51fe",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   }

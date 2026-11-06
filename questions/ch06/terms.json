@@ -26,10 +26,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "DQN（Deep Q-Network）",
     "sourceReference": "補遺「深層強化学習」DQN（公式テキスト p.287）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -60,10 +60,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "ダブルDQN（p.288）",
     "sourceReference": "補遺「深層強化学習」ダブルDQN（公式テキスト p.288）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -94,10 +94,10 @@
       "skillTags": ["関係性"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "Rainbow（p.288）",
     "sourceReference": "補遺「深層強化学習」Rainbow（公式テキスト p.288）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -128,10 +128,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "ドメインランダマイゼーション（p.298）",
     "sourceReference": "補遺「深層強化学習」ドメインランダマイゼーション（公式テキスト p.298）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -162,10 +162,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "sim2real（p.298）",
     "sourceReference": "補遺「深層強化学習」sim2real（公式テキスト p.298）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -196,10 +196,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "オフライン強化学習（p.297）",
     "sourceReference": "補遺「深層強化学習」オフライン強化学習（公式テキスト p.297）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -225,10 +225,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "残差強化学習（p.298）",
     "sourceReference": "補遺「深層強化学習」残差強化学習（公式テキスト p.298）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -259,10 +259,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "報酬成形（p.295）",
     "sourceReference": "補遺「深層強化学習」報酬成形（公式テキスト p.295）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -293,10 +293,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "OpenAI Five（p.292）",
     "sourceReference": "補遺「深層強化学習」OpenAI Five（公式テキスト p.292,293）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -322,10 +322,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-4_深層強化学習.md",
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "内発的報酬（p.288）",
     "sourceReference": "補遺「深層強化学習」内発的報酬（公式テキスト p.288）",
-    "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -351,10 +351,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "フォルマント／フォルマント周波数（p.271）",
     "sourceReference": "補遺「音声処理」フォルマント／フォルマント周波数（公式テキスト p.271）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -385,10 +385,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "メル周波数ケプストラム係数（MFCC）（p.271）",
     "sourceReference": "補遺「音声処理」メル周波数ケプストラム係数（公式テキスト p.271）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -419,10 +419,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "A-D変換（p.270）",
     "sourceReference": "補遺「音声処理」A-D変換（公式テキスト p.270）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -448,10 +448,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "CTC（Connectionist Temporal Classification）（p.272）",
     "sourceReference": "補遺「音声処理」CTC（公式テキスト p.272）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -482,10 +482,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "WaveNet（p.274）",
     "sourceReference": "補遺「音声処理」WaveNet（公式テキスト p.274）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -516,10 +516,10 @@
       "skillTags": ["関係性"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "フォルマント／フォルマント周波数（p.271）",
     "sourceReference": "補遺「音声処理」フォルマント／フォルマント周波数（公式テキスト p.271）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -550,10 +550,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "パルス符号変調（PCM）（p.270）",
     "sourceReference": "補遺「音声処理」パルス符号変調（公式テキスト p.270）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -584,10 +584,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "話者識別（p.273）",
     "sourceReference": "補遺「音声処理」話者識別（公式テキスト p.273）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -618,10 +618,10 @@
       "skillTags": ["関係性"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "WaveNet（p.274）",
     "sourceReference": "補遺「音声処理」WaveNet（公式テキスト p.272,274）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -647,10 +647,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
     "sourceHeading": "メル尺度（p.271）",
     "sourceReference": "補遺「音声処理」メル尺度（公式テキスト p.271）",
-    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "contentVersion": "6ff45214b33eb0b75d3e3115f8997b1cab8fef506b0ca37d81884d3f4e83a65f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -676,10 +676,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "Bag-of-Words（BoW）（p.275）",
     "sourceReference": "補遺「自然言語処理」Bag-of-Words（公式テキスト p.275）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -710,10 +710,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "TF-IDF（p.276）",
     "sourceReference": "補遺「自然言語処理」TF-IDF（公式テキスト p.276）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -744,10 +744,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "word2vec（p.277）",
     "sourceReference": "補遺「自然言語処理」word2vec（公式テキスト p.277）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -773,10 +773,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "fastText（p.279）",
     "sourceReference": "補遺「自然言語処理」fastText（公式テキスト p.279）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -807,10 +807,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "分散表現・単語埋め込み（p.277）",
     "sourceReference": "補遺「自然言語処理」分散表現・単語埋め込み（公式テキスト p.277）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -841,10 +841,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "ワンホットベクトル・局所表現（p.276〜277）",
     "sourceReference": "補遺「自然言語処理」ワンホットベクトル・局所表現（公式テキスト p.276）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -870,10 +870,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "分布仮説（p.277）",
     "sourceReference": "補遺「自然言語処理」分布仮説（公式テキスト p.277）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -904,10 +904,10 @@
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "BERTの事前学習の2つの課題（p.282）",
     "sourceReference": "補遺「自然言語処理」BERTの事前学習の2つの課題（公式テキスト p.282）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -938,10 +938,10 @@
       "skillTags": ["関係性"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "機械翻訳の方式の移り変わり（p.37、p.285）",
     "sourceReference": "補遺「自然言語処理」機械翻訳の方式の移り変わり（公式テキスト p.285）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -967,10 +967,10 @@
       "skillTags": ["暗記"],
       "crossChapterTags": []
     },
-    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "SQuAD（p.283）",
     "sourceReference": "補遺「自然言語処理」SQuAD（公式テキスト p.283）",
-    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   }
