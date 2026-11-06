@@ -20,6 +20,7 @@ const CATEGORY_OPTIONS: { value: CategoryFilter; label: string }[] = [
   { value: "all", label: "すべて" },
   { value: "chapter", label: "章の問題のみ" },
   { value: "term_check", label: "用語確認のみ" },
+  { value: "calculation", label: "計算問題のみ" },
 ];
 
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string }[] = [
@@ -63,11 +64,18 @@ export default function DrillSetupPage() {
     setCategory("all");
   }, [chapterId]);
 
-  // 用語確認の問題（補遺が出典）がある章だけ「問題の種類」を選べるようにする。
-  const hasTermCheck = useMemo(
-    () => filterQuestions({ chapterId, category: "term_check" }).length > 0,
+  // 補遺が出典の問題（用語確認・計算問題）がある章だけ「問題の種類」を選べるようにし、その章にある種類だけを出す。
+  const categoryOptions = useMemo(
+    () =>
+      CATEGORY_OPTIONS.filter(
+        (opt) =>
+          opt.value === "all" ||
+          opt.value === "chapter" ||
+          filterQuestions({ chapterId, category: opt.value }).length > 0,
+      ),
     [chapterId],
   );
+  const hasSupplementQuestions = categoryOptions.length > 2;
 
   const matchingQuestions = useMemo(() => {
     const all = filterQuestions({
@@ -117,11 +125,11 @@ export default function DrillSetupPage() {
           </select>
         </fieldset>
 
-        {hasTermCheck && (
+        {hasSupplementQuestions && (
           <fieldset className={styles.fieldset}>
             <legend className={styles.legend}>問題の種類</legend>
             <div className={styles.radioGroup}>
-              {CATEGORY_OPTIONS.map((opt) => (
+              {categoryOptions.map((opt) => (
                 <div key={opt.value} className={styles.checkboxRow}>
                   <input
                     type="radio"
@@ -135,7 +143,7 @@ export default function DrillSetupPage() {
               ))}
             </div>
             <p className={styles.hint}>
-              用語確認は、教材にない試験範囲の用語を補遺で補った問題です（模擬試験には出ません）。
+              用語確認・計算問題は、教材にない試験範囲の内容を補遺で補った問題です（模擬試験には出ません）。
             </p>
           </fieldset>
         )}

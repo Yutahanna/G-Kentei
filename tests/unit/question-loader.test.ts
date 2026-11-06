@@ -4,6 +4,7 @@ import {
   getExamQuestionsByChapter,
   getQuestionById,
   getQuestionsByChapter,
+  isSupplementQuestion,
   isTermCheck,
 } from "../../src/shared/lib/question-loader";
 import {
@@ -20,8 +21,10 @@ const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(i
 const MULTIPLE_TOTAL = 20;
 // 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第6章に30問）。
 const TERM_CHECK_TOTAL = 30;
+// 計算問題（category: "calculation"、補遺が出典）も別枠（2026-11-06、第3章2問・第5章3問・第8章13問）。
+const CALCULATION_TOTAL = 18;
 const single = (chapterId: string) =>
-  getQuestionsByChapter(chapterId).filter((q) => !isMultipleAnswer(q) && !isTermCheck(q));
+  getQuestionsByChapter(chapterId).filter((q) => !isMultipleAnswer(q) && !isSupplementQuestion(q));
 
 describe("question-loader（全10章）", () => {
   it.each(CHAPTER_IDS)("%sの1つを選ぶ問題を設計値の問題数だけ読み込む", (chapterId) => {
@@ -68,7 +71,9 @@ describe("question-loader（全10章）", () => {
     const ids = CHAPTER_IDS.flatMap((chapterId) =>
       getQuestionsByChapter(chapterId).map((q) => q.id),
     );
-    expect(ids).toHaveLength(ALL_EXPECTED_TOTAL + MULTIPLE_TOTAL + TERM_CHECK_TOTAL);
+    expect(ids).toHaveLength(
+      ALL_EXPECTED_TOTAL + MULTIPLE_TOTAL + TERM_CHECK_TOTAL + CALCULATION_TOTAL,
+    );
     expect(new Set(ids).size).toBe(ids.length);
   });
 
@@ -85,6 +90,20 @@ describe("question-loader（全10章）", () => {
     expect(filterQuestions({ chapterId: "ch06", category: "term_check" })).toHaveLength(
       TERM_CHECK_TOTAL,
     );
+  });
+
+  it("計算問題は補遺を出典とし、模擬試験の出題候補には入らない", () => {
+    const calc = CHAPTER_IDS.flatMap((id) => getQuestionsByChapter(id)).filter(
+      (q) => q.category === "calculation",
+    );
+    expect(calc).toHaveLength(CALCULATION_TOTAL);
+    const examIds = new Set(
+      CHAPTER_IDS.flatMap((id) => getExamQuestionsByChapter(id)).map((q) => q.id),
+    );
+    for (const q of calc) {
+      expect(q.sourceFile.startsWith("materials/supplements/")).toBe(true);
+      expect(examIds.has(q.id)).toBe(false);
+    }
   });
 
   it("getQuestionByIdで各章の問題を取得できる", () => {

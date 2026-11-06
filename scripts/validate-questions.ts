@@ -211,6 +211,8 @@ function main(): void {
     let totalWrong = 0;
     let totalNearConceptHits = 0;
     for (const q of chapterQuestions) {
+      // 計算問題は選択肢が数値なので、語彙による近接概念の判定は当てはまらない。
+      if (q.category === "calculation") continue;
       const result = computeNearConceptRate(q, vocabulary);
       totalWrong += result.wrongChoiceCount;
       totalNearConceptHits += result.nearConceptHits;

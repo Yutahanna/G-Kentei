@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ch03-calc-001",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s07",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "ある分類モデルの結果は、真陽性（TP）45件、偽陽性（FP）15件、偽陰性（FN）5件、真陰性（TN）35件であった。再現率はいくつか。",
+    "choices": ["0.75", "0.8", "0.9", "0.875"],
+    "correctAnswer": 2,
+    "explanation": "正解は「0.9」である。再現率は、本当に陽性のものの中で陽性と予測できた割合で、TP÷(TP＋FN)＝45÷50＝0.9。",
+    "choiceExplanations": [
+      "誤りである。適合率（TP÷(TP＋FP)＝45÷60）である。",
+      "誤りである。正解率（(TP＋TN)÷全体＝80÷100）である。",
+      "正しい（本問の答え）。再現率は、本当に陽性のものの中で陽性と予測できた割合で、TP÷(TP＋FN)＝45÷50＝0.9。",
+      "誤りである。陰性的中率（TN÷(TN＋FN)＝35÷40）である。陰性と予測したもののうち、本当に陰性だった割合を表す指標で、再現率とは異なる。"
+    ],
+    "tags": {
+      "contentTags": ["再現率", "適合率", "混同行列"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "混同行列から計算する指標",
+    "sourceReference": "補遺「数理・統計と計算」混同行列から計算する指標",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-calc-002",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s07",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "あるモデルの適合率が0.9、再現率が0.6であった。F値（F1値）はいくつか。",
+    "choices": ["0.75", "0.54", "0.6", "0.72"],
+    "correctAnswer": 3,
+    "explanation": "正解は「0.72」である。F値（F1値）＝2×0.9×0.6÷(0.9＋0.6)＝1.08÷1.5＝0.72。",
+    "choiceExplanations": [
+      "誤りである。適合率と再現率の単純な平均（算術平均）である。F値は調和平均なので、低いほうの値に引っ張られる。",
+      "誤りである。適合率と再現率の積である。2倍して、和で割る必要がある。",
+      "誤りである。再現率の値そのものである。",
+      "正しい（本問の答え）。F値（F1値）＝2×0.9×0.6÷(0.9＋0.6)＝1.08÷1.5＝0.72。"
+    ],
+    "tags": {
+      "contentTags": ["F値", "適合率", "再現率"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "混同行列から計算する指標",
+    "sourceReference": "補遺「数理・統計と計算」混同行列から計算する指標",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  }
+]

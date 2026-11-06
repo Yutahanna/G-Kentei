@@ -1,4 +1,11 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
+
+// 出題はランダムなので、全て選ぶ問題（選んでから「回答する」で採点）に当たることがある。
+// その場合は、選択肢を1つ選んだあと「回答する」を押して採点させる。
+async function submitIfMultiple(page: Page) {
+  const submit = page.getByRole("button", { name: /回答する（\d+つ選択中）/ });
+  if (await submit.isVisible()) await submit.click();
+}
 
 test.describe("章別ドリルのゴールデンパス", () => {
   test("教材を読む→ドリルを解く→結果画面→ホームに進捗が反映される", async ({ page }) => {
@@ -18,6 +25,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
 
     for (let i = 0; i < 10; i++) {
       await page.locator('button[class*="choiceButton"]').first().click();
+      await submitIfMultiple(page);
       await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
       await page.getByRole("button", { name: /次の問題へ|結果を見る/ }).click();
     }
@@ -32,19 +40,24 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await expect(page.getByText("10 / 27", { exact: true })).toBeVisible();
   });
 
-  test("用語確認の問題がある章では、問題の種類で用語確認だけを選べる", async ({ page }) => {
+  test("用語確認・計算問題がある章では、問題の種類でその種類だけを選べる", async ({ page }) => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch06");
     await page.locator("#category-term_check").check();
     await expect(page.getByText(/該当する問題: 30問/)).toBeVisible();
-    await page.locator("select").first().selectOption("ch05");
+    await expect(page.locator("#category-calculation")).toHaveCount(0);
+    await page.locator("select").first().selectOption("ch08");
+    await page.locator("#category-calculation").check();
+    await expect(page.getByText(/該当する問題: 13問/)).toBeVisible();
     await expect(page.locator("#category-term_check")).toHaveCount(0);
+    await page.locator("select").first().selectOption("ch01");
+    await expect(page.locator("#category-calculation")).toHaveCount(0);
   });
 
   test("出題数は既定で10問になり、全問を選ぶと章の全問が出る", async ({ page }) => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
-    await expect(page.getByText(/該当する問題: 68問（今回の出題: 10問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 71問（今回の出題: 10問）/)).toBeVisible();
     await page.getByRole("button", { name: "ドリルを開始する" }).click();
     await page.waitForURL("**/drill/ch05/play");
     await expect(page.getByText(/問題 1 \/ 10/)).toBeVisible();
@@ -52,7 +65,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
     await page.locator("#count-all").check();
-    await expect(page.getByText(/該当する問題: 68問（今回の出題: 68問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 71問（今回の出題: 71問）/)).toBeVisible();
   });
 
   test("ブックマークした問題は復習メニューに現れ、復習セッションを完了できる", async ({ page }) => {
@@ -70,6 +83,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
 
     await page.waitForURL("**/review/play");
     await page.locator('button[class*="choiceButton"]').first().click();
+    await submitIfMultiple(page);
     await page.getByRole("button", { name: /結果を見る|次の問題へ/ }).click();
     await page.waitForURL("**/review/result");
     await expect(page.locator("h1")).toContainText("模試の誤答・ブックマーク復習の結果");
@@ -86,6 +100,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
 
     for (let i = 0; i < 3; i++) {
       await page.locator('button[class*="choiceButton"]').first().click();
+      await submitIfMultiple(page);
       await page.getByRole("button", { name: /次の問題へ/ }).click();
     }
     await expect(page.getByText(/問題 4 \/ 20/)).toBeVisible();
@@ -100,6 +115,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
 
     // 回答直後に読み込み直しても、正誤表示と選んだ選択肢が残る
     await page.locator('button[class*="choiceButton"]').first().click();
+    await submitIfMultiple(page);
     await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
     await page.reload();
     await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
