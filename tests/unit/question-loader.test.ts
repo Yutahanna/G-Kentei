@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
   filterQuestions,
+  getExamQuestionsByChapter,
   getQuestionById,
   getQuestionsByChapter,
+  isTermCheck,
 } from "../../src/shared/lib/question-loader";
 import {
   EXPECTED_TOTAL_BY_CHAPTER,
@@ -16,8 +18,10 @@ const expectedTotal = (chapterId: string) =>
 const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(id), 0);
 // すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加している（2026-11-01、全20問）。
 const MULTIPLE_TOTAL = 20;
+// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第6章に10問）。
+const TERM_CHECK_TOTAL = 10;
 const single = (chapterId: string) =>
-  getQuestionsByChapter(chapterId).filter((q) => !isMultipleAnswer(q));
+  getQuestionsByChapter(chapterId).filter((q) => !isMultipleAnswer(q) && !isTermCheck(q));
 
 describe("question-loader（全10章）", () => {
   it.each(CHAPTER_IDS)("%sの1つを選ぶ問題を設計値の問題数だけ読み込む", (chapterId) => {
@@ -27,8 +31,9 @@ describe("question-loader（全10章）", () => {
   it.each(CHAPTER_IDS)("%sの1つを選ぶ問題は難易度ごとに基礎:標準:応用=2:2:1である", (chapterId) => {
     const unit = expectedTotal(chapterId) / 5;
     const count = (difficulty: "basic" | "standard" | "advanced") =>
-      filterQuestions({ chapterId, difficulties: [difficulty] }).filter((q) => !isMultipleAnswer(q))
-        .length;
+      filterQuestions({ chapterId, difficulties: [difficulty], category: "chapter" }).filter(
+        (q) => !isMultipleAnswer(q),
+      ).length;
     expect(count("basic")).toBe(unit * 2);
     expect(count("standard")).toBe(unit * 2);
     expect(count("advanced")).toBe(unit);
@@ -63,8 +68,23 @@ describe("question-loader（全10章）", () => {
     const ids = CHAPTER_IDS.flatMap((chapterId) =>
       getQuestionsByChapter(chapterId).map((q) => q.id),
     );
-    expect(ids).toHaveLength(ALL_EXPECTED_TOTAL + MULTIPLE_TOTAL);
+    expect(ids).toHaveLength(ALL_EXPECTED_TOTAL + MULTIPLE_TOTAL + TERM_CHECK_TOTAL);
     expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("用語確認の問題は補遺を出典とし、模擬試験の出題候補には入らない", () => {
+    const terms = CHAPTER_IDS.flatMap((id) => getQuestionsByChapter(id)).filter(isTermCheck);
+    expect(terms).toHaveLength(TERM_CHECK_TOTAL);
+    for (const q of terms) {
+      expect(q.sourceFile.startsWith("materials/supplements/")).toBe(true);
+    }
+    const examIds = new Set(
+      CHAPTER_IDS.flatMap((id) => getExamQuestionsByChapter(id)).map((q) => q.id),
+    );
+    expect(terms.some((q) => examIds.has(q.id))).toBe(false);
+    expect(filterQuestions({ chapterId: "ch06", category: "term_check" })).toHaveLength(
+      TERM_CHECK_TOTAL,
+    );
   });
 
   it("getQuestionByIdで各章の問題を取得できる", () => {

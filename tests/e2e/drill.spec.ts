@@ -32,6 +32,15 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await expect(page.getByText("10 / 27", { exact: true })).toBeVisible();
   });
 
+  test("用語確認の問題がある章では、問題の種類で用語確認だけを選べる", async ({ page }) => {
+    await page.goto("/drill");
+    await page.locator("select").first().selectOption("ch06");
+    await page.locator("#category-term_check").check();
+    await expect(page.getByText(/該当する問題: 10問/)).toBeVisible();
+    await page.locator("select").first().selectOption("ch05");
+    await expect(page.locator("#category-term_check")).toHaveCount(0);
+  });
+
   test("出題数は既定で10問になり、全問を選ぶと章の全問が出る", async ({ page }) => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");

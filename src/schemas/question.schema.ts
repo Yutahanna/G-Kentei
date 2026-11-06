@@ -50,6 +50,17 @@ export const questionStyleSchema = z.enum(["standard", "fill_in_blank"]);
  */
 export const answerTypeSchema = z.enum(["single", "multiple"]);
 
+/**
+ * 問題の区分。省略時は"chapter"（格納テキストの各章に基づく通常の問題）。
+ * "term_check": 用語確認ドリル。格納テキストにないG検定シラバスのキーワードを補う
+ * 補遺（materials/supplements/*.md）を出典とし、用語の説明の正誤や用語名を問う。
+ * 補遺は公式テキスト本文との照合が一部未実施のため、模擬試験には出題しない
+ * （章別ドリルと復習で使う）。2026-11-06 導入。
+ */
+export const questionCategorySchema = z.enum(["chapter", "term_check"]);
+
+export const SUPPLEMENT_SOURCE_PREFIX = "materials/supplements/";
+
 export const MULTIPLE_MIN_CHOICES = 4;
 export const MULTIPLE_MAX_CHOICES = 6;
 export const MULTIPLE_MIN_CORRECT = 2;
@@ -69,6 +80,7 @@ export const questionSchema = z
     chapterId: z.string().regex(/^ch\d{2}$/),
     sectionId: z.string().regex(/^ch\d{2}-s\d{2}$/),
     difficulty: difficultySchema,
+    category: questionCategorySchema.optional(),
     questionForm: questionFormSchema.optional(),
     questionStyle: questionStyleSchema.optional(),
     answerType: answerTypeSchema.optional(),
@@ -90,6 +102,18 @@ export const questionSchema = z
   .strict()
   .superRefine((q, ctx) => {
     const issue = (message: string) => ctx.addIssue({ code: z.ZodIssueCode.custom, message });
+    if (
+      (q.category ?? "chapter") === "term_check" &&
+      !q.sourceFile.startsWith(SUPPLEMENT_SOURCE_PREFIX)
+    ) {
+      issue(`用語確認の問題は補遺（${SUPPLEMENT_SOURCE_PREFIX}）を出典にする`);
+    }
+    if (
+      (q.category ?? "chapter") === "chapter" &&
+      q.sourceFile.startsWith(SUPPLEMENT_SOURCE_PREFIX)
+    ) {
+      issue('補遺を出典にする問題はcategoryを"term_check"にする');
+    }
     if (q.choiceExplanations.length !== q.choices.length) {
       issue("choiceExplanationsはchoicesと同じ数にする");
     }
@@ -123,5 +147,6 @@ export type SkillTag = z.infer<typeof skillTagSchema>;
 export type QuestionForm = z.infer<typeof questionFormSchema>;
 export type QuestionStyle = z.infer<typeof questionStyleSchema>;
 export type AnswerType = z.infer<typeof answerTypeSchema>;
+export type QuestionCategory = z.infer<typeof questionCategorySchema>;
 export type QuestionTags = z.infer<typeof questionTagsSchema>;
 export type Question = z.infer<typeof questionSchema>;

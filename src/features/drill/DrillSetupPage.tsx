@@ -11,8 +11,16 @@ import {
   selectDrillQuestionIds,
 } from "../../shared/lib/drillSelection";
 import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
-import type { Difficulty } from "../../entities/question";
+import type { Difficulty, QuestionCategory } from "../../entities/question";
 import styles from "./DrillSetupPage.module.css";
+
+type CategoryFilter = QuestionCategory | "all";
+
+const CATEGORY_OPTIONS: { value: CategoryFilter; label: string }[] = [
+  { value: "all", label: "すべて" },
+  { value: "chapter", label: "章の問題のみ" },
+  { value: "term_check", label: "用語確認のみ" },
+];
 
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string }[] = [
   { value: "basic", label: "基礎" },
@@ -44,6 +52,7 @@ export default function DrillSetupPage() {
     "advanced",
   ]);
   const [sectionId, setSectionId] = useState(initialSectionId);
+  const [category, setCategory] = useState<CategoryFilter>("all");
   const [randomize, setRandomize] = useState(true);
   // nullは全問
   const [questionCount, setQuestionCount] = useState<number | null>(DEFAULT_DRILL_COUNT);
@@ -51,12 +60,23 @@ export default function DrillSetupPage() {
 
   useEffect(() => {
     setSectionId("");
+    setCategory("all");
   }, [chapterId]);
 
+  // 用語確認の問題（補遺が出典）がある章だけ「問題の種類」を選べるようにする。
+  const hasTermCheck = useMemo(
+    () => filterQuestions({ chapterId, category: "term_check" }).length > 0,
+    [chapterId],
+  );
+
   const matchingQuestions = useMemo(() => {
-    const all = filterQuestions({ chapterId, difficulties: selectedDifficulties });
+    const all = filterQuestions({
+      chapterId,
+      difficulties: selectedDifficulties,
+      category: category === "all" ? undefined : category,
+    });
     return sectionId ? all.filter((q) => q.sectionId === sectionId) : all;
-  }, [chapterId, selectedDifficulties, sectionId]);
+  }, [chapterId, selectedDifficulties, sectionId, category]);
 
   function toggleDifficulty(value: Difficulty) {
     setSelectedDifficulties((prev) =>
@@ -96,6 +116,29 @@ export default function DrillSetupPage() {
             })}
           </select>
         </fieldset>
+
+        {hasTermCheck && (
+          <fieldset className={styles.fieldset}>
+            <legend className={styles.legend}>問題の種類</legend>
+            <div className={styles.radioGroup}>
+              {CATEGORY_OPTIONS.map((opt) => (
+                <div key={opt.value} className={styles.checkboxRow}>
+                  <input
+                    type="radio"
+                    id={`category-${opt.value}`}
+                    name="category"
+                    checked={category === opt.value}
+                    onChange={() => setCategory(opt.value)}
+                  />
+                  <label htmlFor={`category-${opt.value}`}>{opt.label}</label>
+                </div>
+              ))}
+            </div>
+            <p className={styles.hint}>
+              用語確認は、教材にない試験範囲の用語を補遺で補った問題です（模擬試験には出ません）。
+            </p>
+          </fieldset>
+        )}
 
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>難易度</legend>

@@ -11,7 +11,12 @@
 import { globSync } from "node:fs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { questionSchema, type Question } from "../src/schemas/question.schema";
+import { createHash } from "node:crypto";
+import {
+  questionSchema,
+  SUPPLEMENT_SOURCE_PREFIX,
+  type Question,
+} from "../src/schemas/question.schema";
 import { manifestSchema, type Manifest } from "../src/schemas/content.schema";
 import {
   buildConceptVocabulary,
@@ -126,7 +131,27 @@ function main(): void {
           `${file} [${question.id}]: sectionId "${question.sectionId}" が content/manifest.json に存在しません。`,
         );
       }
-      if (manifest) {
+      if (question.sourceFile.startsWith(SUPPLEMENT_SOURCE_PREFIX)) {
+        // 補遺が出典の問題（用語確認）: 補遺ファイルの実在と、内容のハッシュを確かめる。
+        const supplementPath = join(ROOT_DIR, question.sourceFile);
+        if (!existsSync(supplementPath)) {
+          error(`${file} [${question.id}]: 出典の補遺 "${question.sourceFile}" が見つかりません。`);
+        } else {
+          const hash = createHash("sha256")
+            .update(readFileSync(supplementPath, "utf-8"), "utf-8")
+            .digest("hex");
+          if (hash !== question.contentVersion) {
+            warn(
+              `${file} [${question.id}]: contentVersion が補遺の現在の内容と一致しません（補遺が改訂された可能性があります。再レビューを検討してください）。`,
+            );
+          }
+          if (!readFileSync(supplementPath, "utf-8").includes(`### ${question.sourceHeading}`)) {
+            error(
+              `${file} [${question.id}]: sourceHeading "${question.sourceHeading}" が補遺の見出しにありません。`,
+            );
+          }
+        }
+      } else if (manifest) {
         const expectedHash = chapterHashById.get(question.chapterId);
         if (expectedHash && expectedHash !== question.contentVersion) {
           warn(
