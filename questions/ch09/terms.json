@@ -1,0 +1,402 @@
+[
+  {
+    "id": "ch09-term-001",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "顔や指紋などの身体の特徴をコンピュータ用に変換した符号のうち法令で定める基準を満たすものや、マイナンバーのように、その情報だけで特定の個人を識別できる符号を何と呼ぶか。",
+    "choices": ["個人関連情報", "個人識別符号", "要配慮個人情報", "仮名加工情報"],
+    "correctAnswer": 1,
+    "explanation": "正解は「個人識別符号」である。氏名がなくても、個人識別符号を含めば個人情報になる。",
+    "choiceExplanations": [
+      "誤りである。個人関連情報は、個人情報・仮名加工情報・匿名加工情報のいずれにも当たらない、個人に関する情報である。それだけで個人を識別できる符号ではない。",
+      "正しい（本問の答え）。氏名がなくても、個人識別符号を含めば個人情報になる。",
+      "誤りである。要配慮個人情報は、病歴や犯罪の経歴など、特に配慮が必要な個人情報である。",
+      "誤りである。仮名加工情報は、ほかの情報と照合しない限り個人を識別できないように加工した情報である。"
+    ],
+    "tags": {
+      "contentTags": ["個人識別符号"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "個人識別符号（p.368）",
+    "sourceReference": "補遺「法律と契約」個人識別符号（公式テキスト p.368。根拠：個人情報保護法2条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-002",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "個人情報保護法における個人関連情報の説明として、最も適切なものはどれか。",
+    "choices": [
+      "人種、信条、社会的身分、病歴、犯罪の経歴など、不当な差別や偏見が生じないよう特に配慮が必要な個人情報。",
+      "生存する個人に関する情報のうち、個人情報・仮名加工情報・匿名加工情報のいずれにも当たらないもの。",
+      "顔認証データや旅券番号のように、その情報だけで特定の個人を識別できる符号。",
+      "個人データのうち、開示や訂正などを行う権限を事業者が持つもの。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "例えば、Cookieに関連する識別子や閲覧履歴は、提供元で個人情報等に当たらない場合に、個人関連情報となり得る。",
+    "choiceExplanations": [
+      "誤りである。要配慮個人情報の説明である。",
+      "正しい（本問の答え）。例えば、Cookieに関連する識別子や閲覧履歴は、提供元で個人情報等に当たらない場合に、個人関連情報となり得る。",
+      "誤りである。個人識別符号の説明である。",
+      "誤りである。保有個人データの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["個人関連情報"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "個人関連情報（p.372）",
+    "sourceReference": "補遺「法律と契約」個人関連情報（公式テキスト p.372。根拠：個人情報保護法2条・31条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-003",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "要配慮個人情報に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "病歴や犯罪の経歴などが含まれる。",
+      "取得するには、原則として本人の同意が必要である。",
+      "不当な差別や偏見が生じないよう、特に配慮が必要な個人情報である。",
+      "オプトアウトの手続きをとれば、本人の同意なく第三者に提供できる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "オプトアウトで本人の同意なく第三者に提供できるという記述が誤りである。要配慮個人情報は、オプトアウトによる第三者提供ができない。",
+    "choiceExplanations": [
+      "適切である。要配慮個人情報の例である。",
+      "適切である。取得には原則として本人の同意が必要である。",
+      "適切である。要配慮個人情報の趣旨である。",
+      "不適切である（本問の答え）。要配慮個人情報は、オプトアウトによる第三者提供ができない。"
+    ],
+    "tags": {
+      "contentTags": ["要配慮個人情報", "オプトアウト"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "要配慮個人情報（p.371）",
+    "sourceReference": "補遺「法律と契約」要配慮個人情報（公式テキスト p.371。根拠：個人情報保護法20条・27条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-004",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "個人データの第三者提供と委託に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "個人データを第三者に提供するには、原則として本人の同意が必要である。",
+      "利用目的の範囲内で業務を委託し、個人データを渡すことは、第三者提供に当たらない。",
+      "委託先に渡した個人データの扱いについて、委託元は委託先を監督する義務を負わない。",
+      "個人データの処理を委託した事業者は、委託先に対する必要かつ適切な監督を行う義務を負う。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "委託元が委託先を監督する義務を負わないという記述が誤りである。委託元は、委託先に対する必要かつ適切な監督を行う義務を負う。",
+    "choiceExplanations": [
+      "適切である。第三者提供には、原則として本人の同意が必要である。",
+      "適切である。利用目的の範囲内の委託は、第三者提供に当たらない。",
+      "不適切である（本問の答え）。委託元は、委託先に対する必要かつ適切な監督を行う義務を負う。",
+      "適切である。委託元には、委託先に対する必要かつ適切な監督を行う義務がある（個人情報保護法25条）。"
+    ],
+    "tags": {
+      "contentTags": ["第三者提供", "委託"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "第三者提供と委託",
+    "sourceReference": "補遺「法律と契約」第三者提供と委託（公式テキスト p.368。根拠：個人情報保護法25条・27条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-005",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s02",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "公表権・氏名表示権・同一性保持権からなり、他人に譲り渡すことができない、著作者の人格的な利益を守る権利を何と呼ぶか。",
+    "choices": ["専用実施権", "通常実施権", "特許権", "著作者人格権"],
+    "correctAnswer": 3,
+    "explanation": "正解は「著作者人格権」である。財産権としての著作権とちがい、譲り渡すことはできない。",
+    "choiceExplanations": [
+      "誤りである。専用実施権は、特許発明を設定した範囲で独占的に実施できる権利である。",
+      "誤りである。通常実施権は、特許発明を非独占的に実施できる権利である。",
+      "誤りである。特許権は、発明を保護する権利で、他人に譲り渡すことができる。",
+      "正しい（本問の答え）。財産権としての著作権とちがい、譲り渡すことはできない。"
+    ],
+    "tags": {
+      "contentTags": ["著作者人格権"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "著作者人格権（p.362）",
+    "sourceReference": "補遺「法律と契約」著作者人格権（公式テキスト p.362。根拠：著作権法18〜20条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-006",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s02",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "著作権法で保護される著作物に関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "思想または感情を創作的に表現したもので、高度な芸術性までは求められない。",
+      "優れたアイデアであれば、具体的に表現されていなくても著作物として保護される。",
+      "単なる事実やデータも、内容が正確であれば著作物として保護される。",
+      "特許庁などに登録して初めて、著作物として保護される。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "作り手の個性が何らかの形で表れていれば、創作性が認められる。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。作り手の個性が何らかの形で表れていれば、創作性が認められる。",
+      "誤りである。アイデアそのものは保護されず、保護されるのは具体的な表現である。",
+      "誤りである。単なる事実やデータは、思想または感情の創作的な表現ではないため保護されない。",
+      "誤りである。著作権は、創作した時点で自動的に発生する（登録は不要）。"
+    ],
+    "tags": {
+      "contentTags": ["著作物", "創作性"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "著作物と創作性（p.361）",
+    "sourceReference": "補遺「法律と契約」著作物と創作性（公式テキスト p.361。根拠：著作権法2条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-007",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "特許の要件のうち、「その分野の専門家が、既存の技術から容易に思いつけないこと」を何と呼ぶか。",
+    "choices": ["新規性", "進歩性", "産業上の利用可能性", "先願主義"],
+    "correctAnswer": 1,
+    "explanation": "正解は「進歩性」である。新規性があっても、既存の技術から容易に思いつけるものは進歩性がなく、特許を受けられない。",
+    "choiceExplanations": [
+      "誤りである。新規性は、出願の前に公に知られていないことである。",
+      "正しい（本問の答え）。新規性があっても、既存の技術から容易に思いつけるものは進歩性がなく、特許を受けられない。",
+      "誤りである。産業上の利用可能性は、産業で利用できることである。",
+      "誤りである。先願主義は、同じ発明について複数の出願があった場合に、原則として先に出願した者を優先するという原則であり、発明そのものの要件ではない。"
+    ],
+    "tags": {
+      "contentTags": ["進歩性", "新規性"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "発明と特許の要件（p.364）",
+    "sourceReference": "補遺「法律と契約」発明と特許の要件（公式テキスト p.364。根拠：特許法29条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-008",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "特許法に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "出願の前に公に知られた発明は、新規性喪失の例外の規定が適用されない場合でも、進歩性さえあれば特許を受けられる。",
+      "発明とは、自然法則を利用した技術的思想の創作のうち、高度のものをいう。",
+      "同じ発明について複数の出願があり、ほかの特許要件も満たす場合は、原則として先に出願した者が優先される。",
+      "特許権の存続期間は、原則として出願の日から20年である。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "新規性喪失の例外が適用されない場合でも、進歩性さえあれば特許を受けられるという記述が誤りである。出願の前に公に知られた発明は、原則として新規性がなく、進歩性があっても特許を受けられない。なお、自分で公開した場合などに一定の条件と手続きを満たせば新規性を失わなかったものとして扱われる例外（特許法30条）があるが、この選択肢はその例外が適用されない場合を述べている。",
+    "choiceExplanations": [
+      "不適切である（本問の答え）。出願の前に公に知られた発明は、原則として新規性がなく、進歩性があっても特許を受けられない。なお、自分で公開した場合などに一定の条件と手続きを満たせば新規性を失わなかったものとして扱われる例外（特許法30条）があるが、この選択肢はその例外が適用されない場合を述べている。",
+      "適切である。特許法における発明の定義である。",
+      "適切である。先願主義（特許法39条）の説明である。",
+      "適切である。特許権の存続期間である。"
+    ],
+    "tags": {
+      "contentTags": ["新規性", "先願主義", "特許権"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "発明と特許の要件（p.364）",
+    "sourceReference": "補遺「法律と契約」発明と特許の要件（公式テキスト p.364。根拠：特許法29条・30条・39条・67条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-009",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "特許の専用実施権の説明として、最も適切なものはどれか。",
+    "choices": [
+      "非独占的な権利で、同じ範囲について複数の相手に重ねて認めることができる権利である。",
+      "取引の中で開示する秘密情報を、目的外に使わないことを約束する契約である。",
+      "設定した範囲で独占的に実施でき、その範囲では特許権者自身も実施できなくなる。",
+      "著作者の人格的な利益を守る権利で、他人に譲り渡すことができない。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "専用実施権は設定登録が必要な、独占的な権利である。",
+    "choiceExplanations": [
+      "誤りである。通常実施権の説明である。",
+      "誤りである。NDA（秘密保持契約）の説明である。",
+      "正しい（本問の答え）。専用実施権は設定登録が必要な、独占的な権利である。",
+      "誤りである。著作者人格権の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["専用実施権", "通常実施権"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "専用実施権・通常実施権（p.365）",
+    "sourceReference": "補遺「法律と契約」専用実施権・通常実施権（公式テキスト p.365。根拠：特許法77条・78条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-010",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s06",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "準委任契約のうち、作業した割合や時間に応じて報酬を支払う型を何と呼ぶか。",
+    "choices": ["成果完成型", "請負", "履行割合型", "探索的段階型"],
+    "correctAnswer": 2,
+    "explanation": "正解は「履行割合型」である。2020年4月施行の民法改正で明確化された。",
+    "choiceExplanations": [
+      "誤りである。成果完成型は、成果が得られたときに報酬を支払う準委任の型である。",
+      "誤りである。請負は、仕事の完成を約束する契約であり、準委任の型ではない。",
+      "正しい（本問の答え）。2020年4月施行の民法改正で明確化された。",
+      "誤りである。探索的段階型は、AI・データ契約ガイドラインが提案する、段階ごとに契約を結んで開発を進める方式であり、報酬の型ではない。"
+    ],
+    "tags": {
+      "contentTags": ["履行割合型", "準委任"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "請負と準委任（p.375）",
+    "sourceReference": "補遺「法律と契約」請負と準委任（公式テキスト p.375。根拠：民法648条・648条の2）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-011",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s06",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "AI開発の契約に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "請負は、仕事の完成を約束し、完成した成果に対して報酬を支払う契約である。",
+      "準委任では、受ける側は専門家として通常求められる注意を払って業務を行う義務を負う。",
+      "AIの性能は事前に予測しにくいため、PoCなど探索的な段階では、準委任が向いているとされることが多い。",
+      "準委任の成果完成型を選べば、受ける側は請負と同じく仕事の完成を約束したことになる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "成果完成型を選べば請負と同じく仕事の完成を約束したことになるという記述が誤りである。成果完成型は、成果が得られたときに報酬を支払う型である（民法648条の2）。報酬の支払条件は請負に似るが、受ける側は請負のような法的な仕事の完成義務を負わない。",
+    "choiceExplanations": [
+      "適切である。請負の説明である。",
+      "適切である。準委任で受ける側が負う善管注意義務の説明である。",
+      "適切である。ただし、どの契約形態が向くかは、契約の内容やリスクの分担による。",
+      "不適切である（本問の答え）。成果完成型は、成果が得られたときに報酬を支払う型である（民法648条の2）。報酬の支払条件は請負に似るが、受ける側は請負のような法的な仕事の完成義務を負わない。"
+    ],
+    "tags": {
+      "contentTags": ["請負", "準委任", "成果完成型"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "請負と準委任（p.375）",
+    "sourceReference": "補遺「法律と契約」請負と準委任（公式テキスト p.375。根拠：民法632条・644条・648条の2）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch09-term-012",
+    "chapterId": "ch09",
+    "sectionId": "ch09-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "GDPR（一般データ保護規則）に関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "EU域内に拠点を持つ事業者だけに適用され、EUの外にある事業者には、どのような場合も適用されない。",
+      "EUの外にある事業者でも、EU域内の人にサービスを提供する場合などには適用されることがある。",
+      "違反しても制裁金は科されず、是正の勧告だけが行われる。",
+      "個人データの保護について定めた、日本の法律である。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "EU域内の個人を対象に商品・サービスを提供する場合や、その行動を監視する場合など、一定の条件で域外適用される。",
+    "choiceExplanations": [
+      "誤りである。EUの外にある事業者にも適用される場合がある（域外適用）。",
+      "正しい（本問の答え）。EU域内の個人を対象に商品・サービスを提供する場合や、その行動を監視する場合など、一定の条件で域外適用される。",
+      "誤りである。制裁金の上限は違反の類型で異なり、重大な違反では、最大で2,000万ユーロまたは全世界の年間売上高の4%のうち高いほうの制裁金が科される。",
+      "誤りである。GDPRはEUの規則である。日本の法律は個人情報保護法である。"
+    ],
+    "tags": {
+      "contentTags": ["GDPR", "域外適用"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/9_法律と契約_ORG.md",
+    "sourceHeading": "GDPR（一般データ保護規則）（p.373）",
+    "sourceReference": "補遺「法律と契約」GDPR（公式テキスト p.373。根拠：GDPR 3条・83条）",
+    "contentVersion": "9a831a7926e2e3d2c6c8f6a5f8aef611151ed963ee8fe5b848a704aba06dbe4d",
+    "asOfDate": "2026-11-06",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  }
+]
