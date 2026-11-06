@@ -328,5 +328,650 @@
     "contentVersion": "ff0e213fd7d9dd2938917f7e3e01b7c48328cdc2eebab9d81c7e3dbb662121d5",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-011",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "声道の共鳴に対応して、音声のスペクトル包絡に現れる特徴的な山（ピーク）を何と呼ぶか。",
+    "choices": ["フォルマント", "メル尺度", "メル周波数ケプストラム係数（MFCC）", "音素"],
+    "correctAnswer": 0,
+    "explanation": "正解は「フォルマント」である。山の周波数をフォルマント周波数といい、低いほうから第1、第2…と呼ぶ。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。山の周波数をフォルマント周波数といい、低いほうから第1、第2…と呼ぶ。",
+      "誤りである。メル尺度は、人の音の高さの感じ方に合わせた周波数の尺度であり、スペクトルの山の名前ではない。",
+      "誤りである。MFCCは、スペクトル包絡の形を少数の係数で表す特徴量であり、スペクトルの山の名前ではない。",
+      "誤りである。音素は、言語の中で意味を区別する最小の音の単位であり、スペクトルの山の名前ではない。"
+    ],
+    "tags": {
+      "contentTags": ["フォルマント", "スペクトル包絡"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "フォルマント／フォルマント周波数（p.271）",
+    "sourceReference": "補遺「音声処理」フォルマント／フォルマント周波数（公式テキスト p.271）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-012",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "メル周波数ケプストラム係数（MFCC）の説明として最も適切なものはどれか。",
+    "choices": [
+      "人の耳が低い音の違いに敏感で高い音の違いに鈍いことに合わせて、周波数の目盛りを付け直した尺度。",
+      "時間とともに変化する音の波形を、どの周波数の成分がどれだけ含まれるかに分解する計算を、高速に行うアルゴリズム。",
+      "短い時間ごとのスペクトルをメルフィルタバンクで分析し、対数化とDCTを経て得る、音声認識の代表的な特徴量。",
+      "一定の時間間隔で、音の波形の値を取り出す処理。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "スペクトル包絡の形を少数の係数で表し、音声認識で広く使われてきた。",
+    "choiceExplanations": [
+      "誤りである。メル尺度の説明である。メル尺度は周波数の尺度であり、MFCCはそれを使って計算する特徴量である。",
+      "誤りである。高速フーリエ変換（FFT）の説明である。",
+      "正しい（本問の答え）。スペクトル包絡の形を少数の係数で表し、音声認識で広く使われてきた。",
+      "誤りである。A-D変換の段階の1つである標本化（サンプリング）の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["MFCC", "メル尺度"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "メル周波数ケプストラム係数（MFCC）（p.271）",
+    "sourceReference": "補遺「音声処理」メル周波数ケプストラム係数（公式テキスト p.271）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-013",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "音声のA-D変換に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "標本化は、一定の時間間隔で波形の値を取り出す処理である。",
+      "量子化は、取り出した値を、決められた段階の値に丸める処理である。",
+      "符号化は、丸めた値を0と1の符号で表す処理である。",
+      "標本化の間隔を短くすると、サンプリング周波数は低くなる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "サンプリング周波数が低くなるという記述が誤りである。間隔を短くすると1秒あたりに値を取り出す回数が増えるので、サンプリング周波数は高くなる。",
+    "choiceExplanations": [
+      "適切である。標本化（サンプリング）の説明である。",
+      "適切である。量子化の説明である。",
+      "適切である。符号化の説明である。",
+      "不適切である（本問の答え）。間隔を短くすると1秒あたりに値を取り出す回数が増えるので、サンプリング周波数は高くなる。"
+    ],
+    "tags": {
+      "contentTags": ["A-D変換", "標本化", "量子化"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "A-D変換（p.270）",
+    "sourceReference": "補遺「音声処理」A-D変換（公式テキスト p.270）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-014",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "音声認識で、入力の音声フレームの列と出力の文字の列の長さが違い、対応が分からなくても学習できるよう、空白（ブランク）記号を導入する手法を何と呼ぶか。",
+    "choices": ["WaveNet", "話者識別", "CTC", "高速フーリエ変換（FFT）"],
+    "correctAnswer": 2,
+    "explanation": "正解は「CTC」である。連続する同じ記号を1つにまとめてから空白を取り除く（空白で区切られた同じ文字は残る）。正解の文字列になり得る対応付けの候補すべての確率を合計して学習する。",
+    "choiceExplanations": [
+      "誤りである。WaveNetは、音声の波形を直接生成する音声合成のモデルである。",
+      "誤りである。話者識別は、声の特徴から誰が話しているかを特定することである。",
+      "正しい（本問の答え）。連続する同じ記号を1つにまとめてから空白を取り除く（空白で区切られた同じ文字は残る）。正解の文字列になり得る対応付けの候補すべての確率を合計して学習する。",
+      "誤りである。FFTは、波形を周波数成分に分解する計算を高速に行うアルゴリズムである。"
+    ],
+    "tags": {
+      "contentTags": ["CTC", "音声認識"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "CTC（Connectionist Temporal Classification）（p.272）",
+    "sourceReference": "補遺「音声処理」CTC（公式テキスト p.272）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-015",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "WaveNetの説明として最も適切なものはどれか。",
+    "choices": [
+      "過去の波形から次のサンプルの確率分布を求め、そこから1つずつサンプリングして音声の波形を生成する自己回帰型のモデル。",
+      "声の高さや話し方の特徴から、録音された音声を話しているのが誰かを特定するための技術。",
+      "標本化・量子化・符号化によって、アナログの音声信号をデジタル信号に変換する方式。",
+      "長さの違う系列どうしを空白（ブランク）記号を使って対応づけ、対応が分からなくても学習できるようにする音声認識向けの手法。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "DeepMindが2016年に発表し、従来より自然な音声合成を実現した。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。DeepMindが2016年に発表し、従来より自然な音声合成を実現した。",
+      "誤りである。話者識別の説明である。",
+      "誤りである。パルス符号変調（PCM）の説明である。",
+      "誤りである。CTCの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["WaveNet", "音声合成"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "WaveNet（p.274）",
+    "sourceReference": "補遺「音声処理」WaveNet（公式テキスト p.274）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-016",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "音声の特徴に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "スペクトル包絡は、スペクトルの細かい凹凸をならしたなめらかな外形で、主に声道の共鳴の特性を表す。",
+      "母音の違いは、主に第1・第2フォルマントの周波数で区別できる。",
+      "メル尺度は、人の耳が低い周波数の違いに敏感であることに合わせた尺度である。",
+      "フォルマントは声帯が振動する速さそのものなので、声の高さを知る直接の手がかりになる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "フォルマントを声帯が振動する速さそのものとする記述が誤りである。フォルマントは声道の共鳴に対応するスペクトル包絡の山であり、声帯が振動する速さ（声の高さ）そのものではない。",
+    "choiceExplanations": [
+      "適切である。倍音による細かな凹凸をならし、主に声道（のどや口の形）の共鳴の特性を表す。",
+      "適切である。フォルマント周波数は母音を区別する手がかりになる。",
+      "適切である。高い周波数ほど、同じHzの差に対するメル尺度上の変化が小さくなる。",
+      "不適切である（本問の答え）。フォルマントは声道の共鳴に対応するスペクトル包絡の山であり、声帯が振動する速さ（声の高さ）そのものではない。"
+    ],
+    "tags": {
+      "contentTags": ["フォルマント", "スペクトル包絡", "メル尺度"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "フォルマント／フォルマント周波数（p.271）",
+    "sourceReference": "補遺「音声処理」フォルマント／フォルマント周波数（公式テキスト p.271）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-017",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "標本化・量子化・符号化によってアナログの信号をデジタル信号にする代表的な方式で、音楽CDなどにも使われているものを何と呼ぶか。",
+    "choices": [
+      "高速フーリエ変換（FFT）",
+      "パルス符号変調（PCM）",
+      "メル周波数ケプストラム係数（MFCC）",
+      "CTC"
+    ],
+    "correctAnswer": 1,
+    "explanation": "正解は「パルス符号変調（PCM）」である。シラバスでは「パルス符号変調器（PCM）」と表記されている。",
+    "choiceExplanations": [
+      "誤りである。FFTは、波形を周波数成分に分解する計算を高速に行うアルゴリズムであり、デジタル化の方式ではない。",
+      "正しい（本問の答え）。シラバスでは「パルス符号変調器（PCM）」と表記されている。",
+      "誤りである。MFCCは、音声認識に使う特徴量であり、デジタル化の方式ではない。",
+      "誤りである。CTCは、長さの違う系列の対応を学習する音声認識の手法である。"
+    ],
+    "tags": {
+      "contentTags": ["PCM", "A-D変換"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "パルス符号変調（PCM）（p.270）",
+    "sourceReference": "補遺「音声処理」パルス符号変調（公式テキスト p.270）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-018",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "話者識別の説明として最も適切なものはどれか。",
+    "choices": [
+      "声の特徴から、誰が話しているかを特定する。",
+      "音声を、話された内容の文字の列に変換する。",
+      "文字の列から、それを読み上げる音声の波形を生成する。",
+      "文章から、書き手の感情や評価を判定する。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "「何を話したか」ではなく「誰が話したか」を扱う。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。「何を話したか」ではなく「誰が話したか」を扱う。",
+      "誤りである。音声認識の説明である。",
+      "誤りである。音声合成の説明である。",
+      "誤りである。文章を対象にした感情分析（評判分析）の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["話者識別", "音声認識"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "話者識別（p.273）",
+    "sourceReference": "補遺「音声処理」話者識別（公式テキスト p.273）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-019",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "音声認識と音声合成に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "音声認識は、音声を文字の列に変換する技術である。",
+      "音声合成は、文字の列から音声を生成する技術である。",
+      "CTCは、音声と文字の時刻の対応が明示されていないデータで、音声認識を学習するために使われる。",
+      "WaveNetは、音声の波形を生成せず、文字の列だけを出力するモデルとして提案された。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "WaveNetを、波形を生成せず文字の列だけを出力するモデルとする記述が誤りである。WaveNetは、音声の波形を生成する音声合成のモデルとして提案された（原論文では、音声認識への応用も示されている）。",
+    "choiceExplanations": [
+      "適切である。音声認識の説明である。",
+      "適切である。音声合成の説明である。",
+      "適切である。CTCは、対応付けの候補を考慮して音声認識を学習する手法である。",
+      "不適切である（本問の答え）。WaveNetは、音声の波形を生成する音声合成のモデルとして提案された（原論文では、音声認識への応用も示されている）。"
+    ],
+    "tags": {
+      "contentTags": ["WaveNet", "CTC", "音声認識", "音声合成"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "WaveNet（p.274）",
+    "sourceReference": "補遺「音声処理」WaveNet（公式テキスト p.272,274）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-020",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s04",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "人間の音の高さの感じ方を反映し、高い周波数の側を相対的に圧縮した周波数の尺度を何と呼ぶか。",
+    "choices": ["スペクトル包絡", "メル尺度", "フォルマント周波数", "標本化"],
+    "correctAnswer": 1,
+    "explanation": "正解は「メル尺度」である。人の耳は低い周波数の違いには敏感で、高い周波数の違いには鈍い。",
+    "choiceExplanations": [
+      "誤りである。スペクトル包絡は、スペクトルのなめらかな外形であり、尺度ではない。",
+      "正しい（本問の答え）。人の耳は低い周波数の違いには敏感で、高い周波数の違いには鈍い。",
+      "誤りである。フォルマント周波数は、声道の共鳴に対応するスペクトル包絡の山の周波数であり、尺度ではない。",
+      "誤りである。標本化は、一定の時間間隔で波形の値を取り出す処理である。"
+    ],
+    "tags": {
+      "contentTags": ["メル尺度"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-2_音声処理.md",
+    "sourceHeading": "メル尺度（p.271）",
+    "sourceReference": "補遺「音声処理」メル尺度（公式テキスト p.271）",
+    "contentVersion": "02a311d177cc8c6f01f53ab87f1e559e9f614114470164de9b22e208fd15cb80",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-021",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "語順を無視し、文書に各単語が何回出てくるかだけで文書を表す方法を何と呼ぶか。",
+    "choices": ["TF-IDF", "Bag-of-Words（BoW）", "分散表現（単語埋め込み）", "ワンホットベクトル"],
+    "correctAnswer": 1,
+    "explanation": "正解は「Bag-of-Words（BoW）」である。語順や文脈の情報は失われる。",
+    "choiceExplanations": [
+      "誤りである。TF-IDFは、出現頻度と文書集合全体での希少さを組み合わせた単語の重みであり、出現回数そのものではない。",
+      "正しい（本問の答え）。語順や文脈の情報は失われる。",
+      "誤りである。ここでの分散表現（単語埋め込み）は、単語を意味の近さを表せる密なベクトルで表す方法であり、問題文の「単語の出現回数で文書を表す方法」とは異なる。",
+      "誤りである。ここでのワンホットベクトルは、単語1つを1か所だけが1のベクトルで表すものであり、問題文の「単語の出現回数で文書を表す方法」とは異なる。"
+    ],
+    "tags": {
+      "contentTags": ["BoW"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "Bag-of-Words（BoW）（p.275）",
+    "sourceReference": "補遺「自然言語処理」Bag-of-Words（公式テキスト p.275）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-022",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "TF-IDFの説明として最も適切なものはどれか。",
+    "choices": [
+      "連続するn個の単語の並びのことで、文書を表すときに、近くにある単語どうしの語順の情報を残すために使う。",
+      "その文書での出現頻度が高く、多くの文書には出てこない単語ほど大きな値になる、単語の統計的な重み。",
+      "語彙の数と同じ長さのベクトルで、その単語に対応する1か所だけを1、ほかをすべて0にしたもの。",
+      "周辺の単語から中心の単語を予測することで、単語のベクトルを学習する方式。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "「は」「です」のようにどの文書にも出てくる語の重みが下がり、その文書を特徴づける語が大きくなる。意味の重要さを直接評価するものではない。",
+    "choiceExplanations": [
+      "誤りである。n-gramの説明である。",
+      "正しい（本問の答え）。「は」「です」のようにどの文書にも出てくる語の重みが下がり、その文書を特徴づける語が大きくなる。意味の重要さを直接評価するものではない。",
+      "誤りである。ワンホットベクトルの説明である。",
+      "誤りである。word2vecのCBOWの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["TF-IDF", "BoW"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "TF-IDF（p.276）",
+    "sourceReference": "補遺「自然言語処理」TF-IDF（公式テキスト p.276）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-023",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "word2vecに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "大量の文章から、単語の分散表現を学習する手法である。",
+      "CBOWは、周辺の単語から中心の単語を予測する方式である。",
+      "スキップグラムは、中心の単語から周辺の単語を予測する方式である。",
+      "同じ単語でも、文脈に応じて異なるベクトルで表すことができる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "文脈に応じて異なるベクトルで表せるという記述が誤りである。word2vecでは1つの単語に1つのベクトルしかない。文脈に応じて表現を変えられるのはELMoなどである。",
+    "choiceExplanations": [
+      "適切である。2013年にGoogleのミコロフらが発表した。",
+      "適切である。CBOWの説明である。",
+      "適切である。スキップグラムの説明である。",
+      "不適切である（本問の答え）。word2vecでは1つの単語に1つのベクトルしかない。文脈に応じて表現を変えられるのはELMoなどである。"
+    ],
+    "tags": {
+      "contentTags": ["word2vec", "CBOW", "スキップグラム", "ELMo"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "word2vec（p.277）",
+    "sourceReference": "補遺「自然言語処理」word2vec（公式テキスト p.277）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-024",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "単語を文字のn-gram（単語の一部分）の集まりとして扱い、学習データに出てこなかった単語にもベクトルを作れるようにした手法を何と呼ぶか。",
+    "choices": ["word2vec", "ELMo", "fastText", "GLUE"],
+    "correctAnswer": 2,
+    "explanation": "正解は「fastText」である。文字n-gramを利用するため、学習データに出てこなかった単語にも一定のベクトルを作れる。Facebook（現Meta）が開発した。",
+    "choiceExplanations": [
+      "誤りである。word2vecは単語単位でベクトルを学習するため、学習データにない単語のベクトルは作れない。",
+      "誤りである。ELMoは、順方向と逆方向のLSTM言語モデルを組み合わせて、文脈に応じた単語の表現を作るモデルである。",
+      "正しい（本問の答え）。文字n-gramを利用するため、学習データに出てこなかった単語にも一定のベクトルを作れる。Facebook（現Meta）が開発した。",
+      "誤りである。GLUEは、自然言語理解の複数のタスクをまとめたベンチマークであり、単語のベクトルを作る手法ではない。"
+    ],
+    "tags": {
+      "contentTags": ["fastText", "word2vec"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "fastText（p.279）",
+    "sourceReference": "補遺「自然言語処理」fastText（公式テキスト p.279）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-025",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "単語の分散表現の説明として最も適切なものはどれか。",
+    "choices": [
+      "意味の近い単語ほど近いベクトルになるよう学習された、密なベクトルによる単語の表し方。",
+      "1つの要素が1つの単語に対応する長いベクトルによる表し方で、単語どうしの意味の近さは表せない。",
+      "文中の一部の単語を隠し、前後の文脈からその単語を当てる事前学習の課題。",
+      "文書の中に各単語が何回出てくるかだけで、その文書を表す方法。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "単語埋め込みとも呼ばれ、word2vecなどで学習する。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。単語埋め込みとも呼ばれ、word2vecなどで学習する。",
+      "誤りである。局所表現（ワンホットベクトル）の説明である。",
+      "誤りである。BERTのマスク言語モデル（MLM）の説明である。",
+      "誤りである。Bag-of-Words（BoW）の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["分散表現", "局所表現"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "分散表現・単語埋め込み（p.277）",
+    "sourceReference": "補遺「自然言語処理」分散表現・単語埋め込み（公式テキスト p.277）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-026",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "ワンホットベクトルに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "語彙の数と同じ長さのベクトルで、その単語に対応する1か所だけが1である。",
+      "1つの要素が1つの単語に対応するので、局所表現と呼ばれる。",
+      "語彙の数が多いほど、ベクトルが長くなる。",
+      "意味の近い単語どうしは、ベクトルも近くなる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "意味の近い単語どうしのベクトルが近くなるという記述が誤りである。どの2単語のベクトルも直交するため、意味の近さは表せない。意味の近さを表せるのは分散表現である。",
+    "choiceExplanations": [
+      "適切である。ワンホットベクトルの定義である。",
+      "適切である。局所表現の説明である。",
+      "適切である。長さは語彙の数に等しい。",
+      "不適切である（本問の答え）。どの2単語のベクトルも直交するため、意味の近さは表せない。意味の近さを表せるのは分散表現である。"
+    ],
+    "tags": {
+      "contentTags": ["ワンホットベクトル", "局所表現"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "ワンホットベクトル・局所表現（p.276〜277）",
+    "sourceReference": "補遺「自然言語処理」ワンホットベクトル・局所表現（公式テキスト p.276）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-027",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "「単語の意味は、その単語の周りにどんな単語が現れるかによって決まる」という考え方を何と呼ぶか。",
+    "choices": ["分布仮説", "分散表現", "局所表現", "n-gram"],
+    "correctAnswer": 0,
+    "explanation": "正解は「分布仮説」である。word2vecなどの分散表現の学習は、この考え方に基づいている。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。word2vecなどの分散表現の学習は、この考え方に基づいている。",
+      "誤りである。分散表現は、単語を密なベクトルで表す方法であり、考え方（仮説）の名前ではない。",
+      "誤りである。局所表現は、1つの要素が1つの単語に対応する表し方である。",
+      "誤りである。n-gramは、連続するn個の単語の並びである。"
+    ],
+    "tags": {
+      "contentTags": ["分布仮説", "分散表現"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "分布仮説（p.277）",
+    "sourceReference": "補遺「自然言語処理」分布仮説（公式テキスト p.277）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-028",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "BERTの事前学習の課題の1つである次文予測（NSP）の説明として最も適切なものはどれか。",
+    "choices": [
+      "文中の一部の単語を隠し、前後の文脈からその単語を当てる。",
+      "2つの文が、元の文章で実際に続いていたかどうかを当てる。",
+      "それまでの単語の並びから、次に来る単語を1つずつ予測する。",
+      "人が評価した回答の好みをもとに、強化学習で出力を調整する。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "文と文の関係を学ぶための課題である。",
+    "choiceExplanations": [
+      "誤りである。マスク言語モデル（MLM）の説明である。BERTのもう1つの事前学習の課題である。",
+      "正しい（本問の答え）。文と文の関係を学ぶための課題である。",
+      "誤りである。GPTのような、次の単語を予測する言語モデルの学習の説明である。次文予測は「単語」ではなく「文」の続き方を当てる。",
+      "誤りである。RLHF（人間のフィードバックによる強化学習）の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["NSP", "MLM", "BERT"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "BERTの事前学習の2つの課題（p.282）",
+    "sourceReference": "補遺「自然言語処理」BERTの事前学習の2つの課題（公式テキスト p.282）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-029",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "機械翻訳に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "ルールベース機械翻訳は、人が作った文法規則と辞書で翻訳する。",
+      "統計的機械翻訳は、大量の対訳データから翻訳の確率モデルを学習する。",
+      "初期のRNN型のSeq2Seqでは、エンコーダが入力文を固定長のベクトルにまとめ、デコーダが出力文を生成する。",
+      "統計的機械翻訳は、ニューラル機械翻訳が広まった後に登場した新しい方式である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "統計的機械翻訳がニューラル機械翻訳より後に登場したという記述が誤りである。統計的機械翻訳はニューラル機械翻訳より前の方式で、現在の主流はニューラル機械翻訳である。",
+    "choiceExplanations": [
+      "適切である。ルールベース機械翻訳の説明である。",
+      "適切である。統計的機械翻訳の説明である。",
+      "適切である。初期のRNNエンコーダ-デコーダの説明である（その後、Attentionにより入力の各位置を参照できるようになった）。",
+      "不適切である（本問の答え）。統計的機械翻訳はニューラル機械翻訳より前の方式で、現在の主流はニューラル機械翻訳である。"
+    ],
+    "tags": {
+      "contentTags": ["統計的機械翻訳", "ルールベース機械翻訳", "Seq2Seq"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "機械翻訳の方式の移り変わり（p.37、p.285）",
+    "sourceReference": "補遺「自然言語処理」機械翻訳の方式の移り変わり（公式テキスト p.285）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-030",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s03",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "スタンフォード大学が作成した、Wikipediaの記事とそれに関する質問・答えの組からなる、質問応答のデータセットを何と呼ぶか。",
+    "choices": ["GLUE", "ImageNet", "SQuAD", "ELMo"],
+    "correctAnswer": 2,
+    "explanation": "正解は「SQuAD」である。SQuAD 1.1では、答えは記事の中の該当箇所を抜き出す形である。SQuAD 2.0では、記事からは答えられない質問も加えられた。",
+    "choiceExplanations": [
+      "誤りである。GLUEは、自然言語理解の複数のタスクをまとめたベンチマークであり、質問応答だけのデータセットではない。",
+      "誤りである。ImageNetは、画像認識の大規模なデータセットである。",
+      "正しい（本問の答え）。SQuAD 1.1では、答えは記事の中の該当箇所を抜き出す形である。SQuAD 2.0では、記事からは答えられない質問も加えられた。",
+      "誤りである。ELMoは、文脈に応じて単語の表現を変えるモデルであり、データセットではない。"
+    ],
+    "tags": {
+      "contentTags": ["SQuAD", "GLUE"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-3_自然言語処理.md",
+    "sourceHeading": "SQuAD（p.283）",
+    "sourceReference": "補遺「自然言語処理」SQuAD（公式テキスト p.283）",
+    "contentVersion": "e295e19f857ad7db9a9be805f9506da4494f405681dca7f601383c307ecfb572",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
   }
 ]
