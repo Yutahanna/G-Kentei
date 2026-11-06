@@ -18,8 +18,8 @@ const expectedTotal = (chapterId: string) =>
 const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(id), 0);
 // すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加している（2026-11-01、全20問）。
 const MULTIPLE_TOTAL = 20;
-// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第6章に10問）。
-const TERM_CHECK_TOTAL = 10;
+// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第6章に30問）。
+const TERM_CHECK_TOTAL = 30;
 const single = (chapterId: string) =>
   getQuestionsByChapter(chapterId).filter((q) => !isMultipleAnswer(q) && !isTermCheck(q));
 

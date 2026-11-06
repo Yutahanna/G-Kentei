@@ -36,7 +36,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch06");
     await page.locator("#category-term_check").check();
-    await expect(page.getByText(/該当する問題: 10問/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 30問/)).toBeVisible();
     await page.locator("select").first().selectOption("ch05");
     await expect(page.locator("#category-term_check")).toHaveCount(0);
   });
