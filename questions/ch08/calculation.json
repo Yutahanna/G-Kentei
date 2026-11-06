@@ -1,0 +1,366 @@
+[
+  {
+    "id": "ch08-calc-001",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "袋A（赤玉2個・白玉8個）と袋B（赤玉6個・白玉4個）がある。どちらかの袋を半々の確率で選び、玉を1個取り出したところ赤玉だった。この玉が袋Bから取り出された確率はいくつか。",
+    "choices": ["0.75", "0.6", "0.5", "0.25"],
+    "correctAnswer": 0,
+    "explanation": "正解は「0.75」である。赤が出る確率は袋Aで0.2、袋Bで0.6。「袋を選び、かつ赤」は袋Aが0.5×0.2＝0.1、袋Bが0.5×0.6＝0.3。赤が出た中での袋Bの割合は0.3÷(0.1＋0.3)＝0.75。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。赤が出る確率は袋Aで0.2、袋Bで0.6。「袋を選び、かつ赤」は袋Aが0.5×0.2＝0.1、袋Bが0.5×0.6＝0.3。赤が出た中での袋Bの割合は0.3÷(0.1＋0.3)＝0.75。",
+      "誤りである。袋Bから赤が出る確率P(赤｜袋B)＝0.6である。問われているのは、赤が出たときに袋Bである確率P(袋B｜赤)であり、逆の条件付き確率と取り違えている。",
+      "誤りである。袋を選ぶ確率（事前確率）のままである。赤が出たという結果で確率を更新していない。",
+      "誤りである。赤が出たときに袋Aである確率である。袋Bの確率は1−0.25＝0.75。"
+    ],
+    "tags": {
+      "contentTags": ["ベイズの定理", "条件付き確率"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "解き方の3ステップ（「袋と玉」の型）",
+    "sourceReference": "補遺「数理・統計と計算」解き方の3ステップ",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-002",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "袋A（赤玉3個・白玉1個）と袋B（赤玉3個・白玉7個）がある。どちらかの袋を半々の確率で選び、玉を1個取り出したところ赤玉だった。この玉が袋Aから取り出された確率はいくつか。",
+    "choices": ["1/2", "3/4", "5/7", "2/7"],
+    "correctAnswer": 2,
+    "explanation": "正解は「5/7」である。赤が出る確率は袋Aで3/4、袋Bで3/10。「袋を選び、かつ赤」は袋Aが1/2×3/4＝3/8、袋Bが1/2×3/10＝3/20。袋Aの割合は(3/8)÷(3/8＋3/20)＝5/7。",
+    "choiceExplanations": [
+      "誤りである。赤玉の個数（どちらも3個）だけで比べている。袋ごとに玉の総数が違うので、個数ではなく、その袋で赤が出る確率で比べる必要がある。",
+      "誤りである。袋Aから赤が出る確率P(赤｜袋A)＝3/4である。問われているのは、赤が出たときに袋Aである確率である。",
+      "正しい（本問の答え）。赤が出る確率は袋Aで3/4、袋Bで3/10。「袋を選び、かつ赤」は袋Aが1/2×3/4＝3/8、袋Bが1/2×3/10＝3/20。袋Aの割合は(3/8)÷(3/8＋3/20)＝5/7。",
+      "誤りである。赤が出たときに袋Bである確率である。袋Aの確率は1−2/7＝5/7。"
+    ],
+    "tags": {
+      "contentTags": ["ベイズの定理", "条件付き確率"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "解き方の3ステップ（「袋と玉」の型）",
+    "sourceReference": "補遺「数理・統計と計算」解き方の3ステップ",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-003",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "袋A（赤玉1個・白玉9個）を確率0.8で、袋B（赤玉5個・白玉5個）を確率0.2で選び、玉を1個取り出したところ赤玉だった。この玉が袋Aから取り出された確率はいくつか。",
+    "choices": ["0.8", "1/6", "0.08", "4/9"],
+    "correctAnswer": 3,
+    "explanation": "正解は「4/9」である。「袋を選び、かつ赤」は袋Aが0.8×0.1＝0.08、袋Bが0.2×0.5＝0.1。赤が出た中での袋Aの割合は0.08÷(0.08＋0.1)＝4/9（約0.44）。",
+    "choiceExplanations": [
+      "誤りである。袋Aを選ぶ確率（事前確率）のままである。赤が出たという結果で確率を更新していない。",
+      "誤りである。袋を選ぶ確率を半々として計算している（0.1÷(0.1＋0.5)）。この問題では袋Aを0.8、袋Bを0.2の確率で選ぶので、その確率をかける必要がある。",
+      "誤りである。「袋Aを選び、かつ赤が出る」確率（0.8×0.1）である。赤が出る確率全体で割っていない。",
+      "正しい（本問の答え）。「袋を選び、かつ赤」は袋Aが0.8×0.1＝0.08、袋Bが0.2×0.5＝0.1。赤が出た中での袋Aの割合は0.08÷(0.08＋0.1)＝4/9（約0.44）。"
+    ],
+    "tags": {
+      "contentTags": ["ベイズの定理", "事前確率"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "解き方の3ステップ（「袋と玉」の型）",
+    "sourceReference": "補遺「数理・統計と計算」解き方の3ステップ",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-004",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "advanced",
+    "category": "calculation",
+    "question": "ある病気の人は全体の2%である。ある検査では、病気の人の95%が陽性になり、病気でない人の5%も誤って陽性になる。この検査で陽性になった人が、本当に病気である確率に最も近いものはどれか。",
+    "choices": ["約95%", "約28%", "約50%", "約2%"],
+    "correctAnswer": 1,
+    "explanation": "正解は「約28%」である。病気かつ陽性は0.02×0.95＝0.019、病気でないのに陽性は0.98×0.05＝0.049。陽性全体0.068のうち病気の割合は0.019÷0.068≒0.28。病気の人がもともと少ないため、陽性でも本当に病気である確率は高くない。",
+    "choiceExplanations": [
+      "誤りである。病気の人が陽性になる確率P(陽性｜病気)である。問われているのは、陽性の人が病気である確率P(病気｜陽性)であり、逆の条件付き確率と取り違えている。",
+      "正しい（本問の答え）。病気かつ陽性は0.02×0.95＝0.019、病気でないのに陽性は0.98×0.05＝0.049。陽性全体0.068のうち病気の割合は0.019÷0.068≒0.28。病気の人がもともと少ないため、陽性でも本当に病気である確率は高くない。",
+      "誤りである。陽性か陰性かの2通りだから半々と考えている。病気の人の割合や検査の精度を使っていない。",
+      "誤りである。病気の人の割合（事前確率）のままである。陽性という結果で確率を更新していない。"
+    ],
+    "tags": {
+      "contentTags": ["ベイズの定理", "事前確率", "偽陽性"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "検査の陽性の型（格納テキスト第8章の例を計算する）",
+    "sourceReference": "補遺「数理・統計と計算」検査の陽性の型",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-005",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "1等500円が確率0.2、2等100円が確率0.5、はずれ0円が確率0.3で当たるくじがある。このくじの賞金の期待値はいくらか。",
+    "choices": ["200円", "150円", "100円", "600円"],
+    "correctAnswer": 1,
+    "explanation": "正解は「150円」である。500×0.2＋100×0.5＋0×0.3＝100＋50＋0＝150円。",
+    "choiceExplanations": [
+      "誤りである。賞金の額（500円・100円・0円）を単純に平均している。それぞれの確率をかけていない。",
+      "正しい（本問の答え）。500×0.2＋100×0.5＋0×0.3＝100＋50＋0＝150円。",
+      "誤りである。1等の分（500×0.2）だけで、2等の分（100×0.5）を足していない。",
+      "誤りである。賞金の額を単純に合計している。期待値は「値×確率」の合計である。"
+    ],
+    "tags": {
+      "contentTags": ["期待値"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "期待値",
+    "sourceReference": "補遺「数理・統計と計算」期待値",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-006",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "データ 3、1、8、5、100、2 の中央値はいくつか。",
+    "choices": ["3", "約19.8", "5", "4"],
+    "correctAnswer": 3,
+    "explanation": "正解は「4」である。小さい順に 1、2、3、5、8、100 と並べ、真ん中の2つ（3と5）の平均を取って4。中央値は外れ値の影響を受けにくい。",
+    "choiceExplanations": [
+      "誤りである。小さい順に並べたときの真ん中の2つ（3と5）のうち、小さいほうだけを取っている。個数が偶数なので、真ん中の2つの平均を取る。",
+      "誤りである。平均（合計119÷6）である。外れ値の100に大きく引っ張られている。",
+      "誤りである。真ん中の2つ（3と5）のうち、大きいほうだけを取っている。",
+      "正しい（本問の答え）。小さい順に 1、2、3、5、8、100 と並べ、真ん中の2つ（3と5）の平均を取って4。中央値は外れ値の影響を受けにくい。"
+    ],
+    "tags": {
+      "contentTags": ["中央値", "平均", "外れ値"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "平均・中央値・最頻値",
+    "sourceReference": "補遺「数理・統計と計算」平均・中央値・最頻値",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-007",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "データ 1、1、5、5 の標準偏差はいくつか。なお、分散は個数で割って求めるものとする。",
+    "choices": ["2", "4", "3", "16"],
+    "correctAnswer": 0,
+    "explanation": "正解は「2」である。平均は3。平均との差の2乗はすべて4で、合計16。分散は16÷4＝4、標準偏差はその平方根で2。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。平均は3。平均との差の2乗はすべて4で、合計16。分散は16÷4＝4、標準偏差はその平方根で2。",
+      "誤りである。分散である。標準偏差は分散の平方根なので2。",
+      "誤りである。平均である。",
+      "誤りである。平均との差の2乗の合計である。個数で割って分散を出し、さらに平方根を取る必要がある。"
+    ],
+    "tags": {
+      "contentTags": ["標準偏差", "分散"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "分散・標準偏差",
+    "sourceReference": "補遺「数理・統計と計算」分散・標準偏差",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-008",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "xが 1、2、3、4 のとき、yがそれぞれ 10、8、6、4 であった。xとyの相関係数はいくつか。",
+    "choices": ["−2", "−1", "0", "1"],
+    "correctAnswer": 1,
+    "explanation": "正解は「−1」である。4つの点は右下がりの直線上に完全に並ぶので、相関係数は−1（完全な負の相関）。",
+    "choiceExplanations": [
+      "誤りである。xが1増えるとyが2減るという、回帰直線の傾きである。相関係数は−1から1の範囲の値である。",
+      "正しい（本問の答え）。4つの点は右下がりの直線上に完全に並ぶので、相関係数は−1（完全な負の相関）。",
+      "誤りである。0は、直線的な関係がほとんどない場合である。",
+      "誤りである。1は、右上がりの直線上に完全に並ぶ場合（完全な正の相関）である。"
+    ],
+    "tags": {
+      "contentTags": ["相関係数", "共分散"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "相関係数",
+    "sourceReference": "補遺「数理・統計と計算」相関係数",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-009",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "表と裏が等しい確率で出るコインを独立に4回投げたとき、表がちょうど1回だけ出る確率はいくつか。",
+    "choices": ["1/16", "1/2", "1/4", "15/16"],
+    "correctAnswer": 2,
+    "explanation": "正解は「1/4」である。4C1×(1/2)¹×(1/2)³＝4×1/16＝1/4。",
+    "choiceExplanations": [
+      "誤りである。「1回目だけ表」のような、特定の1通りの並びの確率である。表が何回目に出るかで4通りあるので、4倍する必要がある。",
+      "誤りである。コインを1回投げて表が出る確率である。",
+      "正しい（本問の答え）。4C1×(1/2)¹×(1/2)³＝4×1/16＝1/4。",
+      "誤りである。表が少なくとも1回出る確率（1−1/16）である。"
+    ],
+    "tags": {
+      "contentTags": ["二項分布"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "ベルヌーイ分布・二項分布",
+    "sourceReference": "補遺「数理・統計と計算」ベルヌーイ分布・二項分布",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-010",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "各回が独立で、成功の確率が一定の試行を20回行ったところ、5回成功した。成功の確率の最尤推定値はいくつか。",
+    "choices": ["0.5", "0.75", "0.2", "0.25"],
+    "correctAnswer": 3,
+    "explanation": "正解は「0.25」である。観測されたデータが最も得られやすくなる成功の確率は、成功の割合 5÷20＝0.25。",
+    "choiceExplanations": [
+      "誤りである。成功か失敗かの2通りだから半々と考えている。観測されたデータを使っていない。",
+      "誤りである。失敗した割合（15÷20）である。",
+      "誤りである。成功の回数を、試行の回数に成功の回数を足した25で割っている（5÷25）。",
+      "正しい（本問の答え）。観測されたデータが最も得られやすくなる成功の確率は、成功の割合 5÷20＝0.25。"
+    ],
+    "tags": {
+      "contentTags": ["最尤法"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "最尤法（最尤推定）",
+    "sourceReference": "補遺「数理・統計と計算」最尤法",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-011",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "時系列データ 3、5、10、6 について、3区間の移動平均を求める。2番目の値はいくつか。",
+    "choices": ["7", "6", "7.5", "21"],
+    "correctAnswer": 0,
+    "explanation": "正解は「7」である。2番目は 5、10、6 の平均で、(5＋10＋6)÷3＝7。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。2番目は 5、10、6 の平均で、(5＋10＋6)÷3＝7。",
+      "誤りである。1番目の値（3、5、10 の平均）である。",
+      "誤りである。5と10の2つだけで平均を取っている（2区間の移動平均）。",
+      "誤りである。5、10、6 の合計である。3で割っていない。"
+    ],
+    "tags": {
+      "contentTags": ["移動平均"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "移動平均",
+    "sourceReference": "補遺「数理・統計と計算」移動平均",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-012",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s01",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "2点 (1, 2) と (4, 6) のユークリッド距離はいくつか。",
+    "choices": ["7", "25", "5", "√7"],
+    "correctAnswer": 2,
+    "explanation": "正解は「5」である。差は3と4なので、√(3²＋4²)＝√25＝5。",
+    "choiceExplanations": [
+      "誤りである。各軸の差の絶対値の合計（3＋4）で、マンハッタン距離である。",
+      "誤りである。差の2乗の合計（9＋16）である。平方根を取っていない。",
+      "正しい（本問の答え）。差は3と4なので、√(3²＋4²)＝√25＝5。",
+      "誤りである。マンハッタン距離の7の平方根であり、ユークリッド距離の計算ではない。"
+    ],
+    "tags": {
+      "contentTags": ["ユークリッド距離", "マンハッタン距離"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "ユークリッド距離・マンハッタン距離",
+    "sourceReference": "補遺「数理・統計と計算」ユークリッド距離・マンハッタン距離",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-013",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "ベクトル (1, 2) と (2, 4) のコサイン類似度はいくつか。",
+    "choices": ["1", "2", "10", "0"],
+    "correctAnswer": 0,
+    "explanation": "正解は「1」である。(2, 4) は (1, 2) をちょうど2倍したもので、向きが同じである。内積10を、長さの積 √5×√20＝10 で割って1。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。(2, 4) は (1, 2) をちょうど2倍したもので、向きが同じである。内積10を、長さの積 √5×√20＝10 で割って1。",
+      "誤りである。ベクトルの長さの比である。コサイン類似度は長さではなく向きの近さを表す。",
+      "誤りである。内積（1×2＋2×4）である。それぞれの長さの積で割っていない。",
+      "誤りである。0は、2つのベクトルが直交している場合である。"
+    ],
+    "tags": {
+      "contentTags": ["コサイン類似度"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "コサイン類似度",
+    "sourceReference": "補遺「数理・統計と計算」コサイン類似度",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  }
+]

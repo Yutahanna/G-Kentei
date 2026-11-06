@@ -54,10 +54,11 @@ export const answerTypeSchema = z.enum(["single", "multiple"]);
  * 問題の区分。省略時は"chapter"（格納テキストの各章に基づく通常の問題）。
  * "term_check": 用語確認ドリル。格納テキストにないG検定シラバスのキーワードを補う
  * 補遺（materials/supplements/*.md）を出典とし、用語の説明の正誤や用語名を問う。
- * 補遺は公式テキスト本文との照合が一部未実施のため、模擬試験には出題しない
+ * "calculation": 計算問題。補遺を出典とし、確率・統計やネットワークの計算を数値で答える。
+ * どちらも補遺が出典で、公式テキスト本文との照合が一部未実施のため、模擬試験には出題しない
  * （章別ドリルと復習で使う）。2026-11-06 導入。
  */
-export const questionCategorySchema = z.enum(["chapter", "term_check"]);
+export const questionCategorySchema = z.enum(["chapter", "term_check", "calculation"]);
 
 export const SUPPLEMENT_SOURCE_PREFIX = "materials/supplements/";
 
@@ -103,16 +104,16 @@ export const questionSchema = z
   .superRefine((q, ctx) => {
     const issue = (message: string) => ctx.addIssue({ code: z.ZodIssueCode.custom, message });
     if (
-      (q.category ?? "chapter") === "term_check" &&
+      (q.category ?? "chapter") !== "chapter" &&
       !q.sourceFile.startsWith(SUPPLEMENT_SOURCE_PREFIX)
     ) {
-      issue(`用語確認の問題は補遺（${SUPPLEMENT_SOURCE_PREFIX}）を出典にする`);
+      issue(`用語確認・計算問題は補遺（${SUPPLEMENT_SOURCE_PREFIX}）を出典にする`);
     }
     if (
       (q.category ?? "chapter") === "chapter" &&
       q.sourceFile.startsWith(SUPPLEMENT_SOURCE_PREFIX)
     ) {
-      issue('補遺を出典にする問題はcategoryを"term_check"にする');
+      issue('補遺を出典にする問題はcategoryを"term_check"か"calculation"にする');
     }
     if (q.choiceExplanations.length !== q.choices.length) {
       issue("choiceExplanationsはchoicesと同じ数にする");

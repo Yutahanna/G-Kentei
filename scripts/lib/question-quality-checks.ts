@@ -325,10 +325,10 @@ export function checkQuestionCountsAgainstDesign(
   questions: Question[],
   expectedTotal: number = EXPECTED_TOTAL_QUESTIONS,
 ): DesignCountCheckResult {
-  // 全て選ぶ問題（answerType: "multiple"）と用語確認の問題（category: "term_check"、補遺が出典）は
+  // 全て選ぶ問題（answerType: "multiple"）と補遺が出典の問題（category: "term_check" / "calculation"）は
   // 章ごとの設計数とは別枠で追加しているため数えない。
   questions = questions.filter(
-    (q) => !isMultipleAnswer(q) && (q.category ?? "chapter") !== "term_check",
+    (q) => !isMultipleAnswer(q) && (q.category ?? "chapter") === "chapter",
   );
   const actualTotal = questions.length;
   const scale = expectedTotal / EXPECTED_TOTAL_QUESTIONS;

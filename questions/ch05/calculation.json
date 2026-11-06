@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ch05-calc-001",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "入力が784個、出力が100個の全結合層がある。バイアスを含めたパラメータの数はいくつか。",
+    "choices": ["78400", "884", "78884", "78500"],
+    "correctAnswer": 3,
+    "explanation": "正解は「78500」である。重みが784×100＝78400、バイアスが出力の数の100で、合計78500。",
+    "choiceExplanations": [
+      "誤りである。重みの数（784×100）だけである。出力1つにつき1つあるバイアスの100を足していない。",
+      "誤りである。入力の数と出力の数を足しただけである。重みは、入力と出力のすべての組み合わせの分だけある。",
+      "誤りである。重みの数に、入力の数と出力の数の両方を足している。バイアスは出力の数の分だけである。",
+      "正しい（本問の答え）。重みが784×100＝78400、バイアスが出力の数の100で、合計78500。"
+    ],
+    "tags": {
+      "contentTags": ["全結合層", "パラメータ数"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "全結合層のパラメータ数（公式テキスト p.171「パラメータ」）",
+    "sourceReference": "補遺「数理・統計と計算」全結合層のパラメータ数（公式テキスト p.171）",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-002",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "advanced",
+    "category": "calculation",
+    "question": "入力が1チャネルの画像に、5×5のフィルタで出力8チャネルの畳み込み層を適用する。バイアスを含めたパラメータの数はいくつか。",
+    "choices": ["200", "208", "26", "33"],
+    "correctAnswer": 1,
+    "explanation": "正解は「208」である。フィルタ1枚の重みが5×5×1＝25、バイアスが1で、26。これが出力チャネルの数8枚分あるので、26×8＝208。",
+    "choiceExplanations": [
+      "誤りである。重みの数（5×5×1×8）だけである。フィルタ1枚ごとにあるバイアスの8を足していない。",
+      "正しい（本問の答え）。フィルタ1枚の重みが5×5×1＝25、バイアスが1で、26。これが出力チャネルの数8枚分あるので、26×8＝208。",
+      "誤りである。フィルタ1枚分（25＋1）だけである。出力チャネルの数8をかけていない。",
+      "誤りである。フィルタの重みの数25と、出力チャネルの数8を足しただけである。"
+    ],
+    "tags": {
+      "contentTags": ["畳み込み層", "パラメータ数"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "畳み込み層のパラメータ数",
+    "sourceReference": "補遺「数理・統計と計算」畳み込み層のパラメータ数",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-003",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "advanced",
+    "category": "calculation",
+    "question": "32×32の入力に、4×4のフィルタ、パディング1、ストライド2で畳み込みを行う。出力の縦（横）の大きさはいくつか。",
+    "choices": ["15", "16", "31", "32"],
+    "correctAnswer": 1,
+    "explanation": "正解は「16」である。(32＋2×1−4)÷2＝15（割り切れない場合は小数部分を切り捨てる）に1を足して16。",
+    "choiceExplanations": [
+      "誤りである。最後の「＋1」を忘れているか、パディングを入れずに計算している（(32−4)÷2＋1）。",
+      "正しい（本問の答え）。(32＋2×1−4)÷2＝15（割り切れない場合は小数部分を切り捨てる）に1を足して16。",
+      "誤りである。ストライドを1として計算している（(32＋2−4)÷1＋1）。",
+      "誤りである。入力と同じ大きさになると考えている。ストライド2では、出力はおよそ半分になる。"
+    ],
+    "tags": {
+      "contentTags": ["畳み込み層", "ストライド", "パディング"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/8_数理統計と計算.md",
+    "sourceHeading": "畳み込みの出力サイズ（公式テキスト p.220「ストライド」）",
+    "sourceReference": "補遺「数理・統計と計算」畳み込みの出力サイズ（公式テキスト p.220）",
+    "contentVersion": "2f7ac08226684508c0173fe10bf2516682fb5cb9541b8b52e1f00c679fad8e52",
+    "createdAt": "2026-11-06",
+    "reviewStatus": "draft"
+  }
+]
