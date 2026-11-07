@@ -1,0 +1,385 @@
+[
+  {
+    "id": "ch02-term-001",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ロボットなどの行動計画を自動で作るために、それぞれの行動を「前提条件」「行動」「結果」の組で表し、目標の状態に達する行動の列を探す仕組みはどれか。",
+    "choices": ["SHRDLU", "STRIPS", "ELIZA", "DENDRAL"],
+    "correctAnswer": 1,
+    "explanation": "正解は「STRIPS」である。1971年にスタンフォード研究所で開発された、行動計画（プランニング）の仕組みである。行動の結果は、新しく成り立つこと（追加）と成り立たなくなること（削除）に分けて書く。",
+    "choiceExplanations": [
+      "誤りである。SHRDLUは、積み木の世界の物体を英語の指示で動かせるシステムである。",
+      "正しい（本問の答え）。1971年にスタンフォード研究所で開発された、行動計画（プランニング）の仕組みである。行動の結果は、新しく成り立つこと（追加）と成り立たなくなること（削除）に分けて書く。",
+      "誤りである。ELIZAは、入力文をパターンに当てはめて、会話するように見せるプログラムである。",
+      "誤りである。DENDRALは、質量分析のデータから有機化合物の構造を推定するエキスパートシステムである。"
+    ],
+    "tags": {
+      "contentTags": ["STRIPS", "プランニング"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "STRIPS（p.65）",
+    "sourceReference": "補遺「AIの歴史」STRIPS（公式テキスト p.65）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-002",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "SHRDLUの説明として、最も適切なものはどれか。",
+    "choices": [
+      "血液の感染症の患者を診断し、使う抗生物質を提案したエキスパートシステムである。",
+      "積み木の世界の中の物体を、英語の指示で動かしたり、質問に答えたりできたシステムである。",
+      "クイズ番組で人間のチャンピオンに勝った、IBMの質問応答システムである。",
+      "人間の常識をすべてコンピュータに入力しようとした、長期のプロジェクトである。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "限られた世界（トイ・プロブレム）では自然言語の理解と行動計画がうまくいくことを示したが、現実の世界には広げられなかった。",
+    "choiceExplanations": [
+      "誤りである。MYCINの説明である。",
+      "正しい（本問の答え）。限られた世界（トイ・プロブレム）では自然言語の理解と行動計画がうまくいくことを示したが、現実の世界には広げられなかった。",
+      "誤りである。ワトソンの説明である。",
+      "誤りである。Cycプロジェクトの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["SHRDLU", "トイ・プロブレム"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "SHRDLU（索引なし）",
+    "sourceReference": "補遺「AIの歴史」SHRDLU（公式テキストの関連ページ p.65）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-003",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "幅優先探索と深さ優先探索に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "幅優先探索は、出発点に近いノードから順に、同じ深さのノードをすべて調べる。",
+      "幅優先探索は、調べ途中のノードを多く覚えておく必要があり、メモリを多く使う。",
+      "深さ優先探索は、最初に見つかった解が必ず最短の経路になる。",
+      "深さ優先探索は、一般に幅優先探索よりもメモリの使用量を抑えやすい。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "深さ優先探索で最初に見つかった解が必ず最短になるという記述が誤りである。深さ優先探索で最初に見つかった解は、最短とは限らない。各辺のコストが同じ場合に、最少の手数の解を必ず見つけられるのは幅優先探索である。",
+    "choiceExplanations": [
+      "適切である。幅優先探索の進め方である。",
+      "適切である。幅優先探索の難しい点である。",
+      "不適切である（本問の答え）。深さ優先探索で最初に見つかった解は、最短とは限らない。各辺のコストが同じ場合に、最少の手数の解を必ず見つけられるのは幅優先探索である。",
+      "適切である。一般に、幅優先探索よりメモリの使用量を抑えやすい。"
+    ],
+    "tags": {
+      "contentTags": ["幅優先探索", "深さ優先探索"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "探索木と幅優先・深さ優先の補足（p.58〜61）",
+    "sourceReference": "補遺「AIの歴史」探索木と幅優先・深さ優先の補足（公式テキスト p.60）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-004",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ゲームの探索で、Mini-Max法と同じ答えを得ながら、結果に影響しないことが分かった枝を途中で打ち切って計算を減らす方法はどれか。",
+    "choices": ["ブルートフォース", "モンテカルロ法", "幅優先探索", "αβ法"],
+    "correctAnswer": 3,
+    "explanation": "正解は「αβ法」である。Deep Blueでも、Mini-Max法とαβ法による枝刈りが使われた。",
+    "choiceExplanations": [
+      "誤りである。ブルートフォースは、すべての可能性をしらみつぶしに調べる方法で、枝を打ち切らない。",
+      "誤りである。モンテカルロ法は、ランダムな試行を繰り返して局面のよさを推定する方法である。",
+      "誤りである。幅優先探索は、出発点に近いノードから順に調べる探索の方法で、評価による枝刈りの方法ではない。",
+      "正しい（本問の答え）。Deep Blueでも、Mini-Max法とαβ法による枝刈りが使われた。"
+    ],
+    "tags": {
+      "contentTags": ["αβ法", "Mini-Max法"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "Mini-Max法とαβ法（p.70〜71）",
+    "sourceReference": "補遺「AIの歴史」Mini-Max法とαβ法（公式テキスト p.71）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-005",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s04",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ゲームAIにおけるモンテカルロ法の説明として、最も適切なものはどれか。",
+    "choices": [
+      "ある局面から最後まで手をランダムに進めることを何度も繰り返し、勝った割合で局面のよさを評価する。",
+      "考えられるすべての手を、最後の局面までしらみつぶしに調べて、最善の手を選ぶ。",
+      "自分の番では評価が最大、相手の番では評価が最小になる手を選ぶと仮定して、最善の手を選ぶ。",
+      "専門家に質問して答えてもらう形で、評価のためのルールを引き出して入力する。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "手をランダムに最後まで進めることをプレイアウトという。探索木と組み合わせたものがモンテカルロ木探索である。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。手をランダムに最後まで進めることをプレイアウトという。探索木と組み合わせたものがモンテカルロ木探索である。",
+      "誤りである。ブルートフォースの説明である。",
+      "誤りである。Mini-Max法の説明である。",
+      "誤りである。インタビューシステムの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["モンテカルロ法", "プレイアウト"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "モンテカルロ法（p.73）",
+    "sourceReference": "補遺「AIの歴史」モンテカルロ法（公式テキスト p.73）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-006",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s02",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "入力された文を決まったパターンに当てはめて、あらかじめ用意した文を返すことで、人と会話しているように見せたプログラム（1960年代）はどれか。",
+    "choices": ["MYCIN", "ワトソン", "ELIZA", "SHRDLU"],
+    "correctAnswer": 2,
+    "explanation": "正解は「ELIZA」である。意味を理解していないのに、人が理解してくれていると感じてしまうことを、イライザ効果という。",
+    "choiceExplanations": [
+      "誤りである。MYCINは、血液の感染症の診断と抗生物質の提案を行うエキスパートシステムである。",
+      "誤りである。ワトソンは、大量の文書から答えの候補を探して選ぶ質問応答システムで、2011年にクイズ番組で人間に勝った。",
+      "正しい（本問の答え）。意味を理解していないのに、人が理解してくれていると感じてしまうことを、イライザ効果という。",
+      "誤りである。SHRDLUは、積み木の世界の物体を英語の指示で動かすシステムで、会話するように見せるためのパターン照合のプログラムではない。"
+    ],
+    "tags": {
+      "contentTags": ["ELIZA", "イライザ効果"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "ELIZA（イライザ）（p.31、p.76）",
+    "sourceReference": "補遺「AIの歴史」ELIZA（公式テキスト p.76）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-007",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s02",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "エキスパートシステムの代表例に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "DENDRALは、血液の感染症の患者を診断し、使う抗生物質を提案した。",
+      "DENDRALは、最初期のエキスパートシステムの1つである。",
+      "MYCINは、「もし〜ならば〜する」という形のルールを多数持っていた。",
+      "MYCINは、1970年代にスタンフォード大学で開発された。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "血液の感染症の診断と抗生物質の提案をDENDRALのものとする記述が誤りである。これはMYCINの説明である。DENDRALは、質量分析のデータから未知の有機化合物の構造を推定する。",
+    "choiceExplanations": [
+      "不適切である（本問の答え）。これはMYCINの説明である。DENDRALは、質量分析のデータから未知の有機化合物の構造を推定する。",
+      "適切である。1960年代に開発された。",
+      "適切である。多数のIF-THENルールを用いていた。",
+      "適切である。MYCINの開発の時期と場所である。"
+    ],
+    "tags": {
+      "contentTags": ["MYCIN", "DENDRAL", "エキスパートシステム"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "エキスパートシステムの代表例（p.78〜79）",
+    "sourceReference": "補遺「AIの歴史」エキスパートシステムの代表例（公式テキスト p.78）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-008",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s02",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "意味ネットワークにおける関係の説明として、最も適切なものはどれか。",
+    "choices": [
+      "part-ofの関係では、全体の性質がそのまま部分にも受け継がれる。",
+      "is-aの関係では推移律が成り立ち、上位概念の性質が原則として下位概念に受け継がれる。",
+      "has-aの関係は、「AはBの一種である」という上位と下位の関係を表す。",
+      "is-aの関係は、「AはBの一部である」という部分と全体の関係を表す。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "例えば「カナリアは鳥の一種」「鳥は動物の一種」であれば、「カナリアは動物の一種」と導ける。上位概念の性質は原則として継承できるが、一般的な性質には例外もある（例：飛べない鳥）。",
+    "choiceExplanations": [
+      "誤りである。part-ofの関係では、is-aのような性質の継承は成り立たない（タイヤは自動車の一部だが、自動車の性質をすべて持つわけではない）。",
+      "正しい（本問の答え）。例えば「カナリアは鳥の一種」「鳥は動物の一種」であれば、「カナリアは動物の一種」と導ける。上位概念の性質は原則として継承できるが、一般的な性質には例外もある（例：飛べない鳥）。",
+      "誤りである。has-aの関係は「AはBを持つ」という関係である。「一種である」はis-aの関係である。",
+      "誤りである。「一部である」はpart-ofの関係である。is-aは「一種である」という関係である。"
+    ],
+    "tags": {
+      "contentTags": ["is-aの関係", "part-ofの関係", "意味ネットワーク"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "意味ネットワークの関係（p.80〜85）",
+    "sourceReference": "補遺「AIの歴史」意味ネットワークの関係（公式テキスト p.81）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-009",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s02",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "2011年にアメリカのクイズ番組で人間のチャンピオンに勝った、IBMの質問応答（Question-Answering）システムはどれか。",
+    "choices": ["東ロボくん", "DENDRAL", "Cycプロジェクト", "ワトソン"],
+    "correctAnswer": 3,
+    "explanation": "正解は「ワトソン」である。自然言語処理、情報検索、答えの候補の採点などを組み合わせて、大量の文書から答えを選んだ。",
+    "choiceExplanations": [
+      "誤りである。東ロボくんは、国立情報学研究所が中心になって進めた、AIで東京大学の入学試験に合格することを目指したプロジェクトである。",
+      "誤りである。DENDRALは、有機化合物の構造を推定するエキスパートシステムである。",
+      "誤りである。Cycプロジェクトは、人間の常識をすべてコンピュータに入力しようとしたプロジェクトである。",
+      "正しい（本問の答え）。自然言語処理、情報検索、答えの候補の採点などを組み合わせて、大量の文書から答えを選んだ。"
+    ],
+    "tags": {
+      "contentTags": ["ワトソン", "Question-Answering"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "ワトソン（p.89）",
+    "sourceReference": "補遺「AIの歴史」ワトソン（公式テキスト p.89）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-010",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s02",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "知識の活用に関する用語の説明として、不適切なものはどれか。",
+    "choices": [
+      "セマンティックWebは、ウェブ上の情報に意味を表す情報を付けて、コンピュータが自動で処理できるようにする構想である。",
+      "データマイニングは、大量のデータから役に立つ規則や傾向を見つけ出すことである。",
+      "ウェブマイニングは、ウェブ上のデータを対象にしたデータマイニングである。",
+      "軽量オントロジーは、専門家が時間をかけて概念と関係を厳密に定義していく立場である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "軽量オントロジーを、専門家が時間をかけて厳密に定義する立場とする記述が誤りである。専門家が概念や関係を厳密に定義していくのは、重量オントロジーの側である。軽量オントロジーは、概念の分類の階層や比較的単純な関係の記述を中心とする（正確さにこだわらず、データから関係を自動で見つけていく立場として説明されることもある）。",
+    "choiceExplanations": [
+      "適切である。ティム・バーナーズ＝リーが提唱した。",
+      "適切である。データマイニングの説明である。",
+      "適切である。ページの内容やリンクの構造、閲覧の記録などを対象にする。",
+      "不適切である（本問の答え）。専門家が概念や関係を厳密に定義していくのは、重量オントロジーの側である。軽量オントロジーは、概念の分類の階層や比較的単純な関係の記述を中心とする（正確さにこだわらず、データから関係を自動で見つけていく立場として説明されることもある）。"
+    ],
+    "tags": {
+      "contentTags": ["セマンティックWeb", "データマイニング", "ウェブマイニング"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "セマンティックWeb（p.88）",
+    "sourceReference": "補遺「AIの歴史」セマンティックWeb（公式テキスト p.88）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-011",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "福島邦彦が提案した、特徴を取り出すS細胞の層と、位置のずれを吸収するC細胞の層を交互に重ねた多層のニューラルネットワークで、CNNの原型とされるものはどれか。",
+    "choices": ["ネオコグニトロン", "LeNet", "AlexNet", "単純パーセプトロン"],
+    "correctAnswer": 0,
+    "explanation": "正解は「ネオコグニトロン」である。S細胞・C細胞の階層構造を持ち、1980年の原型では、誤差逆伝播法ではなく自己組織化によって学習した。現代のCNNにつながる先駆的なモデルである。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。S細胞・C細胞の階層構造を持ち、1980年の原型では、誤差逆伝播法ではなく自己組織化によって学習した。現代のCNNにつながる先駆的なモデルである。",
+      "誤りである。LeNetは、ヤン・ルカンらが提案した、誤差逆伝播法で学習するCNNである（1998年）。",
+      "誤りである。AlexNetは、2012年のILSVRCで優勝した深層のCNNである。",
+      "誤りである。単純パーセプトロンは、入力に重みを掛けて足し合わせ、しきい値で出力を決める初期のニューラルネットワークであり、S細胞・C細胞の構造は持たない。"
+    ],
+    "tags": {
+      "contentTags": ["ネオコグニトロン", "LeNet"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "ネオコグニトロン（p.101）",
+    "sourceReference": "補遺「AIの歴史」ネオコグニトロン（公式テキスト p.101。ディープラーニングの歴史）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-term-012",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "言葉の規則を人が書く代わりに、大量の文章（コーパス）から単語の並びの確率などを学んで、翻訳や解析を行う方法を何と呼ぶか。",
+    "choices": [
+      "ルールベース機械翻訳",
+      "セマンティックWeb",
+      "統計的自然言語処理",
+      "意味ネットワーク"
+    ],
+    "correctAnswer": 2,
+    "explanation": "正解は「統計的自然言語処理」である。統計的機械翻訳はその代表例である。",
+    "choiceExplanations": [
+      "誤りである。ルールベース機械翻訳は、文法や辞書の規則を人が設計して翻訳する方式である。",
+      "誤りである。セマンティックWebは、ウェブ上の情報に意味を表す情報を付けて、コンピュータが処理できるようにする構想である。",
+      "正しい（本問の答え）。統計的機械翻訳はその代表例である。",
+      "誤りである。意味ネットワークは、概念と概念の関係をノードとリンクで表す知識表現の方法である。"
+    ],
+    "tags": {
+      "contentTags": ["統計的自然言語処理", "統計的機械翻訳"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "機械学習が広がった背景（p.92〜93）",
+    "sourceReference": "補遺「AIの歴史」機械学習が広がった背景（公式テキスト p.93）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  }
+]
