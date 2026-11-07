@@ -189,7 +189,7 @@ D. SegNetは、エンコーダー（縮小）とデコーダー（拡大）か�
 
 **正解：C**
 
-**解説**：プーリングの位置を記録して拡大に使うのはPSPNetではなくSegNetであり、この記述が誤りである。これはSegNetの説明である。PSPNetは、Pyramid Pooling Moduleで大きさの異なる区画のプーリング結果を連結する。
+**解説**：プーリングの位置を記録して拡大に使うのはPSPNetではなくSegNetであり、この記述が誤りである。PSPNetは、Pyramid Pooling Moduleで大きさの異なる区画のプーリング結果を連結する。
 
 - A：適切である。全結合層がないため、任意の大きさの画像を入力できる。
 - B：適切である。DeepLab v2以降は、間隔の異なるAtrous Convolutionを並列にかけるASPPも使う。
