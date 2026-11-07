@@ -29,7 +29,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "ハード・ローとソフト・ロー（p.381）",
     "sourceReference": "補遺「倫理とガバナンス」ハード・ローとソフト・ロー（公式テキスト p.381）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -64,7 +64,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "日本の主なガイドラインの流れ（p.382〜383）",
     "sourceReference": "補遺「倫理とガバナンス」日本の主なガイドラインの流れ（公式テキスト p.383。根拠：経済産業省「AI原則実践のためのガバナンス・ガイドライン」ver1.1）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -99,7 +99,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "日本の主なガイドラインの流れ（p.382〜383）",
     "sourceReference": "補遺「倫理とガバナンス」日本の主なガイドラインの流れ（公式テキスト p.382。根拠：内閣府「人間中心のAI社会原則」）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -134,7 +134,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "海外の主な枠組み（p.383〜384）",
     "sourceReference": "補遺「倫理とガバナンス」海外の主な枠組み（公式テキスト p.383。根拠：NIST「AI Risk Management Framework 1.0」）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -173,7 +173,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "海外の主な枠組み（p.383〜384）",
     "sourceReference": "補遺「倫理とガバナンス」海外の主な枠組み（公式テキスト p.384。根拠：EU AI規則、EUハイレベル専門家会合「Ethics guidelines for trustworthy AI」、OECD AI原則、米国「Blueprint for an AI Bill of Rights」）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -208,7 +208,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "データ収集段階と推論段階（p.387）",
     "sourceReference": "補遺「倫理とガバナンス」データ収集段階と推論段階（公式テキスト p.387）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -243,7 +243,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "カメラ画像利活用ガイドブック（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」カメラ画像利活用ガイドブック（公式テキスト p.387。根拠：経済産業省・総務省「カメラ画像利活用ガイドブック」ver3.0）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -252,30 +252,35 @@
     "id": "ch10-term-008",
     "chapterId": "ch10",
     "sectionId": "ch10-s06",
-    "difficulty": "basic",
+    "difficulty": "standard",
     "category": "term_check",
     "questionForm": "affirmative",
-    "question": "郵便番号のように、性別や人種などのセンシティブ属性そのものではないが、それと強く関係しているために、間接的にセンシティブ属性を表してしまう変数を何と呼ぶか。",
-    "choices": ["代理変数", "目的変数", "潜在変数", "ダミー変数"],
+    "question": "ある会社が採用選考のAIを作る際、性別による偏りを防ぐために、入力から「性別」の項目を除いた。しかし、完成したAIの判定には、なお性別による偏りが見られた。この原因として、最も適切なものはどれか。",
+    "choices": [
+      "性別と強く関係する別の項目（代理変数）が入力に残っており、間接的に性別の情報を使っていた。",
+      "入力の項目を減らしたため、モデルのパラメータ数が足りなくなり、学習がうまく進まなかった。",
+      "学習データの量が多すぎたため、モデルが訓練データに合わせすぎてしまった。",
+      "性別の項目を除いたため、AIの判断の理由を人間に説明できなくなった。"
+    ],
     "correctAnswer": 0,
-    "explanation": "正解は「代理変数」である。センシティブ属性を入力から除外しても、それと強く関連する代理変数を通じて、差別的な判断や偏りが残る可能性がある。",
+    "explanation": "センシティブ属性を入力から除いても、それと強く関連する代理変数を通じて、差別的な判断や偏りが残る可能性がある。",
     "choiceExplanations": [
-      "正しい（本問の答え）。センシティブ属性を入力から除外しても、それと強く関連する代理変数を通じて、差別的な判断や偏りが残る可能性がある。",
-      "誤りである。目的変数は、モデルが予測する対象の変数である。",
-      "誤りである。潜在変数は、直接は観測されず、観測データの背後にあると仮定する変数である。",
-      "誤りである。ダミー変数は、カテゴリを0と1などの数値で表した変数である。"
+      "正しい（本問の答え）。センシティブ属性を入力から除いても、それと強く関連する代理変数を通じて、差別的な判断や偏りが残る可能性がある。",
+      "誤りである。パラメータ数の不足は精度の低下の原因にはなりうるが、この設問で性別による偏りが残ったことの最も適切な説明ではない。",
+      "誤りである。学習データが多いことは、過学習（訓練データに合わせすぎること）の原因ではない。また、この設問で性別による偏りが残ったことの最も適切な説明ではない（偏りの原因には、学習データの偏りなど、代理変数以外のものもありうる）。",
+      "誤りである。入力から項目を除くことと、判断の理由を説明できるかどうか（説明可能性）は別の問題である。"
     ],
     "tags": {
-      "contentTags": ["代理変数", "センシティブ属性"],
-      "skillTags": ["暗記"],
+      "contentTags": ["代理変数", "センシティブ属性", "アルゴリズムバイアス"],
+      "skillTags": ["適用判断"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "センシティブ属性と代理変数（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」センシティブ属性と代理変数（公式テキスト p.385）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
-    "createdAt": "2026-11-06",
+    "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
   {
@@ -308,7 +313,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "公平性の定義（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」公平性の定義（公式テキスト p.385）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -338,7 +343,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "学習データとモデルを狙う攻撃（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」学習データとモデルを狙う攻撃（公式テキスト p.389）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -346,31 +351,31 @@
   {
     "id": "ch10-term-011",
     "chapterId": "ch10",
-    "sectionId": "ch10-s07",
+    "sectionId": "ch10-s05",
     "difficulty": "basic",
     "category": "term_check",
     "questionForm": "affirmative",
-    "question": "推薦アルゴリズムが利用者の好みに合う情報ばかりを表示するため、利用者が異なる意見の情報に触れにくくなる現象を何と呼ぶか。",
-    "choices": ["エコーチェンバー", "フィルターバブル", "ディープフェイク", "データドリフト"],
+    "question": "AIの学習などに使うデータについて、いつ、どこで、誰によって作られ、どのように加工されてきたかという、その履歴・出所に関する情報を何と呼ぶか。",
+    "choices": ["電子透かし", "データの来歴", "メンバーシップ推論", "フィルターバブル"],
     "correctAnswer": 1,
-    "explanation": "正解は「フィルターバブル」である。イーライ・パリサーが名付けた。",
+    "explanation": "正解は「データの来歴」である。データ・プロベナンスともいう。学習データの権利関係や品質の確認、問題が起きたときの原因の追跡に使う。",
     "choiceExplanations": [
-      "誤りである。エコーチェンバーは、考え方の似た人同士が集まる場で、同じ意見が反響し合って強まる現象である。アルゴリズムによる情報の選別ではなく、人同士のやりとりによる意見の増幅が中心である。",
-      "正しい（本問の答え）。イーライ・パリサーが名付けた。",
-      "誤りである。ディープフェイクは、深層学習で作った、本物と見分けにくい偽の画像・動画・音声である。",
-      "誤りである。データドリフトは、運用中に入力データの分布が学習時などの分布から変化する現象である。モデルの性能低下につながる場合があるが、必ず低下するとは限らない。"
+      "誤りである。電子透かしは、画像・音声などのコンテンツに識別情報や権利管理情報などを埋め込む技術である。AI生成物の識別にも用いられるが、データの作成・加工の履歴そのものを記録する概念とは異なる。",
+      "正しい（本問の答え）。データ・プロベナンスともいう。学習データの権利関係や品質の確認、問題が起きたときの原因の追跡に使う。",
+      "誤りである。メンバーシップ推論は、ある人のデータが学習に使われたかどうかを、モデルの出力から推定する攻撃である。",
+      "誤りである。フィルターバブルは、推薦アルゴリズムが好みに合う情報ばかりを表示するため、異なる意見の情報に触れにくくなる現象である。"
     ],
     "tags": {
-      "contentTags": ["フィルターバブル", "エコーチェンバー"],
-      "skillTags": ["比較"],
+      "contentTags": ["データの来歴", "透明性"],
+      "skillTags": ["暗記"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
-    "sourceHeading": "フィルターバブルとエコーチェンバー（索引なし）",
-    "sourceReference": "補遺「倫理とガバナンス」フィルターバブルとエコーチェンバー（公式テキスト p.389）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "sourceHeading": "データの来歴（索引なし）",
+    "sourceReference": "補遺「倫理とガバナンス」データの来歴（公式テキストの関連ページ p.388）",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
-    "createdAt": "2026-11-06",
+    "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
   {
@@ -403,7 +408,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "人間の関与（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」人間の関与（公式テキスト p.392）",
-    "contentVersion": "06e5fad05ab4b79ff4a207fc84fbbc061dd2e9103662b163ac6a7c9c0676bb1d",
+    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"

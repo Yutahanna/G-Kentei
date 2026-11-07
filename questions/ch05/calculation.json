@@ -107,7 +107,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "入力が複数チャネルの畳み込み層",
     "sourceReference": "補遺「画像認識」入力が複数チャネルの畳み込み層（公式テキストの関連ページ p.255）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -135,7 +135,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "Depthwise Separable Convolutionのパラメータ数",
     "sourceReference": "補遺「画像認識」Depthwise Separable Convolutionのパラメータ数（公式テキストの関連ページ p.260）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   }
