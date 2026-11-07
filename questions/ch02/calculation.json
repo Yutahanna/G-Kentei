@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ch02-calc-001",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "ハノイの塔で、円盤が5枚のとき、すべての円盤を別の棒に移すための最少の手数はいくつか。",
+    "choices": ["25", "32", "31", "10"],
+    "correctAnswer": 2,
+    "explanation": "正解は「31」である。最少の手数は2^n−1なので、2^5−1＝31。4枚のときの15を2倍して1を足しても求められる。",
+    "choiceExplanations": [
+      "誤りである。5×5で計算した値である。手数は枚数の2乗では増えない。",
+      "誤りである。2の5乗である。最少の手数は2の5乗から1を引いた値になる。",
+      "正しい（本問の答え）。最少の手数は2^n−1なので、2^5−1＝31。4枚のときの15を2倍して1を足しても求められる。",
+      "誤りである。5×2で計算した値である。手数は枚数に比例しては増えない。"
+    ],
+    "tags": {
+      "contentTags": ["ハノイの塔"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "ハノイの塔の最少の手数",
+    "sourceReference": "補遺「AIの歴史」ハノイの塔の最少の手数（公式テキストの関連ページ p.62）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch02-calc-002",
+    "chapterId": "ch02",
+    "sectionId": "ch02-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "どのノードからも3本ずつ枝分かれする探索木がある。出発点を深さ0とするとき、深さ4にあるノードの数はいくつか。",
+    "choices": ["81", "12", "121", "64"],
+    "correctAnswer": 0,
+    "explanation": "正解は「81」である。深さが1増えるごとにノードの数が3倍になるので、3^4＝81。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。深さが1増えるごとにノードの数が3倍になるので、3^4＝81。",
+      "誤りである。3×4で計算した値である。ノードの数は深さに比例しては増えない。",
+      "誤りである。深さ0から深さ4までのノードの合計（1＋3＋9＋27＋81）である。問われているのは深さ4のノードだけである。",
+      "誤りである。4^3で計算した値である。枝分かれの数と深さを逆にしている。"
+    ],
+    "tags": {
+      "contentTags": ["探索木", "ブルートフォース"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
+    "sourceHeading": "探索木のノード数",
+    "sourceReference": "補遺「AIの歴史」探索木のノード数（公式テキストの関連ページ p.58）",
+    "contentVersion": "0d15a8ab3513301725c297c1ec40053ff95602ab30222cf58bbff5563dd72021",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  }
+]
