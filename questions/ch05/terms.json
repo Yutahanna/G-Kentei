@@ -218,7 +218,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "CycleGAN（p.302）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」CycleGAN（公式テキスト p.302）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -252,7 +252,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Pix2Pix（p.302）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Pix2Pix（公式テキスト p.302）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -286,7 +286,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "NeRF（Neural Radiance Fields）（p.304）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」NeRF（公式テキスト p.304）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -315,7 +315,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "半教師あり学習（p.307）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」半教師あり学習（公式テキスト p.307）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -344,7 +344,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "自己教師あり学習とプレテキストタスク（p.308）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」自己教師あり学習とプレテキストタスク（公式テキスト p.308）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -378,7 +378,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "メタ学習とMAML（p.307）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」メタ学習とMAML（公式テキスト p.307）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -407,41 +407,36 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "破滅的忘却と継続学習（p.309）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」破滅的忘却と継続学習（公式テキスト p.309）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
   {
     "id": "ch05-term-014",
     "chapterId": "ch05",
-    "sectionId": "ch05-s04",
-    "difficulty": "advanced",
+    "sectionId": "ch05-s08",
+    "difficulty": "basic",
     "category": "term_check",
     "questionForm": "affirmative",
-    "question": "画像分類などで用いられる従来のZero-shot学習（学習時に見ていないクラスの認識）の説明として、最も適切なものはどれか。",
-    "choices": [
-      "新しいクラスを、そのクラスの少数（数個）のラベル付きの例から学習して認識する。",
-      "新しいクラスを、そのクラスのラベル付きの例が1つだけの状態から学習して認識する。",
-      "そのクラスを含む大量のラベル付きデータで、モデル全体の重みを最初から学習し直す。",
-      "例が1つもないクラスを、クラスの説明（属性や言葉）などの補助情報を使って認識する。"
-    ],
+    "question": "大規模言語モデルへのプロンプトで、例題を1つだけ示してから、本番の入力についてタスクをさせる方法を何と呼ぶか。",
+    "choices": ["Zero-shot", "Few-shot", "ファインチューニング", "One-shot"],
     "correctAnswer": 3,
-    "explanation": "例えば「シマウマは白黒のしま模様のウマ」という説明から、シマウマの画像を見たことがなくても見分ける。",
+    "explanation": "正解は「One-shot」である。例題を与えずに指示だけ与えるのがZero-shot（公式テキスト p.307）、少数の例題を示すのがFew-shotである。いずれもモデルの重みは更新しない。",
     "choiceExplanations": [
-      "誤りである。Few-shot学習の説明である。",
-      "誤りである。One-shot学習の説明である。",
-      "誤りである。Zero-shot学習は、そのクラスのラベル付きデータを使わずに認識することを指す。",
-      "正しい（本問の答え）。例えば「シマウマは白黒のしま模様のウマ」という説明から、シマウマの画像を見たことがなくても見分ける。"
+      "誤りである。Zero-shotは、例題を与えずに指示だけを与えてタスクをさせる方法である（公式テキスト p.307）。",
+      "誤りである。Few-shotは、プロンプトに少数（数個）の例題を示してからタスクをさせる方法である。例題が1つだけの場合は、特にOne-shotと呼ぶ。",
+      "誤りである。ファインチューニングは、追加のデータで学習してモデルの重みを更新する方法であり、プロンプトに例題を示す方法ではない。",
+      "正しい（本問の答え）。例題を与えずに指示だけ与えるのがZero-shot（公式テキスト p.307）、少数の例題を示すのがFew-shotである。いずれもモデルの重みは更新しない。"
     ],
     "tags": {
-      "contentTags": ["Zero-shot学習", "Few-shot学習"],
+      "contentTags": ["One-shot", "Zero-shot学習", "Few-shot学習"],
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Few-shot学習・One-shot学習・Zero-shot学習（p.307）",
-    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Few-shot学習・One-shot学習・Zero-shot学習（公式テキスト p.307）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Few-shot学習・One-shot学習・Zero-shot学習（公式テキスト p.307。Zero-shotの説明は公式テキストで確認済み）",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -475,7 +470,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "CLIP（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」CLIP（公式テキスト p.310）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -504,7 +499,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Flamingo（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Flamingo（公式テキスト p.310）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -538,7 +533,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "マルチモーダルタスク（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」マルチモーダルタスク（公式テキスト p.310）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -567,7 +562,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Unified-IO（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Unified-IO（公式テキスト p.310）",
-    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   }
