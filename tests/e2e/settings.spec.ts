@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "fs";
 import { writeTempUploadFile } from "./utils/tmpfile";
+import { submitIfMultiple } from "./utils/answer";
 
 test.describe("データのエクスポート・インポート・初期化", () => {
   test("エクスポート→初期化→インポートで学習データが復元される", async ({ page }, testInfo) => {
@@ -9,6 +10,8 @@ test.describe("データのエクスポート・インポート・初期化", ()
     await page.getByRole("button", { name: "ドリルを開始する" }).click();
     await page.waitForURL("**/drill/ch04/play");
     await page.locator('button[class*="choiceButton"]').first().click();
+    await submitIfMultiple(page);
+    await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
 
     await page.goto("/settings");
     const downloadPromise = page.waitForEvent("download");
@@ -50,7 +53,7 @@ test.describe("データのエクスポート・インポート・初期化", ()
   test("アプリのバージョン欄に問題数（合計と章別）が表示される", async ({ page }) => {
     await page.goto("/settings");
     await expect(
-      page.getByText(/^全492問（第1章 26・第2章 27・.*第9章 59・第10章 59）$/),
+      page.getByText(/^全506問（第1章 26・第2章 27・.*第9章 59・第10章 59）$/),
     ).toBeVisible();
   });
 });
