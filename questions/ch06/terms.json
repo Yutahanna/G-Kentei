@@ -978,28 +978,28 @@
     "id": "ch06-term-031",
     "chapterId": "ch06",
     "sectionId": "ch06-s01",
-    "difficulty": "basic",
+    "difficulty": "standard",
     "category": "term_check",
     "questionForm": "affirmative",
-    "question": "物体検出のR-CNN系列のうち、候補領域の抽出もニューラルネットワーク（領域提案ネットワーク、RPN）で行い、全体を1つのネットワークで学習できるようにしたモデルはどれか。",
-    "choices": ["R-CNN", "Fast R-CNN", "YOLO", "Faster R-CNN"],
+    "question": "物体検出のR-CNN系列のうち、画像全体を1回だけCNNに通し、得られた特徴マップから候補領域の部分を切り出す（RoI Pooling）ことでR-CNNより大幅に速くしたが、候補領域の抽出はまだ外部の手法に頼っていたモデルはどれか。",
+    "choices": ["R-CNN", "Faster R-CNN", "YOLO", "Fast R-CNN"],
     "correctAnswer": 3,
-    "explanation": "正解は「Faster R-CNN」である。RPNで候補領域も出すため、全体を1つのネットワークで学習できる。",
+    "explanation": "正解は「Fast R-CNN」である。候補領域ごとにCNNを計算し直すR-CNNの遅さを、画像全体を1回だけCNNに通すことで改善した。候補領域の抽出もニューラルネットワーク（RPN）で行うようにしたのが、次のFaster R-CNNである。",
     "choiceExplanations": [
-      "誤りである。R-CNNは、外部の手法で切り出した約2,000個の候補領域を、1つずつCNNに通して分類する。",
-      "誤りである。Fast R-CNNは、画像全体を1回だけCNNに通してRoI Poolingを行うが、候補領域の抽出はまだ外部の手法に頼る。",
+      "誤りである。R-CNNは、外部の手法で切り出した約2,000個の候補領域を、1つずつCNNに通して分類する。画像全体を1回だけCNNに通すわけではない。",
+      "誤りである。Faster R-CNNは、候補領域の抽出もニューラルネットワーク（RPN）で行う。外部の手法には頼らない。",
       "誤りである。YOLOは、候補領域を出さずに、画像全体から枠とカテゴリを一度に予測する1段階方式である。",
-      "正しい（本問の答え）。RPNで候補領域も出すため、全体を1つのネットワークで学習できる。"
+      "正しい（本問の答え）。候補領域ごとにCNNを計算し直すR-CNNの遅さを、画像全体を1回だけCNNに通すことで改善した。候補領域の抽出もニューラルネットワーク（RPN）で行うようにしたのが、次のFaster R-CNNである。"
     ],
     "tags": {
-      "contentTags": ["Faster R-CNN", "RPN"],
+      "contentTags": ["Fast R-CNN", "RoI Pooling", "R-CNN"],
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "R-CNN系列の補足（p.261）",
     "sourceReference": "補遺「画像認識」R-CNN系列の補足（公式テキスト p.261）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1028,7 +1028,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "FPN（Feature Pyramid Network）（p.261）",
     "sourceReference": "補遺「画像認識」FPN（公式テキスト p.261）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1062,7 +1062,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "YOLOとSSDの補足（p.261〜262）",
     "sourceReference": "補遺「画像認識」YOLOとSSDの補足（公式テキスト p.262）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1096,7 +1096,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "PSPNet（Pyramid Scene Parsing Network）（p.267）",
     "sourceReference": "補遺「画像認識」PSPNet（公式テキスト p.267）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1134,14 +1134,14 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "パノプティックセグメンテーション（p.263）",
     "sourceReference": "補遺「画像認識」パノプティックセグメンテーション（公式テキスト p.263）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
   {
     "id": "ch06-term-036",
     "chapterId": "ch06",
-    "sectionId": "ch06-s02",
+    "sectionId": "ch06-s01",
     "difficulty": "standard",
     "category": "term_check",
     "questionForm": "affirmative",
@@ -1162,8 +1162,8 @@
     },
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "姿勢推定とOpenPose（p.268）",
-    "sourceReference": "補遺「画像認識」姿勢推定とOpenPose（公式テキスト p.268）",
-    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "sourceReference": "補遺「画像認識」姿勢推定とOpenPose（公式テキスト p.268。姿勢推定は物体検出と関連する別のタスク）",
+    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   }
