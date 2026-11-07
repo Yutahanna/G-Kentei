@@ -82,5 +82,61 @@
     "contentVersion": "e0ff27913aa8c999ef16ccae4c05263c1bab79cefe64c89c6b5991141fcc51fe",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-004",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "入力が32チャネルの特徴マップに、3×3のフィルタで出力64チャネルの畳み込み層を適用する。バイアスを含めたパラメータの数はいくつか。",
+    "choices": ["18,432", "640", "18,496", "2,336"],
+    "correctAnswer": 2,
+    "explanation": "正解は「18,496」である。(3×3×32＋1)×64＝289×64＝18,496。バイアスは出力チャネルごとに1つ。",
+    "choiceExplanations": [
+      "誤りである。バイアスを含めていない値（3×3×32×64）である。",
+      "誤りである。入力チャネル数を掛け忘れた値（(3×3＋1)×64）である。1枚のフィルタは入力のすべてのチャネルにまたがる。",
+      "正しい（本問の答え）。(3×3×32＋1)×64＝289×64＝18,496。バイアスは出力チャネルごとに1つ。",
+      "誤りである。Depthwise Separable Convolution（バイアスなし）で同じ入出力にした場合の値である。"
+    ],
+    "tags": {
+      "contentTags": ["畳み込み層", "パラメータ数"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "入力が複数チャネルの畳み込み層",
+    "sourceReference": "補遺「画像認識」入力が複数チャネルの畳み込み層（公式テキストの関連ページ p.255）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-005",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "advanced",
+    "category": "calculation",
+    "question": "入力が32チャネル、出力が64チャネルの層を、Depthwise Separable Convolution（3×3のDepthwise Convolutionのあとに1×1のPointwise Convolution）で作る。バイアスを除いたパラメータの数はいくつか。",
+    "choices": ["2,336", "18,432", "2,048", "288"],
+    "correctAnswer": 0,
+    "explanation": "正解は「2,336」である。Depthwise：3×3×32＝288、Pointwise：1×1×32×64＝2,048、合計2,336。通常の畳み込み（18,432）のおよそ8分の1。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。Depthwise：3×3×32＝288、Pointwise：1×1×32×64＝2,048、合計2,336。通常の畳み込み（18,432）のおよそ8分の1。",
+      "誤りである。通常の3×3の畳み込み（3×3×32×64）の値である。",
+      "誤りである。Pointwise Convolutionの部分だけの値である。",
+      "誤りである。Depthwise Convolutionの部分だけの値である。"
+    ],
+    "tags": {
+      "contentTags": ["Depthwise Separable Convolution", "パラメータ数", "MobileNet"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "Depthwise Separable Convolutionのパラメータ数",
+    "sourceReference": "補遺「画像認識」Depthwise Separable Convolutionのパラメータ数（公式テキストの関連ページ p.260）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
   }
 ]

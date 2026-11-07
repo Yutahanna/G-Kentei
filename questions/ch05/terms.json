@@ -1,0 +1,196 @@
+[
+  {
+    "id": "ch05-term-001",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "特徴マップをチャネルごとに平均して1つの値にまとめ、全結合層とシグモイド関数でチャネルごとの重要度を求めて、各チャネルに重みを掛けるCNNはどれか。",
+    "choices": ["SENet", "DenseNet", "Wide ResNet", "GoogLeNet"],
+    "correctAnswer": 0,
+    "explanation": "正解は「SENet」である。Squeeze（チャネルごとに要約）とExcitation（重要度を求めて掛ける）からなる。ILSVRC 2017の分類部門で優勝した。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。Squeeze（チャネルごとに要約）とExcitation（重要度を求めて掛ける）からなる。ILSVRC 2017の分類部門で優勝した。",
+      "誤りである。DenseNetの基本的な特徴は、前のすべての層の特徴マップを連結して再利用することであり、チャネルごとの重要度を求めて掛ける仕組みとは異なる。",
+      "誤りである。Wide ResNetは、ResNetの各層のチャネル数（幅）を広げたモデルである。",
+      "誤りである。GoogLeNetは、異なる大きさのフィルタを並列に並べるInceptionモジュールを持つモデルである。"
+    ],
+    "tags": {
+      "contentTags": ["SENet"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "SENet（Squeeze-and-Excitation Networks）（p.259）",
+    "sourceReference": "補遺「画像認識」SENet（公式テキスト p.259）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-002",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "DenseNetの説明として、最も適切なものはどれか。",
+    "choices": [
+      "ある層の入力を数層先の出力に足し合わせる残差接続によって、非常に深い層の学習を可能にしたモデルである。",
+      "各層が、それより前のすべての層の出力をチャネル方向に連結して受け取るモデルである。",
+      "層をむやみに深くする代わりに、各層のチャネル数（幅）を広げたモデルである。",
+      "深さ・幅・解像度の3つを、決まった比率で同時に大きくしたモデルである。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "特徴の再利用が進み、少ないパラメータで高い精度が出る。",
+    "choiceExplanations": [
+      "誤りである。ResNetの説明である。DenseNetは、前の層の出力を足し合わせるのではなく連結する。",
+      "正しい（本問の答え）。特徴の再利用が進み、少ないパラメータで高い精度が出る。",
+      "誤りである。Wide ResNetの説明である。",
+      "誤りである。EfficientNetの説明である（複合スケーリング）。"
+    ],
+    "tags": {
+      "contentTags": ["DenseNet", "ResNet"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "DenseNet（p.259）",
+    "sourceReference": "補遺「画像認識」DenseNet（公式テキスト p.259）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-003",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ネットワークの深さ・幅・入力画像の解像度の3つを、決まった比率で同時に大きくする複合スケーリングによって、少ないパラメータで高い精度を出したモデルはどれか。",
+    "choices": ["Vision Transformer", "MnasNet", "EfficientNet", "Wide ResNet"],
+    "correctAnswer": 2,
+    "explanation": "正解は「EfficientNet」である。もとになるEfficientNet-B0はNASで探索し、複合スケーリングでB1〜B7に大きくした。",
+    "choiceExplanations": [
+      "誤りである。Vision Transformerは、画像をパッチに分けてTransformerで処理するモデルであり、3つを同時に大きくする手法ではない。",
+      "誤りである。MnasNetは、推論時間も報酬に含めて、NASでモバイル向けの構造を探索したモデルである。",
+      "正しい（本問の答え）。もとになるEfficientNet-B0はNASで探索し、複合スケーリングでB1〜B7に大きくした。",
+      "誤りである。Wide ResNetは、幅（チャネル数）だけを広げたモデルであり、3つを同時に大きくするものではない。"
+    ],
+    "tags": {
+      "contentTags": ["EfficientNet", "複合スケーリング"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "EfficientNet（p.261）",
+    "sourceReference": "補遺「画像認識」EfficientNet（公式テキスト p.261）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-004",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "NAS（Neural Architecture Search）とそれを使ったモデルに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "NASは、ネットワークの構造を、人が設計する代わりに自動で探索する手法である。",
+      "初期のNASには、RNNで構造を生成し、その構造の精度を報酬として強化学習で更新するものがある。",
+      "MnasNetは、精度に加えて、スマートフォンでの推論時間も報酬に含めて構造を探索した。",
+      "NASは、候補の構造を学習させる必要がないため、探索の計算コストが小さい。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "NASは候補の構造を学習させる必要がなく計算コストが小さいという記述が誤りである。NASは候補の構造を学習させて評価する必要があり、特に初期の方式は、何度も学習させるため計算コストが非常に大きい。",
+    "choiceExplanations": [
+      "適切である。NASの説明である。",
+      "適切である。強化学習を使う方式は、NASの方式の1つである（ほかに進化的アルゴリズムや勾配を使う方式もある）。",
+      "適切である。MnasNetの特徴である。",
+      "不適切である（本問の答え）。NASは候補の構造を学習させて評価する必要があり、特に初期の方式は、何度も学習させるため計算コストが非常に大きい。"
+    ],
+    "tags": {
+      "contentTags": ["NAS", "MnasNet"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "NAS（Neural Architecture Search）（p.260）",
+    "sourceReference": "補遺「画像認識」NAS（公式テキスト p.260）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-005",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "入力の各チャネルに別々に空間方向の畳み込みを行い、そのあと1×1の畳み込みでチャネル方向の情報を混ぜることで、計算量とパラメータ数を減らす方法を何と呼ぶか。",
+    "choices": [
+      "Atrous Convolution",
+      "Depthwise Separable Convolution",
+      "Global Average Pooling",
+      "Inceptionモジュール"
+    ],
+    "correctAnswer": 1,
+    "explanation": "正解は「Depthwise Separable Convolution」である。MobileNetで使われる。3×3のフィルタでは、パラメータ数がおよそ8分の1〜9分の1になる。",
+    "choiceExplanations": [
+      "誤りである。Atrous Convolutionは、フィルタの要素の間を空けて、受容野を広げる畳み込みである。DeepLabで使われる。",
+      "正しい（本問の答え）。MobileNetで使われる。3×3のフィルタでは、パラメータ数がおよそ8分の1〜9分の1になる。",
+      "誤りである。Global Average Poolingは、特徴マップ全体の平均を取る処理で、全結合層の代わりに使われることがある。チャネルを混ぜる畳み込みではない。",
+      "誤りである。Inceptionモジュールは、異なる大きさのフィルタを並列に並べて結果を結合する、GoogLeNetの構造である。"
+    ],
+    "tags": {
+      "contentTags": ["Depthwise Separable Convolution", "MobileNet"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "Depthwise Separable Convolution（索引なし）",
+    "sourceReference": "補遺「画像認識」Depthwise Separable Convolution（公式テキストの関連ページ p.260）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-006",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "Vision Transformer（ViT）の説明として、最も適切なものはどれか。",
+    "choices": [
+      "畳み込み層とプーリング層を交互に何層も重ね、最後に全結合層で画像を分類する。",
+      "画像の各ピクセルを1つの単語とみなし、RNNで左上から順番に処理していく。",
+      "画像を小さなパッチに分け、各パッチをベクトルにして並べ、Transformerのエンコーダーで処理する。",
+      "学習データが少ない場合でも、CNNより常に高い精度が出ることが知られている。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "位置埋め込みでパッチの位置を加え、Self-Attentionでパッチどうしの関係を計算する。大量のデータで事前学習すると、CNNと同等以上の精度が出る。",
+    "choiceExplanations": [
+      "誤りである。CNNの基本的な構造の説明である。原型のViTは、特徴を取り出す部分に畳み込み層を使わない。",
+      "誤りである。ViTはピクセル単位ではなくパッチ単位で扱い、RNNではなくTransformerで処理する。",
+      "正しい（本問の答え）。位置埋め込みでパッチの位置を加え、Self-Attentionでパッチどうしの関係を計算する。大量のデータで事前学習すると、CNNと同等以上の精度が出る。",
+      "誤りである。ViTはCNNのような「近くのピクセルは関係が深い」という前提を持たないため、データが少ないとCNNより不利になりやすい。"
+    ],
+    "tags": {
+      "contentTags": ["Vision Transformer"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "Vision Transformer（ViT）（索引なし）",
+    "sourceReference": "補遺「画像認識」Vision Transformer（公式テキストの関連ページ p.261）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  }
+]

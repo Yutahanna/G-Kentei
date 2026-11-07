@@ -1,11 +1,8 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect } from "@playwright/test";
+import { submitIfMultiple } from "./utils/answer";
 
 // 出題はランダムなので、全て選ぶ問題（選んでから「回答する」で採点）に当たることがある。
-// その場合は、選択肢を1つ選んだあと「回答する」を押して採点させる。
-async function submitIfMultiple(page: Page) {
-  const submit = page.getByRole("button", { name: /回答する（\d+つ選択中）/ });
-  if (await submit.isVisible()) await submit.click();
-}
+// その場合は、選択肢を1つ選んだあと「回答する」を押して採点させる（submitIfMultiple）。
 
 test.describe("章別ドリルのゴールデンパス", () => {
   test("教材を読む→ドリルを解く→結果画面→ホームに進捗が反映される", async ({ page }) => {
@@ -44,7 +41,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch06");
     await page.locator("#category-term_check").check();
-    await expect(page.getByText(/該当する問題: 30問/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 36問/)).toBeVisible();
     await expect(page.locator("#category-calculation")).toHaveCount(0);
     await page.locator("select").first().selectOption("ch08");
     await page.locator("#category-calculation").check();
@@ -57,7 +54,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
   test("出題数は既定で10問になり、全問を選ぶと章の全問が出る", async ({ page }) => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
-    await expect(page.getByText(/該当する問題: 71問（今回の出題: 10問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 79問（今回の出題: 10問）/)).toBeVisible();
     await page.getByRole("button", { name: "ドリルを開始する" }).click();
     await page.waitForURL("**/drill/ch05/play");
     await expect(page.getByText(/問題 1 \/ 10/)).toBeVisible();
@@ -65,7 +62,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
     await page.locator("#count-all").check();
-    await expect(page.getByText(/該当する問題: 71問（今回の出題: 71問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 79問（今回の出題: 79問）/)).toBeVisible();
   });
 
   test("ブックマークした問題は復習メニューに現れ、復習セッションを完了できる", async ({ page }) => {

@@ -973,5 +973,198 @@
     "contentVersion": "429bb7f0b9dec8ff622dabefe767d3bd214414dbe5d2bd7e76f4f0fdced7a5b8",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-031",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "物体検出のR-CNN系列のうち、候補領域の抽出もニューラルネットワーク（領域提案ネットワーク、RPN）で行い、全体を1つのネットワークで学習できるようにしたモデルはどれか。",
+    "choices": ["R-CNN", "Fast R-CNN", "YOLO", "Faster R-CNN"],
+    "correctAnswer": 3,
+    "explanation": "正解は「Faster R-CNN」である。RPNで候補領域も出すため、全体を1つのネットワークで学習できる。",
+    "choiceExplanations": [
+      "誤りである。R-CNNは、外部の手法で切り出した約2,000個の候補領域を、1つずつCNNに通して分類する。",
+      "誤りである。Fast R-CNNは、画像全体を1回だけCNNに通してRoI Poolingを行うが、候補領域の抽出はまだ外部の手法に頼る。",
+      "誤りである。YOLOは、候補領域を出さずに、画像全体から枠とカテゴリを一度に予測する1段階方式である。",
+      "正しい（本問の答え）。RPNで候補領域も出すため、全体を1つのネットワークで学習できる。"
+    ],
+    "tags": {
+      "contentTags": ["Faster R-CNN", "RPN"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "R-CNN系列の補足（p.261）",
+    "sourceReference": "補遺「画像認識」R-CNN系列の補足（公式テキスト p.261）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-032",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "CNNの深い層（意味の情報が強い）から浅い層（位置の情報が細かい）へたどる経路と横方向の接続で特徴マップをつなぎ、大きさの異なる物体、特に小さな物体の検出精度を上げる構造はどれか。",
+    "choices": ["FPN", "PSPNet", "SegNet", "U-Net"],
+    "correctAnswer": 0,
+    "explanation": "正解は「FPN」である。Faster R-CNNやMask R-CNNなどと組み合わせて使われる。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。Faster R-CNNやMask R-CNNなどと組み合わせて使われる。",
+      "誤りである。PSPNetは、特徴マップを大きさの異なる区画でプーリングして連結する、セマンティックセグメンテーションのモデルである。",
+      "誤りである。SegNetは、プーリングの位置を記録して拡大に使う、セマンティックセグメンテーションのモデルである。",
+      "誤りである。U-Netは、エンコーダーの特徴マップを同じ解像度のデコーダーに渡す構造で、基本的にセグメンテーション向けのモデルである。"
+    ],
+    "tags": {
+      "contentTags": ["FPN"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "FPN（Feature Pyramid Network）（p.261）",
+    "sourceReference": "補遺「画像認識」FPN（公式テキスト p.261）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-033",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "物体検出のモデルに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "YOLOは、画像をグリッドに分け、各マスで枠と確信度、カテゴリを一度に予測する。",
+      "SSDは、ただ1つの大きさの特徴マップだけを使って検出を行う。",
+      "SSDは、特徴マップの各位置に、大きさや縦横比の異なるデフォルトボックスを置く。",
+      "Fast R-CNNは、画像全体を1回だけCNNに通し、特徴マップから候補領域の部分を切り出す。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "SSDがただ1つの大きさの特徴マップだけを使うという記述が誤りである。SSDは、大きさの異なる複数の特徴マップで検出を行う。",
+    "choiceExplanations": [
+      "適切である。YOLOの説明である。",
+      "不適切である（本問の答え）。SSDは、大きさの異なる複数の特徴マップで検出を行う。",
+      "適切である。デフォルトボックスからのずれとカテゴリを予測する。",
+      "適切である。RoI Poolingの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["YOLO", "SSD", "デフォルトボックス"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "YOLOとSSDの補足（p.261〜262）",
+    "sourceReference": "補遺「画像認識」YOLOとSSDの補足（公式テキスト p.262）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-034",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s02",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "セマンティックセグメンテーションのモデルに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "FCNは、分類用CNNの全結合層を畳み込み層に置き換え、ピクセルごとの出力を得る。",
+      "DeepLabは、フィルタの要素の間を空けるAtrous Convolutionを使い、受容野を広げる。",
+      "PSPNetは、エンコーダーのMaxプーリングで選んだ位置を記録し、デコーダーで拡大するときに使う。",
+      "SegNetは、エンコーダー（縮小）とデコーダー（拡大）からなる構造を持つ。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "プーリングの位置を記録して拡大に使うのはPSPNetではなくSegNetであり、この記述が誤りである。PSPNetは、Pyramid Pooling Moduleで大きさの異なる区画のプーリング結果を連結する。",
+    "choiceExplanations": [
+      "適切である。全結合層がないため、任意の大きさの画像を入力できる。",
+      "適切である。DeepLab v2以降は、間隔の異なるAtrous Convolutionを並列にかけるASPPも使う。",
+      "不適切である（本問の答え）。これはSegNetの説明である。PSPNetは、Pyramid Pooling Moduleで大きさの異なる区画のプーリング結果を連結する。",
+      "適切である。SegNetの構造である。"
+    ],
+    "tags": {
+      "contentTags": ["PSPNet", "SegNet", "DeepLab", "FCN"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "PSPNet（Pyramid Scene Parsing Network）（p.267）",
+    "sourceReference": "補遺「画像認識」PSPNet（公式テキスト p.267）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-035",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s02",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "パノプティックセグメンテーションの説明として、最も適切なものはどれか。",
+    "choices": [
+      "画像全体に対して、写っているもののカテゴリを1つだけ答える。",
+      "画像に写る物体を囲む枠と、その物体のカテゴリだけを答える。",
+      "ピクセルごとにカテゴリを割り当てるが、同じカテゴリの個体どうしは区別しない。",
+      "背景はカテゴリで、人や車などの物体は個体を区別して、すべてのピクセルに割り当てる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "セマンティックセグメンテーションとインスタンスセグメンテーションを統合したタスクである。",
+    "choiceExplanations": [
+      "誤りである。画像分類（物体識別）の説明である。",
+      "誤りである。物体検出の説明である。",
+      "誤りである。セマンティックセグメンテーションの説明である。",
+      "正しい（本問の答え）。セマンティックセグメンテーションとインスタンスセグメンテーションを統合したタスクである。"
+    ],
+    "tags": {
+      "contentTags": [
+        "パノプティックセグメンテーション",
+        "セマンティックセグメンテーション",
+        "インスタンスセグメンテーション"
+      ],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "パノプティックセグメンテーション（p.263）",
+    "sourceReference": "補遺「画像認識」パノプティックセグメンテーション（公式テキスト p.263）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-036",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s02",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "画像に写る複数の人の姿勢を推定する手法で、関節の位置を表すヒートマップと、関節どうしのつながりを表すParts Affinity Fields（PAF）を同時に推定するものはどれか。",
+    "choices": ["OpenPose", "Mask R-CNN", "U-Net", "YOLO"],
+    "correctAnswer": 0,
+    "explanation": "正解は「OpenPose」である。先に画像全体から関節を見つけ、あとで人ごとに組み立てる（ボトムアップ型）。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。先に画像全体から関節を見つけ、あとで人ごとに組み立てる（ボトムアップ型）。",
+      "誤りである。Mask R-CNNは、物体の枠とマスク（ピクセル単位の形）を推定するインスタンスセグメンテーションのモデルである。",
+      "誤りである。U-Netは、セマンティックセグメンテーションのモデルである。",
+      "誤りである。YOLOは、物体検出のモデルである。"
+    ],
+    "tags": {
+      "contentTags": ["OpenPose", "姿勢推定", "Parts Affinity Fields"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+    "sourceHeading": "姿勢推定とOpenPose（p.268）",
+    "sourceReference": "補遺「画像認識」姿勢推定とOpenPose（公式テキスト p.268）",
+    "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
   }
 ]
