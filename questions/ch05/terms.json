@@ -192,5 +192,383 @@
     "contentVersion": "a0da7757796d541c732b1695eb16e3113bc2ea2e7cd750113b6ab79b42a0bc39",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-007",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ウマの写真の集まりとシマウマの写真の集まりのように、対応する画像の組（ペア）がなくても、2つの画像の集まりの間で画像を変換できるGANはどれか。",
+    "choices": ["Pix2Pix", "DCGAN", "CycleGAN", "Diffusion Model"],
+    "correctAnswer": 2,
+    "explanation": "正解は「CycleGAN」である。A→BとB→Aの変換器を同時に学習し、変換して戻したら元の画像に戻るように学習する（サイクル一貫性損失）。",
+    "choiceExplanations": [
+      "誤りである。Pix2Pixは、変換前と変換後が1対1で対応した画像の組（ペア）が必要である。",
+      "誤りである。DCGANは、GANの生成器と識別器に畳み込みニューラルネットワークを使ったモデルで、ペアなしの画像変換を目的として設計されたモデルではない。",
+      "正しい（本問の答え）。A→BとB→Aの変換器を同時に学習し、変換して戻したら元の画像に戻るように学習する（サイクル一貫性損失）。",
+      "誤りである。拡散モデル（Diffusion Model）は、ノイズを少しずつ取り除いて画像を生成するモデルで、2つの画像の集まりの間で変換するGANではない。"
+    ],
+    "tags": {
+      "contentTags": ["CycleGAN", "Pix2Pix"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "CycleGAN（p.302）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」CycleGAN（公式テキスト p.302）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-008",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "GANを使ったデータ生成のモデルに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "DCGANは、生成器と識別器に畳み込みニューラルネットワークを使い、学習を安定させた。",
+      "Pix2Pixは、変換前の画像を条件として与える条件付きGANの一種である。",
+      "Pix2Pixは、対応する画像の組（ペア）がなくても学習できる点が最大の特徴である。",
+      "CycleGANは、A→Bの変換器とB→Aの変換器を同時に学習する。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Pix2Pixがペアの画像なしで学習できるという記述が誤りである。Pix2Pixは、変換前と変換後が対応した画像の組（ペア）が必要である。ペアが不要なのはCycleGANである。",
+    "choiceExplanations": [
+      "適切である。プーリング層の代わりにストライド付きの畳み込みを使い、バッチ正規化を入れるなどの工夫をした。",
+      "適切である。線画から写真への変換などに使われる。",
+      "不適切である（本問の答え）。Pix2Pixは、変換前と変換後が対応した画像の組（ペア）が必要である。ペアが不要なのはCycleGANである。",
+      "適切である。サイクル一貫性損失を使う。"
+    ],
+    "tags": {
+      "contentTags": ["Pix2Pix", "DCGAN", "CycleGAN"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "Pix2Pix（p.302）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Pix2Pix（公式テキスト p.302）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-009",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "NeRF（Neural Radiance Fields）の説明として、最も適切なものはどれか。",
+    "choices": [
+      "ノイズを少しずつ取り除いていく過程を学習し、文章の指示に合った新しい画像を生成する。",
+      "複数の視点から撮影した画像をもとに場面を学習し、撮影していない新しい視点からの画像を生成する。",
+      "対応する画像の組がなくても、2つの画像の集まりの間で、画像の見た目を別の種類に変換する。",
+      "画像と説明文の組を大量に使って学習し、画像と言葉を同じ埋め込み空間の上で結び付ける。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "3次元の位置と見る方向から、その点の色と密度を出力するニューラルネットワークを学習する。",
+    "choiceExplanations": [
+      "誤りである。拡散モデルの説明である。",
+      "正しい（本問の答え）。3次元の位置と見る方向から、その点の色と密度を出力するニューラルネットワークを学習する。",
+      "誤りである。CycleGANの説明である。",
+      "誤りである。CLIPの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["NeRF"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "NeRF（Neural Radiance Fields）（p.304）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」NeRF（公式テキスト p.304）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-010",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "少量のラベル付きデータと、大量のラベルなしデータを両方使って学習する方法を何と呼ぶか。",
+    "choices": ["自己教師あり学習", "半教師あり学習", "強化学習", "継続学習"],
+    "correctAnswer": 1,
+    "explanation": "正解は「半教師あり学習」である。ラベル付けの手間を減らせる。代表的な手法にFixMatchがある。",
+    "choiceExplanations": [
+      "誤りである。自己教師あり学習は、人がラベルを付けずに、データそのものから正解を作って学習する方法である。ラベル付きデータを併用することを前提とする語ではない。",
+      "正しい（本問の答え）。ラベル付けの手間を減らせる。代表的な手法にFixMatchがある。",
+      "誤りである。強化学習は、環境との相互作用で得られる報酬をもとに行動を学習する方法である。",
+      "誤りである。継続学習は、新しいタスクを次々に学習しながら、前に学習したことを忘れないようにする学習である。"
+    ],
+    "tags": {
+      "contentTags": ["半教師あり学習", "自己教師あり学習"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "半教師あり学習（p.307）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」半教師あり学習（公式テキスト p.307）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-011",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "自己教師あり学習で、画像を回転させて何度回転したかを当てる、文章の一部の単語を隠して当てる、といった、特徴を学ぶために解かせる仮の課題を何と呼ぶか。",
+    "choices": ["プレテキストタスク", "ダウンストリームタスク", "メタ学習", "一致性正則化"],
+    "correctAnswer": 0,
+    "explanation": "正解は「プレテキストタスク」である。課題そのものが目的ではなく、それを解く中で得られた特徴を、あとで本来のタスクに転用する。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。課題そのものが目的ではなく、それを解く中で得られた特徴を、あとで本来のタスクに転用する。",
+      "誤りである。ダウンストリームタスク（下流タスク）は、事前学習したモデルを転用して解く本来のタスクのことであり、仮の課題ではない。",
+      "誤りである。メタ学習は、多くのタスクで学習して「学習の仕方」を身につける方法である。",
+      "誤りである。一致性正則化は、同じデータに異なる加工をしても予測が同じになるように学習する、半教師あり学習の考え方である。"
+    ],
+    "tags": {
+      "contentTags": ["プレテキストタスク", "自己教師あり学習"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "自己教師あり学習とプレテキストタスク（p.308）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」自己教師あり学習とプレテキストタスク（公式テキスト p.308）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-012",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "メタ学習とMAML（Model-Agnostic Meta-Learning）に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "メタ学習は、「学習の仕方を学習する」ことを目指す。",
+      "メタ学習では、多くのタスクで学習しておき、新しいタスクを少ないデータで素早く学習できるようにする。",
+      "MAMLは、少ない回数の勾配降下で新しいタスクに適応できるような、パラメータの初期値を学習する。",
+      "MAMLは、特定のネットワーク構造でしか使えないことが、名前の由来である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "MAMLが特定のネットワーク構造でしか使えないという記述が誤りである。Model-Agnosticは「モデルの種類を問わない」という意味で、勾配に基づく適応ができるさまざまなモデルに適用できる。",
+    "choiceExplanations": [
+      "適切である。メタ学習の考え方である。",
+      "適切である。Few-shot学習と結び付けて使われる。",
+      "適切である。MAMLの仕組みである。",
+      "不適切である（本問の答え）。Model-Agnosticは「モデルの種類を問わない」という意味で、勾配に基づく適応ができるさまざまなモデルに適用できる。"
+    ],
+    "tags": {
+      "contentTags": ["メタ学習", "MAML"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "メタ学習とMAML（p.307）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」メタ学習とMAML（公式テキスト p.307）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-013",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "学習済みのモデルに新しいタスクを学習させると、前に学習したタスクの性能が大きく落ちてしまう現象を何と呼ぶか。",
+    "choices": ["破滅的忘却", "過学習", "勾配消失問題", "モード崩壊"],
+    "correctAnswer": 0,
+    "explanation": "正解は「破滅的忘却」である。これを防ぎながら次々にタスクを学習する方法を継続学習という。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。これを防ぎながら次々にタスクを学習する方法を継続学習という。",
+      "誤りである。過学習は、訓練データに合わせすぎて、未知のデータでの性能が落ちる現象である。",
+      "誤りである。勾配消失問題は、層が深いと誤差逆伝播で勾配が小さくなり、学習が進まなくなる現象である。",
+      "誤りである。モード崩壊は、GANの生成器が似たようなデータばかりを生成するようになる現象である。"
+    ],
+    "tags": {
+      "contentTags": ["破滅的忘却", "継続学習"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "破滅的忘却と継続学習（p.309）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」破滅的忘却と継続学習（公式テキスト p.309）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-014",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s04",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "画像分類などで用いられる従来のZero-shot学習（学習時に見ていないクラスの認識）の説明として、最も適切なものはどれか。",
+    "choices": [
+      "新しいクラスを、そのクラスの少数（数個）のラベル付きの例から学習して認識する。",
+      "新しいクラスを、そのクラスのラベル付きの例が1つだけの状態から学習して認識する。",
+      "そのクラスを含む大量のラベル付きデータで、モデル全体の重みを最初から学習し直す。",
+      "例が1つもないクラスを、クラスの説明（属性や言葉）などの補助情報を使って認識する。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "例えば「シマウマは白黒のしま模様のウマ」という説明から、シマウマの画像を見たことがなくても見分ける。",
+    "choiceExplanations": [
+      "誤りである。Few-shot学習の説明である。",
+      "誤りである。One-shot学習の説明である。",
+      "誤りである。Zero-shot学習は、そのクラスのラベル付きデータを使わずに認識することを指す。",
+      "正しい（本問の答え）。例えば「シマウマは白黒のしま模様のウマ」という説明から、シマウマの画像を見たことがなくても見分ける。"
+    ],
+    "tags": {
+      "contentTags": ["Zero-shot学習", "Few-shot学習"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "Few-shot学習・One-shot学習・Zero-shot学習（p.307）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Few-shot学習・One-shot学習・Zero-shot学習（公式テキスト p.307）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-015",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s10",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "CLIPの説明として、最も適切なものはどれか。",
+    "choices": [
+      "対応する画像と文章の埋め込みが近くなるように学習し、Zero-shotで画像を分類できる。",
+      "文章の指示から、拡散モデルだけを使って高い解像度の画像を直接生成するモデルである。",
+      "画像と文章が交互に並んだ入力を受け取り、凍結した言語モデルで文章を生成する。",
+      "画像や文章の入力と出力をすべてトークンの列に変換して、多くのタスクを1つでこなす。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "クラス名から「〜の写真」のような文章を作り、画像の埋め込みと最も近い文章のクラスを答えにする。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。クラス名から「〜の写真」のような文章を作り、画像の埋め込みと最も近い文章のクラスを答えにする。",
+      "誤りである。CLIPは画像を生成するモデルではない。文章から画像を生成するのはDALL-Eなどである。",
+      "誤りである。Flamingoの説明である。",
+      "誤りである。Unified-IOの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["CLIP", "Zero-shot学習"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "CLIP（p.310）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」CLIP（公式テキスト p.310）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-016",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s10",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "事前学習済みの画像エンコーダーと大規模言語モデルの重みを固定したまま、その間をつなぐ部分だけを学習し、画像と文章が交互に並んだ入力から文章を出力する視覚言語モデルはどれか。",
+    "choices": ["CLIP", "DALL-E", "Unified-IO", "Flamingo"],
+    "correctAnswer": 3,
+    "explanation": "正解は「Flamingo」である。画像だけでなく動画も扱える。プロンプトにいくつかの例を示すだけで、追加学習なしに新しいタスクをこなせる（Few-shot）。",
+    "choiceExplanations": [
+      "誤りである。CLIPは、画像と文章を同じ埋め込み空間に結び付けるモデルで、文章を生成するモデルではない。",
+      "誤りである。DALL-Eは、文章から画像を生成するモデルである。",
+      "誤りである。Unified-IOは、入出力をすべてトークンの列にして、1つのTransformerで多くのタスクをこなすモデルである。",
+      "正しい（本問の答え）。画像だけでなく動画も扱える。プロンプトにいくつかの例を示すだけで、追加学習なしに新しいタスクをこなせる（Few-shot）。"
+    ],
+    "tags": {
+      "contentTags": ["Flamingo"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "Flamingo（p.310）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Flamingo（公式テキスト p.310）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-017",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s10",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "マルチモーダルタスクに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "Image Captioningは、画像を入力し、その画像の内容を説明する文章を出力するタスクである。",
+      "Text-to-Imageは、文章を入力し、その文章の内容に合った画像を生成して出力するタスクである。",
+      "Visual Question Answeringは、文章を入力し、その文章に合った画像を検索して出力する。",
+      "DALL-Eは、文章から画像を生成するText-to-Imageを行うモデルの代表的な例である。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Visual Question Answeringを、文章に合った画像を検索するタスクとする記述が誤りである。Visual Question Answeringは、画像と質問文を入力し、答えを出力するタスクである。",
+    "choiceExplanations": [
+      "適切である。初期の代表的な方法は、CNNで画像の特徴を取り出し、RNNで文章を生成する。",
+      "適切である。DALL-Eや拡散モデルを使う画像生成AIなどが行う。",
+      "不適切である（本問の答え）。Visual Question Answeringは、画像と質問文を入力し、答えを出力するタスクである。",
+      "適切である。DALL-Eは文章から画像を生成する。"
+    ],
+    "tags": {
+      "contentTags": ["Visual Question Answering", "Image Captioning", "Text-to-Image"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "マルチモーダルタスク（p.310）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」マルチモーダルタスク（公式テキスト p.310）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-018",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s10",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "画像や文章などの入力と出力を、すべて共通のトークンの列に変換し、1つのTransformerで物体検出、画像生成、視覚質問応答など多くのタスクをこなすモデルはどれか。",
+    "choices": ["CLIP", "Unified-IO", "Flamingo", "Vision Transformer"],
+    "correctAnswer": 1,
+    "explanation": "正解は「Unified-IO」である。タスクごとに専用の出力部分を作らず、1つのモデルでマルチタスク学習を行う。",
+    "choiceExplanations": [
+      "誤りである。CLIPは、画像と文章を同じ埋め込み空間に結び付けるモデルで、多くのタスクの出力をトークン列で生成するモデルではない。",
+      "正しい（本問の答え）。タスクごとに専用の出力部分を作らず、1つのモデルでマルチタスク学習を行う。",
+      "誤りである。Flamingoは、凍結した画像エンコーダーと言語モデルをつなぎ、画像と文章から文章を出力するモデルである。",
+      "誤りである。Vision Transformerは、画像をパッチに分けてTransformerで処理する画像分類のモデルで、多くのタスクの入出力をまとめて扱うモデルではない。"
+    ],
+    "tags": {
+      "contentTags": ["Unified-IO", "マルチタスク学習"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
+    "sourceHeading": "Unified-IO（p.310）",
+    "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Unified-IO（公式テキスト p.310）",
+    "contentVersion": "2ad495f184eb82cf69321859bc6e4b1c5b339f089c7dccda69fb174e1e7262b3",
+    "createdAt": "2026-11-07",
+    "reviewStatus": "draft"
   }
 ]

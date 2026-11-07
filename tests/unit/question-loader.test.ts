@@ -19,8 +19,8 @@ const expectedTotal = (chapterId: string) =>
 const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(id), 0);
 // すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加している（2026-11-01、全20問）。
 const MULTIPLE_TOTAL = 20;
-// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第5章に6問・第6章に36問・第9章に12問・第10章に12問）。
-const TERM_CHECK_TOTAL = 66;
+// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-06、第5章に18問・第6章に36問・第9章に12問・第10章に12問）。
+const TERM_CHECK_TOTAL = 78;
 // 計算問題（category: "calculation"、補遺が出典）も別枠（2026-11-06、第3章2問・第5章5問・第8章13問）。
 const CALCULATION_TOTAL = 20;
 const single = (chapterId: string) =>
@@ -87,7 +87,7 @@ describe("question-loader（全10章）", () => {
       CHAPTER_IDS.flatMap((id) => getExamQuestionsByChapter(id)).map((q) => q.id),
     );
     expect(terms.some((q) => examIds.has(q.id))).toBe(false);
-    expect(filterQuestions({ chapterId: "ch05", category: "term_check" })).toHaveLength(6);
+    expect(filterQuestions({ chapterId: "ch05", category: "term_check" })).toHaveLength(18);
     expect(filterQuestions({ chapterId: "ch06", category: "term_check" })).toHaveLength(36);
     expect(filterQuestions({ chapterId: "ch09", category: "term_check" })).toHaveLength(12);
     expect(filterQuestions({ chapterId: "ch10", category: "term_check" })).toHaveLength(12);
