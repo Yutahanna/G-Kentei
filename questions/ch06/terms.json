@@ -999,7 +999,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "R-CNN系列の補足（p.261）",
     "sourceReference": "補遺「画像認識」R-CNN系列の補足（公式テキスト p.261）",
-    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
+    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1028,7 +1028,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "FPN（Feature Pyramid Network）（p.261）",
     "sourceReference": "補遺「画像認識」FPN（公式テキスト p.261）",
-    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
+    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1044,7 +1044,7 @@
       "YOLOは、画像をグリッドに分け、各マスで枠と確信度、カテゴリを一度に予測する。",
       "SSDは、ただ1つの大きさの特徴マップだけを使って検出を行う。",
       "SSDは、特徴マップの各位置に、大きさや縦横比の異なるデフォルトボックスを置く。",
-      "Fast R-CNNは、画像全体を1回だけCNNに通し、特徴マップから候補領域の部分を切り出す。"
+      "Faster R-CNNは、RPNを用いて候補領域を提案し、検出の処理と畳み込みの特徴を共有する。"
     ],
     "correctAnswer": 1,
     "explanation": "SSDがただ1つの大きさの特徴マップだけを使うという記述が誤りである。SSDは、大きさの異なる複数の特徴マップで検出を行う。",
@@ -1052,17 +1052,17 @@
       "適切である。YOLOの説明である。",
       "不適切である（本問の答え）。SSDは、大きさの異なる複数の特徴マップで検出を行う。",
       "適切である。デフォルトボックスからのずれとカテゴリを予測する。",
-      "適切である。RoI Poolingの説明である。"
+      "適切である。RPNは、検出の処理と畳み込みの特徴（特徴マップ）を共有する。"
     ],
     "tags": {
-      "contentTags": ["YOLO", "SSD", "デフォルトボックス"],
+      "contentTags": ["YOLO", "SSD", "デフォルトボックス", "Faster R-CNN"],
       "skillTags": ["比較"],
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "YOLOとSSDの補足（p.261〜262）",
     "sourceReference": "補遺「画像認識」YOLOとSSDの補足（公式テキスト p.262）",
-    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
+    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1096,7 +1096,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "PSPNet（Pyramid Scene Parsing Network）（p.267）",
     "sourceReference": "補遺「画像認識」PSPNet（公式テキスト p.267）",
-    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
+    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1134,7 +1134,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "パノプティックセグメンテーション（p.263）",
     "sourceReference": "補遺「画像認識」パノプティックセグメンテーション（公式テキスト p.263）",
-    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
+    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -1163,7 +1163,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "姿勢推定とOpenPose（p.268）",
     "sourceReference": "補遺「画像認識」姿勢推定とOpenPose（公式テキスト p.268。姿勢推定は物体検出と関連する別のタスク）",
-    "contentVersion": "67cac26fe5d363a2c6c4739294489779b5dbb27606d55773392c10f4ae642609",
+    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   }
