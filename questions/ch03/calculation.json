@@ -79,7 +79,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "割引率（p.146）",
     "sourceReference": "補遺「強化学習の基礎」割引率（公式テキスト p.146）",
-    "contentVersion": "2cdaec0bc9ee44cf36255bb9d3efba3aacda8d9cc08d5fef9df54caf5f02d9e5",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -107,7 +107,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "ε-greedy方策（p.147）",
     "sourceReference": "補遺「強化学習の基礎」ε-greedy方策（公式テキスト p.147）",
-    "contentVersion": "2cdaec0bc9ee44cf36255bb9d3efba3aacda8d9cc08d5fef9df54caf5f02d9e5",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -135,7 +135,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "Q学習（p.148）",
     "sourceReference": "補遺「強化学習の基礎」Q学習（公式テキスト p.148）",
-    "contentVersion": "2cdaec0bc9ee44cf36255bb9d3efba3aacda8d9cc08d5fef9df54caf5f02d9e5",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   }
