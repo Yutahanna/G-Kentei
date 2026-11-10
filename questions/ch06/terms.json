@@ -29,7 +29,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "DQN（Deep Q-Network）",
     "sourceReference": "補遺「深層強化学習」DQN（公式テキスト p.287）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -63,7 +63,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "ダブルDQN（p.288）",
     "sourceReference": "補遺「深層強化学習」ダブルDQN（公式テキスト p.288）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -97,7 +97,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "Rainbow（p.288）",
     "sourceReference": "補遺「深層強化学習」Rainbow（公式テキスト p.288）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -131,7 +131,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "ドメインランダマイゼーション（p.298）",
     "sourceReference": "補遺「深層強化学習」ドメインランダマイゼーション（公式テキスト p.298）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -165,7 +165,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "sim2real（p.298）",
     "sourceReference": "補遺「深層強化学習」sim2real（公式テキスト p.298）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -199,7 +199,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "オフライン強化学習（p.297）",
     "sourceReference": "補遺「深層強化学習」オフライン強化学習（公式テキスト p.297）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -228,7 +228,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "残差強化学習（p.298）",
     "sourceReference": "補遺「深層強化学習」残差強化学習（公式テキスト p.298）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -262,7 +262,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "報酬成形（p.295）",
     "sourceReference": "補遺「深層強化学習」報酬成形（公式テキスト p.295）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -296,7 +296,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "OpenAI Five（p.292）",
     "sourceReference": "補遺「深層強化学習」OpenAI Five（公式テキスト p.292,293）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -325,7 +325,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "内発的報酬（p.288）",
     "sourceReference": "補遺「深層強化学習」内発的報酬（公式テキスト p.288）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -1197,7 +1197,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "ノイジーネットワーク（p.288）",
     "sourceReference": "補遺「深層強化学習」ノイジーネットワーク（公式テキスト p.288）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1231,7 +1231,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "優先度付き経験再生（p.288）",
     "sourceReference": "補遺「深層強化学習」優先度付き経験再生（公式テキスト p.288）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1260,7 +1260,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "カテゴリカルDQN（p.288）",
     "sourceReference": "補遺「深層強化学習」カテゴリカルDQN（公式テキスト p.288）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1294,7 +1294,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "デュエリングネットワーク（p.288）",
     "sourceReference": "補遺「深層強化学習」デュエリングネットワーク（公式テキスト p.288）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1328,7 +1328,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "A3C（Asynchronous Advantage Actor-Critic）",
     "sourceReference": "補遺「深層強化学習」A3C（Asynchronous Advantage Actor-Critic）（A3C自体は公式テキストに記載なし。関連ページ p.149：Actor-Critic・方策勾配法の掲載ページ）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1357,7 +1357,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "PPO（Proximal Policy Optimization）",
     "sourceReference": "補遺「深層強化学習」PPO（Proximal Policy Optimization）（PPO自体は公式テキストに記載なし。関連ページ p.149：Actor-Critic・方策勾配法の掲載ページ）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1391,7 +1391,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "AlphaStar（アルファスター）（p.293）",
     "sourceReference": "補遺「深層強化学習」AlphaStar（アルファスター）（公式テキスト p.293）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1425,7 +1425,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "マルチエージェント強化学習（MARL）（p.292）",
     "sourceReference": "補遺「深層強化学習」マルチエージェント強化学習（MARL）（公式テキスト p.292）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1454,7 +1454,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "模倣学習（p.296）",
     "sourceReference": "補遺「深層強化学習」模倣学習（公式テキスト p.296）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -1488,7 +1488,7 @@
     "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
     "sourceHeading": "連続値制御（p.295）",
     "sourceReference": "補遺「深層強化学習」連続値制御（公式テキスト p.295）",
-    "contentVersion": "3ca600d07a2502cde43b11c8c940e8fad34e90e695898753c3c2a92e192f572a",
+    "contentVersion": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   }
