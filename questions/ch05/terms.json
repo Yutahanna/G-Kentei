@@ -565,5 +565,238 @@
     "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-019",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ノーフリーランチの定理の説明として、最も適切なものはどれか。",
+    "choices": [
+      "同じ程度にうまく説明できるなら、仮定が少なく単純なモデルを選ぶべきだという考え方である。",
+      "学習を続けると、訓練データでの誤差は下がり続けても、検証データでの誤差が上がり始めるという現象である。",
+      "どんな問題でも最も良い性能を出す、万能の最適化アルゴリズムは存在しないという定理である。",
+      "データの次元が増えるほど、必要なデータ量が急激に増え、学習が難しくなるという問題である。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "あらゆる問題を平均すると、どのアルゴリズムの性能も同じになる。そのため、問題に合わせて手法を選ぶ必要がある。",
+    "choiceExplanations": [
+      "誤りである。オッカムの剃刀の説明である。",
+      "誤りである。過学習が起きているときの様子の説明である。",
+      "正しい（本問の答え）。あらゆる問題を平均すると、どのアルゴリズムの性能も同じになる。そのため、問題に合わせて手法を選ぶ必要がある。",
+      "誤りである。次元の呪いの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["ノーフリーランチの定理"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "ノーフリーランチの定理（p.194）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」ノーフリーランチの定理（公式テキスト p.194）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-020",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "バッチ学習に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "新しいデータが届くたびに、そのデータ1件だけで更新を進められる。",
+      "訓練データ全体を使って勾配を計算し、パラメータを更新する。",
+      "1エポック（訓練データを1周）でのパラメータの更新は1回になる。",
+      "勾配が安定する一方、データが大きいと1回の更新に時間とメモリがかかる。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "バッチ学習が新しいデータ1件ずつで更新を進められるという記述が誤りである。データを1件ずつ使って更新するのは、オンライン学習である。バッチ学習では、新しいデータが加わると、全体を使って学習し直す。",
+    "choiceExplanations": [
+      "不適切である（本問の答え）。データを1件ずつ使って更新するのは、オンライン学習である。バッチ学習では、新しいデータが加わると、全体を使って学習し直す。",
+      "適切である。これがバッチ学習の定義である。",
+      "適切である。ミニバッチ学習では、ミニバッチの数だけ更新する。",
+      "適切である。そのため、ディープラーニングではミニバッチ学習がよく使われる。"
+    ],
+    "tags": {
+      "contentTags": ["バッチ学習", "オンライン学習"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "バッチ学習（p.188）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」バッチ学習（公式テキスト p.188）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-021",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "CNNの畳み込み操作の説明として、最も適切なものはどれか。",
+    "choices": [
+      "小さな領域の中の最大値や平均値を代表値として出力し、特徴マップを小さくする操作である。",
+      "フィルタを入力の上でずらしながら、重なった値どうしの積の合計を求め、特徴マップを作る操作である。",
+      "学習中に一部のニューロンをランダムに選んで無効にし、特定のニューロンへの依存と過学習を抑える操作である。",
+      "層への入力の分布をミニバッチごとにそろえ、学習を安定させる操作である。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "同じフィルタを画像全体で使う（重みの共有）ので、全結合層よりパラメータが少なくて済む。",
+    "choiceExplanations": [
+      "誤りである。プーリングの説明である。",
+      "正しい（本問の答え）。同じフィルタを画像全体で使う（重みの共有）ので、全結合層よりパラメータが少なくて済む。",
+      "誤りである。Dropoutの説明である。",
+      "誤りである。バッチ正規化（Batch Normalization）の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["畳み込み操作", "CNN"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "畳み込み操作（索引なし。関連：畳み込み層 p.218）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」畳み込み操作（公式テキストの関連ページ p.218：畳み込み層の掲載ページ。畳み込み操作自体は索引にない）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-022",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "プーリング層に関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "プーリング層は、フィルタの重みを学習して、画像の中の特徴を検出する。",
+      "平均値プーリングは、領域の中の値の最大値を代表値として出力する。",
+      "プーリングによって、位置の小さなずれに対して、出力が変わりにくくなる。",
+      "プーリングを使うと、対象の位置が大きく変わっても必ず同じ出力になる。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "小さな領域の代表値だけを残すので、その中で値の位置が少し動いても出力が変わりにくい（不変性の獲得）。",
+    "choiceExplanations": [
+      "誤りである。プーリング層には、学習するパラメータがない。フィルタの重みを学習して特徴を検出するのは、畳み込み層である。",
+      "誤りである。最大値を出力するのは最大値プーリングである。平均値プーリングは、領域の中の値の平均を出力する。",
+      "正しい（本問の答え）。小さな領域の代表値だけを残すので、その中で値の位置が少し動いても出力が変わりにくい（不変性の獲得）。",
+      "誤りである。言い過ぎである。プーリングで強くなるのは、小さな位置のずれに対してであり、大きく位置が変わっても必ず同じ出力になるわけではない。"
+    ],
+    "tags": {
+      "contentTags": ["平均値プーリング", "不変性の獲得"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "平均値プーリング（p.222）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」平均値プーリング（公式テキスト p.222）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-023",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s11",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "データ1つ（画像1枚）ごと、チャネル1つごとに平均と分散をそろえる正規化で、画像のスタイル変換などで使われるものを何と呼ぶか。",
+    "choices": ["インスタンス正規化", "バッチ正規化", "レイヤー正規化", "グループ正規化"],
+    "correctAnswer": 0,
+    "explanation": "正解は「インスタンス正規化」である。画像1枚ごとの明るさやコントラストの違いを取り除きたい場面で使われる。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。画像1枚ごとの明るさやコントラストの違いを取り除きたい場面で使われる。",
+      "誤りである。バッチ正規化は、ミニバッチ内の複数のデータをまとめて、チャネルごとに正規化する。",
+      "誤りである。レイヤー正規化は、データ1つごとに、すべてのチャネルをまとめて正規化する。",
+      "誤りである。グループ正規化は、データ1つごとに、チャネルをいくつかのグループに分けて正規化する。"
+    ],
+    "tags": {
+      "contentTags": ["インスタンス正規化", "正規化層"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "インスタンス正規化（p.225）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」インスタンス正規化（公式テキスト p.225）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-024",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s02",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "エルマンネットワークとジョルダンネットワークの説明として、最も適切なものはどれか。",
+    "choices": [
+      "エルマンネットワークは出力層の出力を、ジョルダンネットワークは中間層の出力を、次の時刻に戻す。",
+      "どちらも回帰結合を持たず、入力から出力へ一方向にだけ情報が流れるネットワークである。",
+      "エルマンネットワークは中間層の出力を、ジョルダンネットワークは出力層の出力を、次の時刻に戻す。",
+      "どちらも、Attentionを使って、系列の中の離れた要素どうしの関係を直接計算するネットワークである。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "エルマンネットワークの形が、現在の一般的なRNNの基本形である。",
+    "choiceExplanations": [
+      "誤りである。逆である。中間層の出力を戻すのがエルマン、出力層の出力を戻すのがジョルダンである。",
+      "誤りである。どちらも、前の時刻の情報を次の時刻に戻す回帰結合を持つ、初期の単純なRNNである。",
+      "正しい（本問の答え）。エルマンネットワークの形が、現在の一般的なRNNの基本形である。",
+      "誤りである。Attentionを使って離れた要素どうしの関係を直接計算するのは、Transformerなどである。"
+    ],
+    "tags": {
+      "contentTags": ["エルマンネットワーク", "ジョルダンネットワーク"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "エルマンネットワーク・ジョルダンネットワーク（p.227）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」エルマンネットワーク・ジョルダンネットワーク（公式テキスト p.227）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-025",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "Attentionのクエリ・キー・バリューに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "クエリと各キーの類似度から重みを計算し、その重みでバリューを足し合わせる。",
+      "バリューどうしの類似度から重みを計算し、その重みでクエリを足し合わせる。",
+      "Self-Attentionでは、クエリ・キー・バリューを同じ系列から作る。",
+      "Source-Target Attentionでは、クエリを出力側、キーとバリューを入力側から作る。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "バリューどうしの類似度から重みを計算し、その重みでクエリを足し合わせるという記述が誤りである。重みは、クエリと各キーの類似度から計算し、その重みで足し合わせるのはバリューである。",
+    "choiceExplanations": [
+      "適切である。類似度はソフトマックス関数で合計1の重みにしてから使う。",
+      "不適切である（本問の答え）。重みは、クエリと各キーの類似度から計算し、その重みで足し合わせるのはバリューである。",
+      "適切である。同じ系列の中の要素どうしの関係を計算する。",
+      "適切である。翻訳なら、出力側（デコーダ）が、入力側（エンコーダ）のどこに注目するかを計算する。"
+    ],
+    "tags": {
+      "contentTags": ["クエリ", "キー", "バリュー", "Attention"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "クエリ・キー・バリュー（p.238）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」クエリ・キー・バリュー（公式テキスト p.238）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

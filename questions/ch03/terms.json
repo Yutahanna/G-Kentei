@@ -386,5 +386,39 @@
     "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-013",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "正則化に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "L0正則化は、0でない重みの個数にペナルティを与え、使う重みの数そのものを減らす。",
+      "L1正則化は、重みの絶対値の合計にペナルティを与え、重みを0にしやすい。",
+      "L2正則化は、重みの2乗の合計にペナルティを与え、重み全体を小さくする。",
+      "L0正則化は、微分を使う勾配法でそのまま容易に最適化できる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "L0正則化が勾配法でそのまま容易に最適化できるという記述が誤りである。重みの個数は少しずつ変化する量ではないので、勾配法でそのまま最適化するのは難しい。そのため、L1正則化で代わりにすることが多い。",
+    "choiceExplanations": [
+      "適切である。最も直接的に重みの数を減らす正則化である。",
+      "適切である。不要な特徴の重みが0になりやすく、特徴の選択につながる。",
+      "適切である。重みが極端に大きくなるのを抑える。",
+      "不適切である（本問の答え）。重みの個数は少しずつ変化する量ではないので、勾配法でそのまま最適化するのは難しい。そのため、L1正則化で代わりにすることが多い。"
+    ],
+    "tags": {
+      "contentTags": ["L0正則化", "L1正則化", "L2正則化"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "L0正則化（p.184）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」L0正則化（公式テキスト p.184）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

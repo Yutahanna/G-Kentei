@@ -138,5 +138,94 @@
     "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-006",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "畳み込み操作で、入力の2×2の部分が「左上1、右上2、左下3、右下4」、フィルタが「左上1、右上0、左下0、右下1」のとき、この位置での出力はいくつか（バイアスはないものとする）。",
+    "choices": ["10", "5", "4", "2.5"],
+    "correctAnswer": 1,
+    "explanation": "正解は「5」である。重なった値どうしの積の合計で、1×1 ＋ 2×0 ＋ 3×0 ＋ 4×1 ＝ 5。",
+    "choiceExplanations": [
+      "誤りである。フィルタを掛けずに、入力の値をすべて足した値である。",
+      "正しい（本問の答え）。重なった値どうしの積の合計で、1×1 ＋ 2×0 ＋ 3×0 ＋ 4×1 ＝ 5。",
+      "誤りである。入力の最大値（最大値プーリングの値）である。",
+      "誤りである。入力の平均値（平均値プーリングの値）である。"
+    ],
+    "tags": {
+      "contentTags": ["畳み込み操作"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "畳み込み操作（索引なし。関連：畳み込み層 p.218）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」畳み込み操作（公式テキストの関連ページ p.218：畳み込み層の掲載ページ。畳み込み操作自体は索引にない）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-007",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "2×2の領域の値が 1、3、5、7 のとき、平均値プーリングと最大値プーリングの出力の組み合わせとして、正しいものはどれか。",
+    "choices": [
+      "平均値プーリング 7、最大値プーリング 4",
+      "平均値プーリング 16、最大値プーリング 7",
+      "平均値プーリング 4、最大値プーリング 7",
+      "平均値プーリング 4、最大値プーリング 1"
+    ],
+    "correctAnswer": 2,
+    "explanation": "正解は「平均値プーリング 4、最大値プーリング 7」である。平均値は (1 ＋ 3 ＋ 5 ＋ 7) ÷ 4 ＝ 4、最大値は 7。",
+    "choiceExplanations": [
+      "誤りである。2つを取り違えている。",
+      "誤りである。16は合計であり、4で割っていない。",
+      "正しい（本問の答え）。平均値は (1 ＋ 3 ＋ 5 ＋ 7) ÷ 4 ＝ 4、最大値は 7。",
+      "誤りである。1は最小値であり、最大値プーリングの出力ではない。"
+    ],
+    "tags": {
+      "contentTags": ["平均値プーリング", "最大値プーリング"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "平均値プーリング（p.222）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」平均値プーリング（公式テキスト p.222）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-008",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "訓練データが2,000件ある。バッチサイズ50のミニバッチ学習で5エポック学習したとき、パラメータの更新回数は合計何回か。",
+    "choices": ["200回", "40回", "250回", "10,000回"],
+    "correctAnswer": 0,
+    "explanation": "正解は「200回」である。1エポックの更新回数は 2,000 ÷ 50 ＝ 40回で、5エポックでは 40 × 5 ＝ 200回。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。1エポックの更新回数は 2,000 ÷ 50 ＝ 40回で、5エポックでは 40 × 5 ＝ 200回。",
+      "誤りである。1エポック分の回数であり、5エポック分になっていない。",
+      "誤りである。バッチサイズ50とエポック数5を掛けた値であり、更新回数ではない。",
+      "誤りである。1件ずつ更新するオンライン学習の回数（2,000 × 5）である。"
+    ],
+    "tags": {
+      "contentTags": ["ミニバッチ学習", "バッチ学習"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "バッチ学習（p.188）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」バッチ学習（公式テキスト p.188）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

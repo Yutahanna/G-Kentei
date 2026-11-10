@@ -1,0 +1,123 @@
+[
+  {
+    "id": "ch04-term-001",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s07",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "少数の高性能なコアで、さまざまな種類の処理を順番に素早くこなすのが得意な、コンピュータの中心となる演算装置を何と呼ぶか。",
+    "choices": ["GPU", "CPU", "TPU", "GPGPU"],
+    "correctAnswer": 1,
+    "explanation": "正解は「CPU」である。ディープラーニングの学習のような、同じ形の計算の繰り返しは、CPUよりGPUの方が速く処理できる。",
+    "choiceExplanations": [
+      "誤りである。GPUは、多数のコアで同じ種類の計算を大量に並列で行うのが得意な演算装置である。",
+      "正しい（本問の答え）。ディープラーニングの学習のような、同じ形の計算の繰り返しは、CPUよりGPUの方が速く処理できる。",
+      "誤りである。TPUは、Googleが開発した、ニューラルネットワークの計算に特化した処理装置である。",
+      "誤りである。GPGPUは、GPUを画像処理以外の汎用的な計算に使うことを指し、演算装置そのものの名前ではない。"
+    ],
+    "tags": {
+      "contentTags": ["CPU", "GPU"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "CPU（p.175）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」CPU（公式テキスト p.175）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-term-002",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "2つのデータの組を入力にとり、同じ種類の組なら特徴の距離を小さく、違う種類の組なら一定の距離以上離れるように学習させる誤差関数を何と呼ぶか。",
+    "choices": ["Triplet Loss", "交差エントロピー誤差", "平均二乗誤差", "Contrastive Loss"],
+    "correctAnswer": 3,
+    "explanation": "正解は「Contrastive Loss」である。データどうしの似ている度合いを測れる特徴を学ぶ距離学習で使い、Siamese Networkと組み合わせることが多い。",
+    "choiceExplanations": [
+      "誤りである。Triplet Lossは、アンカー・ポジティブ・ネガティブの3つ組を使い、距離の大小関係を調整する誤差関数である。",
+      "誤りである。交差エントロピー誤差は、正解の確率分布と予測の確率分布のずれを測る誤差関数で、主に分類に使う。",
+      "誤りである。平均二乗誤差は、予測値と正解値の差の2乗の平均で、主に回帰に使う。",
+      "正しい（本問の答え）。データどうしの似ている度合いを測れる特徴を学ぶ距離学習で使い、Siamese Networkと組み合わせることが多い。"
+    ],
+    "tags": {
+      "contentTags": ["Contrastive Loss", "距離学習"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "Contrastive Loss（p.181）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」Contrastive Loss（公式テキスト p.181）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-term-003",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "Triplet Lossの説明として、最も適切なものはどれか。",
+    "choices": [
+      "基準・同種・異種の3つ組を使い、基準と同種の距離が、基準と異種の距離より十分小さくなるよう学習させる。",
+      "正解のクラスの確率分布とモデルが予測した確率分布のずれを測る誤差関数で、主に分類問題の学習に使われる。",
+      "データを生成する役と本物か偽物かを見分ける役を交互に学習させ、本物に近いデータを生成できるようにする。",
+      "予測値と正解値の差を2乗して平均をとる誤差関数で、主に数値を予測する回帰問題の学習に使われる。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "基準をアンカー、同種（同じ種類）をポジティブ、異種（違う種類）をネガティブと呼ぶ。顔認証などで使われる。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。基準をアンカー、同種（同じ種類）をポジティブ、異種（違う種類）をネガティブと呼ぶ。顔認証などで使われる。",
+      "誤りである。交差エントロピー誤差の説明である。",
+      "誤りである。GAN（敵対的生成ネットワーク）の学習のしかたの説明である。",
+      "誤りである。平均二乗誤差の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["Triplet Loss", "距離学習"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "Triplet Loss（p.181）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」Triplet Loss（公式テキスト p.181）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch04-term-004",
+    "chapterId": "ch04",
+    "sectionId": "ch04-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "出力に誤差が出たとき、ネットワークの中のどの重みが、その誤差にどれだけ責任を持つのかを決める問題を何と呼ぶか。誤差逆伝播法は、この問題を解決した。",
+    "choices": ["勾配消失問題", "信用割当問題", "フレーム問題", "次元の呪い"],
+    "correctAnswer": 1,
+    "explanation": "正解は「信用割当問題」である。誤差逆伝播法は、連鎖律を使って、各重みが誤差にどれだけ影響したか（勾配）を計算する。",
+    "choiceExplanations": [
+      "誤りである。勾配消失問題は、層が深くなると、入力側の層まで勾配がほとんど伝わらなくなり、学習が進まなくなる問題である。",
+      "正しい（本問の答え）。誤差逆伝播法は、連鎖律を使って、各重みが誤差にどれだけ影響したか（勾配）を計算する。",
+      "誤りである。フレーム問題は、ある課題に関係のあることだけを選び出すことが難しい、という人工知能の問題である。",
+      "誤りである。次元の呪いは、データの次元が増えるほど、必要なデータ量が急激に増え、学習が難しくなる問題である。"
+    ],
+    "tags": {
+      "contentTags": ["信用割当問題", "誤差逆伝播法"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
+    "sourceHeading": "信用割当問題（p.198）",
+    "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」信用割当問題（公式テキスト p.198）",
+    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  }
+]
