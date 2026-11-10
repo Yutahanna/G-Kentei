@@ -14,6 +14,7 @@ import ch03Terms from "../../../questions/ch03/terms.json";
 import ch04Basic from "../../../questions/ch04/basic.json";
 import ch04Standard from "../../../questions/ch04/standard.json";
 import ch04Advanced from "../../../questions/ch04/advanced.json";
+import ch04Terms from "../../../questions/ch04/terms.json";
 import ch05Basic from "../../../questions/ch05/basic.json";
 import ch05Standard from "../../../questions/ch05/standard.json";
 import ch05Advanced from "../../../questions/ch05/advanced.json";
@@ -67,6 +68,7 @@ const allQuestions: Question[] = [
   ...ch04Basic,
   ...ch04Standard,
   ...ch04Advanced,
+  ...ch04Terms,
   ...ch05Basic,
   ...ch05Standard,
   ...ch05Advanced,
