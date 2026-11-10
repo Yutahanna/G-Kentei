@@ -42,7 +42,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch06");
     await page.locator("#category-term_check").check();
-    await expect(page.getByText(/該当する問題: 36問/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 46問/)).toBeVisible();
     await expect(page.locator("#category-calculation")).toHaveCount(0);
     await page.locator("select").first().selectOption("ch08");
     await page.locator("#category-calculation").check();

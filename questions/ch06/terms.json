@@ -1166,5 +1166,330 @@
     "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-037",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "DQNの改良のうち、ネットワークの重みに確率的なノイズを加え、その大きさを決めるパラメータも学習することで、一定確率でランダムに行動する方法の代わりに探索を促すものはどれか。",
+    "choices": [
+      "ノイジーネットワーク",
+      "優先度付き経験再生",
+      "カテゴリカルDQN",
+      "デュエリングネットワーク"
+    ],
+    "correctAnswer": 0,
+    "explanation": "正解は「ノイジーネットワーク」である。ε-greedy方策の代わりになる探索の工夫で、Rainbowの構成要素の1つである。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。ε-greedy方策の代わりになる探索の工夫で、Rainbowの構成要素の1つである。",
+      "誤りである。優先度付き経験再生は、TD誤差などを重要度の目安とし、重要度の高い経験を優先して取り出す工夫である。",
+      "誤りである。カテゴリカルDQNは、将来の報酬を1つの期待値でなく確率分布として学習する手法である。",
+      "誤りである。デュエリングネットワークは、Q値を状態価値とアドバンテージに分けて推定し、最後に合成する構造である。"
+    ],
+    "tags": {
+      "contentTags": ["ノイジーネットワーク"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "ノイジーネットワーク（p.288）",
+    "sourceReference": "補遺「深層強化学習」ノイジーネットワーク（公式テキスト p.288）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-038",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "優先度付き経験再生の説明として、最も適切なものはどれか。",
+    "choices": [
+      "過去の経験をためておき、どの経験も等しい確率でランダムに取り出して学習する。",
+      "学習の目標値を計算するネットワークを別に用意し、一定間隔でだけ重みを写す。",
+      "Q値を、状態そのものの価値と、各行動がどれだけ有利かの2つに分けて推定する。",
+      "TD誤差などを学習上の重要度の目安とし、重要度の高い経験を優先して取り出して学習する。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "予測とのずれが大きい経験ほど学ぶことが多いと考え、優先して使う。",
+    "choiceExplanations": [
+      "誤りである。DQNの経験再生の説明である。優先度付き経験再生は、取り出す確率に重要度による差をつける。",
+      "誤りである。ターゲットネットワークの説明である。",
+      "誤りである。デュエリングネットワークの説明である。",
+      "正しい（本問の答え）。予測とのずれが大きい経験ほど学ぶことが多いと考え、優先して使う。"
+    ],
+    "tags": {
+      "contentTags": ["優先度付き経験再生", "経験再生"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "優先度付き経験再生（p.288）",
+    "sourceReference": "補遺「深層強化学習」優先度付き経験再生（公式テキスト p.288）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-039",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "将来得られる報酬を、期待値（平均）の1つの値ではなく確率分布として学習するDQNの改良で、代表的な手法の名前からC51とも呼ばれるものはどれか。",
+    "choices": ["ダブルDQN", "カテゴリカルDQN", "ノイジーネットワーク", "APE-X"],
+    "correctAnswer": 1,
+    "explanation": "正解は「カテゴリカルDQN」である。分布強化学習の手法で、Rainbowの構成要素の1つである。",
+    "choiceExplanations": [
+      "誤りである。ダブルDQNは、行動の選択と価値の評価を2つのネットワークに分担させ、Q値の過大評価を抑える改良である。",
+      "正しい（本問の答え）。分布強化学習の手法で、Rainbowの構成要素の1つである。",
+      "誤りである。ノイジーネットワークは、重みにノイズを加えて探索を促す改良である。",
+      "誤りである。APE-Xは、多数のActorが集めた経験を共有のバッファにため、Learnerが学習する分散型の仕組みである。"
+    ],
+    "tags": {
+      "contentTags": ["カテゴリカルDQN", "分布強化学習"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "カテゴリカルDQN（p.288）",
+    "sourceReference": "補遺「深層強化学習」カテゴリカルDQN（公式テキスト p.288）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-040",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "DQNの改良に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "デュエリングネットワークは、Q値を状態価値とアドバンテージに分けて推定し、最後に合成する。",
+      "ダブルDQNは、オンラインネットワークで次の行動を選び、ターゲットネットワークでその価値を評価する。",
+      "デュエリングネットワークは、行動の選択と価値の評価を2つのネットワークに分担させる。",
+      "ノイジーネットワークは、重みに加えるノイズの大きさを決めるパラメータも学習する。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "デュエリングネットワークが行動の選択と価値の評価を2つのネットワークに分担させるという記述が誤りである。選択と評価を2つのネットワークに分担させるのはダブルDQNである。デュエリングネットワークは、Q値を2つの部分に分けて推定するネットワーク構造である。",
+    "choiceExplanations": [
+      "適切である。デュエリングネットワークの説明である。",
+      "適切である。ダブルDQNの説明で、Q値の過大評価を抑える。",
+      "不適切である（本問の答え）。選択と評価を2つのネットワークに分担させるのはダブルDQNである。デュエリングネットワークは、Q値を2つの部分に分けて推定するネットワーク構造である。",
+      "適切である。ノイジーネットワークの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["デュエリングネットワーク", "ダブルDQN", "ノイジーネットワーク"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "デュエリングネットワーク（p.288）",
+    "sourceReference": "補遺「深層強化学習」デュエリングネットワーク（公式テキスト p.288）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-041",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "A3Cの説明として、最も適切なものはどれか。",
+    "choices": [
+      "複数のワーカーが環境と並列にやりとりし、ActorとCriticを使って計算した勾配を、共有のモデルへ非同期に反映する。",
+      "多数のActorが集めた経験を共有の優先度付き経験再生のバッファにため、Learnerがそこから取り出して学習する。",
+      "新しい方策と古い方策の行動確率の比にクリッピングを適用し、方策が一度に大きく変わることを抑える。",
+      "DQNに対する6つの改良を1つにまとめ、Atariのゲームで高い性能を示した。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Asynchronous（非同期の）Advantage Actor-Criticの略で、Actor-Criticの系統の手法である。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。Asynchronous（非同期の）Advantage Actor-Criticの略で、Actor-Criticの系統の手法である。",
+      "誤りである。APE-Xの説明である。A3Cは経験ではなく、各ワーカーが計算した勾配を非同期に反映する。",
+      "誤りである。PPOの説明である。",
+      "誤りである。Rainbowの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["A3C", "APE-X", "Actor-Critic"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "A3C（Asynchronous Advantage Actor-Critic）",
+    "sourceReference": "補遺「深層強化学習」A3C（Asynchronous Advantage Actor-Critic）（公式テキストの関連ページ p.149：Actor-Critic・方策勾配法の掲載ページ。A3C自体は索引にない）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-042",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "方策勾配法の一種で、新しい方策と古い方策の行動確率の比を使った目的関数にクリッピングを適用し、方策が一度に大きく変わることを抑えて学習を安定させる手法はどれか。RLHFの強化学習の段階でも採用例がある。",
+    "choices": ["A3C", "REINFORCE", "PPO", "SARSA"],
+    "correctAnswer": 2,
+    "explanation": "正解は「PPO」である。OpenAI Fiveの学習でも使われた。",
+    "choiceExplanations": [
+      "誤りである。A3Cは、複数のワーカーが計算した勾配を共有のモデルへ非同期に反映するActor-Critic系の手法である。",
+      "誤りである。REINFORCEは、実際に得た収益で方策を更新する方策勾配法の代表的な手法であり、クリッピングで変化を抑える仕組みは持たない。",
+      "正しい（本問の答え）。OpenAI Fiveの学習でも使われた。",
+      "誤りである。SARSAは、次の状態で実際に選んだ行動のQ値で更新する価値ベースの手法である。"
+    ],
+    "tags": {
+      "contentTags": ["PPO", "方策勾配法"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "PPO（Proximal Policy Optimization）",
+    "sourceReference": "補遺「深層強化学習」PPO（Proximal Policy Optimization）（公式テキストの関連ページ p.149：Actor-Critic・方策勾配法の掲載ページ。PPO自体は索引にない）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-043",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "AlphaStarの説明として、最も適切なものはどれか。",
+    "choices": [
+      "OpenAIが開発し、5人対5人で戦う「Dota 2」で、使えるヒーローを制限した条件のもと、世界チャンピオンのチームOGに勝利した。",
+      "人間の棋譜を使わず、ルールだけを与えて自己対局のみで囲碁を学習した。",
+      "Atari57のすべてのゲームで、標準的な人間のベンチマークスコアを初めて上回った。",
+      "DeepMindが開発し、人間の対戦記録による模倣学習から始め、リーグ方式のマルチエージェント強化学習で「StarCraft II」を学んだ。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "2019年に、3種族すべてでグランドマスター級に達した。",
+    "choiceExplanations": [
+      "誤りである。OpenAI Fiveの説明である。",
+      "誤りである。AlphaZero（AlphaGoの後継）の説明である（格納テキスト第6章 6.5節）。",
+      "誤りである。Agent57の説明である。",
+      "正しい（本問の答え）。2019年に、3種族すべてでグランドマスター級に達した。"
+    ],
+    "tags": {
+      "contentTags": ["AlphaStar", "OpenAI Five", "Agent57"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "AlphaStar（アルファスター）（p.293）",
+    "sourceReference": "補遺「深層強化学習」AlphaStar（アルファスター）（公式テキスト p.293）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-044",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "マルチエージェント強化学習（MARL）に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "複数のエージェントが、互いに影響し合う環境で学習する強化学習である。",
+      "エージェントどうしの協調だけでなく、競争も扱う。",
+      "AlphaStarの学習では、多様な相手と対戦するリーグ方式で用いられた。",
+      "すべてのエージェントが、つねに同時に学習することが条件である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "すべてのエージェントがつねに同時に学習することが条件という記述が誤りである。すべてのエージェントが同時に学習するとは限らない。",
+    "choiceExplanations": [
+      "適切である。MARLの定義である。",
+      "適切である。協調と競争のどちらも扱う。",
+      "適切である。AlphaStarはリーグ方式のマルチエージェント強化学習で強化された。",
+      "不適切である（本問の答え）。すべてのエージェントが同時に学習するとは限らない。"
+    ],
+    "tags": {
+      "contentTags": ["マルチエージェント強化学習"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "マルチエージェント強化学習（MARL）（p.292）",
+    "sourceReference": "補遺「深層強化学習」マルチエージェント強化学習（MARL）（公式テキスト p.292）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-045",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "人間や既存のエキスパートが示すお手本の行動（デモンストレーション）をまねて方策を学習する手法で、報酬の設計が難しい課題で有効なものはどれか。",
+    "choices": ["状態表現学習", "模倣学習", "残差強化学習", "内発的報酬"],
+    "correctAnswer": 1,
+    "explanation": "正解は「模倣学習」である。AlphaStarも、人間の対戦記録による模倣学習を出発点にした。",
+    "choiceExplanations": [
+      "誤りである。状態表現学習は、画像などの観測から、意思決定に役立つ特徴表現を学習することである。",
+      "正しい（本問の答え）。AlphaStarも、人間の対戦記録による模倣学習を出発点にした。",
+      "誤りである。残差強化学習は、既存の制御器の出力に足す補正分だけを強化学習で学ぶ手法である。",
+      "誤りである。内発的報酬は、好奇心や新しさなどに基づいてエージェントの内部で計算される報酬である。"
+    ],
+    "tags": {
+      "contentTags": ["模倣学習"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "模倣学習（p.296）",
+    "sourceReference": "補遺「深層強化学習」模倣学習（公式テキスト p.296）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch06-term-046",
+    "chapterId": "ch06",
+    "sectionId": "ch06-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "連続値制御と状態表現学習に関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "連続値制御は、「上・下・左・右」のように、行動が限られた数の選択肢から選ばれる制御問題である。",
+      "DQNは、関節への指令トルクのような連続的な行動を、そのまま扱うことを前提とした手法である。",
+      "連続値制御には方策を直接学ぶ系統の手法がよく使われ、状態表現学習は観測から意思決定に役立つ表現を学ぶことである。",
+      "状態表現学習は、お手本の行動をまねて方策を学ぶことである。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "状態表現学習は、次元の圧縮や、少ない試行での学習につながる場合がある。",
+    "choiceExplanations": [
+      "誤りである。行動が離散的な場合の説明である。連続値制御では、行動が連続的な値をとる。",
+      "誤りである。DQNは、上・下・左・右のような離散的な行動を前提とする。",
+      "正しい（本問の答え）。状態表現学習は、次元の圧縮や、少ない試行での学習につながる場合がある。",
+      "誤りである。模倣学習の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["連続値制御", "状態表現学習"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+    "sourceHeading": "連続値制御（p.295）",
+    "sourceReference": "補遺「深層強化学習」連続値制御（公式テキスト p.295）",
+    "contentVersion": "50068a07fddcd22d6178c44e723afb85753db9a3da17d68df8bc3b4a437184f4",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
   }
 ]

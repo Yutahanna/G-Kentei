@@ -54,5 +54,89 @@
     "contentVersion": "e0ff27913aa8c999ef16ccae4c05263c1bab79cefe64c89c6b5991141fcc51fe",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-calc-003",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "ある行動のあと、1ステップ後に報酬0、2ステップ後に報酬0、3ステップ後に報酬10が得られた。割引率γ＝0.9 のとき、割り引いた収益（r₁ ＋ γr₂ ＋ γ²r₃）はいくつか。",
+    "choices": ["8.1", "10", "9", "7.29"],
+    "correctAnswer": 0,
+    "explanation": "正解は「8.1」である。0 ＋ 0.9 × 0 ＋ 0.9² × 10 ＝ 0.81 × 10 ＝ 8.1。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。0 ＋ 0.9 × 0 ＋ 0.9² × 10 ＝ 0.81 × 10 ＝ 8.1。",
+      "誤りである。割り引かずに、報酬をそのまま合計した値である。",
+      "誤りである。3ステップ後の報酬を、γで1回だけ割り引いた値（0.9 × 10）である。3ステップ後の報酬にはγを2回掛ける。",
+      "誤りである。3ステップ後の報酬に、γを3回掛けた値（0.9³ × 10）である。1ステップ後の報酬r₁には、γを掛けない。"
+    ],
+    "tags": {
+      "contentTags": ["割引率", "収益"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "割引率（p.146）",
+    "sourceReference": "補遺「強化学習の基礎」割引率（公式テキスト p.146）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-calc-004",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "選べる行動が4つあり、ε-greedy方策（ε＝0.2）で行動を選ぶ。価値が最も高いと推定される行動は1つだけで、ランダムに選ぶときは4つの行動から等しい確率で選ぶ。価値が最も高いと推定される行動が選ばれる確率はいくつか。",
+    "choices": ["0.8", "0.2", "0.85", "0.05"],
+    "correctAnswer": 2,
+    "explanation": "正解は「0.85」である。(1 − 0.2) ＋ 0.2 ÷ 4 ＝ 0.8 ＋ 0.05 ＝ 0.85。",
+    "choiceExplanations": [
+      "誤りである。活用で選ばれる確率（1−ε）だけの値である。ランダムに選ぶときにも、この行動が選ばれることがある。",
+      "誤りである。εそのもの（ランダムに選ぶ確率）である。",
+      "正しい（本問の答え）。(1 − 0.2) ＋ 0.2 ÷ 4 ＝ 0.8 ＋ 0.05 ＝ 0.85。",
+      "誤りである。ランダムに選ぶときに、ある1つの行動が選ばれる確率（0.2 ÷ 4）である。価値が最も高い行動以外の3つは、それぞれこの確率で選ばれる。"
+    ],
+    "tags": {
+      "contentTags": ["ε-greedy方策"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "ε-greedy方策（p.147）",
+    "sourceReference": "補遺「強化学習の基礎」ε-greedy方策（公式テキスト p.147）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-calc-005",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "advanced",
+    "category": "calculation",
+    "question": "Q学習で、今のQ(s, a)＝2、受け取った報酬r＝1、次の状態で最も大きいQ値＝5、割引率γ＝0.9、学習率α＝0.1 とする。1回更新したあとのQ(s, a)はいくつか。",
+    "choices": ["5.5", "3.5", "2.4", "2.35"],
+    "correctAnswer": 3,
+    "explanation": "正解は「2.35」である。目標値 1 ＋ 0.9 × 5 ＝ 5.5、TD誤差 5.5 − 2 ＝ 3.5、新しい値 2 ＋ 0.1 × 3.5 ＝ 2.35。",
+    "choiceExplanations": [
+      "誤りである。更新の目標値（1 ＋ 0.9 × 5）である。Q学習では、目標値との差の一部（学習率の分）だけ値を動かす。",
+      "誤りである。TD誤差（目標値 5.5 − 今の値 2）である。更新後の値ではない。",
+      "誤りである。割引率を掛け忘れた値（2 ＋ 0.1 × (1 ＋ 5 − 2)）である。",
+      "正しい（本問の答え）。目標値 1 ＋ 0.9 × 5 ＝ 5.5、TD誤差 5.5 − 2 ＝ 3.5、新しい値 2 ＋ 0.1 × 3.5 ＝ 2.35。"
+    ],
+    "tags": {
+      "contentTags": ["Q学習", "TD誤差"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "Q学習（p.148）",
+    "sourceReference": "補遺「強化学習の基礎」Q学習（公式テキスト p.148）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
   }
 ]
