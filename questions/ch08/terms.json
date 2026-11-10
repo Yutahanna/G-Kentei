@@ -1,0 +1,31 @@
+[
+  {
+    "id": "ch08-term-001",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "データを値の範囲（階級）ごとに区切り、それぞれの階級に入るデータの個数を数えて表にまとめたものを何と呼ぶか。",
+    "choices": ["散布図", "箱ひげ図", "混同行列", "度数分布表"],
+    "correctAnswer": 3,
+    "explanation": "正解は「度数分布表」である。度数分布を棒グラフのように表したものがヒストグラムである。",
+    "choiceExplanations": [
+      "誤りである。散布図は、2つの変数の値の組を点で表し、変数どうしの関係を見る図である。",
+      "誤りである。箱ひげ図は、最小値・第1四分位数・中央値・第3四分位数・最大値などで、データのばらつきを表す図である。",
+      "誤りである。混同行列は、分類モデルの予測と正解の組み合わせごとに、件数を数えた表である。",
+      "正しい（本問の答え）。度数分布を棒グラフのように表したものがヒストグラムである。"
+    ],
+    "tags": {
+      "contentTags": ["度数分布", "ヒストグラム"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "度数分布（索引なし）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」度数分布（公式テキストの索引にない語）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  }
+]

@@ -420,5 +420,233 @@
     "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-014",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s02",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "広告費と店舗面積のように、2つ以上の説明変数を使って、売上のような数値を直線的な式で予測する分析を何と呼ぶか。",
+    "choices": ["単回帰分析", "ロジスティック回帰", "重回帰分析", "主成分分析"],
+    "correctAnswer": 2,
+    "explanation": "正解は「重回帰分析」である。説明変数が2つ以上の線形回帰を重回帰分析と呼ぶ。",
+    "choiceExplanations": [
+      "誤りである。単回帰分析は、説明変数が1つだけの場合である。",
+      "誤りである。ロジスティック回帰は、ある事象が起こる確率を求めて分類に使う手法であり、数値そのものを予測する回帰ではない。",
+      "正しい（本問の答え）。説明変数が2つ以上の線形回帰を重回帰分析と呼ぶ。",
+      "誤りである。主成分分析は、データの次元を減らす教師なし学習の手法であり、目的変数を予測するものではない。"
+    ],
+    "tags": {
+      "contentTags": ["重回帰分析", "単回帰分析"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "単回帰分析・重回帰分析（p.134）",
+    "sourceReference": "補遺「機械学習の手法の補足」単回帰分析・重回帰分析（公式テキスト p.134）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-015",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s02",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "単回帰分析・重回帰分析に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "単回帰分析は、説明変数を1つだけ使って目的変数を予測する。",
+      "重回帰分析では、説明変数どうしの相関が強くても、係数の推定は安定し、解釈しやすい。",
+      "重回帰分析の係数は、ほかの説明変数を一定にしたまま、その変数を1増やしたときの目的変数の変化を表す。",
+      "単回帰分析と重回帰分析は、どちらも数値を予測する回帰の手法である。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "説明変数どうしの相関が強くても係数の推定が安定するという記述が誤りである。説明変数どうしの相関が強いと（多重共線性）、係数の推定が不安定になり、大きさや符号を解釈しにくくなる。",
+    "choiceExplanations": [
+      "適切である。例えば広告費だけから売上を予測する場合である。",
+      "不適切である（本問の答え）。説明変数どうしの相関が強いと（多重共線性）、係数の推定が不安定になり、大きさや符号を解釈しにくくなる。",
+      "適切である。重回帰の係数は、ほかの変数の影響を除いたうえでの、その変数の影響の大きさを表す。",
+      "適切である。どちらも線形回帰であり、説明変数の数で呼び分ける。"
+    ],
+    "tags": {
+      "contentTags": ["重回帰分析", "多重共線性"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "単回帰分析・重回帰分析（p.134）",
+    "sourceReference": "補遺「機械学習の手法の補足」単回帰分析・重回帰分析（公式テキスト p.134）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-016",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "SVMなどで使われるカーネルトリックの説明として、最も適切なものはどれか。",
+    "choices": [
+      "決定木を多数作り、それぞれの予測を多数決や平均でまとめて、精度と安定性を高める工夫である。",
+      "重みの絶対値の合計にペナルティを与え、不要な特徴の重みを0にしやすくする工夫である。",
+      "データを複数のグループに分け、学習と検証を入れ替えながら性能を評価する工夫である。",
+      "高次元の空間での内積を、その空間に写す処理を行わずに、カーネル関数で直接求める工夫である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "高次元の空間を直接扱わずに済むので、計算量を抑えたまま非線形な境界を学習できる。",
+    "choiceExplanations": [
+      "誤りである。ランダムフォレストの説明である。",
+      "誤りである。L1正則化の説明である。",
+      "誤りである。交差検証の説明である。",
+      "正しい（本問の答え）。高次元の空間を直接扱わずに済むので、計算量を抑えたまま非線形な境界を学習できる。"
+    ],
+    "tags": {
+      "contentTags": ["カーネルトリック", "SVM"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "カーネルトリック（p.139）",
+    "sourceReference": "補遺「機械学習の手法の補足」カーネルトリック（公式テキスト p.139）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-017",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s03",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "金利・為替・株価のように互いに影響し合う複数の時系列を、それぞれ自分自身とほかの変数の過去の値を使って、まとめて予測するモデルを何と呼ぶか。",
+    "choices": ["ARモデル", "VARモデル", "ロジスティック回帰", "主成分分析"],
+    "correctAnswer": 1,
+    "explanation": "正解は「VARモデル」である。ARモデルを複数の変数に広げたもので、変数間の時間的な関係を扱える。",
+    "choiceExplanations": [
+      "誤りである。ARモデル（自己回帰モデル）は、1つの時系列を、その時系列自身の過去の値だけで予測する。",
+      "正しい（本問の答え）。ARモデルを複数の変数に広げたもので、変数間の時間的な関係を扱える。",
+      "誤りである。ロジスティック回帰は、ある事象が起こる確率を求めて分類に使う手法であり、時系列を予測するモデルではない。",
+      "誤りである。主成分分析は、データの次元を減らす手法であり、時系列を予測するモデルではない。"
+    ],
+    "tags": {
+      "contentTags": ["VARモデル", "ARモデル"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "ベクトル自己回帰モデル（VARモデル）（p.140）",
+    "sourceReference": "補遺「機械学習の手法の補足」ベクトル自己回帰モデル（VARモデル）（公式テキスト p.140）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-018",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "特異値分解（SVD）の説明として、最も適切なものはどれか。",
+    "choices": [
+      "行列を3つの行列の積に分解し、大きい特異値の成分だけを残すことで、次元削減やデータの圧縮に使える。",
+      "データを、あらかじめ決めた数のグループに、各グループの重心との距離をもとに繰り返し割り当てて分ける手法である。",
+      "学習済みの大きなモデルの出力をお手本にして、より小さなモデルが同じような出力を出せるように学習させる手法である。",
+      "利用者が過去に好んだ商品と、ジャンルや作者などの特徴が似た商品を探して推薦する手法である。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "推薦（利用者×商品の評価の行列）や文書の分析（単語×文書の行列）にも使われる。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。推薦（利用者×商品の評価の行列）や文書の分析（単語×文書の行列）にも使われる。",
+      "誤りである。k-means法の説明である。",
+      "誤りである。知識蒸留の説明である。",
+      "誤りである。コンテンツベースフィルタリングの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["特異値分解", "次元削減"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "特異値分解（SVD）（p.143）",
+    "sourceReference": "補遺「機械学習の手法の補足」特異値分解（SVD）（公式テキスト p.143）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-019",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "コンテンツベースフィルタリングに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "商品のジャンルや作者などの特徴を使い、利用者が過去に好んだものと似たものを推薦する。",
+      "ほかの利用者の購入履歴がなくても、商品の特徴が分かれば推薦できる。",
+      "まだ誰も購入していない新商品は、特徴が分かっていても推薦できない。",
+      "過去に好んだものと似たものばかりを推薦しがちで、意外な発見にはつながりにくい。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "新商品は特徴が分かっていても推薦できないという記述が誤りである。新商品でも特徴が分かれば推薦できる。購入履歴がない新商品を推薦しにくいのは、協調フィルタリングの弱みである。",
+    "choiceExplanations": [
+      "適切である。これがコンテンツベースフィルタリングの基本的な考え方である。",
+      "適切である。ほかの利用者の行動履歴を使うのは、協調フィルタリングである。",
+      "不適切である（本問の答え）。新商品でも特徴が分かれば推薦できる。購入履歴がない新商品を推薦しにくいのは、協調フィルタリングの弱みである。",
+      "適切である。コンテンツベースフィルタリングの弱みとされる。"
+    ],
+    "tags": {
+      "contentTags": ["コンテンツベースフィルタリング", "協調フィルタリング"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "コンテンツベースフィルタリング（p.144）",
+    "sourceReference": "補遺「機械学習の手法の補足」コンテンツベースフィルタリング（公式テキスト p.144）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-020",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s05",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ある事柄を同じ程度にうまく説明できるなら、仮定が少なく単純なモデルを選ぶべきだ、という考え方を何と呼ぶか。",
+    "choices": [
+      "ノーフリーランチの定理",
+      "次元の呪い",
+      "バイアスとバリアンスのトレードオフ",
+      "オッカムの剃刀"
+    ],
+    "correctAnswer": 3,
+    "explanation": "正解は「オッカムの剃刀」である。AICやBICなどの情報量基準は、当てはまりの良さとモデルの複雑さの両方を見て、この考え方を数値で表したものといえる。",
+    "choiceExplanations": [
+      "誤りである。ノーフリーランチの定理は、どんな問題でも最も良い性能を出す万能のアルゴリズムは存在しない、という定理である。",
+      "誤りである。次元の呪いは、データの次元が増えるほど、必要なデータ量が急激に増え、学習が難しくなる問題である。",
+      "誤りである。バイアスとバリアンスのトレードオフは、モデルを単純にすると偏り（バイアス）が増え、複雑にするとばらつき（バリアンス）が増えるという関係であり、単純なモデルを選ぶべきという考え方そのものではない。",
+      "正しい（本問の答え）。AICやBICなどの情報量基準は、当てはまりの良さとモデルの複雑さの両方を見て、この考え方を数値で表したものといえる。"
+    ],
+    "tags": {
+      "contentTags": ["オッカムの剃刀", "情報量基準"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "オッカムの剃刀（p.158）",
+    "sourceReference": "補遺「機械学習の手法の補足」オッカムの剃刀（公式テキスト p.158）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

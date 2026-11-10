@@ -29,12 +29,14 @@ Googleドライブの「アプリ強化」フォルダは、このフォルダ�
 |---|---|---|---|
 | 1-2_AIの歴史_ORG.md | 技術分野 2〜6（人工知能分野で議論される問題、探索・推論、知識表現とエキスパートシステム、機械学習、ディープラーニングの歴史） | 第2版（2026-11-07） | questions/ch02/terms.json（12問）・ch02/calculation.json（2問） |
 | 3_強化学習の基礎_ORG.md | 技術分野 9. 強化学習（あわせて公式テキスト p.299〜300 のモデルフリー・モデルベース） | 第2版（2026-11-10） | questions/ch03/terms.json（12問）・ch03/calculation.json（3問） |
-| 4-5_ディープラーニングの学習と要素技術の補足_ORG.md | 技術分野 11・13〜16・18〜20・22〜23 のうち格納テキストにない語（CPU、Contrastive Loss・Triplet Loss、L0正則化、信用割当問題、ノーフリーランチの定理、バッチ学習、畳み込み操作、インスタンス正規化、平均値プーリング・不変性の獲得、エルマン・ジョルダンネットワーク、クエリ・キー・バリュー） | 第2版（2026-11-11） | questions/ch03/terms.json（1問）・ch04/terms.json（4問）・ch05/terms.json（7問）・ch05/calculation.json（3問） |
+| 3-2_機械学習の手法の補足_ORG.md | 技術分野 7・8・10 のうち格納テキストにない語（単回帰分析、重回帰分析、カーネルトリック、VARモデル、特異値分解、コンテンツベースフィルタリング、オッカムの剃刀。7語） | 第2版（2026-11-11） | questions/ch03/terms.json（7問）・ch03/calculation.json（1問） |
+| 4-5_ディープラーニングの学習と要素技術の補足_ORG.md | 技術分野 11・13〜16・18〜20・22〜23 のうち格納テキストにない語（CPU、Contrastive Loss・Triplet Loss、L0正則化、信用割当問題、ノーフリーランチの定理、バッチ学習、畳み込み操作、インスタンス正規化、平均値プーリング・不変性の獲得、エルマン・ジョルダンネットワーク、クエリ・キー・バリュー。15語） | 第2版（2026-11-11） | questions/ch03/terms.json（1問）・ch04/terms.json（4問）・ch05/terms.json（7問）・ch05/calculation.json（3問） |
 | 5_生成・転移学習・マルチモーダル_ORG.md | 技術分野 30. データ生成・31. 転移学習・ファインチューニング・32. マルチモーダル | 第2版（2026-11-07） | questions/ch05/terms.json（12問） |
 | 6-1_画像認識_ORG.md | 技術分野 26. 画像認識（あわせて18の畳み込み層のパラメータ数） | 第2版（2026-11-07） | questions/ch05/terms.json（6問）・ch06/terms.json（6問）・ch05/calculation.json（2問） |
 | 6-2_音声処理_ORG.md | 技術分野 28. 音声処理 | 第2版（2026-11-06） | questions/ch06/terms.json（10問） |
 | 6-3_自然言語処理_ORG.md | 技術分野 27. 自然言語処理 | 第2版（2026-11-06） | questions/ch06/terms.json（10問） |
 | 6-4_深層強化学習_ORG.md | 技術分野 29. 深層強化学習 | 第2版（2026-11-06） | questions/ch06/terms.json（20問。うち10問は2026-11-10に追加） |
+| 7_解釈性・軽量化・開発の進め方の補足_ORG.md | 技術分野 33〜37 のうち格納テキストにない語（CAM、Grad-CAM、Permutation Importance、エッジAI、モデル圧縮、宝くじ仮説、BPR、Docker、Jupyter Notebook、Python、Web API、ウォーターフォール、アジャイル、オープンデータセット、度数分布。15語） | 第2版（2026-11-11） | questions/ch06/terms.json（4問）・ch07/terms.json（8問）・ch08/terms.json（1問）・ch08/calculation.json（1問） |
 | 9_法律と契約_ORG.md | 法律・倫理分野 1〜7（個人情報保護法〜AIサービス提供契約） | 第2版（2026-11-06、確認基準日 2026-11-06） | questions/ch09/terms.json（12問） |
 | 10_倫理とガバナンス_ORG.md | 法律・倫理分野 8〜18（国内外のガイドライン〜AIガバナンス） | 第2版（2026-11-06、確認基準日 2026-11-06） | questions/ch10/terms.json（12問） |
 | 8_数理統計と計算_ORG.md | 技術分野 37. 数理・統計（あわせて10・17・18の計算） | 第2版（2026-11-06） | questions/ch08・ch05・ch03/calculation.json（計18問） |

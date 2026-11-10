@@ -1,0 +1,264 @@
+[
+  {
+    "id": "ch07-term-001",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "学習済みのモデルで、ある特徴量の値だけをデータ間でランダムに並べ替え、予測の精度がどれだけ下がるかによって、その特徴量の重要度を測る方法を何と呼ぶか。",
+    "choices": ["LIME", "Guided Grad-CAM", "Permutation Importance", "主成分分析"],
+    "correctAnswer": 2,
+    "explanation": "正解は「Permutation Importance」である。精度が大きく下がる特徴量ほど重要とみなす。モデルの種類を問わずに使え、モデル全体としての重要度を示す。",
+    "choiceExplanations": [
+      "誤りである。LIMEは、ある1件の予測について、その周辺で単純なモデルを当てはめ、どの特徴量が効いたかを示す方法である。",
+      "誤りである。Guided Grad-CAMは、Grad-CAMを発展させ、画像分類のCNNで判断に影響した画像の領域を、より細かい輪郭まで示す方法である。",
+      "正しい（本問の答え）。精度が大きく下がる特徴量ほど重要とみなす。モデルの種類を問わずに使え、モデル全体としての重要度を示す。",
+      "誤りである。主成分分析は、データの次元を減らす手法であり、特徴量の重要度を測る方法ではない。"
+    ],
+    "tags": {
+      "contentTags": ["Permutation Importance", "XAI"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "Permutation Importance（p.312）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Permutation Importance（公式テキスト p.312）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-term-002",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "CAMとGrad-CAMに関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "CAMは画像のどの領域が判断に影響したかを示し、Grad-CAMは文章の中のどの単語が判断に影響したかを示す。",
+      "Grad-CAMは、勾配を使って特徴マップを重み付けするため、CAMより多様な構造のCNNに適用できる。",
+      "CAMは、モデルの学習を速くするための手法であり、判断の根拠を示すためのものではない。",
+      "Grad-CAMは、特徴量をランダムに並べ替えたときの精度の下がり方から、特徴量の重要度を求める。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CAMは、Global Average Pooling を持つ構造のCNNが前提になる。",
+    "choiceExplanations": [
+      "誤りである。どちらも、画像分類のCNNで、判断に影響した画像の領域をヒートマップで示す方法である。",
+      "正しい（本問の答え）。CAMは、Global Average Pooling を持つ構造のCNNが前提になる。",
+      "誤りである。CAMは、判断に影響した画像の領域を示す、解釈性のための方法である。",
+      "誤りである。Permutation Importance の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["Grad-CAM", "CAM"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "Grad-CAM（p.313）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Grad-CAM（公式テキスト p.313）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-term-003",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "CAMに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "判断の根拠となった領域を示すので、モデルの判断が正しいことを保証できる。",
+      "画像分類で、あるクラスの判断に影響した画像の領域をヒートマップで示す。",
+      "最後の畳み込み層の特徴マップと、そのあとの全結合層の重みを使って計算する。",
+      "Global Average Pooling を使う構造のCNNを前提とする。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "CAMがモデルの判断が正しいことを保証できるという記述が誤りである。CAMが示すのは「どこを見て判断したか」であり、判断が正しいことを保証するものではない。見ている領域が適切かどうかを、人が確かめるために使う。",
+    "choiceExplanations": [
+      "不適切である（本問の答え）。CAMが示すのは「どこを見て判断したか」であり、判断が正しいことを保証するものではない。見ている領域が適切かどうかを、人が確かめるために使う。",
+      "適切である。これがCAMの目的である。",
+      "適切である。特徴マップを、そのクラスに対する全結合層の重みで重み付けして足し合わせる。",
+      "適切である。この制約をなくしたのがGrad-CAMである。"
+    ],
+    "tags": {
+      "contentTags": ["CAM", "XAI"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "CAM（p.312）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」CAM（公式テキスト p.312）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-term-004",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "AIを導入するときに、今の業務にAIを部分的に当てはめるだけでなく、業務の流れそのものを根本から見直して作り直すことを何と呼ぶか。",
+    "choices": ["BPR", "PoC", "MLOps", "CRISP-DM"],
+    "correctAnswer": 0,
+    "explanation": "正解は「BPR」である。ビジネスプロセス・リエンジニアリングの略である。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。ビジネスプロセス・リエンジニアリングの略である。",
+      "誤りである。PoCは、本番導入の前に、狙った効果が出そうかを小規模に確かめる概念実証である。",
+      "誤りである。MLOpsは、機械学習モデルを本番で運用し、監視や再学習を続けるための仕組みや考え方である。",
+      "誤りである。CRISP-DMは、ビジネス理解からデータ準備、モデリング、評価、展開までを反復する、データ分析の進め方の標準的な枠組みである。"
+    ],
+    "tags": {
+      "contentTags": ["BPR", "AIプロジェクトの進め方"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "BPR（p.332）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」BPR（公式テキスト p.332）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-term-005",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "Dockerの説明として、最も適切なものはどれか。",
+    "choices": [
+      "ブラウザ上でコードを小さな単位ごとに実行し、表やグラフの結果を確かめながら、説明文と一緒に記録できる対話型の開発環境である。",
+      "アプリケーションと、その実行に必要なライブラリや設定をコンテナにまとめ、異なる環境でも同じように動かせるようにする仕組みである。",
+      "HTTPなどを使い、ネットワーク経由で、ほかのプログラムからクラウドAIの予測などの機能を呼び出せるようにした窓口である。",
+      "読みやすい文法と、数値計算や機械学習のための豊富なライブラリを持ち、機械学習の分野で最もよく使われているプログラミング言語である。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "開発用のパソコンと本番のサーバーの環境の違いによる問題を減らせる。",
+    "choiceExplanations": [
+      "誤りである。Jupyter Notebook の説明である。",
+      "正しい（本問の答え）。開発用のパソコンと本番のサーバーの環境の違いによる問題を減らせる。",
+      "誤りである。Web API の説明である。",
+      "誤りである。Python の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["Docker", "AIプロジェクトの進め方"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "Docker（索引なし）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Docker（公式テキストの索引にない語）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-term-006",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "AI開発で使われる道具や仕組みに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "Jupyter Notebook では、コードの実行結果を確かめながら、試行錯誤の過程を記録できる。",
+      "Pythonには、NumPyやscikit-learn、PyTorchなど、機械学習向けのライブラリが豊富にある。",
+      "学習済みモデルをWeb APIとして公開すると、利用側はモデルの中身を知らなくても予測結果を受け取れる。",
+      "Web APIでモデルを提供する場合は、利用側の端末にモデル本体を配布してインストールする必要がある。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Web APIでは利用側の端末にモデル本体を配布する必要があるという記述が誤りである。Web APIでは、モデルは提供する側のサーバーで動き、利用側はネットワーク経由で呼び出すだけでよい。モデル本体を配布する必要はない。",
+    "choiceExplanations": [
+      "適切である。データ分析やモデル作りの試行錯誤に使われる。",
+      "適切である。NumPyは数値計算、scikit-learnは機械学習、PyTorchはディープラーニングのライブラリである。",
+      "適切である。データを送るだけで、予測結果を受け取れる。",
+      "不適切である（本問の答え）。Web APIでは、モデルは提供する側のサーバーで動き、利用側はネットワーク経由で呼び出すだけでよい。モデル本体を配布する必要はない。"
+    ],
+    "tags": {
+      "contentTags": ["Web API", "Jupyter Notebook", "Python"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "Web API（索引なし）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Web API（公式テキストの索引にない語）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-term-007",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "アジャイル型の開発に関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "要件定義・設計・実装・テストなどの工程を順に進め、原則として前の工程に戻らない前提で計画する。",
+      "短い期間の開発と見直しを何度も繰り返し、途中で分かったことを取り入れて、仕様を柔軟に変えながら進める。",
+      "本番導入の前に、小規模なデータと簡易な実装で、狙った精度が出そうかどうかを確かめる工程である。",
+      "モデルを本番に導入したあとも性能を監視し、精度が落ちれば再学習やモデルの更新を続けていく、MLOpsの考え方である。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AI開発は、データを集めて学習させてみるまで精度が分からないので、アジャイルのような反復的な進め方が使われることが多い。",
+    "choiceExplanations": [
+      "誤りである。ウォーターフォール型の開発の説明である。最初に仕様がはっきり決まる開発に向く。",
+      "正しい（本問の答え）。AI開発は、データを集めて学習させてみるまで精度が分からないので、アジャイルのような反復的な進め方が使われることが多い。",
+      "誤りである。PoC（概念実証）の説明である。",
+      "誤りである。MLOpsの説明であり、開発の進め方そのものではない。"
+    ],
+    "tags": {
+      "contentTags": ["アジャイル", "ウォーターフォール"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "ウォーターフォール・アジャイル（索引なし。シラバスのキーワードとしては2語）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」ウォーターフォール・アジャイル（公式テキストの索引にない語）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-term-008",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s02",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "オープンデータセットに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "ImageNetやMNISTのように、誰でも利用できるように公開されたデータセットである。",
+      "自分でデータを集める手間を省けるほか、手法どうしの性能の比較にも使われる。",
+      "公開されているので、ライセンスや利用条件を確認しなくても、商用目的で自由に使える。",
+      "データの集め方によっては偏りが含まれるので、自分の用途に合うかを確かめる必要がある。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "ライセンスや利用条件を確認しなくても商用目的で自由に使えるという記述が誤りである。公開されていても、商用利用が認められていない場合などがある。使う前にライセンスや利用条件を確認する必要がある。",
+    "choiceExplanations": [
+      "適切である。ImageNetは画像分類、MNISTは手書き数字のデータセットである。",
+      "適切である。同じデータで比べることで、手法の性能を公平に比べられる（ベンチマーク）。",
+      "不適切である（本問の答え）。公開されていても、商用利用が認められていない場合などがある。使う前にライセンスや利用条件を確認する必要がある。",
+      "適切である。偏りがあると、学習したモデルにも偏りが生じるおそれがある。"
+    ],
+    "tags": {
+      "contentTags": ["オープンデータセット", "データの偏り"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "オープンデータセット（p.340）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」オープンデータセット（公式テキスト p.340）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  }
+]
