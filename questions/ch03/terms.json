@@ -1,0 +1,390 @@
+[
+  {
+    "id": "ch03-term-001",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "強化学習で、将来得られる報酬を今の時点の価値に換算するときに、どれだけ割り引くかを表す0以上1以下の値を何と呼ぶか。",
+    "choices": ["学習率", "割引率", "ε（探索の確率）", "TD誤差"],
+    "correctAnswer": 1,
+    "explanation": "正解は「割引率」である。記号はγで、0に近いほど目先の報酬を、1に近いほど遠い将来の報酬まで重視する。",
+    "choiceExplanations": [
+      "誤りである。学習率は、1回の更新でQ値などの値をどれだけ動かすかを決める値（α）である。",
+      "正しい（本問の答え）。記号はγで、0に近いほど目先の報酬を、1に近いほど遠い将来の報酬まで重視する。",
+      "誤りである。εは、ε-greedy方策でランダムに行動を選ぶ確率であり、報酬を割り引く値ではない。",
+      "誤りである。TD誤差は、更新の目標値と今の推定値との差であり、割り引く割合を表す値ではない。"
+    ],
+    "tags": {
+      "contentTags": ["割引率", "学習率"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "割引率（p.146）",
+    "sourceReference": "補遺「強化学習の基礎」割引率（公式テキスト p.146）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-002",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "次にどの状態に移り、どんな報酬が得られるかの確率が、現在の状態と行動だけで決まり、それより前にどんな状態を通ってきたかにはよらない、という性質を何と呼ぶか。",
+    "choices": ["マルコフ性", "探索と活用のジレンマ", "方策オフ型", "報酬成形"],
+    "correctAnswer": 0,
+    "explanation": "正解は「マルコフ性」である。この性質を満たす意思決定の問題を、状態・行動・遷移確率・報酬などの組で表したものがマルコフ決定過程である。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。この性質を満たす意思決定の問題を、状態・行動・遷移確率・報酬などの組で表したものがマルコフ決定過程である。",
+      "誤りである。探索と活用のジレンマは、未知の行動を試すか、良いと分かっている行動を選ぶかのバランスの問題である。",
+      "誤りである。方策オフ型は、実際に選ぶ行動とは別の（最も良い）行動の価値で学ぶ手法の性質（Q学習など）である。",
+      "誤りである。報酬成形は、学習を進みやすくするために、途中の行動にも報酬が出るよう報酬を設計し直すことである。"
+    ],
+    "tags": {
+      "contentTags": ["マルコフ性", "マルコフ決定過程"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "マルコフ性とマルコフ決定過程（p.147）",
+    "sourceReference": "補遺「強化学習の基礎」マルコフ性とマルコフ決定過程（公式テキスト p.147）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-003",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "マルコフ決定過程の説明として、最も適切なものはどれか。",
+    "choices": [
+      "入力と正解ラベルの組を大量に与え、入力から正解を予測する関数を学ぶ枠組みである。",
+      "状態が変化しない中で、報酬の見込みが分からない複数の選択肢から、選択を何度も繰り返して報酬の合計を最大にしようとする問題である。",
+      "状態・行動・遷移確率・報酬などの組で意思決定の問題を表したもので、強化学習の問題の多くがこの形で定式化される。",
+      "環境のモデルを使わず、試行錯誤の経験から直接、価値関数や方策を学ぶ方式の総称である。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "マルコフ性を満たす問題を、状態・行動・遷移確率・報酬（と割引率）で表したものである。",
+    "choiceExplanations": [
+      "誤りである。教師あり学習の説明である。強化学習では、正解ラベルではなく報酬を手がかりに学ぶ。",
+      "誤りである。バンディットアルゴリズムが扱う問題（多腕バンディット問題）の説明である。マルコフ決定過程では、行動によって状態が移り変わる。",
+      "正しい（本問の答え）。マルコフ性を満たす問題を、状態・行動・遷移確率・報酬（と割引率）で表したものである。",
+      "誤りである。モデルフリーの説明である。"
+    ],
+    "tags": {
+      "contentTags": ["マルコフ決定過程", "バンディットアルゴリズム"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "マルコフ性とマルコフ決定過程（p.147）",
+    "sourceReference": "補遺「強化学習の基礎」マルコフ性とマルコフ決定過程（公式テキスト p.147）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-004",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "バンディットアルゴリズムに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "報酬の見込みが分からない複数の選択肢から、選択を繰り返して報酬の合計を最大にしようとする。",
+      "状態が変化しない、最も単純な形の強化学習の問題と見なせる。",
+      "Web広告やページのデザインの出し分けなどに使われる。",
+      "探索は必要なく、最初に報酬が高かった選択肢を選び続けることが最適な方法である。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "探索が必要なく、最初に報酬が高かった選択肢を選び続けるのが最適という記述が誤りである。最初の結果だけでは、偶然よかっただけかもしれない。探索と活用のバランスをとることが、バンディットアルゴリズムの中心的な課題である。",
+    "choiceExplanations": [
+      "適切である。多腕バンディット問題の説明である。",
+      "適切である。行動によって状態が移り変わらない点で、マルコフ決定過程より単純である。",
+      "適切である。反応を見ながら、成績の良い案に配信の割合を寄せていく。",
+      "不適切である（本問の答え）。最初の結果だけでは、偶然よかっただけかもしれない。探索と活用のバランスをとることが、バンディットアルゴリズムの中心的な課題である。"
+    ],
+    "tags": {
+      "contentTags": ["バンディットアルゴリズム", "探索と活用"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "バンディットアルゴリズム（p.146）",
+    "sourceReference": "補遺「強化学習の基礎」バンディットアルゴリズム（公式テキスト p.146）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-005",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "ε-greedy方策に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "確率 1−ε で、その時点で価値が最も高いと推定される行動を選ぶ。",
+      "確率 ε で、すべての行動の中からランダムに行動を選ぶ。",
+      "εを大きくするほど、探索の割合が増える。",
+      "ε＝0 にすると、つねにランダムに行動を選ぶようになる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "ε＝0 にするとつねにランダムに行動を選ぶという記述が誤りである。ε＝0 では、つねに価値が最も高い行動を選ぶ（貪欲方策）。つねにランダムに選ぶのは ε＝1 の場合である。",
+    "choiceExplanations": [
+      "適切である。これが活用にあたる。",
+      "適切である。これが探索にあたる。",
+      "適切である。εはランダムに選ぶ確率なので、大きいほど探索が増える。",
+      "不適切である（本問の答え）。ε＝0 では、つねに価値が最も高い行動を選ぶ（貪欲方策）。つねにランダムに選ぶのは ε＝1 の場合である。"
+    ],
+    "tags": {
+      "contentTags": ["ε-greedy方策", "探索と活用"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "ε-greedy方策（p.147）",
+    "sourceReference": "補遺「強化学習の基礎」ε-greedy方策（公式テキスト p.147）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-006",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "UCB方策の説明として、最も適切なものはどれか。",
+    "choices": [
+      "一定の確率で、すべての行動の中から等しい確率でランダムに行動を選ぶ。",
+      "これまでの平均報酬に、試した回数が少ないほど大きくなる上乗せ分を足し、その合計が最も大きい行動を選ぶ。",
+      "方策をパラメータで表し、収益の期待値が大きくなる方向にパラメータを直接更新する。",
+      "事前に集めた固定のデータだけを使い、環境と新たにやりとりせずに、試行錯誤が危険な分野でも方策を学べるようにする。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "まだあまり試していない行動を優先して試し、回数が増えるにつれて平均報酬の高い行動が選ばれやすくなる。",
+    "choiceExplanations": [
+      "誤りである。ε-greedy方策の探索のしかたの説明である。",
+      "正しい（本問の答え）。まだあまり試していない行動を優先して試し、回数が増えるにつれて平均報酬の高い行動が選ばれやすくなる。",
+      "誤りである。方策勾配法の説明である。",
+      "誤りである。オフライン強化学習の説明である（補遺「深層強化学習」）。"
+    ],
+    "tags": {
+      "contentTags": ["UCB方策", "ε-greedy方策"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "UCB方策（p.147）",
+    "sourceReference": "補遺「強化学習の基礎」UCB方策（公式テキスト p.147）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-007",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "状態sで行動aを取り、そのあとはある方策に従って行動するとき、得られる収益の期待値を表す関数を何と呼ぶか。",
+    "choices": ["行動価値関数", "状態価値関数", "方策", "ε-greedy方策"],
+    "correctAnswer": 0,
+    "explanation": "正解は「行動価値関数」である。Q(s, a) と書き、その値をQ値と呼ぶ。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。Q(s, a) と書き、その値をQ値と呼ぶ。",
+      "誤りである。状態価値関数は、状態sから先に得られる収益の期待値を、状態ごとに表した関数（V(s)）であり、行動を引数にとらない。",
+      "誤りである。方策は、ある状態でどの行動を選ぶかの決まりであり、収益の期待値を表す関数ではない。",
+      "誤りである。ε-greedy方策は、確率εでランダムに、それ以外は価値が最も高い行動を選ぶ行動の選び方であり、収益の期待値を表す関数ではない。"
+    ],
+    "tags": {
+      "contentTags": ["行動価値関数", "状態価値関数"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "行動価値関数（p.148）",
+    "sourceReference": "補遺「強化学習の基礎」行動価値関数（公式テキスト p.148）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-008",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "advanced",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "Q学習とSARSAに関する説明として、不適切なものはどれか。",
+    "choices": [
+      "Q学習は、次の状態で最も大きいQ値を使って、Q値を更新する。",
+      "SARSAは、次の状態で実際に選んだ行動のQ値を使って、Q値を更新する。",
+      "Q学習は方策オン型、SARSAは方策オフ型の手法に分類される。",
+      "SARSAという名前は、1回の更新に使う状態・行動・報酬・次の状態・次の行動の頭文字に由来する。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Q学習を方策オン型、SARSAを方策オフ型とする記述が誤りである。逆である。Q学習が方策オフ型、SARSAが方策オン型である。",
+    "choiceExplanations": [
+      "適切である。実際に選ぶ行動とは関係なく、Q値が最大の行動の値を目標に使う。",
+      "適切である。探索を含めて、実際に従っている方策で選んだ行動の値を使う。",
+      "不適切である（本問の答え）。逆である。Q学習が方策オフ型、SARSAが方策オン型である。",
+      "適切である。State、Action、Reward、State、Action の頭文字である。"
+    ],
+    "tags": {
+      "contentTags": ["Q学習", "SARSA"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "SARSA（p.148）",
+    "sourceReference": "補遺「強化学習の基礎」SARSA（公式テキスト p.148）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-009",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "REINFORCEの説明として、最も適切なものはどれか。",
+    "choices": [
+      "次の状態で最も大きいQ値を目標にして、行動価値関数を少しずつ更新する手法である。",
+      "エピソードで実際に得た収益を使い、収益が大きかった行動ほど選ばれやすくなるよう方策を更新する、方策勾配法の代表的な手法である。",
+      "行動を決める役と、価値を推定して行動の良し悪しを評価する役を組み合わせ、両方を同時に学習して、収益のばらつきによる不安定さを抑える手法である。",
+      "試した回数が少ない行動ほど大きな上乗せ分を加え、優先して試す行動の選び方である。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "実際の収益は試行ごとのばらつきが大きく、学習が不安定になりやすいという課題がある。",
+    "choiceExplanations": [
+      "誤りである。Q学習の説明である。",
+      "正しい（本問の答え）。実際の収益は試行ごとのばらつきが大きく、学習が不安定になりやすいという課題がある。",
+      "誤りである。Actor-Criticの説明である。",
+      "誤りである。UCB方策の説明である。"
+    ],
+    "tags": {
+      "contentTags": ["REINFORCE", "方策勾配法"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "REINFORCE（p.149）",
+    "sourceReference": "補遺「強化学習の基礎」REINFORCE（公式テキスト p.149）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-010",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "行動を決める役と、価値を推定して選んだ行動の良し悪しを評価する役を組み合わせ、両方を同時に学習する強化学習の手法を何と呼ぶか。",
+    "choices": ["REINFORCE", "SARSA", "Actor-Critic", "ダブルDQN"],
+    "correctAnswer": 2,
+    "explanation": "正解は「Actor-Critic」である。行動を決める役をActor、評価する役をCriticと呼ぶ。A3Cもこの系統の手法である。",
+    "choiceExplanations": [
+      "誤りである。REINFORCEは、実際に得た収益だけを使って方策を更新する手法であり、価値を推定する役を持たない。",
+      "誤りである。SARSAは、Q値を更新して学ぶ価値ベースの手法であり、方策を決める役を別に持たない。",
+      "正しい（本問の答え）。行動を決める役をActor、評価する役をCriticと呼ぶ。A3Cもこの系統の手法である。",
+      "誤りである。ダブルDQNは、行動の選択と価値の評価を2つのネットワークに分担させて、Q値の過大評価を抑えるDQNの改良である（補遺「深層強化学習」）。"
+    ],
+    "tags": {
+      "contentTags": ["Actor-Critic", "REINFORCE"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "Actor-Critic（p.149）",
+    "sourceReference": "補遺「強化学習の基礎」Actor-Critic（公式テキスト p.149）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-011",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "強化学習の手法の系統に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "Q学習やSARSAは、価値関数を学ぶ価値ベースの手法である。",
+      "方策勾配法は、方策そのものを直接最適化する方策ベースの手法である。",
+      "方策ベースの手法は、行動が連続的な値をとる問題でも扱いやすい。",
+      "価値ベースの手法では、学習した価値関数を行動の選択には使わない。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "価値ベースの手法では学習した価値関数を行動の選択に使わないという記述が誤りである。価値ベースの手法は、学習した価値（Q値など）が最も大きい行動を選ぶ。行動の選択に価値関数を使うことがこの系統の特徴である。",
+    "choiceExplanations": [
+      "適切である。Q値などの価値を学び、そこから行動を選ぶ。",
+      "適切である。どの行動をどれくらいの確率で選ぶかを直接学ぶ（学習を安定させるために価値の推定を併用する手法もある）。",
+      "適切である。ロボットの関節の角度のような連続的な行動にも使いやすい。",
+      "不適切である（本問の答え）。価値ベースの手法は、学習した価値（Q値など）が最も大きい行動を選ぶ。行動の選択に価値関数を使うことがこの系統の特徴である。"
+    ],
+    "tags": {
+      "contentTags": ["価値ベース", "方策ベース", "方策勾配法"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "価値ベースと方策ベースの整理",
+    "sourceReference": "補遺「強化学習の基礎」価値ベースと方策ベースの整理（公式テキスト p.149）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-012",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "強化学習のモデルフリーとモデルベースに関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "モデルベースは、環境のモデルで先の状態を予測して計画を立てるため、実際の環境での試行の回数を減らせる場合がある。",
+      "モデルフリーは、環境のモデルで先の状態を予測し、計画を立てて行動を決める方式である。",
+      "Q学習やDQNは、環境のモデルを学習して先の状態を予測し、その予測を使って計画を立てるモデルベースの手法に分類される。",
+      "モデルベースは、モデルが不正確でも、つねに正しい計画を立てられる。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ただし、モデルが不正確だと誤った計画を立てるおそれがある。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。ただし、モデルが不正確だと誤った計画を立てるおそれがある。",
+      "誤りである。モデルベースの説明である。モデルフリーは、環境のモデルを使わず、経験から直接学ぶ。",
+      "誤りである。Q学習やDQNは、経験から直接Q値を学ぶモデルフリーの手法である。",
+      "誤りである。モデルが不正確だと、誤った計画を立てるおそれがある。"
+    ],
+    "tags": {
+      "contentTags": ["モデルフリー", "モデルベース"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
+    "sourceHeading": "モデルベース（p.300）",
+    "sourceReference": "補遺「強化学習の基礎」モデルフリーとモデルベース（公式テキスト p.299〜300）",
+    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "createdAt": "2026-11-10",
+    "reviewStatus": "draft"
+  }
+]
