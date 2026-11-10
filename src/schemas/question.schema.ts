@@ -57,8 +57,14 @@ export const answerTypeSchema = z.enum(["single", "multiple"]);
  * "calculation": 計算問題。補遺を出典とし、確率・統計やネットワークの計算を数値で答える。
  * どちらも補遺が出典で、公式テキスト本文との照合が一部未実施のため、模擬試験には出題しない
  * （章別ドリルと復習で使う）。2026-11-06 導入。
+ * "principle": 原理理解。用語の定義を覚えているだけでは選べず、仕組みが分かっていないと正解できない
+ * 「なぜそうなるか」「条件を変えるとどうなるか」「現象の原因は何か」を問う。出典は章の本文または補遺。
+ * 章ごとの設計数とは別枠で追加し、模擬試験には出題しない（章別ドリルと復習で使う）。2026-11-11 導入。
  */
-export const questionCategorySchema = z.enum(["chapter", "term_check", "calculation"]);
+export const questionCategorySchema = z.enum(["chapter", "term_check", "calculation", "principle"]);
+
+/** 補遺を出典にしなければならない区分（用語確認・計算問題）。原理理解は章の本文と補遺のどちらも出典にできる。 */
+export const SUPPLEMENT_ONLY_CATEGORIES: readonly string[] = ["term_check", "calculation"];
 
 export const SUPPLEMENT_SOURCE_PREFIX = "materials/supplements/";
 
@@ -104,7 +110,7 @@ export const questionSchema = z
   .superRefine((q, ctx) => {
     const issue = (message: string) => ctx.addIssue({ code: z.ZodIssueCode.custom, message });
     if (
-      (q.category ?? "chapter") !== "chapter" &&
+      SUPPLEMENT_ONLY_CATEGORIES.includes(q.category ?? "chapter") &&
       !q.sourceFile.startsWith(SUPPLEMENT_SOURCE_PREFIX)
     ) {
       issue(`用語確認・計算問題は補遺（${SUPPLEMENT_SOURCE_PREFIX}）を出典にする`);
@@ -113,7 +119,9 @@ export const questionSchema = z
       (q.category ?? "chapter") === "chapter" &&
       q.sourceFile.startsWith(SUPPLEMENT_SOURCE_PREFIX)
     ) {
-      issue('補遺を出典にする問題はcategoryを"term_check"か"calculation"にする');
+      issue(
+        '補遺を出典にする問題はcategoryを"term_check"・"calculation"・"principle"のどれかにする',
+      );
     }
     if (q.choiceExplanations.length !== q.choices.length) {
       issue("choiceExplanationsはchoicesと同じ数にする");

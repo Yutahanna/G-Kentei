@@ -4,6 +4,7 @@ import {
   getExamQuestionsByChapter,
   getQuestionById,
   getQuestionsByChapter,
+  isPrincipleQuestion,
   isSupplementQuestion,
   isTermCheck,
 } from "../../src/shared/lib/question-loader";
@@ -23,8 +24,12 @@ const MULTIPLE_TOTAL = 20;
 const TERM_CHECK_TOTAL = 144;
 // 計算問題（category: "calculation"、補遺が出典）も別枠（2026-11-11、第2章2問・第3章6問・第5章8問・第8章14問）。
 const CALCULATION_TOTAL = 30;
+// 原理理解の問題（category: "principle"）も別枠（2026-11-11、第3章6問・第4章1問・第5章10問・第6章3問）。
+const PRINCIPLE_TOTAL = 20;
 const single = (chapterId: string) =>
-  getQuestionsByChapter(chapterId).filter((q) => !isMultipleAnswer(q) && !isSupplementQuestion(q));
+  getQuestionsByChapter(chapterId).filter(
+    (q) => !isMultipleAnswer(q) && (q.category ?? "chapter") === "chapter",
+  );
 
 describe("question-loader（全10章）", () => {
   it.each(CHAPTER_IDS)("%sの1つを選ぶ問題を設計値の問題数だけ読み込む", (chapterId) => {
@@ -72,7 +77,7 @@ describe("question-loader（全10章）", () => {
       getQuestionsByChapter(chapterId).map((q) => q.id),
     );
     expect(ids).toHaveLength(
-      ALL_EXPECTED_TOTAL + MULTIPLE_TOTAL + TERM_CHECK_TOTAL + CALCULATION_TOTAL,
+      ALL_EXPECTED_TOTAL + MULTIPLE_TOTAL + TERM_CHECK_TOTAL + CALCULATION_TOTAL + PRINCIPLE_TOTAL,
     );
     expect(new Set(ids).size).toBe(ids.length);
   });
@@ -110,6 +115,32 @@ describe("question-loader（全10章）", () => {
       expect(q.sourceFile.startsWith("materials/supplements/")).toBe(true);
       expect(examIds.has(q.id)).toBe(false);
     }
+  });
+
+  it("原理理解の問題は補遺の問題とは区別され、模擬試験の出題候補には入らない", () => {
+    const principle = CHAPTER_IDS.flatMap((id) => getQuestionsByChapter(id)).filter(
+      isPrincipleQuestion,
+    );
+    expect(principle).toHaveLength(PRINCIPLE_TOTAL);
+    const examIds = new Set(
+      CHAPTER_IDS.flatMap((id) => getExamQuestionsByChapter(id)).map((q) => q.id),
+    );
+    for (const q of principle) {
+      expect(isSupplementQuestion(q)).toBe(false);
+      expect(examIds.has(q.id)).toBe(false);
+      expect(q.choices).toHaveLength(4);
+      expect(q.choiceExplanations).toHaveLength(4);
+    }
+    // 正解の位置はA〜Dに5問ずつ（出題時は選択肢の順番を入れ替える）。
+    const positions = [0, 1, 2, 3].map(
+      (i) => principle.filter((q) => q.correctAnswer === i).length,
+    );
+    expect(positions).toEqual([5, 5, 5, 5]);
+    expect(filterQuestions({ chapterId: "ch03", category: "principle" })).toHaveLength(6);
+    expect(filterQuestions({ chapterId: "ch04", category: "principle" })).toHaveLength(1);
+    expect(filterQuestions({ chapterId: "ch05", category: "principle" })).toHaveLength(10);
+    expect(filterQuestions({ chapterId: "ch06", category: "principle" })).toHaveLength(3);
+    expect(filterQuestions({ chapterId: "ch07", category: "principle" })).toHaveLength(0);
   });
 
   it("getQuestionByIdで各章の問題を取得できる", () => {
