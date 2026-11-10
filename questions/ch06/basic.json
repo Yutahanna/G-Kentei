@@ -381,34 +381,6 @@
     "reviewStatus": "draft"
   },
   {
-    "id": "ch06-basic-013",
-    "chapterId": "ch06",
-    "sectionId": "ch06-s03",
-    "difficulty": "basic",
-    "questionStyle": "fill_in_blank",
-    "question": "次の説明の（　　）に入る語句として、教材の内容に最も適切なものはどれか。「文書要約のうち、元の文中の文をそのまま抜き出してまとめる方式を（　　）要約と呼ぶ。」",
-    "choices": ["生成型", "ルールベース型", "抽出型", "シナリオ型"],
-    "correctAnswer": 2,
-    "explanation": "教材は文書要約について、「元の文中の文をそのまま抜き出す『抽出型要約』と、元の文とは異なる表現で新たに文章を生成する『生成型(抽象型)要約』がある」と説明している。",
-    "choiceExplanations": [
-      "誤り。生成型(抽象型)要約は、元の文とは異なる表現で新たに文章を生成する方式であり、大規模言語モデルの登場で質が大きく向上した。",
-      "誤り。ルールベースは、かつての機械翻訳で単語や句を辞書的に置き換える手法として登場する言葉であり、文書要約の方式の名前ではない。",
-      "正しい。元の文をそのまま抜き出す方式を抽出型要約と呼ぶ。",
-      "誤り。シナリオに沿った応答は、従来型のチャットボットの設計として説明されており、文書要約の方式の名前ではない。"
-    ],
-    "tags": {
-      "contentTags": ["抽出型要約", "文書要約"],
-      "skillTags": ["暗記"],
-      "crossChapterTags": []
-    },
-    "sourceFile": "materials/chapters/09_第6章.md",
-    "sourceHeading": "6.3 自然言語処理の応用",
-    "sourceReference": "第6章 3節（自然言語処理の応用）",
-    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
-    "createdAt": "2026-10-29",
-    "reviewStatus": "draft"
-  },
-  {
     "id": "ch06-basic-014",
     "chapterId": "ch06",
     "sectionId": "ch06-s05",

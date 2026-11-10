@@ -1,37 +1,5 @@
 [
   {
-    "id": "ch05-standard-001",
-    "chapterId": "ch05",
-    "sectionId": "ch05-s01",
-    "difficulty": "standard",
-    "question": "CNNの代表的モデルの発展に関する説明として、教材の内容として適切なものはどれか。",
-    "choices": [
-      "ResNetは3×3の小さなフィルタだけを積み重ねることで、シンプルな構造のまま層を深くできることを示した。",
-      "GoogLeNetはスキップ接続(残差接続)を導入し、100層を超える深いネットワークの学習を可能にした。",
-      "ResNetは、ある層の入力を数層先の出力に直接足し合わせるスキップ接続を導入し、勾配消失が起きにくい非常に深いネットワークの学習を可能にした。",
-      "LeNetは、異なるサイズの畳み込みフィルタを並列に並べて結果を結合するInceptionモジュールを導入し、横方向の多様性によって効率的に精度を上げた。"
-    ],
-    "correctAnswer": 2,
-    "explanation": "教材は「ResNetは...『スキップ接続(残差接続)』という、ある層の入力を数層先の出力に直接足し合わせる仕組みを導入した。これにより層をまたいで勾配や情報がスムーズに伝わるようになり、100層を超えるような非常に深いネットワークの学習が可能になった」と説明している。",
-    "choiceExplanations": [
-      "誤り。3×3の小さなフィルタを積み重ねる発想はVGGの説明であり、ResNetの説明ではない。",
-      "誤り。スキップ接続の導入はResNetの説明であり、GoogLeNetの説明ではない。",
-      "正しい。本文が説明するResNetのスキップ接続の仕組みそのものである。",
-      "誤り。Inceptionモジュールの導入はGoogLeNetの説明であり、LeNetの説明ではない。"
-    ],
-    "tags": {
-      "contentTags": ["ResNet", "スキップ接続"],
-      "skillTags": ["比較"],
-      "crossChapterTags": ["第4章:勾配消失問題との接続"]
-    },
-    "sourceFile": "materials/chapters/08_第5章.md",
-    "sourceHeading": "5.1 CNN（畳み込みニューラルネットワーク）と画像認識",
-    "sourceReference": "第5章 1節（CNNと画像認識）",
-    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
-    "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
-  },
-  {
     "id": "ch05-standard-002",
     "chapterId": "ch05",
     "sectionId": "ch05-s02",
@@ -321,39 +289,6 @@
     "sourceReference": "第5章 11節（正則化技術）",
     "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
     "createdAt": "2026-08-01",
-    "reviewStatus": "draft"
-  },
-  {
-    "id": "ch05-standard-011",
-    "chapterId": "ch05",
-    "sectionId": "ch05-s01",
-    "difficulty": "standard",
-    "questionStyle": "fill_in_blank",
-    "question": "CNNの代表的モデルについて、次の説明の（ア）・（イ）に入る語句の組み合わせとして、教材の内容に最も適切なものはどれか。「（ア）は3×3という小さなフィルタを何層も積み重ね、小さいフィルタを重ねれば大きいフィルタと同等以上の表現力をより少ないパラメータで実現できることを示した。（イ）は異なるサイズの畳み込みフィルタを並列に並べて結果を結合するInceptionモジュールを導入し、横方向の多様性を持たせた。」",
-    "choices": [
-      "（ア）VGG　（イ）GoogLeNet",
-      "（ア）GoogLeNet　（イ）VGG",
-      "（ア）VGG　（イ）ResNet",
-      "（ア）AlexNet　（イ）GoogLeNet"
-    ],
-    "correctAnswer": 0,
-    "explanation": "教材はVGGについて「3×3という小さなフィルタだけを使い、それを何層も積み重ねる」「小さいフィルタを重ねれば大きいフィルタと同等以上の表現力を、より少ないパラメータで実現できることを示した」と、GoogLeNetについて「『Inceptionモジュール』という、異なるサイズの畳み込みフィルタを並列に並べて結果を結合する構造を導入し...『横方向の多様性』を持たせる」と説明しており、（ア）にはVGG、（イ）にはGoogLeNetが入る。",
-    "choiceExplanations": [
-      "適切である。教材が説明するVGGとGoogLeNetの特徴の組み合わせそのものである。本問の答えはこれである。",
-      "不適切である。VGGとGoogLeNetが入れ替わっている。",
-      "不適切である。（ア）は正しいが、（イ）が誤っている。ResNetが導入したのはスキップ接続であり、Inceptionモジュールを導入したのはGoogLeNetである。",
-      "不適切である。（イ）は正しいが、（ア）が誤っている。AlexNetはReLU・Dropout・GPUによる並列学習を取り入れてILSVRCで優勝したモデルであり、3×3の小さなフィルタを積み重ねる発想を示したのはVGGである。"
-    ],
-    "tags": {
-      "contentTags": ["VGG", "GoogLeNet"],
-      "skillTags": ["比較"],
-      "crossChapterTags": []
-    },
-    "sourceFile": "materials/chapters/08_第5章.md",
-    "sourceHeading": "5.1 CNN（畳み込みニューラルネットワーク）と画像認識",
-    "sourceReference": "第5章 1節（CNNと画像認識）",
-    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
-    "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
   {
@@ -769,33 +704,6 @@
     "sourceFile": "materials/chapters/08_第5章.md",
     "sourceHeading": "5.6 生成AIの主要技術: GAN・VAE・拡散モデル",
     "sourceReference": "第5章 6節（GAN・VAE・拡散モデル）",
-    "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
-    "createdAt": "2026-10-29",
-    "reviewStatus": "draft"
-  },
-  {
-    "id": "ch05-standard-025",
-    "chapterId": "ch05",
-    "sectionId": "ch05-s05",
-    "difficulty": "standard",
-    "question": "大規模言語モデルで、モデルの規模がある閾値を超えると、それまで見られなかった複雑な推論や指示への柔軟な対応などの能力が急に現れる現象を何と呼ぶか。教材の内容として最も適切なものはどれか。",
-    "choices": ["創発的能力", "スケーリング則", "In-context learning", "アライメント"],
-    "correctAnswer": 0,
-    "explanation": "教材は「モデルの規模がある閾値を超えると、それまで見られなかった能力(複雑な推論、指示への柔軟な対応など)が急に現れる現象は『創発的能力(emergent abilities)』と呼ばれ」ると説明している。",
-    "choiceExplanations": [
-      "正しい。規模がある閾値を超えると急に現れる能力を創発的能力と呼ぶ。",
-      "誤り。スケーリング則は、モデルサイズ・データ量・計算量を増やすと、性能がある程度予測可能な形で向上し続ける傾向を指し、急に現れる能力のことではない。",
-      "誤り。In-context learningは、プロンプト内の情報だけを手がかりに、重みを更新せずにその場でタスクに適応したかのように振る舞える性質である。",
-      "誤り。アライメントは、AIの出力を人間にとって望ましい・安全な・有用な方向に近づける取り組み全体を指す。"
-    ],
-    "tags": {
-      "contentTags": ["創発的能力", "スケーリング則"],
-      "skillTags": ["暗記", "比較"],
-      "crossChapterTags": []
-    },
-    "sourceFile": "materials/chapters/08_第5章.md",
-    "sourceHeading": "5.5 大規模言語モデル(GPT系列・BERT)",
-    "sourceReference": "第5章 5節（大規模言語モデル）",
     "contentVersion": "f272493f653822217a98954f75c027b93b7f000ef6cf67f77b44f7de5ba27431",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"

@@ -22,8 +22,9 @@ import {
   buildConceptVocabulary,
   checkQuestionCountsAgainstDesign,
   findChoicePositionReferences,
-  EXPECTED_TOTAL_BY_CHAPTER,
-  EXPECTED_TOTAL_QUESTIONS,
+  getChapterCounts,
+  getDesignTargetCounts,
+  sumCounts,
   computeAnswerPositionDistribution,
   computeCorrectLongestRate,
   computeNearConceptRate,
@@ -227,18 +228,22 @@ function main(): void {
       `[${chapterId}] 近接概念を含む誤答選択肢の割合: ${(chapterRate * 100).toFixed(0)}%（${totalNearConceptHits}/${totalWrong}）`,
     );
 
-    const expectedTotal = EXPECTED_TOTAL_BY_CHAPTER[chapterId] ?? EXPECTED_TOTAL_QUESTIONS;
-    const countCheck = checkQuestionCountsAgainstDesign(chapterQuestions, expectedTotal);
+    const expectedCounts = getChapterCounts(chapterId);
+    const countCheck = checkQuestionCountsAgainstDesign(chapterQuestions, expectedCounts);
     if (!countCheck.totalMatches) {
       warn(
-        `[${chapterId}]: 総問題数が設計値と一致しません（設計値${expectedTotal}問 / 実際${countCheck.actualTotal}問）。`,
+        `[${chapterId}]: 総問題数が章の構成（CHAPTER_COUNTS）と一致しません（構成${sumCounts(expectedCounts)}問 / 実際${countCheck.actualTotal}問）。`,
       );
     }
     for (const mismatch of countCheck.mismatchedDifficulties) {
       warn(
-        `[${chapterId}]: ${mismatch.difficulty}の問題数が設計値と一致しません（設計値${mismatch.expected}問 / 実際${mismatch.actual}問）。`,
+        `[${chapterId}]: ${mismatch.difficulty}の問題数が章の構成（CHAPTER_COUNTS）と一致しません（構成${mismatch.expected}問 / 実際${mismatch.actual}問）。`,
       );
     }
+    const target = getDesignTargetCounts(chapterId);
+    console.log(
+      `[${chapterId}] 設計目標との差: 基礎${expectedCounts.basic - target.basic} / 標準${expectedCounts.standard - target.standard} / 応用${expectedCounts.advanced - target.advanced}（設計目標 ${target.basic}/${target.standard}/${target.advanced}、実際 ${expectedCounts.basic}/${expectedCounts.standard}/${expectedCounts.advanced}）`,
+    );
 
     const skewWarning = findAnswerPositionSkewWarning(chapterQuestions);
     if (skewWarning) {

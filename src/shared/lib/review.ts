@@ -1,5 +1,6 @@
 import { isDueForReview } from "./srs";
 import { listAllQuestionProgress } from "./db";
+import { getQuestionById } from "./question-loader";
 import type { QuestionProgress } from "../../entities/progress";
 
 /**
@@ -144,8 +145,20 @@ export interface ReviewBuckets {
   fill: string[];
 }
 
+/**
+ * 問題プールに今もある問題の学習記録だけを残す。
+ * 重複整理などで削除した問題の記録はIndexedDBに残したまま（書き出し・読み込みでも保持する）、
+ * 復習の対象と件数からは外す。外さないと、出題できない問題が復習セッションに入り、画面が空になる。
+ */
+export function filterKnownQuestionProgress(
+  allProgress: QuestionProgress[],
+  isKnown: (questionId: string) => boolean = (id) => getQuestionById(id) !== undefined,
+): QuestionProgress[] {
+  return allProgress.filter((p) => isKnown(p.questionId));
+}
+
 export async function getReviewBuckets(now: Date = new Date()): Promise<ReviewBuckets> {
-  const allProgress = await listAllQuestionProgress();
+  const allProgress = filterKnownQuestionProgress(await listAllQuestionProgress());
   return {
     mockReview: selectMockReviewQuestionIds(allProgress),
     dueForReview: selectDueForReviewQuestionIds(allProgress, now),
