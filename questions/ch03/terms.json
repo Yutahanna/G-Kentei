@@ -24,7 +24,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "割引率（p.146）",
     "sourceReference": "補遺「強化学習の基礎」割引率（公式テキスト p.146）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -53,7 +53,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "マルコフ性とマルコフ決定過程（p.147）",
     "sourceReference": "補遺「強化学習の基礎」マルコフ性とマルコフ決定過程（公式テキスト p.147）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -87,7 +87,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "マルコフ性とマルコフ決定過程（p.147）",
     "sourceReference": "補遺「強化学習の基礎」マルコフ性とマルコフ決定過程（公式テキスト p.147）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -121,7 +121,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "バンディットアルゴリズム（p.146）",
     "sourceReference": "補遺「強化学習の基礎」バンディットアルゴリズム（公式テキスト p.146）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -155,7 +155,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "ε-greedy方策（p.147）",
     "sourceReference": "補遺「強化学習の基礎」ε-greedy方策（公式テキスト p.147）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "UCB方策（p.147）",
     "sourceReference": "補遺「強化学習の基礎」UCB方策（公式テキスト p.147）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -218,7 +218,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "行動価値関数（p.148）",
     "sourceReference": "補遺「強化学習の基礎」行動価値関数（公式テキスト p.148）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -252,7 +252,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "SARSA（p.148）",
     "sourceReference": "補遺「強化学習の基礎」SARSA（公式テキスト p.148）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -286,7 +286,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "REINFORCE（p.149）",
     "sourceReference": "補遺「強化学習の基礎」REINFORCE（公式テキスト p.149）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -300,11 +300,11 @@
     "question": "行動を決める役と、価値を推定して選んだ行動の良し悪しを評価する役を組み合わせ、両方を同時に学習する強化学習の手法を何と呼ぶか。",
     "choices": ["REINFORCE", "SARSA", "Actor-Critic", "ダブルDQN"],
     "correctAnswer": 2,
-    "explanation": "正解は「Actor-Critic」である。行動を決める役をActor、評価する役をCriticと呼ぶ。A3Cもこの系統の手法である。",
+    "explanation": "正解は「Actor-Critic」である。行動を決める役をActor、評価する役をCriticと呼ぶ。公式テキストでは、Actorを「行動器」、Criticを「評価器」と訳している。A3Cもこの系統の手法である。",
     "choiceExplanations": [
       "誤りである。REINFORCEは、実際に得た収益だけを使って方策を更新する手法であり、価値を推定する役を持たない。",
       "誤りである。SARSAは、Q値を更新して学ぶ価値ベースの手法であり、方策を決める役を別に持たない。",
-      "正しい（本問の答え）。行動を決める役をActor、評価する役をCriticと呼ぶ。A3Cもこの系統の手法である。",
+      "正しい（本問の答え）。行動を決める役をActor、評価する役をCriticと呼ぶ。公式テキストでは、Actorを「行動器」、Criticを「評価器」と訳している。A3Cもこの系統の手法である。",
       "誤りである。ダブルDQNは、行動の選択と価値の評価を2つのネットワークに分担させて、Q値の過大評価を抑えるDQNの改良である（補遺「深層強化学習」）。"
     ],
     "tags": {
@@ -315,7 +315,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "Actor-Critic（p.149）",
     "sourceReference": "補遺「強化学習の基礎」Actor-Critic（公式テキスト p.149）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -349,7 +349,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "価値ベースと方策ベースの整理",
     "sourceReference": "補遺「強化学習の基礎」価値ベースと方策ベースの整理（公式テキスト p.149）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   },
@@ -383,7 +383,7 @@
     "sourceFile": "materials/supplements/3_強化学習の基礎_ORG.md",
     "sourceHeading": "モデルベース（p.300）",
     "sourceReference": "補遺「強化学習の基礎」モデルフリーとモデルベース（公式テキスト p.299〜300）",
-    "contentVersion": "d29492c7d6a00f6f5670b9e6122c6e58bed332c01c49c7c561aa3ed46536596f",
+    "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
   }
