@@ -9,14 +9,19 @@ import {
   isTermCheck,
 } from "../../src/shared/lib/question-loader";
 import {
-  EXPECTED_TOTAL_BY_CHAPTER,
-  EXPECTED_TOTAL_QUESTIONS,
+  getChapterCounts,
+  getDesignTargetCounts,
+  sumCounts,
 } from "../../scripts/lib/question-quality-checks";
 import { isMultipleAnswer } from "../../src/shared/lib/answer";
+import {
+  allocateExamQuestionCounts,
+  selectExamQuestionIds,
+} from "../../src/shared/lib/examComposition";
+import { EXAM_COMPOSITION_CONFIG } from "../../src/shared/config/examComposition";
 
 const CHAPTER_IDS = Array.from({ length: 10 }, (_, i) => `ch${String(i + 1).padStart(2, "0")}`);
-const expectedTotal = (chapterId: string) =>
-  EXPECTED_TOTAL_BY_CHAPTER[chapterId] ?? EXPECTED_TOTAL_QUESTIONS;
+const expectedTotal = (chapterId: string) => sumCounts(getChapterCounts(chapterId));
 const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(id), 0);
 // すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加している（2026-11-01、全20問）。
 const MULTIPLE_TOTAL = 20;
@@ -26,6 +31,23 @@ const TERM_CHECK_TOTAL = 144;
 const CALCULATION_TOTAL = 30;
 // 原理理解の問題（category: "principle"）も別枠（2026-11-11、第3章6問・第4章1問・第5章10問・第6章3問）。
 const PRINCIPLE_TOTAL = 20;
+// 別の問題を解けば答えが決まる重複問題として削除した問題（docs/question-pool-audit-2026-11.md）。
+const DELETED_QUESTION_IDS = [
+  "ch01-basic-002",
+  "ch03-basic-002",
+  "ch04-basic-013",
+  "ch04-standard-005",
+  "ch05-basic-004",
+  "ch05-basic-010",
+  "ch05-standard-001",
+  "ch05-standard-011",
+  "ch05-standard-025",
+  "ch06-basic-013",
+  "ch06-standard-011",
+  "ch10-basic-016",
+  "ch10-standard-009",
+  "ch10-standard-011",
+];
 const single = (chapterId: string) =>
   getQuestionsByChapter(chapterId).filter(
     (q) => !isMultipleAnswer(q) && (q.category ?? "chapter") === "chapter",
@@ -36,15 +58,68 @@ describe("question-loader（全10章）", () => {
     expect(single(chapterId)).toHaveLength(expectedTotal(chapterId));
   });
 
-  it.each(CHAPTER_IDS)("%sの1つを選ぶ問題は難易度ごとに基礎:標準:応用=2:2:1である", (chapterId) => {
-    const unit = expectedTotal(chapterId) / 5;
-    const count = (difficulty: "basic" | "standard" | "advanced") =>
-      filterQuestions({ chapterId, difficulties: [difficulty], category: "chapter" }).filter(
-        (q) => !isMultipleAnswer(q),
-      ).length;
-    expect(count("basic")).toBe(unit * 2);
-    expect(count("standard")).toBe(unit * 2);
-    expect(count("advanced")).toBe(unit);
+  it.each(CHAPTER_IDS)(
+    "%sの1つを選ぶ問題は難易度ごとに章の構成（CHAPTER_COUNTS）どおりの数がある",
+    (chapterId) => {
+      const count = (difficulty: "basic" | "standard" | "advanced") =>
+        filterQuestions({ chapterId, difficulties: [difficulty], category: "chapter" }).filter(
+          (q) => !isMultipleAnswer(q),
+        ).length;
+      const expected = getChapterCounts(chapterId);
+      expect(count("basic")).toBe(expected.basic);
+      expect(count("standard")).toBe(expected.standard);
+      expect(count("advanced")).toBe(expected.advanced);
+    },
+  );
+
+  it.each(CHAPTER_IDS)(
+    "%sの難易度の比率は設計目標（基礎:標準:応用=40%:40%:20%）から5ポイント以内、総数は設計目標の90%以上である",
+    (chapterId) => {
+      const actual = getChapterCounts(chapterId);
+      const target = getDesignTargetCounts(chapterId);
+      const total = sumCounts(actual);
+      expect(total).toBeGreaterThanOrEqual(sumCounts(target) * 0.9);
+      expect(total).toBeLessThanOrEqual(sumCounts(target));
+      for (const d of ["basic", "standard", "advanced"] as const) {
+        expect(Math.abs(actual[d] / total - target[d] / sumCounts(target))).toBeLessThanOrEqual(
+          0.05,
+        );
+      }
+    },
+  );
+
+  it.each([20, 50, 90, 145])(
+    "模擬試験%i問を、実際の問題プールから章の配分の上限・下限どおりに重複なく抽出できる",
+    (totalCount) => {
+      const idsByChapter = Object.fromEntries(
+        CHAPTER_IDS.map((id) => [id, getExamQuestionsByChapter(id).map((q) => q.id)]),
+      );
+      const available = Object.fromEntries(
+        Object.entries(idsByChapter).map(([id, ids]) => [id, ids.length]),
+      );
+      const counts = allocateExamQuestionCounts(totalCount, EXAM_COMPOSITION_CONFIG, available);
+      expect(Object.values(counts).reduce((a, b) => a + b, 0)).toBe(totalCount);
+      for (const c of EXAM_COMPOSITION_CONFIG.perChapter) {
+        const n = counts[c.chapterId] ?? 0;
+        // 保有数が配分の上限を下回ると、上限どおりに出題できない。
+        expect(available[c.chapterId]!).toBeGreaterThanOrEqual(Math.ceil(totalCount * c.maxRatio));
+        // 整数への丸めで1問ずれることがある。
+        expect(n).toBeGreaterThanOrEqual(Math.floor(totalCount * c.minRatio) - 1);
+        expect(n).toBeLessThanOrEqual(Math.ceil(totalCount * c.maxRatio) + 1);
+      }
+      const ids = selectExamQuestionIds(totalCount, EXAM_COMPOSITION_CONFIG, idsByChapter);
+      expect(ids).toHaveLength(totalCount);
+      expect(new Set(ids).size).toBe(totalCount);
+      for (const id of ids) {
+        expect(getQuestionById(id)?.category ?? "chapter").toBe("chapter");
+      }
+    },
+  );
+
+  it("重複整理で削除した問題（2026-11-11）は読み込まれない", () => {
+    for (const id of DELETED_QUESTION_IDS) {
+      expect(getQuestionById(id)).toBeUndefined();
+    }
   });
 
   it("全て選ぶ問題は全体で20問あり、4択で正解が2〜3個の肯定形である", () => {

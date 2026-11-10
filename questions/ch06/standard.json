@@ -319,33 +319,6 @@
     "reviewStatus": "draft"
   },
   {
-    "id": "ch06-standard-011",
-    "chapterId": "ch06",
-    "sectionId": "ch06-s01",
-    "difficulty": "standard",
-    "question": "R-CNN系列のうち、候補領域の抽出自体もニューラルネットワークに組み込んで高速化したモデルはどれか。教材の内容として最も適切なものはどれか。",
-    "choices": ["R-CNN", "Faster R-CNN", "Fast R-CNN", "SSD(Single Shot MultiBox Detector)"],
-    "correctAnswer": 1,
-    "explanation": "教材は、R-CNNを改善したFast R-CNN、「さらに候補領域の抽出自体もニューラルネットワークに組み込んで高速化したFaster R-CNN」へと発展したと説明している。",
-    "choiceExplanations": [
-      "誤り。R-CNNは、候補領域を数千個切り出してそれぞれをCNNで分類するため非常に遅いという課題があった、系列の最初のモデルである。",
-      "正しい。候補領域の抽出もニューラルネットワークに組み込んで高速化したモデルである。",
-      "誤り。Fast R-CNNはR-CNNを改善したモデルだが、候補領域の抽出までニューラルネットワークに組み込んだのはその次のFaster R-CNNである。",
-      "誤り。SSDは、候補領域の抽出と分類を分けずに1回の処理で位置とカテゴリを予測する1段階方式の手法であり、R-CNN系列ではない。"
-    ],
-    "tags": {
-      "contentTags": ["Faster R-CNN", "R-CNN"],
-      "skillTags": ["暗記", "比較"],
-      "crossChapterTags": []
-    },
-    "sourceFile": "materials/chapters/09_第6章.md",
-    "sourceHeading": "6.1 画像認識の応用: 物体検出",
-    "sourceReference": "第6章 1節（物体検出）",
-    "contentVersion": "10cab953b56a7d77a3e7e77fcc184ed2217399589fd8386b573647dec4ebdfeb",
-    "createdAt": "2026-10-29",
-    "reviewStatus": "draft"
-  },
-  {
     "id": "ch06-standard-012",
     "chapterId": "ch06",
     "sectionId": "ch06-s05",

@@ -8,6 +8,7 @@ import {
   selectReviewFillQuestionIds,
   composeReviewSession,
   isRepeatedMistake,
+  filterKnownQuestionProgress,
 } from "../../src/shared/lib/review";
 import { createInitialProgress } from "../../src/entities/progress";
 import type { QuestionProgress } from "../../src/entities/progress";
@@ -168,5 +169,19 @@ describe("復習の補充（何度も間違えた問題・ブックマーク）"
 
     const short = composeReviewSession(["p1"], ["f1"], 20);
     expect([...short.questionIds].sort()).toEqual(["f1", "p1"]);
+  });
+});
+
+describe("削除した問題の学習記録", () => {
+  it("問題プールにない問題の記録は復習の対象から外し、今ある問題の記録は残す", () => {
+    const wrong = [
+      { answeredAt: "2026-08-01T00:00:00.000Z", result: "incorrect" as const, selectedIndex: 1 },
+    ];
+    const existing = { ...withHistory("ch01-basic-001", wrong), bookmarked: true };
+    const deleted = { ...withHistory("ch01-basic-002", wrong), bookmarked: true };
+    const known = filterKnownQuestionProgress([existing, deleted]);
+    expect(known.map((p) => p.questionId)).toEqual(["ch01-basic-001"]);
+    expect(selectWrongAnswerQuestionIds(known)).toEqual(["ch01-basic-001"]);
+    expect(selectBookmarkedQuestionIds(known)).toEqual(["ch01-basic-001"]);
   });
 });

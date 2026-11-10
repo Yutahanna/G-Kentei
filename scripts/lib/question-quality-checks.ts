@@ -290,11 +290,17 @@ export function findAnswerPositionSkewWarning(questions: Question[]): string | n
 }
 
 /**
- * 章の問題数が設計値（既定: 25問、基礎10/標準10/応用5）と一致しているかを確認する。
- * 弱点章の問題プール拡充（2026-10-19）で一部の章は25問を超えるため、章ごとの総数を
- * EXPECTED_TOTAL_BY_CHAPTERで上書きし、難易度は基礎:標準:応用=2:2:1の比率で求める。
- * 第9・10章は、出題比重が増えているとされる法律・倫理分野として2026-10-22に拡充した。
- * 第3〜6章は、公式テキストの章末問題に多い「説明から用語名を選ぶ」形式を補うため2026-10-29に拡充した。
+ * 章の問題（1つを選ぶ問題、category: "chapter"）の構成。
+ *
+ * 設計目標：既定は25問（基礎10/標準10/応用5）。一部の章はEXPECTED_TOTAL_BY_CHAPTERで総数を上書きし、
+ * 難易度は基礎:標準:応用=2:2:1の比率で求める。
+ * - 第9・10章は、出題比重が増えているとされる法律・倫理分野として2026-10-22に拡充した。
+ * - 第3〜6章は、公式テキストの章末問題に多い「説明から用語名を選ぶ」形式を補うため2026-10-29に拡充した。
+ *
+ * 実際の構成：2026-11-11、別の問題を解けば答えが決まる重複問題を14問削除した（docs/question-pool-audit-2026-11.md）。
+ * 削除は基礎・標準に偏るため、設計目標の2:2:1とは一致しない。実際の構成はCHAPTER_COUNTSに章ごとに固定し、
+ * 問題を足す・減らすときはここを更新する。設計目標との差はvalidate-questionsが章ごとに表示し、
+ * 単体テストで難易度の比率が設計目標から大きく外れていないことを確かめる。
  */
 export const EXPECTED_TOTAL_QUESTIONS = 25;
 export const EXPECTED_TOTAL_BY_CHAPTER: Record<string, number> = {
@@ -311,6 +317,42 @@ export const EXPECTED_COUNT_BY_DIFFICULTY: Record<Question["difficulty"], number
   advanced: 5,
 };
 
+export type DifficultyCounts = Record<Question["difficulty"], number>;
+
+/** 章の問題の実際の構成（難易度別の問題数）。 */
+export const CHAPTER_COUNTS: Record<string, DifficultyCounts> = {
+  ch01: { basic: 9, standard: 10, advanced: 5 },
+  ch02: { basic: 10, standard: 10, advanced: 5 },
+  ch03: { basic: 21, standard: 22, advanced: 11 },
+  ch04: { basic: 21, standard: 21, advanced: 11 },
+  ch05: { basic: 24, standard: 23, advanced: 13 },
+  ch06: { basic: 13, standard: 13, advanced: 7 },
+  ch07: { basic: 10, standard: 10, advanced: 5 },
+  ch08: { basic: 10, standard: 10, advanced: 5 },
+  ch09: { basic: 18, standard: 18, advanced: 9 },
+  ch10: { basic: 17, standard: 16, advanced: 9 },
+};
+
+/** 章の設計目標（難易度別の問題数、基礎:標準:応用=2:2:1）。 */
+export function getDesignTargetCounts(chapterId: string): DifficultyCounts {
+  const scale =
+    (EXPECTED_TOTAL_BY_CHAPTER[chapterId] ?? EXPECTED_TOTAL_QUESTIONS) / EXPECTED_TOTAL_QUESTIONS;
+  return {
+    basic: EXPECTED_COUNT_BY_DIFFICULTY.basic * scale,
+    standard: EXPECTED_COUNT_BY_DIFFICULTY.standard * scale,
+    advanced: EXPECTED_COUNT_BY_DIFFICULTY.advanced * scale,
+  };
+}
+
+/** 章の実際の構成。CHAPTER_COUNTSにない章は設計目標と同じとみなす。 */
+export function getChapterCounts(chapterId: string): DifficultyCounts {
+  return CHAPTER_COUNTS[chapterId] ?? getDesignTargetCounts(chapterId);
+}
+
+export function sumCounts(counts: DifficultyCounts): number {
+  return counts.basic + counts.standard + counts.advanced;
+}
+
 export interface DesignCountCheckResult {
   totalMatches: boolean;
   actualTotal: number;
@@ -323,25 +365,23 @@ export interface DesignCountCheckResult {
 
 export function checkQuestionCountsAgainstDesign(
   questions: Question[],
-  expectedTotal: number = EXPECTED_TOTAL_QUESTIONS,
+  expected: DifficultyCounts = EXPECTED_COUNT_BY_DIFFICULTY,
 ): DesignCountCheckResult {
-  // 全て選ぶ問題（answerType: "multiple"）と補遺が出典の問題（category: "term_check" / "calculation"）は
-  // 章ごとの設計数とは別枠で追加しているため数えない。
+  // 全て選ぶ問題（answerType: "multiple"）と、補遺が出典の問題・原理理解の問題（category: "chapter"以外）は
+  // 章ごとの構成とは別枠で追加しているため数えない。
   questions = questions.filter(
     (q) => !isMultipleAnswer(q) && (q.category ?? "chapter") === "chapter",
   );
   const actualTotal = questions.length;
-  const scale = expectedTotal / EXPECTED_TOTAL_QUESTIONS;
   const mismatchedDifficulties: DesignCountCheckResult["mismatchedDifficulties"] = [];
   for (const difficulty of ["basic", "standard", "advanced"] as const) {
     const actual = questions.filter((q) => q.difficulty === difficulty).length;
-    const expected = EXPECTED_COUNT_BY_DIFFICULTY[difficulty] * scale;
-    if (actual !== expected) {
-      mismatchedDifficulties.push({ difficulty, expected, actual });
+    if (actual !== expected[difficulty]) {
+      mismatchedDifficulties.push({ difficulty, expected: expected[difficulty], actual });
     }
   }
   return {
-    totalMatches: actualTotal === expectedTotal,
+    totalMatches: actualTotal === sumCounts(expected),
     actualTotal,
     mismatchedDifficulties,
   };
