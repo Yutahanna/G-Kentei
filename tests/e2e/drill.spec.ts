@@ -49,14 +49,34 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await expect(page.getByText(/該当する問題: 14問/)).toBeVisible();
     // 第8章は2026-11-11から用語確認（度数分布）も持つ
     await expect(page.locator("#category-term_check")).toHaveCount(1);
+    await page.locator("select").first().selectOption("ch05");
+    await page.locator("#category-principle").check();
+    await expect(page.getByText(/該当する問題: 10問/)).toBeVisible();
     await page.locator("select").first().selectOption("ch01");
     await expect(page.locator("#category-calculation")).toHaveCount(0);
+    await expect(page.locator("#category-principle")).toHaveCount(0);
+  });
+
+  test("原理理解の問題だけを選んで解くと、解説と各選択肢の説明が表示される", async ({ page }) => {
+    await page.goto("/drill");
+    await page.locator("select").first().selectOption("ch06");
+    await page.locator("#category-principle").check();
+    await expect(page.getByText(/該当する問題: 3問/)).toBeVisible();
+    await page.getByRole("button", { name: "ドリルを開始する" }).click();
+    await page.waitForURL("**/drill/ch06/play");
+    await page.locator('button[class*="choiceButton"]').first().click();
+    await expect(page.getByText(/正解です|不正解です/)).toBeVisible();
+    await expect(page.getByText("解説", { exact: true })).toBeVisible();
+    await expect(page.getByText("各選択肢の説明")).toBeVisible();
+    // 原理理解の問題の解説には、正解の選択肢の理由が「正しい（本問の答え）」として必ず1つ含まれる。
+    await expect(page.getByText(/^正しい（本問の答え）。/)).toHaveCount(1);
+    await expect(page.getByText(/^教材参照：/)).toBeVisible();
   });
 
   test("出題数は既定で10問になり、全問を選ぶと章の全問が出る", async ({ page }) => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
-    await expect(page.getByText(/該当する問題: 101問（今回の出題: 10問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 111問（今回の出題: 10問）/)).toBeVisible();
     await page.getByRole("button", { name: "ドリルを開始する" }).click();
     await page.waitForURL("**/drill/ch05/play");
     await expect(page.getByText(/問題 1 \/ 10/)).toBeVisible();
@@ -64,7 +84,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch05");
     await page.locator("#count-all").check();
-    await expect(page.getByText(/該当する問題: 101問（今回の出題: 101問）/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 111問（今回の出題: 111問）/)).toBeVisible();
   });
 
   test("ブックマークした問題は復習メニューに現れ、復習セッションを完了できる", async ({ page }) => {

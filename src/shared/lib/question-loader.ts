@@ -11,19 +11,23 @@ import ch03Standard from "../../../questions/ch03/standard.json";
 import ch03Advanced from "../../../questions/ch03/advanced.json";
 import ch03Calculation from "../../../questions/ch03/calculation.json";
 import ch03Terms from "../../../questions/ch03/terms.json";
+import ch03Principle from "../../../questions/ch03/principle.json";
 import ch04Basic from "../../../questions/ch04/basic.json";
 import ch04Standard from "../../../questions/ch04/standard.json";
 import ch04Advanced from "../../../questions/ch04/advanced.json";
 import ch04Terms from "../../../questions/ch04/terms.json";
+import ch04Principle from "../../../questions/ch04/principle.json";
 import ch05Basic from "../../../questions/ch05/basic.json";
 import ch05Standard from "../../../questions/ch05/standard.json";
 import ch05Advanced from "../../../questions/ch05/advanced.json";
 import ch05Calculation from "../../../questions/ch05/calculation.json";
 import ch05Terms from "../../../questions/ch05/terms.json";
+import ch05Principle from "../../../questions/ch05/principle.json";
 import ch06Basic from "../../../questions/ch06/basic.json";
 import ch06Standard from "../../../questions/ch06/standard.json";
 import ch06Advanced from "../../../questions/ch06/advanced.json";
 import ch06Terms from "../../../questions/ch06/terms.json";
+import ch06Principle from "../../../questions/ch06/principle.json";
 import ch07Basic from "../../../questions/ch07/basic.json";
 import ch07Standard from "../../../questions/ch07/standard.json";
 import ch07Advanced from "../../../questions/ch07/advanced.json";
@@ -50,7 +54,8 @@ import {
 
 /**
  * questions/ 配下の問題データを読み込む唯一の入り口。
- * 第1章〜第10章の問題と、補遺を出典とする用語確認・計算問題（category: "term_check" / "calculation"）を対象とする。
+ * 第1章〜第10章の問題と、補遺を出典とする用語確認・計算問題（category: "term_check" / "calculation"）、
+ * 原理理解の問題（category: "principle"）を対象とする。
  */
 
 const allQuestions: Question[] = [
@@ -67,19 +72,23 @@ const allQuestions: Question[] = [
   ...ch03Advanced,
   ...ch03Calculation,
   ...ch03Terms,
+  ...ch03Principle,
   ...ch04Basic,
   ...ch04Standard,
   ...ch04Advanced,
   ...ch04Terms,
+  ...ch04Principle,
   ...ch05Basic,
   ...ch05Standard,
   ...ch05Advanced,
   ...ch05Calculation,
   ...ch05Terms,
+  ...ch05Principle,
   ...ch06Basic,
   ...ch06Standard,
   ...ch06Advanced,
   ...ch06Terms,
+  ...ch06Principle,
   ...ch07Basic,
   ...ch07Standard,
   ...ch07Advanced,
@@ -114,15 +123,21 @@ export function isTermCheck(q: Question): boolean {
 
 /** 補遺を出典とする問題（用語確認・計算問題）かどうか。 */
 export function isSupplementQuestion(q: Question): boolean {
-  return (q.category ?? "chapter") !== "chapter";
+  const category = q.category ?? "chapter";
+  return category === "term_check" || category === "calculation";
+}
+
+/** 原理理解の問題かどうか。 */
+export function isPrincipleQuestion(q: Question): boolean {
+  return (q.category ?? "chapter") === "principle";
 }
 
 /**
  * 模擬試験の出題候補。用語確認・計算問題（補遺が出典）は公式テキスト本文との照合が一部未実施のため、
- * 模擬試験には含めない（章別ドリルと復習で使う）。
+ * 原理理解の問題は章ごとの設計数とは別枠で追加したため、模擬試験には含めない（章別ドリルと復習で使う）。
  */
 export function getExamQuestionsByChapter(chapterId: string): Question[] {
-  return getQuestionsByChapter(chapterId).filter((q) => !isSupplementQuestion(q));
+  return getQuestionsByChapter(chapterId).filter((q) => (q.category ?? "chapter") === "chapter");
 }
 
 export function getQuestionsBySection(sectionId: string): Question[] {
