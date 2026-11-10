@@ -53,7 +53,7 @@ test.describe("データのエクスポート・インポート・初期化", ()
   test("アプリのバージョン欄に問題数（合計と章別）が表示される", async ({ page }) => {
     await page.goto("/settings");
     await expect(
-      page.getByText(/^全572問（第1章 26・第2章 41・.*第9章 59・第10章 59）$/),
+      page.getByText(/^全594問（第1章 26・第2章 41・.*第9章 59・第10章 59）$/),
     ).toBeVisible();
   });
 });

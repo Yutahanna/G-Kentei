@@ -362,5 +362,33 @@
     "contentVersion": "e0ff27913aa8c999ef16ccae4c05263c1bab79cefe64c89c6b5991141fcc51fe",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch08-calc-014",
+    "chapterId": "ch08",
+    "sectionId": "ch08-s03",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "50人のテストの得点を度数分布表にまとめたところ、「60点以上70点未満」の階級の度数は12人だった。この階級の相対度数はいくつか。",
+    "choices": ["0.12", "0.24", "4.17", "12"],
+    "correctAnswer": 1,
+    "explanation": "正解は「0.24」である。相対度数は、度数をデータ全体の個数で割った値で、12 ÷ 50 ＝ 0.24。",
+    "choiceExplanations": [
+      "誤りである。12を100で割った値であり、データ全体の個数（50人）で割っていない。",
+      "正しい（本問の答え）。相対度数は、度数をデータ全体の個数で割った値で、12 ÷ 50 ＝ 0.24。",
+      "誤りである。割る順番が逆（50 ÷ 12）である。",
+      "誤りである。度数そのものであり、相対度数ではない。"
+    ],
+    "tags": {
+      "contentTags": ["度数分布", "相対度数"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+    "sourceHeading": "度数分布（索引なし）",
+    "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」度数分布（公式テキストの索引にない語）",
+    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

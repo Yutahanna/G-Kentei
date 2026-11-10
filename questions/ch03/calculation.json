@@ -138,5 +138,33 @@
     "contentVersion": "0ddc53ddb9c886e76e8fa0b14d3c7438f85e9451d511dbd58f321645451bed88",
     "createdAt": "2026-11-10",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-calc-006",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s02",
+    "difficulty": "basic",
+    "category": "calculation",
+    "question": "重回帰分析で、y ＝ 1 ＋ 2x₁ ＋ 0.5x₂ という式が得られた。x₁＝3、x₂＝4 のときの予測値 y はいくつか。",
+    "choices": ["8", "9", "11", "15"],
+    "correctAnswer": 1,
+    "explanation": "正解は「9」である。1 ＋ 2×3 ＋ 0.5×4 ＝ 1 ＋ 6 ＋ 2 ＝ 9。",
+    "choiceExplanations": [
+      "誤りである。定数項の1を足し忘れた値（2×3 ＋ 0.5×4）である。",
+      "正しい（本問の答え）。1 ＋ 2×3 ＋ 0.5×4 ＝ 1 ＋ 6 ＋ 2 ＝ 9。",
+      "誤りである。x₂の係数0.5を掛け忘れた値（1 ＋ 6 ＋ 4）である。",
+      "誤りである。係数2を x₁ と x₂ の合計に掛けた値（1 ＋ 2×(3 ＋ 4)）である。"
+    ],
+    "tags": {
+      "contentTags": ["重回帰分析"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
+    "sourceHeading": "単回帰分析・重回帰分析（p.134）",
+    "sourceReference": "補遺「機械学習の手法の補足」単回帰分析・重回帰分析（公式テキスト p.134）",
+    "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

@@ -42,12 +42,13 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.goto("/drill");
     await page.locator("select").first().selectOption("ch06");
     await page.locator("#category-term_check").check();
-    await expect(page.getByText(/該当する問題: 46問/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 50問/)).toBeVisible();
     await expect(page.locator("#category-calculation")).toHaveCount(0);
     await page.locator("select").first().selectOption("ch08");
     await page.locator("#category-calculation").check();
-    await expect(page.getByText(/該当する問題: 13問/)).toBeVisible();
-    await expect(page.locator("#category-term_check")).toHaveCount(0);
+    await expect(page.getByText(/該当する問題: 14問/)).toBeVisible();
+    // 第8章は2026-11-11から用語確認（度数分布）も持つ
+    await expect(page.locator("#category-term_check")).toHaveCount(1);
     await page.locator("select").first().selectOption("ch01");
     await expect(page.locator("#category-calculation")).toHaveCount(0);
   });
