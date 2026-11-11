@@ -417,7 +417,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "L0正則化（p.184）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」L0正則化（公式テキスト p.184）",
-    "contentVersion": "fdbfd503824686fc30781461c31ff233a890a5bb27fec8944723b06a06d1aadc",
+    "contentVersion": "561dd07cc631664daf9f3ab44026671e5acf5ff669ad11a5a4cbbd2fdfd87c62",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -446,7 +446,7 @@
     "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
     "sourceHeading": "単回帰分析・重回帰分析（p.134）",
     "sourceReference": "補遺「機械学習の手法の補足」単回帰分析・重回帰分析（公式テキスト p.134）",
-    "contentVersion": "77c7b8ffc81030f995390c1976939c805b6063dba768ad58320a9dec13d73c14",
+    "contentVersion": "cb0d75d1df047f5a7bed51ce03ed32d4f6eb2a4036a79a7817ded2103f01c7ed",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -480,7 +480,7 @@
     "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
     "sourceHeading": "単回帰分析・重回帰分析（p.134）",
     "sourceReference": "補遺「機械学習の手法の補足」単回帰分析・重回帰分析（公式テキスト p.134）",
-    "contentVersion": "77c7b8ffc81030f995390c1976939c805b6063dba768ad58320a9dec13d73c14",
+    "contentVersion": "cb0d75d1df047f5a7bed51ce03ed32d4f6eb2a4036a79a7817ded2103f01c7ed",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -514,7 +514,7 @@
     "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
     "sourceHeading": "カーネルトリック（p.139）",
     "sourceReference": "補遺「機械学習の手法の補足」カーネルトリック（公式テキスト p.139）",
-    "contentVersion": "77c7b8ffc81030f995390c1976939c805b6063dba768ad58320a9dec13d73c14",
+    "contentVersion": "cb0d75d1df047f5a7bed51ce03ed32d4f6eb2a4036a79a7817ded2103f01c7ed",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -543,7 +543,7 @@
     "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
     "sourceHeading": "ベクトル自己回帰モデル（VARモデル）（p.140）",
     "sourceReference": "補遺「機械学習の手法の補足」ベクトル自己回帰モデル（VARモデル）（公式テキスト p.140）",
-    "contentVersion": "77c7b8ffc81030f995390c1976939c805b6063dba768ad58320a9dec13d73c14",
+    "contentVersion": "cb0d75d1df047f5a7bed51ce03ed32d4f6eb2a4036a79a7817ded2103f01c7ed",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -577,7 +577,7 @@
     "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
     "sourceHeading": "特異値分解（SVD）（p.143）",
     "sourceReference": "補遺「機械学習の手法の補足」特異値分解（SVD）（公式テキスト p.143）",
-    "contentVersion": "77c7b8ffc81030f995390c1976939c805b6063dba768ad58320a9dec13d73c14",
+    "contentVersion": "cb0d75d1df047f5a7bed51ce03ed32d4f6eb2a4036a79a7817ded2103f01c7ed",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -611,7 +611,7 @@
     "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
     "sourceHeading": "コンテンツベースフィルタリング（p.144）",
     "sourceReference": "補遺「機械学習の手法の補足」コンテンツベースフィルタリング（公式テキスト p.144）",
-    "contentVersion": "77c7b8ffc81030f995390c1976939c805b6063dba768ad58320a9dec13d73c14",
+    "contentVersion": "cb0d75d1df047f5a7bed51ce03ed32d4f6eb2a4036a79a7817ded2103f01c7ed",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -645,7 +645,7 @@
     "sourceFile": "materials/supplements/3-2_機械学習の手法の補足_ORG.md",
     "sourceHeading": "オッカムの剃刀（p.158）",
     "sourceReference": "補遺「機械学習の手法の補足」オッカムの剃刀（公式テキスト p.158）",
-    "contentVersion": "77c7b8ffc81030f995390c1976939c805b6063dba768ad58320a9dec13d73c14",
+    "contentVersion": "cb0d75d1df047f5a7bed51ce03ed32d4f6eb2a4036a79a7817ded2103f01c7ed",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },

@@ -24,7 +24,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "Permutation Importance（p.312）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Permutation Importance（公式テキスト p.312）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -58,7 +58,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "Grad-CAM（p.313）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Grad-CAM（公式テキスト p.313）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -92,7 +92,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "CAM（p.312）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」CAM（公式テキスト p.312）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -121,7 +121,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "BPR（p.332）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」BPR（公式テキスト p.332）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -155,7 +155,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "Docker（索引なし）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Docker（公式テキストの索引にない語）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "Web API（索引なし）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」Web API（公式テキストの索引にない語）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -223,7 +223,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "ウォーターフォール・アジャイル（索引なし。シラバスのキーワードとしては2語）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」ウォーターフォール・アジャイル（公式テキストの索引にない語）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -257,7 +257,7 @@
     "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
     "sourceHeading": "オープンデータセット（p.340）",
     "sourceReference": "補遺「解釈性・軽量化・開発の進め方の補足」オープンデータセット（公式テキスト p.340）",
-    "contentVersion": "cd3047adb74fceaf4713888671f0c288ca5b7121502a42dbf41fc7025edc6c02",
+    "contentVersion": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
