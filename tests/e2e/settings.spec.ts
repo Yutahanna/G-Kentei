@@ -35,7 +35,7 @@ test.describe("データのエクスポート・インポート・初期化", ()
     await page.reload();
     await page.goto("/");
     await page.selectOption("#dashboard-chapter-select", "ch04");
-    await expect(page.getByText("1 / 60", { exact: true })).toBeVisible();
+    await expect(page.getByText("1 / 65", { exact: true })).toBeVisible();
   });
 
   test("不正な形式のファイルをインポートするとエラーになり、データは変更されない", async ({
@@ -53,7 +53,7 @@ test.describe("データのエクスポート・インポート・初期化", ()
   test("アプリのバージョン欄に問題数（合計と章別）が表示される", async ({ page }) => {
     await page.goto("/settings");
     await expect(
-      page.getByText(/^全605問（第1章 26・第2章 42・.*第9章 59・第10章 56）$/),
+      page.getByText(/^全621問（第1章 26・第2章 42・.*第9章 59・第10章 56）$/),
     ).toBeVisible();
   });
 });
