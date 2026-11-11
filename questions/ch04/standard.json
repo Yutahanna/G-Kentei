@@ -27,7 +27,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -60,7 +60,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：バッチ・ミニバッチ・オンライン学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -71,28 +71,28 @@
     "difficulty": "standard",
     "question": "誤差逆伝播法(バックプロパゲーション)の仕組みに関する説明として、教材の内容として適切なものはどれか。",
     "choices": [
-      "損失関数を各層の重みで微分し、連鎖律で勾配を求めて、勾配の逆方向に重みを更新する。",
-      "入力データを入力層から出力層へ一度流すだけで、重みの更新は一切行わない。",
+      "損失関数を各層の重みで微分し、連鎖律を使って、出力層から入力層へ向かって各層の重みの勾配を効率よく求める。",
+      "入力データを入力層から出力層へ一度流して予測値を計算するだけで、勾配は計算しない。",
       "訓練データとテストデータを繰り返し入れ替えながら学習と評価を行い、最終的な性能評価の平均を求める。",
-      "オートエンコーダーを1層ずつ学習させ、積み重ねることで、ラベルなしデータから特徴表現を獲得する。"
+      "勾配降下法と同じものを指す別名であり、勾配の逆方向に重みを更新する手順そのものを指す。"
     ],
     "correctAnswer": 0,
-    "explanation": "教材は誤差逆伝播法について、損失関数を各層の重みで微分し、「連鎖律(chain rule)」を使って各層の重みの勾配を計算すると説明し、重みの更新については「計算された勾配の逆方向に、学習率(更新の歩幅を決めるハイパーパラメータ)をかけた分だけ重みを更新する」と説明している。",
+    "explanation": "教材は誤差逆伝播法を、損失関数を各層の重みで微分し、「連鎖律(chain rule)」を使って各層の重みの勾配(傾き)を効率よく求める手法と説明している。求めた勾配の逆方向に重みを少しずつ動かしていく(勾配降下法)のは最適化手法の役割であり、章末整理でも誤差逆伝播法を「各重みの勾配を効率よく求める」、最適化手法を「勾配を使って重みを更新する」と区別し、確認ポイントで「誤差逆伝播法と勾配降下法を同じものとして扱っていないか」を挙げている。",
     "choiceExplanations": [
-      "正しい。本文が説明する誤差逆伝播法の仕組みそのものである。",
-      "誤り。入力から出力へ一度流すのは順伝播の説明であり、誤差逆伝播法は逆向きに勾配を計算し重みを更新する工程を含む。",
+      "正しい。本文が説明する誤差逆伝播法の仕組みそのものである。本問の答えはこれである。",
+      "誤り。入力から出力へ一度流して予測値を計算するのは順伝播の説明であり、誤差逆伝播法は出力側から入力側へ逆向きに勾配を計算する。",
       "誤り。これは第3章で学んだ交差検証の説明であり、誤差逆伝播法とは無関係である。",
-      "誤り。これは積層自己符号化器の説明であり、第6節で扱われる。"
+      "誤り。教材は、誤差逆伝播法が担うのは勾配の計算であり、勾配の逆方向に重みを更新するのは最適化手法(勾配降下法など)の役割だと区別している。章末整理の確認ポイントも、両者を同じものとして扱わないよう求めている。"
     ],
     "tags": {
-      "contentTags": ["誤差逆伝播法", "連鎖律", "勾配降下法"],
+      "contentTags": ["誤差逆伝播法", "連鎖律", "勾配降下法", "最適化手法"],
       "skillTags": ["暗記"],
       "crossChapterTags": ["第3章:交差検証との対比"]
     },
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -125,7 +125,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -157,7 +157,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 5節（勾配消失問題とディープラーニングの停滞）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -222,7 +222,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -254,7 +254,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -287,7 +287,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -320,7 +320,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -352,7 +352,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.2 単純パーセプトロンの限界とXOR問題",
     "sourceReference": "第4章 2節（単純パーセプトロンの限界とXOR問題）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -385,7 +385,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（重要な区別）",
     "sourceReference": "第4章 章末整理（重要な区別：活性化関数・損失関数・誤差逆伝播法・最適化手法・正則化）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -417,7 +417,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -449,7 +449,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 5節（勾配消失問題とディープラーニングの停滞）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -481,7 +481,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -514,7 +514,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -547,7 +547,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：Xavier初期化・He初期化）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -574,7 +574,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：グリッドサーチ・ランダムサーチ）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -601,7 +601,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：モーメンタム・AdaGrad・RMSprop・Adam）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -628,7 +628,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -655,7 +655,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：二重降下現象）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -688,7 +688,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（AlexNetの衝撃）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-11-01",
     "reviewStatus": "draft"
   }

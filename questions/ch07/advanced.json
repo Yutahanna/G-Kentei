@@ -27,7 +27,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.1 AIプロジェクトはどう進むのか",
     "sourceReference": "第7章 1節（AIプロジェクトの進め方）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -59,7 +59,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.2 データ収集・アノテーションと「データの偏り」問題",
     "sourceReference": "第7章 2節（データ収集・アノテーションとデータの偏り）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -91,7 +91,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.3 AI導入プロジェクトが失敗する典型パターン",
     "sourceReference": "第7章 3節（AI導入プロジェクトの失敗パターン）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -124,7 +124,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.4 精度と説明可能性のトレードオフ、XAIという考え方",
     "sourceReference": "第7章 4節（精度と説明可能性のトレードオフ、XAI）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -156,7 +156,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.6 業界別のAI活用事例",
     "sourceReference": "第7章 6節（業界別のAI活用事例）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.4 精度と説明可能性のトレードオフ、XAIという考え方",
     "sourceReference": "第7章 4節（精度と説明可能性のトレードオフ、XAI）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-11-01",
     "reviewStatus": "draft"
   }

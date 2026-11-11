@@ -28,7 +28,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -38,7 +38,7 @@
     "sectionId": "ch04-s03",
     "difficulty": "basic",
     "questionForm": "negative",
-    "question": "誤差逆伝播法の学習手順に関する記述として、教材の内容として不適切なものはどれか。",
+    "question": "誤差逆伝播法を使った学習の手順に関する記述として、教材の内容として不適切なものはどれか。",
     "choices": [
       "順伝播とは、入力データを入力層から出力層へ順に流し、最終的な予測値を計算する段階である。",
       "誤差の計算とは、予測値と正解値の差を損失関数で数値化する段階である。",
@@ -46,7 +46,7 @@
       "重みの更新とは、計算された勾配と同じ方向に、学習率をかけた分だけ重みを動かす段階である。"
     ],
     "correctAnswer": 3,
-    "explanation": "教材は誤差逆伝播法の手順を「順伝播:入力データを入力層から出力層へ順に流し、最終的な予測値を計算する」「誤差の計算:予測値と正解値の差を損失関数で数値化する」「逆伝播:出力層に近い層から入力層に向かって、連鎖律を使い、各層の重みが誤差にどれだけ影響したか(勾配)を順番に計算していく」「重みの更新:計算された勾配の逆方向に、学習率をかけた分だけ重みを更新する」の4段階として説明している。重みの更新は勾配と「同じ方向」ではなく「逆方向」に行うため、この記述は教材の内容と矛盾する。",
+    "explanation": "教材は誤差逆伝播法を使った学習の流れを「順伝播:入力データを入力層から出力層へ順に流し、最終的な予測値を計算する」「誤差の計算:予測値と正解値の差を損失関数で数値化する」「逆伝播:出力層に近い層から入力層に向かって、連鎖律を使い、各層の重みが誤差にどれだけ影響したか(勾配)を順番に計算していく」「重みの更新:計算された勾配の逆方向に、学習率をかけた分だけ重みを更新する」の4段階として説明している(このうち誤差逆伝播法が担うのは逆伝播で、重みの更新は最適化手法が担う)。重みの更新は勾配と「同じ方向」ではなく「逆方向」に行うため、この記述は教材の内容と矛盾する。",
     "choiceExplanations": [
       "適切である。教材が説明する順伝播の定義そのものであり、本問(不適切なものを選ぶ)の答えには当たらない。",
       "適切である。教材が説明する誤差の計算の定義そのものであり、本問の答えには当たらない。",
@@ -61,7 +61,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -93,7 +93,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.2 単純パーセプトロンの限界とXOR問題",
     "sourceReference": "第4章 2節（単純パーセプトロンの限界とXOR問題）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -126,7 +126,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.2 単純パーセプトロンの限界とXOR問題",
     "sourceReference": "第4章 2節（単純パーセプトロンの限界とXOR問題）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -158,7 +158,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -190,7 +190,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -223,7 +223,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -255,7 +255,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -288,7 +288,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -320,7 +320,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -348,7 +348,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -375,7 +375,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -402,7 +402,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -430,7 +430,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 5節（勾配消失問題とディープラーニングの停滞）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -457,7 +457,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -490,7 +490,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -499,7 +499,7 @@
     "chapterId": "ch04",
     "sectionId": "ch04-s03",
     "difficulty": "basic",
-    "question": "誤差逆伝播法による重みの更新で使われる「学習率」に関する説明として、教材の内容として適切なものはどれか。",
+    "question": "誤差逆伝播法で求めた勾配を使って重みを更新するときの「学習率」に関する説明として、教材の内容として適切なものはどれか。",
     "choices": [
       "予測値と正解値の差を数値化する関数のことである。",
       "更新の歩幅を決めるハイパーパラメータで、勾配の逆方向に学習率をかけた分だけ重みを更新する。",
@@ -522,7 +522,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -549,7 +549,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -576,7 +576,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -604,7 +604,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.2 単純パーセプトロンの限界とXOR問題",
     "sourceReference": "第4章 2節（単純パーセプトロンの限界とXOR問題）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -636,7 +636,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   }

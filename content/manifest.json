@@ -2,7 +2,7 @@
   "_generated": true,
   "_generatedBy": "scripts/build-content.ts",
   "_doNotEdit": "このファイルは自動生成物です。修正は materials/ または scripts/build-content.ts に対して行ってください。",
-  "generatedAt": "2026-08-01T14:05:40.671Z",
+  "generatedAt": "2026-11-11T03:45:18.537Z",
   "chapters": [
     {
       "chapterId": "ch01",
@@ -51,7 +51,7 @@
       "chapterId": "ch04",
       "title": "ディープラーニングの概要",
       "sourceFile": "materials/chapters/07_第4章.md",
-      "contentHash": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+      "contentHash": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
       "sectionIds": [
         "ch04-s01",
         "ch04-s02",
@@ -101,7 +101,7 @@
       "chapterId": "ch07",
       "title": "AIの社会実装に向けて",
       "sourceFile": "materials/chapters/10_第7章.md",
-      "contentHash": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+      "contentHash": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
       "sectionIds": [
         "ch07-s01",
         "ch07-s02",
