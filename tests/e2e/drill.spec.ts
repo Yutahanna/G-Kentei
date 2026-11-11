@@ -17,7 +17,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.locator("#difficulty-standard").uncheck();
     await page.locator("#difficulty-advanced").uncheck();
     await page.locator("#category-chapter").check();
-    await expect(page.getByText(/該当する問題: 10問/)).toBeVisible();
+    await expect(page.getByText(/該当する問題: 11問/)).toBeVisible();
     await page.getByRole("button", { name: "ドリルを開始する" }).click();
     await page.waitForURL("**/drill/ch02/play");
 
@@ -35,7 +35,7 @@ test.describe("章別ドリルのゴールデンパス", () => {
     await page.getByRole("link", { name: "ホームに戻る" }).click();
     await page.waitForURL("/");
     await page.selectOption("#dashboard-chapter-select", "ch02");
-    await expect(page.getByText("10 / 41", { exact: true })).toBeVisible();
+    await expect(page.getByText("10 / 42", { exact: true })).toBeVisible();
   });
 
   test("用語確認・計算問題がある章では、問題の種類でその種類だけを選べる", async ({ page }) => {
