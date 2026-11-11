@@ -33,6 +33,7 @@ Googleドライブの「アプリ強化」フォルダは、このフォルダ�
 | 3_強化学習の基礎_ORG.md | 技術分野 9. 強化学習（あわせて公式テキスト p.299〜300 のモデルフリー・モデルベース） | 第2版（2026-11-10） | questions/ch03/terms.json（12問）・ch03/calculation.json（3問） |
 | 3-2_機械学習の手法の補足_ORG.md | 技術分野 7・8・10 のうち格納テキストにない語（単回帰分析、重回帰分析、カーネルトリック、VARモデル、特異値分解、コンテンツベースフィルタリング、オッカムの剃刀。7語） | 第2版（2026-11-11） | questions/ch03/terms.json（7問）・ch03/calculation.json（1問） |
 | 4-5_ディープラーニングの学習と要素技術の補足_ORG.md | 技術分野 11・13〜16・18〜20・22〜23 のうち格納テキストにない語（CPU、Contrastive Loss・Triplet Loss、L0正則化、信用割当問題、ノーフリーランチの定理、バッチ学習、畳み込み操作、インスタンス正規化、平均値プーリング・不変性の獲得、エルマン・ジョルダンネットワーク、クエリ・キー・バリュー。15語） | 第2版（2026-11-11） | questions/ch03/terms.json（1問）・ch04/terms.json（4問）・ch05/terms.json（7問）・ch05/calculation.json（3問） |
+| 4-6_モデルの評価と学習の安定化の補足_ORG.md | 技術分野 10・15・16・22・25・36 のうち格納テキストの説明が薄い語（重要語の絞り込みでA）から優先度「高」とした13語（RMSE・MAE、ホールドアウト検証、局所最適解・大域最適解・鞍点、早期終了、勾配爆発問題、データリーケージ、Cutout・Random Erasing・Mixup・CutMix） | 第2版（2026-11-11） | questions/ch03/terms.json（5問）・ch04/terms.json（5問）・ch05/terms.json（1問）・ch07/terms.json（2問）・ch03/calculation.json（2問）・ch05/calculation.json（1問） |
 | 5_生成・転移学習・マルチモーダル_ORG.md | 技術分野 30. データ生成・31. 転移学習・ファインチューニング・32. マルチモーダル | 第2版（2026-11-07） | questions/ch05/terms.json（12問） |
 | 6-1_画像認識_ORG.md | 技術分野 26. 画像認識（あわせて18の畳み込み層のパラメータ数） | 第2版（2026-11-07） | questions/ch05/terms.json（6問）・ch06/terms.json（6問）・ch05/calculation.json（2問） |
 | 6-2_音声処理_ORG.md | 技術分野 28. 音声処理 | 第2版（2026-11-06） | questions/ch06/terms.json（10問） |

@@ -227,5 +227,38 @@
     "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-calc-009",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "CutMixで、画像A（正解ラベル：ネコ）の面積の25％の領域に、画像B（正解ラベル：イヌ）の同じ位置の領域をはめ込んだ。できた画像の正解ラベルの割合はどれか。",
+    "choices": [
+      "ネコ 1.0・イヌ 0",
+      "ネコ 0.5・イヌ 0.5",
+      "ネコ 0.75・イヌ 0.25",
+      "ネコ 0.25・イヌ 0.75"
+    ],
+    "correctAnswer": 2,
+    "explanation": "正解は「ネコ 0.75・イヌ 0.25」である。ネコの画像が残っている面積は75％、イヌの画像の面積は25％である。",
+    "choiceExplanations": [
+      "誤りである。CutMixでは、はめ込んだ画像のラベルも面積の比率で混ぜる（ラベルの混ぜ方は公式テキストにない補足で、CutMixの原論文による）。",
+      "誤りである。面積の比率ではなく、半分ずつにしている。",
+      "正しい（本問の答え）。ネコの画像が残っている面積は75％、イヌの画像の面積は25％である。",
+      "誤りである。ネコとイヌの比率が逆である。"
+    ],
+    "tags": {
+      "contentTags": ["CutMix", "ラベルの混合"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "CutMix（索引なし。関連：データ拡張 p.257）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」CutMix（公式テキストの関連ページ：データ拡張 p.257。ラベルの混ぜ方は公式テキストにない補足）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

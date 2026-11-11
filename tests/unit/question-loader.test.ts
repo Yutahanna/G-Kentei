@@ -25,10 +25,10 @@ const expectedTotal = (chapterId: string) => sumCounts(getChapterCounts(chapterI
 const ALL_EXPECTED_TOTAL = CHAPTER_IDS.reduce((sum, id) => sum + expectedTotal(id), 0);
 // すべて選ぶ問題（answerType: "multiple"）は章ごとの設計数とは別枠で追加している（2026-11-01、全20問）。
 const MULTIPLE_TOTAL = 20;
-// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-11、第2章に12問・第3章に20問・第4章に4問・第5章に25問・第6章に50問・第7章に8問・第8章に1問・第9章に12問・第10章に12問）。
-const TERM_CHECK_TOTAL = 144;
-// 計算問題（category: "calculation"、補遺が出典）も別枠（2026-11-11、第2章2問・第3章6問・第5章8問・第8章14問）。
-const CALCULATION_TOTAL = 30;
+// 用語確認の問題（category: "term_check"、補遺が出典）も章ごとの設計数とは別枠（2026-11-11、第2章に12問・第3章に25問・第4章に9問・第5章に26問・第6章に50問・第7章に10問・第8章に1問・第9章に12問・第10章に12問）。
+const TERM_CHECK_TOTAL = 157;
+// 計算問題（category: "calculation"、補遺が出典）も別枠（2026-11-11、第2章2問・第3章8問・第5章9問・第8章14問）。
+const CALCULATION_TOTAL = 33;
 // 原理理解の問題（category: "principle"）も別枠（2026-11-11、第3章6問・第4章1問・第5章10問・第6章3問）。
 const PRINCIPLE_TOTAL = 20;
 // 別の問題を解けば答えが決まる重複問題として削除した問題（docs/question-pool-audit-2026-11.md）。
@@ -186,11 +186,11 @@ describe("question-loader（全10章）", () => {
     );
     expect(terms.some((q) => examIds.has(q.id))).toBe(false);
     expect(filterQuestions({ chapterId: "ch02", category: "term_check" })).toHaveLength(12);
-    expect(filterQuestions({ chapterId: "ch03", category: "term_check" })).toHaveLength(20);
-    expect(filterQuestions({ chapterId: "ch04", category: "term_check" })).toHaveLength(4);
-    expect(filterQuestions({ chapterId: "ch05", category: "term_check" })).toHaveLength(25);
+    expect(filterQuestions({ chapterId: "ch03", category: "term_check" })).toHaveLength(25);
+    expect(filterQuestions({ chapterId: "ch04", category: "term_check" })).toHaveLength(9);
+    expect(filterQuestions({ chapterId: "ch05", category: "term_check" })).toHaveLength(26);
     expect(filterQuestions({ chapterId: "ch06", category: "term_check" })).toHaveLength(50);
-    expect(filterQuestions({ chapterId: "ch07", category: "term_check" })).toHaveLength(8);
+    expect(filterQuestions({ chapterId: "ch07", category: "term_check" })).toHaveLength(10);
     expect(filterQuestions({ chapterId: "ch08", category: "term_check" })).toHaveLength(1);
     expect(filterQuestions({ chapterId: "ch09", category: "term_check" })).toHaveLength(12);
     expect(filterQuestions({ chapterId: "ch10", category: "term_check" })).toHaveLength(12);

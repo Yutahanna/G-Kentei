@@ -166,5 +166,61 @@
     "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-calc-007",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s07",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "4件のデータで、予測値から正解値を引いた誤差が 1、−1、2、−4 だった。平均絶対値誤差（MAE）はいくつか。",
+    "choices": ["−0.5", "2", "5.5", "8"],
+    "correctAnswer": 1,
+    "explanation": "正解は「2」である。（|1|＋|−1|＋|2|＋|−4|）÷ 4 ＝（1＋1＋2＋4）÷ 4 ＝ 2。",
+    "choiceExplanations": [
+      "誤りである。誤差を絶対値にせずに平均した値（（1−1＋2−4）÷ 4）である。",
+      "正しい（本問の答え）。（|1|＋|−1|＋|2|＋|−4|）÷ 4 ＝（1＋1＋2＋4）÷ 4 ＝ 2。",
+      "誤りである。誤差を2乗して平均した値（平均二乗誤差：（1＋1＋4＋16）÷ 4）である。",
+      "誤りである。誤差の絶対値の合計（1＋1＋2＋4）であり、データの件数で割っていない。"
+    ],
+    "tags": {
+      "contentTags": ["MAE", "誤差の絶対値"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（p.152）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（公式テキスト p.152）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-calc-008",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s07",
+    "difficulty": "standard",
+    "category": "calculation",
+    "question": "4件のデータで、予測値から正解値を引いた誤差が 0、0、0、4 だった。二乗平均平方根誤差（RMSE）はいくつか。",
+    "choices": ["2", "1", "4", "16"],
+    "correctAnswer": 0,
+    "explanation": "正解は「2」である。平均二乗誤差は（0＋0＋0＋16）÷ 4 ＝ 4 で、その平方根は2。1件の大きな誤差のために、MAE（1）の2倍になる。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。平均二乗誤差は（0＋0＋0＋16）÷ 4 ＝ 4 で、その平方根は2。1件の大きな誤差のために、MAE（1）の2倍になる。",
+      "誤りである。平均絶対値誤差（MAE：（0＋0＋0＋4）÷ 4）である。",
+      "誤りである。平均二乗誤差（MSE）であり、平方根をとっていない。",
+      "誤りである。誤差の2乗の合計であり、件数で割っておらず、平方根もとっていない。"
+    ],
+    "tags": {
+      "contentTags": ["RMSE", "MSE"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（p.152）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（公式テキスト p.152）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

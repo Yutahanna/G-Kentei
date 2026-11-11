@@ -648,5 +648,170 @@
     "contentVersion": "c494257ee5d2f6d06fdd1b94d5db744d4fabff2c82bd187c6e0064bf9e1b0cd0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-021",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s07",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "回帰の評価指標のうち、予測値と正解値の差の絶対値を、すべてのデータで平均した値を何と呼ぶか。",
+    "choices": [
+      "平均二乗誤差（MSE）",
+      "二乗平均平方根誤差（RMSE）",
+      "平均絶対値誤差（MAE）",
+      "交差エントロピー誤差"
+    ],
+    "correctAnswer": 2,
+    "explanation": "正解は「平均絶対値誤差（MAE）」である。誤差の絶対値の平均で、正解値と同じ単位で表せる。",
+    "choiceExplanations": [
+      "誤りである。平均二乗誤差は、誤差を2乗してから平均した値である。",
+      "誤りである。二乗平均平方根誤差は、平均二乗誤差の平方根である。",
+      "正しい（本問の答え）。誤差の絶対値の平均で、正解値と同じ単位で表せる。",
+      "誤りである。交差エントロピー誤差は、主に分類の損失関数として使う指標であり、誤差の絶対値の平均ではない。"
+    ],
+    "tags": {
+      "contentTags": ["MAE", "MSE", "RMSE"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（p.152）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（公式テキスト p.152）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-022",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s07",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "回帰の評価指標であるRMSEとMAEの違いに関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "MAEは誤差を2乗してから平均するため、大きな誤差の影響を、RMSEよりも強く受けやすい指標である。",
+      "RMSEは誤差を2乗してから平均し平方根をとるため、MAEより大きな誤差の影響を強く受ける。",
+      "RMSEは平方根をとるため、正解値とは単位が異なり、MAEとは比べられない値になる。",
+      "RMSEとMAEは、どちらも正解率を別の名前で呼んだもので、分類問題の当たり・外れの割合を表す。"
+    ],
+    "correctAnswer": 1,
+    "explanation": "1件の大きな誤差があると、RMSEはMAEより大きくなる。",
+    "choiceExplanations": [
+      "誤りである。誤差を2乗するのはRMSE（MSE）であり、MAEは誤差の絶対値をそのまま平均する。",
+      "正しい（本問の答え）。1件の大きな誤差があると、RMSEはMAEより大きくなる。",
+      "誤りである。RMSEは平方根をとることで、MSEの「単位の2乗」を正解値と同じ単位に戻している。",
+      "誤りである。RMSEとMAEは予測誤差を表す指標で、特に回帰問題で用いられる。分類の正解率とは別のものである。"
+    ],
+    "tags": {
+      "contentTags": ["RMSE", "MAE"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（p.152）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」二乗平均平方根誤差（RMSE）・平均絶対値誤差（MAE）（公式テキスト p.152）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-023",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s06",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "negative",
+    "question": "ホールドアウト検証に関する説明として、不適切なものはどれか。",
+    "choices": [
+      "手元のデータを、訓練データとテストデータに一度だけ分けて評価する。",
+      "学習と評価が1回で済むため、手軽で計算が少ない。",
+      "データが少ないと、どのデータがテスト側に入るかによって、評価の結果が偶然左右されやすくなる。",
+      "データをk個に分け、テストに使う1個を入れ替えながらk回評価して、結果を平均する。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "データをk個に分けて評価を入れ替えるという記述は、ホールドアウト検証ではなくk-分割交差検証の説明であり、誤りである。これはk-分割交差検証の説明である。公式テキスト（p.151）は、分割を複数回行う方法をk-分割交差検証、事前に一度分割する方法をホールドアウト検証としている。",
+    "choiceExplanations": [
+      "適切である。ホールドアウト検証の基本的なやり方である。",
+      "適切である。ホールドアウト検証の長所である。",
+      "適切である。公式テキスト（p.151）も、特にデータ数が少ない場合、たまたまテストデータに対する評価がよくなってしまう可能性が高くなると説明している。",
+      "不適切である（本問の答え）。これはk-分割交差検証の説明である。公式テキスト（p.151）は、分割を複数回行う方法をk-分割交差検証、事前に一度分割する方法をホールドアウト検証としている。"
+    ],
+    "tags": {
+      "contentTags": ["ホールドアウト検証", "k-分割交差検証"],
+      "skillTags": ["関係性"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "ホールドアウト検証（p.151）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」ホールドアウト検証（公式テキスト p.151）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-024",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s05",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "学習が進むにつれて、検証データに対する誤差が上がり始めたら、それを過学習のし始めと考えて学習を打ち切る手法を何と呼ぶか。",
+    "choices": ["早期終了", "Dropout", "L2正則化", "データ拡張"],
+    "correctAnswer": 0,
+    "explanation": "正解は「早期終了」である。英語では early stopping と呼ぶ。公式テキスト（p.194）は、シンプルだが、効果の面でもどんなモデルにも適用できる面でも非常に強力な手法と説明している。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。英語では early stopping と呼ぶ。公式テキスト（p.194）は、シンプルだが、効果の面でもどんなモデルにも適用できる面でも非常に強力な手法と説明している。",
+      "誤りである。Dropoutは、学習時に一部のニューロンをランダムに無効化して過学習を防ぐ方法であり、学習を打ち切る方法ではない。",
+      "誤りである。L2正則化は、重みの2乗の合計にペナルティを課して過学習を防ぐ方法である。",
+      "誤りである。データ拡張は、画像を反転・切り出しなどして訓練データを増やす方法である。"
+    ],
+    "tags": {
+      "contentTags": ["早期終了", "過学習", "Dropout", "L2正則化", "データ拡張"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "早期終了（p.194）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」早期終了（公式テキスト p.194）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-025",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s05",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "早期終了に関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "訓練データに対する誤差が上がり始めた時点を、過学習のし始めと考えて、その時点ですぐに学習を打ち切る。",
+      "手法が単純なぶん効果は小さく、しかも特定の種類のモデルにしか適用できないという弱点がある。",
+      "検証データに対する誤差が上がり始めた時点を過学習のし始めと考え、学習を打ち切る。",
+      "一度誤差が増えた後に再び減ることはないので、止める時点を慎重に検討する必要はない。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "公式テキスト（p.194）は誤差を見張るデータを「テストデータ」と書いているが、同じ公式テキストの p.151 は、モデルの調整には検証データを使い、テストデータは最終評価に使うとしている。一般的な実務でも、早期終了の判断には検証データを使う。",
+    "choiceExplanations": [
+      "誤りである。過学習では訓練データに対する誤差は下がり続けるため、訓練データの誤差を見ても過学習のし始めは分からない。",
+      "誤りである。公式テキスト（p.194）は、早期終了はシンプルだが、効果の面でも、どんなモデルにも適用できる面でも非常に強力と説明している。",
+      "正しい（本問の答え）。公式テキスト（p.194）は誤差を見張るデータを「テストデータ」と書いているが、同じ公式テキストの p.151 は、モデルの調整には検証データを使い、テストデータは最終評価に使うとしている。一般的な実務でも、早期終了の判断には検証データを使う。",
+      "誤りである。公式テキスト（p.194）は、一度誤差が増えた後に再び減る二重降下現象も確認されており、止める時点を慎重に検討しなければならない場合もあると説明している。"
+    ],
+    "tags": {
+      "contentTags": ["早期終了", "検証データ", "二重降下現象"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "早期終了（p.194）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」早期終了（公式テキスト p.194）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

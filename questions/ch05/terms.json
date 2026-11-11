@@ -798,5 +798,40 @@
     "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-026",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "questionStyle": "fill_in_blank",
+    "question": "画像のデータ拡張の手法について、次の（ア）〜（エ）の説明にあてはまる手法の組み合わせとして、最も適切なものはどれか。（ア）画像の一部分の値を0にして、一部を遮蔽したようなデータを作る。（イ）画像の一部分の値をランダムな値にする。（ウ）2つのデータを合成して、存在しないデータを擬似的に作る。（エ）（ア）と（ウ）を組み合わせ、画像の一部を別の画像で置き換える。",
+    "choices": [
+      "（ア）Random Erasing　（イ）Cutout　（ウ）Mixup　（エ）CutMix",
+      "（ア）Cutout　（イ）Random Erasing　（ウ）CutMix　（エ）Mixup",
+      "（ア）CutMix　（イ）Random Erasing　（ウ）Mixup　（エ）Cutout",
+      "（ア）Cutout　（イ）Random Erasing　（ウ）Mixup　（エ）CutMix"
+    ],
+    "correctAnswer": 3,
+    "explanation": "公式テキスト（p.256〜257）の説明に沿った組み合わせである。",
+    "choiceExplanations": [
+      "誤りである。（ア）と（イ）が逆である。公式テキストは、データの一部分の値を0またはランダムにする手法としてCutoutとRandom Erasingを挙げている。値を0にするのがCutout、ランダムな値にするのがRandom Erasingである。",
+      "誤りである。（ウ）と（エ）が逆である。2つのデータを合成するのがMixup、CutoutとMixupを組み合わせたのがCutMixである。",
+      "誤りである。（ア）と（エ）が逆である。Cutoutは一部を遮蔽するだけで別の画像の情報は入らず、CutMixは一部を別の画像で置き換える。",
+      "正しい（本問の答え）。公式テキスト（p.256〜257）の説明に沿った組み合わせである。"
+    ],
+    "tags": {
+      "contentTags": ["Cutout", "Random Erasing", "Mixup", "CutMix"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-6_モデルの評価と学習の安定化の補足_ORG.md",
+    "sourceHeading": "Cutout（索引なし。関連：データ拡張 p.256）",
+    "sourceReference": "補遺「モデルの評価と学習の安定化の補足」4. データ拡張（Cutout・Random Erasing・Mixup・CutMix。公式テキスト p.256〜257。各手法の名前は索引にない）",
+    "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]
