@@ -24,7 +24,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "SENet（Squeeze-and-Excitation Networks）（p.259）",
     "sourceReference": "補遺「画像認識」SENet（公式テキスト p.259）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -58,7 +58,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "DenseNet（p.259）",
     "sourceReference": "補遺「画像認識」DenseNet（公式テキスト p.259）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -87,7 +87,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "EfficientNet（p.261）",
     "sourceReference": "補遺「画像認識」EfficientNet（公式テキスト p.261）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -121,7 +121,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "NAS（Neural Architecture Search）（p.260）",
     "sourceReference": "補遺「画像認識」NAS（公式テキスト p.260）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -153,9 +153,9 @@
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
-    "sourceHeading": "Depthwise Separable Convolution（索引なし）",
+    "sourceHeading": "Depthwise Separable Convolution（索引なし。p.260）",
     "sourceReference": "補遺「画像認識」Depthwise Separable Convolution（公式テキストの関連ページ p.260）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "Vision Transformer（ViT）（索引なし）",
     "sourceReference": "補遺「画像認識」Vision Transformer（公式テキストの関連ページ p.261）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -218,7 +218,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "CycleGAN（p.302）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」CycleGAN（公式テキスト p.302）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -252,7 +252,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Pix2Pix（p.302）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Pix2Pix（公式テキスト p.302）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -286,7 +286,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "NeRF（Neural Radiance Fields）（p.304）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」NeRF（公式テキスト p.304）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -315,7 +315,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "半教師あり学習（p.307）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」半教師あり学習（公式テキスト p.307）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -344,7 +344,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "自己教師あり学習とプレテキストタスク（p.308）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」自己教師あり学習とプレテキストタスク（公式テキスト p.308）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -378,7 +378,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "メタ学習とMAML（p.307）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」メタ学習とMAML（公式テキスト p.307）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -407,7 +407,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "破滅的忘却と継続学習（p.309）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」破滅的忘却と継続学習（公式テキスト p.309）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -436,7 +436,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Few-shot学習・One-shot学習・Zero-shot学習（p.307）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Few-shot学習・One-shot学習・Zero-shot学習（公式テキスト p.307。Zero-shotの説明は公式テキストで確認済み）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -470,7 +470,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "CLIP（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」CLIP（公式テキスト p.310）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -499,7 +499,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Flamingo（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Flamingo（公式テキスト p.310）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -533,7 +533,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "マルチモーダルタスク（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」マルチモーダルタスク（公式テキスト p.310）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -562,7 +562,7 @@
     "sourceFile": "materials/supplements/5_生成・転移学習・マルチモーダル_ORG.md",
     "sourceHeading": "Unified-IO（p.310）",
     "sourceReference": "補遺「データ生成・転移学習・マルチモーダル」Unified-IO（公式テキスト p.310）",
-    "contentVersion": "aed78318560aa37a69d19a3078f0dc392fa29aef598650a597bfcf6b0711c863",
+    "contentVersion": "a991d819e82762930c94a9e81c5d7d5848a3ecaf000262ec5784a20b119734a1",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -596,7 +596,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "ノーフリーランチの定理（p.194）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」ノーフリーランチの定理（公式テキスト p.194）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -630,7 +630,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "バッチ学習（p.188）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」バッチ学習（公式テキスト p.188）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -664,7 +664,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "畳み込み操作（索引なし。関連：畳み込み層 p.218）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」畳み込み操作（公式テキストの関連ページ p.218：畳み込み層の掲載ページ。畳み込み操作自体は索引にない）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -698,7 +698,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "平均値プーリング（p.222）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」平均値プーリング（公式テキスト p.222）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -727,7 +727,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "インスタンス正規化（p.225）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」インスタンス正規化（公式テキスト p.225）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -761,7 +761,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "エルマンネットワーク・ジョルダンネットワーク（p.227）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」エルマンネットワーク・ジョルダンネットワーク（公式テキスト p.227）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -795,7 +795,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "クエリ・キー・バリュー（p.238）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」クエリ・キー・バリュー（公式テキスト p.238）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },

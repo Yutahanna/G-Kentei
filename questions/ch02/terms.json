@@ -24,7 +24,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "STRIPS（p.65）",
     "sourceReference": "補遺「AIの歴史」STRIPS（公式テキスト p.65）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -58,7 +58,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "SHRDLU（索引なし）",
     "sourceReference": "補遺「AIの歴史」SHRDLU（公式テキストの関連ページ p.65）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -92,7 +92,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "探索木と幅優先・深さ優先の補足（p.58〜61）",
     "sourceReference": "補遺「AIの歴史」探索木と幅優先・深さ優先の補足（公式テキスト p.60）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -121,7 +121,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "Mini-Max法とαβ法（p.70〜71）",
     "sourceReference": "補遺「AIの歴史」Mini-Max法とαβ法（公式テキスト p.71）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -155,7 +155,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "モンテカルロ法（p.73）",
     "sourceReference": "補遺「AIの歴史」モンテカルロ法（公式テキスト p.73）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -184,7 +184,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "ELIZA（イライザ）（p.31、p.76）",
     "sourceReference": "補遺「AIの歴史」ELIZA（公式テキスト p.76）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -218,7 +218,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "エキスパートシステムの代表例（p.78〜79）",
     "sourceReference": "補遺「AIの歴史」エキスパートシステムの代表例（公式テキスト p.78）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -252,7 +252,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "意味ネットワークの関係（p.80〜85）",
     "sourceReference": "補遺「AIの歴史」意味ネットワークの関係（公式テキスト p.81）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -281,7 +281,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "ワトソン（p.89）",
     "sourceReference": "補遺「AIの歴史」ワトソン（公式テキスト p.89）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -315,7 +315,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "セマンティックWeb（p.88）",
     "sourceReference": "補遺「AIの歴史」セマンティックWeb（公式テキスト p.88）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -344,7 +344,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "ネオコグニトロン（p.101）",
     "sourceReference": "補遺「AIの歴史」ネオコグニトロン（公式テキスト p.101。ディープラーニングの歴史）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -378,7 +378,7 @@
     "sourceFile": "materials/supplements/1-2_AIの歴史_ORG.md",
     "sourceHeading": "機械学習が広がった背景（p.92〜93）",
     "sourceReference": "補遺「AIの歴史」機械学習が広がった背景（公式テキスト p.93）",
-    "contentVersion": "72071203929d7d56d7eacc9f5c4840a6328f015824ddeb0abb037663dfc66183",
+    "contentVersion": "1880c2f60e4f9308c4b0f1564a85651bfa37883e93b192c401b2341d267e781a",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   }

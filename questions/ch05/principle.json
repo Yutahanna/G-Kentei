@@ -131,7 +131,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "インスタンス正規化（p.225）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」インスタンス正規化（公式テキスト p.225）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -301,7 +301,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "DeepLab（p.267）",
     "sourceReference": "補遺「画像認識」DeepLab（公式テキスト p.267）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },

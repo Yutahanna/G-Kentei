@@ -107,7 +107,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "入力が複数チャネルの畳み込み層",
     "sourceReference": "補遺「画像認識」入力が複数チャネルの畳み込み層（公式テキストの関連ページ p.255）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -135,7 +135,7 @@
     "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
     "sourceHeading": "Depthwise Separable Convolutionのパラメータ数",
     "sourceReference": "補遺「画像認識」Depthwise Separable Convolutionのパラメータ数（公式テキストの関連ページ p.260）",
-    "contentVersion": "3843c6df459f7b400cadbfb1cd6e27f2649f3d5caf4e4c0442cd7013647c5f8d",
+    "contentVersion": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
   },
@@ -163,7 +163,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "畳み込み操作（索引なし。関連：畳み込み層 p.218）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」畳み込み操作（公式テキストの関連ページ p.218：畳み込み層の掲載ページ。畳み込み操作自体は索引にない）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -196,7 +196,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "平均値プーリング（p.222）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」平均値プーリング（公式テキスト p.222）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -224,7 +224,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "バッチ学習（p.188）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」バッチ学習（公式テキスト p.188）",
-    "contentVersion": "d33afbf4e98d74c2f36e1b6b2994ba2be7777914936f63f27afdbcfa90a99079",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
