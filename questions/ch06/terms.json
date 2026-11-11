@@ -679,7 +679,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "Bag-of-Words（BoW）（p.275）",
     "sourceReference": "補遺「自然言語処理」Bag-of-Words（公式テキスト p.275）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -713,7 +713,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "TF-IDF（p.276）",
     "sourceReference": "補遺「自然言語処理」TF-IDF（公式テキスト p.276）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -747,7 +747,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "word2vec（p.277）",
     "sourceReference": "補遺「自然言語処理」word2vec（公式テキスト p.277）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -776,7 +776,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "fastText（p.279）",
     "sourceReference": "補遺「自然言語処理」fastText（公式テキスト p.279）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -810,7 +810,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "分散表現・単語埋め込み（p.277）",
     "sourceReference": "補遺「自然言語処理」分散表現・単語埋め込み（公式テキスト p.277）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -844,7 +844,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "ワンホットベクトル・局所表現（p.276〜277）",
     "sourceReference": "補遺「自然言語処理」ワンホットベクトル・局所表現（公式テキスト p.276）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -873,7 +873,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "分布仮説（p.277）",
     "sourceReference": "補遺「自然言語処理」分布仮説（公式テキスト p.277）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -907,7 +907,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "BERTの事前学習の2つの課題（p.282）",
     "sourceReference": "補遺「自然言語処理」BERTの事前学習の2つの課題（公式テキスト p.282）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -941,7 +941,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "機械翻訳の方式の移り変わり（p.37、p.285）",
     "sourceReference": "補遺「自然言語処理」機械翻訳の方式の移り変わり（公式テキスト p.285）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
@@ -970,7 +970,7 @@
     "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
     "sourceHeading": "SQuAD（p.283）",
     "sourceReference": "補遺「自然言語処理」SQuAD（公式テキスト p.283）",
-    "contentVersion": "4cdbbbb94ec4cd4e02e38187ae17c7d1cd3d6ac5635aeab78a1fd2cd85df087a",
+    "contentVersion": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
   },
