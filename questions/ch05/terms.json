@@ -833,5 +833,155 @@
     "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-027",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "AdaGradは過去の勾配の2乗を足し続けるため、学習が進むと学習率が小さくなりすぎる。この弱点を、過去の勾配の2乗を指数移動平均（古い勾配ほど影響を小さくした平均）で扱うことで改善した最適化手法はどれか。",
+    "choices": ["Momentum", "RMSprop", "SGD", "AdaBound"],
+    "correctAnswer": 1,
+    "explanation": "正解は「RMSprop」である。RMSpropはAdaGradの改良版で、学習率が小さくなりすぎるのを防ぐ。",
+    "choiceExplanations": [
+      "誤りである。Momentumは、これまでの更新の勢い（慣性）を加味して重みを更新する手法であり、勾配の2乗の平均で学習率を調整する手法ではない。",
+      "正しい（本問の答え）。RMSpropはAdaGradの改良版で、学習率が小さくなりすぎるのを防ぐ。",
+      "誤りである。SGD（確率的勾配降下法）は、ミニバッチごとの勾配で重みを更新する基本的な手法であり、学習率をパラメータごとに調整しない。",
+      "誤りである。AdaBoundは、Adamの学習率に上限と下限を設けてSGDに近づける手法である。"
+    ],
+    "tags": {
+      "contentTags": ["RMSprop", "AdaGrad"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-7_最適化手法とデータ拡張の補足_ORG.md",
+    "sourceHeading": "RMSprop（p.193）",
+    "sourceReference": "補遺「最適化手法とデータ拡張の補足」RMSprop（公式テキスト p.193）",
+    "contentVersion": "df23b2264f535847c7fd4f940f23fbf738a2a7db59bdcb015e4648f370217aa5",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-028",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "ディープラーニングのブームを受けて考えられた、Adagrad・Adadelta・RMSprop・Adam・AdaBound・AMSBound などの最適化手法に関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "これらはモーメンタムより前の1980年代までに考えられた手法で、ディープラーニングのブーム以降はほとんど使われていない。",
+      "これらの手法は、勾配を使わずに重みをランダムに動かして、損失が下がる組み合わせを探す点で共通している。",
+      "どれも勾配を使って重みを更新するが、更新の進め方や学習率の調整の仕方に、それぞれ異なる工夫がある。",
+      "どれも学習率を一定に固定したまま、勾配の向きだけを使って重みを更新する、同じアルゴリズムの別名である。"
+    ],
+    "correctAnswer": 2,
+    "explanation": "公式テキスト（p.193）も、アルゴリズムの詳細はそれぞれ異なると説明している。例えば、AdaGrad・RMSprop・AdaDeltaはパラメータごとに学習率を調整し、Adamは勾配の勢いと学習率の調整を組み合わせ、AdaBound・AMSBoundは学習率に上限と下限を設ける。",
+    "choiceExplanations": [
+      "誤りである。公式テキスト（p.193）は、モーメンタムが1990年代に提唱され、これらの手法はディープラーニングのブームを受けて立て続けに考えられたと説明している。",
+      "誤りである。これらの手法は、いずれも勾配を使って重みを更新する手法である。",
+      "正しい（本問の答え）。公式テキスト（p.193）も、アルゴリズムの詳細はそれぞれ異なると説明している。例えば、AdaGrad・RMSprop・AdaDeltaはパラメータごとに学習率を調整し、Adamは勾配の勢いと学習率の調整を組み合わせ、AdaBound・AMSBoundは学習率に上限と下限を設ける。",
+      "誤りである。これらの手法は、パラメータごとに学習率を調整したり、学習率に上限と下限を設けたりするなど、それぞれ異なる工夫をした別の手法である。"
+    ],
+    "tags": {
+      "contentTags": ["最適化手法", "AdaGrad", "Adam", "AdaBound"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-7_最適化手法とデータ拡張の補足_ORG.md",
+    "sourceHeading": "RMSprop（p.193）",
+    "sourceReference": "補遺「最適化手法とデータ拡張の補足」1. 最適化手法の系譜（公式テキスト p.192〜193）",
+    "contentVersion": "df23b2264f535847c7fd4f940f23fbf738a2a7db59bdcb015e4648f370217aa5",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-029",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "Adamは学習の序盤は速く進むが、最終的な性能がSGDに及ばない場合があるとされる。そこで、Adamの学習率に上限と下限を設け、学習が進むにつれてその幅を狭めて、最終的にSGDのような動きに近づける最適化手法はどれか。",
+    "choices": ["AdaBound", "AdaDelta", "RMSprop", "Momentum"],
+    "correctAnswer": 0,
+    "explanation": "正解は「AdaBound」である。同じ工夫をAMSGrad（Adamの改良版）に加えたものはAMSBoundと呼ぶ。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。同じ工夫をAMSGrad（Adamの改良版）に加えたものはAMSBoundと呼ぶ。",
+      "誤りである。AdaDeltaは、AdaGradの学習率が小さくなりすぎる弱点を改善し、全体の学習率の設定も不要にした手法である。",
+      "誤りである。RMSpropは、過去の勾配の2乗を指数移動平均で扱い、AdaGradの学習率が小さくなりすぎるのを防ぐ手法である。",
+      "誤りである。Momentumは、これまでの更新の勢い（慣性）を加味して重みを更新する手法である。"
+    ],
+    "tags": {
+      "contentTags": ["AdaBound", "AMSBound", "Adam"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-7_最適化手法とデータ拡張の補足_ORG.md",
+    "sourceHeading": "AdaBound・AMSBound（p.193）",
+    "sourceReference": "補遺「最適化手法とデータ拡張の補足」AdaBound・AMSBound（公式テキスト p.193）",
+    "contentVersion": "df23b2264f535847c7fd4f940f23fbf738a2a7db59bdcb015e4648f370217aa5",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-030",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s12",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "AdaGradの学習率が小さくなりすぎる弱点を改善した手法の一つで、更新の大きさの履歴も使うことで、全体の学習率（学習率の初期値）を人が設定しなくてよいように工夫した最適化手法はどれか。",
+    "choices": ["Adam", "AdaGrad", "AdaBound", "AdaDelta"],
+    "correctAnswer": 3,
+    "explanation": "正解は「AdaDelta」である。格納テキスト第4章の章末整理は、AdaDeltaを「名称と系譜を押さえればよい」手法としている。",
+    "choiceExplanations": [
+      "誤りである。Adamは、Momentum（勾配の勢い）と、パラメータごとの学習率の調整を組み合わせた手法であり、全体の学習率は設定する。",
+      "誤りである。AdaGradは改良される前の手法で、学習が進むと学習率が小さくなりすぎる弱点を持つ。",
+      "誤りである。AdaBoundは、Adamの学習率に上限と下限を設けてSGDに近づける手法である。",
+      "正しい（本問の答え）。格納テキスト第4章の章末整理は、AdaDeltaを「名称と系譜を押さえればよい」手法としている。"
+    ],
+    "tags": {
+      "contentTags": ["AdaDelta", "AdaGrad"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-7_最適化手法とデータ拡張の補足_ORG.md",
+    "sourceHeading": "AdaDelta（p.193）",
+    "sourceReference": "補遺「最適化手法とデータ拡張の補足」AdaDelta（公式テキスト p.193）",
+    "contentVersion": "df23b2264f535847c7fd4f940f23fbf738a2a7db59bdcb015e4648f370217aa5",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-031",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s01",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "画像のデータ拡張で、候補となる拡張処理（回転・明るさの変更など）からランダムに選んで適用し、適用する処理の数Nと強さMの2つの値だけを設定・調整する手法はどれか。",
+    "choices": ["Mixup", "RandAugment", "CutMix", "Random Erasing"],
+    "correctAnswer": 1,
+    "explanation": "正解は「RandAugment」である。処理の選び方を学習（探索）で決めるAutoAugmentに対し、RandAugmentはその探索を省き、処理をランダムに選んで、数Nと強さMの2つの値だけを調整する。なお、公式テキスト（p.257）は、RandAugmentを「どのようなデータ拡張の処理をどのくらいの強さで行えばよいか自体を学習により決める」方法と説明しており、一般的な説明とは異なる（補遺に記録）。",
+    "choiceExplanations": [
+      "誤りである。Mixupは、2つのデータを合成するデータ拡張の処理そのものである。",
+      "正しい（本問の答え）。処理の選び方を学習（探索）で決めるAutoAugmentに対し、RandAugmentはその探索を省き、処理をランダムに選んで、数Nと強さMの2つの値だけを調整する。なお、公式テキスト（p.257）は、RandAugmentを「どのようなデータ拡張の処理をどのくらいの強さで行えばよいか自体を学習により決める」方法と説明しており、一般的な説明とは異なる（補遺に記録）。",
+      "誤りである。CutMixは、CutoutとMixupを組み合わせたデータ拡張の処理そのものである。",
+      "誤りである。Random Erasingは、画像の一部分の値をランダムな値にするデータ拡張の処理そのものである。"
+    ],
+    "tags": {
+      "contentTags": ["RandAugment", "AutoAugment", "データ拡張"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-7_最適化手法とデータ拡張の補足_ORG.md",
+    "sourceHeading": "RandAugment（索引なし。関連：データ拡張 p.256〜257）",
+    "sourceReference": "補遺「最適化手法とデータ拡張の補足」RandAugment（公式テキストの関連ページ：データ拡張 p.257。RandAugment自体は索引にない。公式テキストの説明との相違は補遺に記録）",
+    "contentVersion": "df23b2264f535847c7fd4f940f23fbf738a2a7db59bdcb015e4648f370217aa5",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]
