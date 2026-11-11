@@ -27,7 +27,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.1 AIプロジェクトはどう進むのか",
     "sourceReference": "第7章 1節（AIプロジェクトの進め方）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -38,15 +38,15 @@
     "difficulty": "standard",
     "question": "コンセプトドリフトとMLOpsに関する説明として、教材の内容として適切なものはどれか。",
     "choices": [
-      "コンセプトドリフトとは、データの傾向の変化とは無関係に、モデルの重みが学習後も自動的に増加し続けていく現象を指す用語である。",
+      "コンセプトドリフトとは、入力と正解の関係の変化とは無関係に、モデルの重みが学習後も自動的に増加し続けていく現象を指す用語である。",
       "MLOpsとは、PoCの評価基準(どの精度が出れば本番導入するか)を事前に決めずに、なんとなく良さそうという感覚で本番運用まで進めることを許容する運用方針を指す。",
-      "コンセプトドリフトのようなデータ傾向の変化が起きても、モデルを一度学習させておけば、以後は継続的な監視や再学習を行う必要は一切ない。",
-      "コンセプトドリフトとは時間の経過とともにデータ傾向が変化しモデルの精度が劣化する現象であり、MLOpsはこれに対応する継続的な監視・再学習の仕組みである。"
+      "コンセプトドリフトのような入力と正解の関係の変化が起きても、モデルを一度学習させておけば、以後は継続的な監視や再学習を行う必要は一切ない。",
+      "コンセプトドリフトとは時間の経過とともに入力と正解の関係が変わりモデルの精度が劣化する現象であり、MLOpsはこれに対応する継続的な監視・再学習の仕組みである。"
     ],
     "correctAnswer": 3,
-    "explanation": "教材は「時間の経過とともにデータの傾向が変化し、モデルの精度が劣化する『コンセプトドリフト』が起きるため、継続的な監視・再学習が欠かせない」「MLOps(機械学習の開発と運用を一体化させる考え方、DevOpsのAI版)という運用体制が重視されるようになっている」と説明している。",
+    "explanation": "教材は「時間の経過とともに、入力データの分布が変わる『データドリフト』や、入力と正解の関係そのものが変わる『コンセプトドリフト』が起き、モデルの精度が劣化するため、継続的な監視・再学習が欠かせない」「MLOps(機械学習の開発と運用を一体化させる考え方、DevOpsのAI版)という運用体制が重視されるようになっている」と説明している。章末整理でも、データドリフトを「入力分布の変化」、コンセプトドリフトを「入力と正解の関係の変化」と区別している。",
     "choiceExplanations": [
-      "誤り。コンセプトドリフトは重みの自動増加ではなく、データの傾向変化によるモデル精度の劣化を指す。",
+      "誤り。コンセプトドリフトは重みの自動増加ではなく、入力と正解の関係が変わることによるモデル精度の劣化を指す。",
       "誤り。MLOpsはPoCの評価基準の話ではなく、機械学習の開発と運用を一体化させる継続的な監視・再学習の考え方である。",
       "誤り。教材は「継続的な監視・再学習が欠かせない」と述べており、一度の学習で済むとは説明していない。",
       "正しい。本文が説明するコンセプトドリフトとMLOpsの定義そのものである。"
@@ -59,7 +59,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.1 AIプロジェクトはどう進むのか",
     "sourceReference": "第7章 1節（AIプロジェクトの進め方）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -92,7 +92,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.2 データ収集・アノテーションと「データの偏り」問題",
     "sourceReference": "第7章 2節（データ収集・アノテーションとデータの偏り）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -124,7 +124,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.3 AI導入プロジェクトが失敗する典型パターン",
     "sourceReference": "第7章 3節（AI導入プロジェクトの失敗パターン）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -157,7 +157,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.3 AI導入プロジェクトが失敗する典型パターン",
     "sourceReference": "第7章 3節（AI導入プロジェクトの失敗パターン）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.4 精度と説明可能性のトレードオフ、XAIという考え方",
     "sourceReference": "第7章 4節（精度と説明可能性のトレードオフ、XAI）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -221,7 +221,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.5 AIと雇用・労働への影響",
     "sourceReference": "第7章 5節（AIと雇用・労働への影響）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -254,7 +254,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.5 AIと雇用・労働への影響",
     "sourceReference": "第7章 5節（AIと雇用・労働への影響）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -287,7 +287,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.6 業界別のAI活用事例",
     "sourceReference": "第7章 6節（業界別のAI活用事例）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -319,7 +319,7 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.6 業界別のAI活用事例",
     "sourceReference": "第7章 6節（業界別のAI活用事例）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -357,8 +357,74 @@
     "sourceFile": "materials/chapters/10_第7章.md",
     "sourceHeading": "7.2 データ収集・アノテーションと「データの偏り」問題",
     "sourceReference": "第7章 2節（データの偏り）",
-    "contentVersion": "6325757da80d522cae11c58e1fa33b420dae1fc401e0b091a045d52def3e7d72",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
     "createdAt": "2026-11-01",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-standard-012",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s04",
+    "difficulty": "standard",
+    "questionForm": "affirmative",
+    "question": "AIの「説明可能性」と「透明性」の違いについて、教材の整理として最も適切なものはどれか。",
+    "choices": [
+      "説明可能性は個別の判断やモデルの挙動を説明できることを指し、透明性はAIを利用している事実や使っているデータ、限界などを開示することを指す。",
+      "透明性は個別の判断やモデルの挙動を説明できることを指し、説明可能性はAIを利用している事実や使っているデータ、限界などを開示することを指す。",
+      "説明可能性と透明性は同じ意味の言葉であり、どちらもモデルの重みの値をすべて公開することを指す。",
+      "AIを利用している事実や限界を開示して透明性を確保すれば、個別の判断の理由を説明する必要はなくなる。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教材は第7章の章末整理の「重要な区別」で、説明可能性を「個別判断やモデル挙動の説明」、透明性を「利用事実・データ・限界などの開示」と整理している。第10章の章末整理でも、透明性・説明可能性について「利用事実、限界、個別判断の理由を説明できるか」を確認するとしており、両方が求められる。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。第7章の章末整理の「重要な区別」の整理そのものである。",
+      "誤りである。説明可能性と透明性の説明が逆になっている。",
+      "誤りである。教材は両者を別の軸で区別しており、同じ意味とはしていない。また、重みの値をすべて公開することとは説明していない。",
+      "誤りである。教材は第10章の章末整理で、利用事実や限界の開示と、個別判断の理由の説明の両方を確認するとしている。透明性を確保しても、説明可能性が不要になるわけではない。"
+    ],
+    "tags": {
+      "contentTags": ["説明可能性", "透明性"],
+      "skillTags": ["比較"],
+      "crossChapterTags": ["章末確認ポイント補強"]
+    },
+    "sourceFile": "materials/chapters/10_第7章.md",
+    "sourceHeading": "章末整理：AIは導入後も管理し続ける（重要な区別）",
+    "sourceReference": "第7章 章末整理（重要な区別：説明可能性／透明性）",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch07-standard-013",
+    "chapterId": "ch07",
+    "sectionId": "ch07-s03",
+    "difficulty": "standard",
+    "questionForm": "affirmative",
+    "question": "あるチームがPoCで、事前に決めておいた精度の目標を達成した。教材の整理に照らして、このあとの判断として最も適切なものはどれか。",
+    "choices": [
+      "精度の目標を達成したので、「AIで人件費を削減できる」という見込みだけを根拠に、ほかの費用を見積もらずに本番導入を決める。",
+      "事業としての価値はモデルの精度に比例して決まるので、本番導入の前に、精度をさらに上げることだけに取り組む。",
+      "精度の目標を達成したので本番導入を先に決め、データ整備や運用・監視にかかる費用は、導入したあとで評価すればよい。",
+      "精度はモデルの指標にすぎず、事業価値は費用・業務効果・リスクを含めて判断するので、運用のコストも含めて採算を確かめる。"
+    ],
+    "correctAnswer": 3,
+    "explanation": "教材は第7章の章末整理の「重要な区別」で、技術精度を「モデルの指標」、事業価値を「費用・業務効果・リスクを含む価値」と区別している。また7.3節では、AI導入にはモデル開発費用だけでなく、データ整備・システム統合・運用・監視・現場教育のコストがかかり、これらを過小評価したまま企画すると、運用を始めてから採算が合わないことに気づくケースが多いと説明している。精度の目標を達成したことと、事業として価値があることは別に確かめる必要がある。",
+    "choiceExplanations": [
+      "誤りである。教材は7.3節で、データ整備や運用・監視などの費用を過小評価したまま「AIで人件費を削減できる」という単純な皮算用で企画すると、運用を始めてから採算が合わないことに気づくケースが多いと説明している。精度の目標の達成だけでは、費用・業務効果・リスクを含む事業価値は確かめられていない。",
+      "誤りである。教材は事業価値を費用・業務効果・リスクを含めて判断するものとしており、精度だけで決まるとはしていない。",
+      "誤りである。教材は、費用を過小評価したまま企画すると運用を始めてから採算が合わないことに気づくと説明している。費用は事業価値を判断する材料であり、導入を決める前に見積もる必要がある。",
+      "正しい（本問の答え）。教材の「技術精度／事業価値」の区別と、7.3節の費用対効果の見誤りへの注意に一致する。"
+    ],
+    "tags": {
+      "contentTags": ["技術精度", "事業価値", "費用対効果", "PoC"],
+      "skillTags": ["適用判断"],
+      "crossChapterTags": ["章末確認ポイント補強"]
+    },
+    "sourceFile": "materials/chapters/10_第7章.md",
+    "sourceHeading": "章末整理：AIは導入後も管理し続ける（重要な区別）",
+    "sourceReference": "第7章 章末整理（重要な区別：技術精度／事業価値）、第7章 7.3節",
+    "contentVersion": "88478314c122b707b4853bbe9b31fa7e6c88131ac4c172dc7cf13dafd5d9ba11",
+    "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   }
 ]

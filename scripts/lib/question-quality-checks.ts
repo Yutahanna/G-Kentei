@@ -298,7 +298,9 @@ export function findAnswerPositionSkewWarning(questions: Question[]): string | n
  * - 第3〜6章は、公式テキストの章末問題に多い「説明から用語名を選ぶ」形式を補うため2026-10-29に拡充した。
  *
  * 実際の構成：2026-11-11、別の問題を解けば答えが決まる重複問題を14問削除した（docs/question-pool-audit-2026-11.md）。
- * 削除は基礎・標準に偏るため、設計目標の2:2:1とは一致しない。実際の構成はCHAPTER_COUNTSに章ごとに固定し、
+ * 同日、章末整理の確認ポイントのうち既存の問題で扱えていなかった点を確かめる問題を5問追加した
+ * （第1章・第2章・第8章に基礎1問ずつ、第7章に標準2問。crossChapterTagsに「章末確認ポイント補強」）。
+ * 削除は基礎・標準に偏り、追加は一部の章だけなので、設計目標の2:2:1とは一致しない。実際の構成はCHAPTER_COUNTSに章ごとに固定し、
  * 問題を足す・減らすときはここを更新する。設計目標との差はvalidate-questionsが章ごとに表示し、
  * 単体テストで難易度の比率が設計目標から大きく外れていないことを確かめる。
  */
@@ -321,14 +323,14 @@ export type DifficultyCounts = Record<Question["difficulty"], number>;
 
 /** 章の問題の実際の構成（難易度別の問題数）。 */
 export const CHAPTER_COUNTS: Record<string, DifficultyCounts> = {
-  ch01: { basic: 9, standard: 10, advanced: 5 },
-  ch02: { basic: 10, standard: 10, advanced: 5 },
+  ch01: { basic: 10, standard: 10, advanced: 5 },
+  ch02: { basic: 11, standard: 10, advanced: 5 },
   ch03: { basic: 21, standard: 22, advanced: 11 },
   ch04: { basic: 21, standard: 21, advanced: 11 },
   ch05: { basic: 24, standard: 23, advanced: 13 },
   ch06: { basic: 13, standard: 13, advanced: 7 },
-  ch07: { basic: 10, standard: 10, advanced: 5 },
-  ch08: { basic: 10, standard: 10, advanced: 5 },
+  ch07: { basic: 10, standard: 12, advanced: 5 },
+  ch08: { basic: 11, standard: 10, advanced: 5 },
   ch09: { basic: 18, standard: 18, advanced: 9 },
   ch10: { basic: 17, standard: 16, advanced: 9 },
 };

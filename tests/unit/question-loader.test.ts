@@ -73,13 +73,13 @@ describe("question-loader（全10章）", () => {
   );
 
   it.each(CHAPTER_IDS)(
-    "%sの難易度の比率は設計目標（基礎:標準:応用=40%:40%:20%）から5ポイント以内、総数は設計目標の90%以上である",
+    "%sの難易度の比率は設計目標（基礎:標準:応用=40%:40%:20%）から5ポイント以内、総数は設計目標の90〜110%である",
     (chapterId) => {
       const actual = getChapterCounts(chapterId);
       const target = getDesignTargetCounts(chapterId);
       const total = sumCounts(actual);
       expect(total).toBeGreaterThanOrEqual(sumCounts(target) * 0.9);
-      expect(total).toBeLessThanOrEqual(sumCounts(target));
+      expect(total).toBeLessThanOrEqual(sumCounts(target) * 1.1);
       for (const d of ["basic", "standard", "advanced"] as const) {
         expect(Math.abs(actual[d] / total - target[d] / sumCounts(target))).toBeLessThanOrEqual(
           0.05,
@@ -115,6 +115,24 @@ describe("question-loader（全10章）", () => {
       }
     },
   );
+
+  it("章末確認ポイント補強の問題は章の問題として模擬試験の出題候補に入る", () => {
+    const added = [
+      "ch01-basic-011",
+      "ch02-basic-011",
+      "ch07-standard-012",
+      "ch07-standard-013",
+      "ch08-basic-011",
+    ];
+    const examIds = new Set(
+      CHAPTER_IDS.flatMap((id) => getExamQuestionsByChapter(id)).map((q) => q.id),
+    );
+    for (const id of added) {
+      const q = getQuestionById(id);
+      expect(q?.tags.crossChapterTags).toContain("章末確認ポイント補強");
+      expect(examIds.has(id)).toBe(true);
+    }
+  });
 
   it("重複整理で削除した問題（2026-11-11）は読み込まれない", () => {
     for (const id of DELETED_QUESTION_IDS) {

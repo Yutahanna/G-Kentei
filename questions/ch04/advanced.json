@@ -27,7 +27,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -60,7 +60,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -93,7 +93,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 5節（勾配消失問題とディープラーニングの停滞）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -125,7 +125,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -157,7 +157,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -221,7 +221,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.2 単純パーセプトロンの限界とXOR問題",
     "sourceReference": "第4章 2節（単純パーセプトロンの限界とXOR問題）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -253,7 +253,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -286,7 +286,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 5節（勾配消失問題とディープラーニングの停滞）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -318,7 +318,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：Xavier初期化・He初期化）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -351,7 +351,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -384,7 +384,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 4〜5節（活性化関数・勾配消失問題）",
-    "contentVersion": "2825d6878a35e68529abe08af06f5154b2fe5f54e17f5e49407e9a3cbb2b72e8",
+    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
     "createdAt": "2026-11-01",
     "reviewStatus": "draft"
   }
