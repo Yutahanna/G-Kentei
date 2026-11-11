@@ -27,7 +27,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -60,7 +60,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：バッチ・ミニバッチ・オンライン学習）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -92,7 +92,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -125,7 +125,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.3 多層パーセプトロンと誤差逆伝播法",
     "sourceReference": "第4章 3節（多層パーセプトロンと誤差逆伝播法）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -157,7 +157,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -189,7 +189,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 5節（勾配消失問題とディープラーニングの停滞）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -222,7 +222,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -254,7 +254,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -287,7 +287,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-08-01",
     "reviewStatus": "draft"
   },
@@ -320,7 +320,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.1 ニューラルネットワークの基本構造とパーセプトロン",
     "sourceReference": "第4章 1節（ニューラルネットワークの基本構造とパーセプトロン）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -352,7 +352,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.2 単純パーセプトロンの限界とXOR問題",
     "sourceReference": "第4章 2節（単純パーセプトロンの限界とXOR問題）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -385,7 +385,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（重要な区別）",
     "sourceReference": "第4章 章末整理（重要な区別：活性化関数・損失関数・誤差逆伝播法・最適化手法・正則化）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -417,7 +417,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.4 活性化関数",
     "sourceReference": "第4章 4節（活性化関数）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -449,7 +449,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.5 勾配消失問題とディープラーニングの停滞",
     "sourceReference": "第4章 5節（勾配消失問題とディープラーニングの停滞）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -481,7 +481,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.6 オートエンコーダーと積層自己符号化器による事前学習",
     "sourceReference": "第4章 6節（オートエンコーダーと積層自己符号化器による事前学習）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -514,7 +514,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -547,7 +547,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：Xavier初期化・He初期化）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-19",
     "reviewStatus": "draft"
   },
@@ -559,9 +559,9 @@
     "question": "ハイパーパラメータの探索方法のうち、候補の全組合せを試す方法はどれか。教材の内容として最も適切なものはどれか。",
     "choices": ["ランダムサーチ", "グリッドサーチ", "k分割交差検証", "勾配降下法"],
     "correctAnswer": 1,
-    "explanation": "教材は章末整理で「グリッドサーチ／ランダムサーチ（B）：候補の全組合せを試す／候補をランダムに試すハイパーパラメータ探索」と整理している。",
+    "explanation": "教材は章末整理で「グリッドサーチ／ランダムサーチ（B）：候補の全組合せを試す／値の取り得る範囲を指定し、その中で乱数を発生させて試すハイパーパラメータ探索」と整理している。公式テキスト（p.195）も、グリッドサーチは値の候補を明示的に指定して全ての組み合わせを試し、ランダムサーチは値の候補そのものではなく取り得る範囲を指定して乱数で試すと説明している。",
     "choiceExplanations": [
-      "誤り。ランダムサーチは、候補をランダムに試すハイパーパラメータ探索であり、全組合せを試すわけではない。",
+      "誤り。ランダムサーチは、値の候補そのものを指定するのではなく、値の取り得る範囲を指定し、その中で乱数を発生させて試すハイパーパラメータ探索であり、全組合せを試すわけではない。",
       "正しい。候補の全組合せを試すハイパーパラメータ探索である。",
       "誤り。k分割交差検証は、データの分け方を入れ替えながらk回学習・評価して平均を取る性能評価の手法であり、ハイパーパラメータの候補を選ぶ探索方法の名前ではない。",
       "誤り。勾配降下法は、勾配の逆方向に重みを少しずつ動かす重みの更新の考え方であり、ハイパーパラメータの探索方法ではない。"
@@ -574,7 +574,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：グリッドサーチ・ランダムサーチ）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -601,7 +601,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：モーメンタム・AdaGrad・RMSprop・Adam）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -628,7 +628,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（2012年AlexNetの衝撃とディープラーニング再評価）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -655,7 +655,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "章末整理：学習の四段階を固定する（本文を補う用語）",
     "sourceReference": "第4章 章末整理（本文を補う用語：二重降下現象）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-10-29",
     "reviewStatus": "draft"
   },
@@ -688,7 +688,7 @@
     "sourceFile": "materials/chapters/07_第4章.md",
     "sourceHeading": "4.7 2012年AlexNetの衝撃とディープラーニング再評価",
     "sourceReference": "第4章 7節（AlexNetの衝撃）",
-    "contentVersion": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+    "contentVersion": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
     "createdAt": "2026-11-01",
     "reviewStatus": "draft"
   }
