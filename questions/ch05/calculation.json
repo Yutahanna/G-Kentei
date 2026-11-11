@@ -163,7 +163,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "畳み込み操作（索引なし。関連：畳み込み層 p.218）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」畳み込み操作（公式テキストの関連ページ p.218：畳み込み層の掲載ページ。畳み込み操作自体は索引にない）",
-    "contentVersion": "561dd07cc631664daf9f3ab44026671e5acf5ff669ad11a5a4cbbd2fdfd87c62",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -196,7 +196,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "平均値プーリング（p.222）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」平均値プーリング（公式テキスト p.222）",
-    "contentVersion": "561dd07cc631664daf9f3ab44026671e5acf5ff669ad11a5a4cbbd2fdfd87c62",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
@@ -224,7 +224,7 @@
     "sourceFile": "materials/supplements/4-5_ディープラーニングの学習と要素技術の補足_ORG.md",
     "sourceHeading": "バッチ学習（p.188）",
     "sourceReference": "補遺「ディープラーニングの学習と要素技術の補足」バッチ学習（公式テキスト p.188）",
-    "contentVersion": "561dd07cc631664daf9f3ab44026671e5acf5ff669ad11a5a4cbbd2fdfd87c62",
+    "contentVersion": "1362b60eba8bdfde997d51405cd9e3a8ae214aee0bd8ea3f8b10647f0c4afef0",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
   },
