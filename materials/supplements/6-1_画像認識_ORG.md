@@ -6,7 +6,7 @@
 - 格納テキストとの関係：
   - 第5章5.1でLeNet・AlexNet・VGG・GoogLeNet・ResNet、第6章6.1・6.2でR-CNN系列・YOLO・SSD・U-Net・Mask R-CNN・セマンティック／インスタンスセグメンテーションを扱っている。この補遺はその続きにあたる。
   - 第5章・第6章の章末整理で1行だけ触れている語（DenseNet、SENet、EfficientNet、MobileNet、MnasNet、Wide ResNet、FPN、FCN、PSPNet、DeepLab、SegNet、パノプティックセグメンテーション、Depthwise Separable Convolution、Atrous Convolution）を詳しくする。
-  - 本文で触れていない語（NAS、OpenPose、姿勢推定、一般物体認識、物体識別、Vision Transformerの仕組みなど）を補う。
+  - 格納テキストの本文で触れていない語、または説明が薄い語（NAS、OpenPose、姿勢推定、一般物体認識、物体識別、Vision Transformerの仕組みなど）を補う。このうちNAS（p.260）、姿勢推定・OpenPose（p.267〜268）、Vision Transformer（p.284で名前のみ）は公式テキストに記載がある。一般物体認識・物体識別は公式テキストにない語（公式テキストは「物体認識タスク」と呼ぶ）。
 - 書き方：説明は私（Claude）が、各モデルの元論文で一般に知られている内容とシラバスに沿って自分の言葉で書いた。公式テキストの文章は写していない。年は論文の発表年（学会での発表年と1年ずれることがある）。
 - ページの付け方：見出しの「（p.N）」は、その語が公式テキストの索引に載っているページ。「（索引なし）」の語は索引に載っておらず、問題データでは関連する節のページを「関連ページ」として示す（その語がそのページに書かれているとは限らない）。ページ番号は索引から取ったもので、本文との照合は別途必要。
 - 確認欄：
