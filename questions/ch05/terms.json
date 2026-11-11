@@ -983,5 +983,97 @@
     "contentVersion": "df23b2264f535847c7fd4f940f23fbf738a2a7db59bdcb015e4648f370217aa5",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-032",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "VAEの発展モデルのうち、潜在表現を連続的な値ではなく、あらかじめ用意した有限個のベクトルの集まり（コードブック）から最も近いものに置き換えた、離散的な表現として学習するものはどれか。",
+    "choices": ["β-VAE", "VQ-VAE", "GAN", "拡散モデル"],
+    "correctAnswer": 1,
+    "explanation": "正解は「VQ-VAE」である。VQは Vector Quantization（ベクトル量子化）の略である。公式テキスト（p.244）も、潜在変数を連続値ではなく離散値にしたものと説明している。",
+    "choiceExplanations": [
+      "誤りである。β-VAEは、損失関数のKLダイバージェンスの項の重みを強めて、もつれを解いた表現を学習しやすくしたモデルであり、潜在表現を離散化するものではない。",
+      "正しい（本問の答え）。VQは Vector Quantization（ベクトル量子化）の略である。公式テキスト（p.244）も、潜在変数を連続値ではなく離散値にしたものと説明している。",
+      "誤りである。GANは、生成器と識別器を競わせて学習する生成モデルであり、VAEの発展モデルではない。",
+      "誤りである。拡散モデルは、ノイズを加える過程を逆にたどってデータを生成するモデルであり、VAEの発展モデルではない。"
+    ],
+    "tags": {
+      "contentTags": ["VQ-VAE", "コードブック", "VAE"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-8_生成モデルの発展と可視化手法の補足_ORG.md",
+    "sourceHeading": "VQ-VAE（p.244）",
+    "sourceReference": "補遺「生成モデルの発展と可視化手法の補足」VQ-VAE（公式テキスト p.244）",
+    "contentVersion": "98e80130d1f1de18ff28381f8a57aa80af1c7ed6df70cbfdb1bed0d6443ebc44",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-033",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "VAEの損失関数のうち、潜在変数の分布を事前分布に近づける項（KLダイバージェンス）に1より大きい係数をかけて重みを強め、潜在変数の各次元が別々の要因を表す表現を学習しやすくしたモデルはどれか。",
+    "choices": ["VQ-VAE", "info VAE", "β-VAE", "積層自己符号化器"],
+    "correctAnswer": 2,
+    "explanation": "正解は「β-VAE」である。公式テキスト（p.244）も、目的関数において正則化を工夫することで画像の特徴を潜在空間上でうまく分離し、画像生成を行いやすくしたものと説明している。もつれを解いた表現を学習しやすくする代わりに、βを大きくしすぎると復元の精度が下がる。",
+    "choiceExplanations": [
+      "誤りである。VQ-VAEは、潜在表現をコードブックのベクトルに置き換えて離散化するモデルである。",
+      "誤りである。info VAEは、入力データと潜在変数のあいだの関係（相互情報量）を保つ工夫を加えたモデルである。",
+      "正しい（本問の答え）。公式テキスト（p.244）も、目的関数において正則化を工夫することで画像の特徴を潜在空間上でうまく分離し、画像生成を行いやすくしたものと説明している。もつれを解いた表現を学習しやすくする代わりに、βを大きくしすぎると復元の精度が下がる。",
+      "誤りである。積層自己符号化器は、オートエンコーダーを1層ずつ学習させて積み重ねる手法であり、VAEの発展モデルではない。"
+    ],
+    "tags": {
+      "contentTags": ["β-VAE", "KLダイバージェンス", "info VAE"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-8_生成モデルの発展と可視化手法の補足_ORG.md",
+    "sourceHeading": "β-VAE（p.244）",
+    "sourceReference": "補遺「生成モデルの発展と可視化手法の補足」β-VAE（公式テキスト p.244）",
+    "contentVersion": "98e80130d1f1de18ff28381f8a57aa80af1c7ed6df70cbfdb1bed0d6443ebc44",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "ch05-term-034",
+    "chapterId": "ch05",
+    "sectionId": "ch05-s06",
+    "difficulty": "basic",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "VQ-VAE・β-VAE・info VAEに関する説明として、最も適切なものはどれか。",
+    "choices": [
+      "いずれも、VAEの潜在表現や学習の目的（損失関数）を工夫した発展モデルである。",
+      "いずれも、GANの生成器と識別器を競わせる学習の進め方を工夫した、GANの発展モデルである。",
+      "いずれも、拡散モデルのノイズを取り除く手順を短くするための工夫である。",
+      "いずれも、強化学習でエージェントの行動を決める方策を工夫した手法である。"
+    ],
+    "correctAnswer": 0,
+    "explanation": "格納テキスト第5章の章末整理も「VAEの潜在表現や学習目的を工夫した発展モデル」と整理している。",
+    "choiceExplanations": [
+      "正しい（本問の答え）。格納テキスト第5章の章末整理も「VAEの潜在表現や学習目的を工夫した発展モデル」と整理している。",
+      "誤りである。3つとも名前のとおりVAE（変分オートエンコーダ）の発展モデルであり、GANの発展モデルではない。",
+      "誤りである。3つともVAEの発展モデルであり、拡散モデルの手順を工夫したものではない。",
+      "誤りである。3つとも生成モデルであるVAEの発展モデルであり、強化学習の手法ではない。"
+    ],
+    "tags": {
+      "contentTags": ["VQ-VAE", "β-VAE", "info VAE", "VAEの発展モデル"],
+      "skillTags": ["比較"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-8_生成モデルの発展と可視化手法の補足_ORG.md",
+    "sourceHeading": "VQ-VAE（p.244）",
+    "sourceReference": "補遺「生成モデルの発展と可視化手法の補足」1. VAEの発展モデル（VQ-VAE・β-VAE・info VAE。公式テキスト p.244）",
+    "contentVersion": "98e80130d1f1de18ff28381f8a57aa80af1c7ed6df70cbfdb1bed0d6443ebc44",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]

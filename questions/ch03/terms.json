@@ -813,5 +813,34 @@
     "contentVersion": "d84a9d730a3a557eed3ba1d0598bc824502ec6ba321b75099343a9491b8318eb",
     "createdAt": "2026-11-11",
     "reviewStatus": "draft"
+  },
+  {
+    "id": "ch03-term-026",
+    "chapterId": "ch03",
+    "sectionId": "ch03-s04",
+    "difficulty": "standard",
+    "category": "term_check",
+    "questionForm": "affirmative",
+    "question": "データ点どうしの距離（非類似度）の関係を、全体としてできるだけそのまま保つように、データを2次元などの低次元の空間に配置して可視化する手法を何と呼ぶか。",
+    "choices": ["t-SNE", "主成分分析（PCA）", "k-means法", "多次元尺度構成法（MDS）"],
+    "correctAnswer": 3,
+    "explanation": "正解は「多次元尺度構成法（MDS）」である。公式テキスト（p.143）は、2次元への次元削減・可視化手法として紹介している。都市間の距離の表から、都市の位置関係を地図のように描き直す、といった使い方をする。",
+    "choiceExplanations": [
+      "誤りである。t-SNEは、近くにあるデータ点どうしの関係（局所的な近さ）を保つことを重視する手法であり、図上の距離をそのまま定量比較しない。",
+      "誤りである。主成分分析は、データの分散が最も大きくなる方向を新しい軸として順に見つけ、少数の軸に要約する手法である。",
+      "誤りである。k-means法は、データ点をk個のグループに分けるクラスタリングの手法であり、低次元に配置する手法ではない。",
+      "正しい（本問の答え）。公式テキスト（p.143）は、2次元への次元削減・可視化手法として紹介している。都市間の距離の表から、都市の位置関係を地図のように描き直す、といった使い方をする。"
+    ],
+    "tags": {
+      "contentTags": ["多次元尺度構成法", "t-SNE", "主成分分析"],
+      "skillTags": ["暗記"],
+      "crossChapterTags": []
+    },
+    "sourceFile": "materials/supplements/4-8_生成モデルの発展と可視化手法の補足_ORG.md",
+    "sourceHeading": "多次元尺度構成法（MDS）（p.143）",
+    "sourceReference": "補遺「生成モデルの発展と可視化手法の補足」多次元尺度構成法（MDS）（公式テキスト p.143）",
+    "contentVersion": "98e80130d1f1de18ff28381f8a57aa80af1c7ed6df70cbfdb1bed0d6443ebc44",
+    "createdAt": "2026-11-11",
+    "reviewStatus": "draft"
   }
 ]
