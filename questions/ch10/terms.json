@@ -29,7 +29,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "ハード・ローとソフト・ロー（p.381）",
     "sourceReference": "補遺「倫理とガバナンス」ハード・ローとソフト・ロー（公式テキスト p.381）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -64,7 +64,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "日本の主なガイドラインの流れ（p.382〜383）",
     "sourceReference": "補遺「倫理とガバナンス」日本の主なガイドラインの流れ（公式テキスト p.383。根拠：経済産業省「AI原則実践のためのガバナンス・ガイドライン」ver1.1）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -99,7 +99,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "日本の主なガイドラインの流れ（p.382〜383）",
     "sourceReference": "補遺「倫理とガバナンス」日本の主なガイドラインの流れ（公式テキスト p.382。根拠：内閣府「人間中心のAI社会原則」）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -134,7 +134,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "海外の主な枠組み（p.383〜384）",
     "sourceReference": "補遺「倫理とガバナンス」海外の主な枠組み（公式テキスト p.383。根拠：NIST「AI Risk Management Framework 1.0」）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -173,7 +173,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "海外の主な枠組み（p.383〜384）",
     "sourceReference": "補遺「倫理とガバナンス」海外の主な枠組み（公式テキスト p.384。根拠：EU AI規則、EUハイレベル専門家会合「Ethics guidelines for trustworthy AI」、OECD AI原則、米国「Blueprint for an AI Bill of Rights」）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -208,7 +208,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "データ収集段階と推論段階（p.387）",
     "sourceReference": "補遺「倫理とガバナンス」データ収集段階と推論段階（公式テキスト p.387）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -241,9 +241,9 @@
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
-    "sourceHeading": "カメラ画像利活用ガイドブック（索引なし）",
+    "sourceHeading": "カメラ画像利活用ガイドブック（索引なし。p.387〜388）",
     "sourceReference": "補遺「倫理とガバナンス」カメラ画像利活用ガイドブック（公式テキスト p.387。根拠：経済産業省・総務省「カメラ画像利活用ガイドブック」ver3.0）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -278,7 +278,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "センシティブ属性と代理変数（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」センシティブ属性と代理変数（公式テキスト p.385）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
@@ -311,9 +311,9 @@
       "crossChapterTags": []
     },
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
-    "sourceHeading": "公平性の定義（索引なし）",
+    "sourceHeading": "公平性の定義（索引なし。公式テキストにない補足）",
     "sourceReference": "補遺「倫理とガバナンス」公平性の定義（公式テキスト p.385）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -343,7 +343,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "学習データとモデルを狙う攻撃（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」学習データとモデルを狙う攻撃（公式テキスト p.389）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
@@ -373,7 +373,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "データの来歴（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」データの来歴（公式テキストの関連ページ p.388）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-07",
     "reviewStatus": "draft"
@@ -408,7 +408,7 @@
     "sourceFile": "materials/supplements/10_倫理とガバナンス_ORG.md",
     "sourceHeading": "人間の関与（索引なし）",
     "sourceReference": "補遺「倫理とガバナンス」人間の関与（公式テキスト p.392）",
-    "contentVersion": "59a3847d68cce4a9090c0a4ee83f02a11f76bcd071e39906f0bae75c013c50d4",
+    "contentVersion": "ffa49c7926df33d42b1e9808ad06786db8938a13aa37254ac3a33ffb4a16e172",
     "asOfDate": "2026-11-06",
     "createdAt": "2026-11-06",
     "reviewStatus": "draft"
