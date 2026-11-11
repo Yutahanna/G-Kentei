@@ -2,7 +2,7 @@
   "_generated": true,
   "_generatedBy": "scripts/build-content.ts",
   "_doNotEdit": "このファイルは自動生成物です。修正は materials/ または scripts/build-content.ts に対して行ってください。",
-  "generatedAt": "2026-11-11T03:45:18.537Z",
+  "generatedAt": "2026-11-11T08:39:54.634Z",
   "chapters": [
     {
       "chapterId": "ch01",
@@ -51,7 +51,7 @@
       "chapterId": "ch04",
       "title": "ディープラーニングの概要",
       "sourceFile": "materials/chapters/07_第4章.md",
-      "contentHash": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+      "contentHash": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
       "sectionIds": [
         "ch04-s01",
         "ch04-s02",

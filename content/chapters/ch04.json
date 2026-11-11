@@ -6,7 +6,7 @@
   "number": 4,
   "title": "ディープラーニングの概要",
   "sourceFile": "materials/chapters/07_第4章.md",
-  "contentHash": "78ec419f82e5b5aa5ee4375dfb840bebb14320ce0d939da8037246247c4113da",
+  "contentHash": "40bc54cd5c5172906650f27aeaabf5e29749bdfba8b8bb5b019c8b46ded61841",
   "recommendedOrderIndex": 1,
   "learningGoals": [
     "ニューラルネットワークの最小単位である「パーセプトロン」がどう考えられたか、そしてそれがなぜ一度は限界を迎えたかを理解する。",
@@ -147,7 +147,7 @@
       {
         "term": "グリッドサーチ／ランダムサーチ",
         "importance": "B",
-        "description": "候補の全組合せを試す／候補をランダムに試すハイパーパラメータ探索。"
+        "description": "候補の全組合せを試す／値の取り得る範囲を指定し、その中で乱数を発生させて試すハイパーパラメータ探索。"
       },
       {
         "term": "二重降下現象",
