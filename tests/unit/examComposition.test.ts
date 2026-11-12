@@ -121,4 +121,33 @@ describe("examComposition（模擬試験の出題配分）", () => {
       expect(reused).toBe(Math.max(0, picked.length - unseenByChapter[ch]!));
     }
   });
+
+  it("selectExamQuestionIdsは上限のある問題（計算問題）を上限を超えて選ばない", () => {
+    const questionIdsByChapter = Object.fromEntries(
+      EXAM_COMPOSITION_CONFIG.perChapter.map((c) => [c.chapterId, makeIds(c.chapterId, 50)]),
+    );
+    // 各章の先頭5問を計算問題とみなす（全体の1割）。
+    const limitedIds = new Set(
+      Object.values(questionIdsByChapter).flatMap((ids) => ids.slice(0, 5)),
+    );
+    for (const [total, max] of [
+      [145, 3],
+      [90, 2],
+      [20, 0],
+    ] as const) {
+      for (let trial = 0; trial < 20; trial++) {
+        const ids = selectExamQuestionIds(
+          total,
+          EXAM_COMPOSITION_CONFIG,
+          questionIdsByChapter,
+          Math.random,
+          new Set(),
+          { ids: limitedIds, max },
+        );
+        expect(ids).toHaveLength(total);
+        expect(new Set(ids).size).toBe(total);
+        expect(ids.filter((id) => limitedIds.has(id)).length).toBeLessThanOrEqual(max);
+      }
+    }
+  });
 });

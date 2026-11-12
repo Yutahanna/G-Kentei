@@ -25,3 +25,11 @@ export const EXAM_COMPOSITION_CONFIG: ExamCompositionConfig = {
     { chapterId: "ch10", weight: 8, minRatio: 0.068, maxRatio: 0.158 },
   ],
 };
+
+/**
+ * 模擬試験に占める計算問題の上限（出題数に対する割合、四捨五入）。
+ * 公式テキストの章末問題123問のうち計算・手順を数える問題は2問（約2%）、
+ * 2026-11-06の本試験の受験者の印象でも145問中3問程度だったため（2026-11-12）。
+ * 145問なら3問、90問なら2問、50問なら1問、20問なら0問。
+ */
+export const CALCULATION_MAX_RATIO = 0.02;

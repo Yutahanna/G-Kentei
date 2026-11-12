@@ -3,10 +3,17 @@ import { useNavigate } from "react-router-dom";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import Card from "../../shared/ui/Card";
 import { getAvailableChapterIds } from "../../shared/lib/content-loader";
-import { getQuestionById, getExamQuestionsByChapter } from "../../shared/lib/question-loader";
+import {
+  getQuestionById,
+  getExamQuestionsByChapter,
+  isCalculationQuestion,
+} from "../../shared/lib/question-loader";
 import { buildChoiceOrderMap } from "../../shared/lib/choiceOrder";
 import { selectExamQuestionIds } from "../../shared/lib/examComposition";
-import { EXAM_COMPOSITION_CONFIG } from "../../shared/config/examComposition";
+import {
+  CALCULATION_MAX_RATIO,
+  EXAM_COMPOSITION_CONFIG,
+} from "../../shared/config/examComposition";
 import { listAllStudySessionLogs } from "../../shared/lib/db";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import type { StudySessionLog } from "../../entities/progress";
@@ -55,8 +62,14 @@ export default function ExamSetupPage() {
 
   function handleStart() {
     const chapterIds = getAvailableChapterIds();
+    const examQuestionsByChapter = chapterIds.map(
+      (id) => [id, getExamQuestionsByChapter(id)] as const,
+    );
     const questionIdsByChapter = Object.fromEntries(
-      chapterIds.map((id) => [id, getExamQuestionsByChapter(id).map((q) => q.id)]),
+      examQuestionsByChapter.map(([id, qs]) => [id, qs.map((q) => q.id)]),
+    );
+    const calculationIds = new Set(
+      examQuestionsByChapter.flatMap(([, qs]) => qs.filter(isCalculationQuestion).map((q) => q.id)),
     );
     const ids = selectExamQuestionIds(
       questionCount,
@@ -64,6 +77,7 @@ export default function ExamSetupPage() {
       questionIdsByChapter,
       Math.random,
       seenQuestionIds,
+      { ids: calculationIds, max: Math.round(questionCount * CALCULATION_MAX_RATIO) },
     );
     // 選択肢の表示順は開始時に1回だけ決め、受験中と結果画面で同じ並びを使う。
     const questions = ids
@@ -78,6 +92,9 @@ export default function ExamSetupPage() {
       <h1>模擬試験</h1>
       <p>
         全10章から教材ベース配分（教材の分量に応じた比率）で出題します。この配分は本試験の公式配点ではありません。
+      </p>
+      <p>
+        章本文の問題に加え、補遺から作った用語確認と計算問題も出題します。計算問題は出題数の2%程度（145問なら3問）までにしています。
       </p>
       <p>
         この端末の模試でまだ出題されていない問題：{unseenCount} / {totalQuestionCount}
