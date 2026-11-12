@@ -133,11 +133,18 @@ export function isPrincipleQuestion(q: Question): boolean {
 }
 
 /**
- * 模擬試験の出題候補。用語確認・計算問題（補遺が出典）は公式テキスト本文との照合が一部未実施のため、
+ * 模擬試験の出題候補。章本文の問題に加え、補遺を出典とする用語確認・計算問題も含める
+ * （補遺の「要確認」は2026-11-11に公式テキストとの照合を完了。PR #49）。
+ * 計算問題は出題数の上限をselectExamQuestionIdsで別に設ける（CALCULATION_MAX_RATIO）。
  * 原理理解の問題は章ごとの設計数とは別枠で追加したため、模擬試験には含めない（章別ドリルと復習で使う）。
  */
 export function getExamQuestionsByChapter(chapterId: string): Question[] {
-  return getQuestionsByChapter(chapterId).filter((q) => (q.category ?? "chapter") === "chapter");
+  return getQuestionsByChapter(chapterId).filter((q) => !isPrincipleQuestion(q));
+}
+
+/** 模擬試験で出題数に上限を設ける問題（計算問題）かどうか。 */
+export function isCalculationQuestion(q: Question): boolean {
+  return (q.category ?? "chapter") === "calculation";
 }
 
 export function getQuestionsBySection(sectionId: string): Question[] {

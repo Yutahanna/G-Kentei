@@ -7,6 +7,7 @@ import {
   isPrincipleQuestion,
   isSupplementQuestion,
   isTermCheck,
+  isCalculationQuestion,
 } from "../../src/shared/lib/question-loader";
 import {
   getChapterCounts,
@@ -18,7 +19,10 @@ import {
   allocateExamQuestionCounts,
   selectExamQuestionIds,
 } from "../../src/shared/lib/examComposition";
-import { EXAM_COMPOSITION_CONFIG } from "../../src/shared/config/examComposition";
+import {
+  CALCULATION_MAX_RATIO,
+  EXAM_COMPOSITION_CONFIG,
+} from "../../src/shared/config/examComposition";
 
 const CHAPTER_IDS = Array.from({ length: 10 }, (_, i) => `ch${String(i + 1).padStart(2, "0")}`);
 const expectedTotal = (chapterId: string) => sumCounts(getChapterCounts(chapterId));
@@ -107,12 +111,27 @@ describe("question-loader（全10章）", () => {
         expect(n).toBeGreaterThanOrEqual(Math.floor(totalCount * c.minRatio) - 1);
         expect(n).toBeLessThanOrEqual(Math.ceil(totalCount * c.maxRatio) + 1);
       }
-      const ids = selectExamQuestionIds(totalCount, EXAM_COMPOSITION_CONFIG, idsByChapter);
+      const calculationIds = new Set(
+        CHAPTER_IDS.flatMap((id) => getExamQuestionsByChapter(id))
+          .filter(isCalculationQuestion)
+          .map((q) => q.id),
+      );
+      const maxCalculation = Math.round(totalCount * CALCULATION_MAX_RATIO);
+      const ids = selectExamQuestionIds(
+        totalCount,
+        EXAM_COMPOSITION_CONFIG,
+        idsByChapter,
+        Math.random,
+        new Set(),
+        { ids: calculationIds, max: maxCalculation },
+      );
       expect(ids).toHaveLength(totalCount);
       expect(new Set(ids).size).toBe(totalCount);
       for (const id of ids) {
-        expect(getQuestionById(id)?.category ?? "chapter").toBe("chapter");
+        // 原理理解の問題は模擬試験に出さない。
+        expect(getQuestionById(id)?.category ?? "chapter").not.toBe("principle");
       }
+      expect(ids.filter((id) => calculationIds.has(id)).length).toBeLessThanOrEqual(maxCalculation);
     },
   );
 
@@ -175,7 +194,7 @@ describe("question-loader（全10章）", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("用語確認の問題は補遺を出典とし、模擬試験の出題候補には入らない", () => {
+  it("用語確認の問題は補遺を出典とし、模擬試験の出題候補に入る", () => {
     const terms = CHAPTER_IDS.flatMap((id) => getQuestionsByChapter(id)).filter(isTermCheck);
     expect(terms).toHaveLength(TERM_CHECK_TOTAL);
     for (const q of terms) {
@@ -184,7 +203,7 @@ describe("question-loader（全10章）", () => {
     const examIds = new Set(
       CHAPTER_IDS.flatMap((id) => getExamQuestionsByChapter(id)).map((q) => q.id),
     );
-    expect(terms.some((q) => examIds.has(q.id))).toBe(false);
+    expect(terms.every((q) => examIds.has(q.id))).toBe(true);
     expect(filterQuestions({ chapterId: "ch02", category: "term_check" })).toHaveLength(12);
     expect(filterQuestions({ chapterId: "ch03", category: "term_check" })).toHaveLength(26);
     expect(filterQuestions({ chapterId: "ch04", category: "term_check" })).toHaveLength(11);
@@ -196,7 +215,7 @@ describe("question-loader（全10章）", () => {
     expect(filterQuestions({ chapterId: "ch10", category: "term_check" })).toHaveLength(12);
   });
 
-  it("計算問題は補遺を出典とし、模擬試験の出題候補には入らない", () => {
+  it("計算問題は補遺を出典とし、模擬試験の出題候補に入る", () => {
     const calc = CHAPTER_IDS.flatMap((id) => getQuestionsByChapter(id)).filter(
       (q) => q.category === "calculation",
     );
@@ -206,7 +225,7 @@ describe("question-loader（全10章）", () => {
     );
     for (const q of calc) {
       expect(q.sourceFile.startsWith("materials/supplements/")).toBe(true);
-      expect(examIds.has(q.id)).toBe(false);
+      expect(examIds.has(q.id)).toBe(true);
     }
   });
 

@@ -94,6 +94,7 @@ export function selectExamQuestionIds(
   questionIdsByChapter: Record<string, string[]>,
   random: () => number = Math.random,
   seenQuestionIds: ReadonlySet<string> = new Set(),
+  limited?: { ids: ReadonlySet<string>; max: number },
 ): string[] {
   const availableByChapter = Object.fromEntries(
     Object.entries(questionIdsByChapter).map(([id, ids]) => [id, ids.length]),
@@ -101,6 +102,7 @@ export function selectExamQuestionIds(
   const counts = allocateExamQuestionCounts(totalCount, config, availableByChapter);
 
   const selected: string[] = [];
+  const pools = new Map<string, string[]>();
   for (const [chapterId, count] of Object.entries(counts)) {
     // 過去の模試で出題済みの問題は、未出題の問題を使い切った後にだけ使う。
     const ids = questionIdsByChapter[chapterId] ?? [];
@@ -114,7 +116,27 @@ export function selectExamQuestionIds(
         random,
       ),
     ];
+    pools.set(chapterId, pool);
     selected.push(...pool.slice(0, count));
+  }
+
+  // 上限のある問題（計算問題）が多すぎるときは、超えた分を同じ章のほかの問題に差し替える。
+  if (limited) {
+    const picked = new Set(selected);
+    const limitedPicked = shuffle(
+      selected.filter((id) => limited.ids.has(id)),
+      random,
+    );
+    for (const id of limitedPicked.slice(Math.max(0, limited.max))) {
+      const chapterPool = Array.from(pools.values()).find((pool) => pool.includes(id)) ?? [];
+      const replacement = chapterPool.find(
+        (candidate) => !picked.has(candidate) && !limited.ids.has(candidate),
+      );
+      if (replacement === undefined) continue;
+      picked.delete(id);
+      picked.add(replacement);
+      selected[selected.indexOf(id)] = replacement;
+    }
   }
   return shuffle(selected, random);
 }
