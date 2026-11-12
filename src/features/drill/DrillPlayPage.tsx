@@ -16,6 +16,7 @@ import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
 import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import styles from "./DrillPlayPage.module.css";
 import AsOfDateNote from "../../shared/ui/AsOfDateNote";
+import SupplementLink from "../../shared/ui/SupplementLink";
 
 const DIFFICULTY_LABEL: Record<string, string> = {
   basic: "基礎",
@@ -234,6 +235,7 @@ export default function DrillPlayPage() {
                 </Link>
               </>
             )}
+            <SupplementLink question={question} />
           </p>
 
           <div className={styles.actions}>

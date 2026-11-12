@@ -9,6 +9,7 @@ import { useDrillSessionStore } from "../../shared/store/drillSessionStore";
 import styles from "./DrillResultPage.module.css";
 import AsOfDateNote from "../../shared/ui/AsOfDateNote";
 import { formatChoices, getCorrectIndices } from "../../shared/lib/answer";
+import SupplementLink from "../../shared/ui/SupplementLink";
 
 export default function DrillResultPage() {
   const { chapterId } = useParams<{ chapterId: string }>();
@@ -110,6 +111,7 @@ export default function DrillResultPage() {
                         </Link>
                       </>
                     )}
+                    <SupplementLink question={question} />
                   </p>
                 </div>
               )}

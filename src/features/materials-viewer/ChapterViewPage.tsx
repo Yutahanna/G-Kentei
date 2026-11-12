@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Card from "../../shared/ui/Card";
 import buttonStyles from "../../shared/ui/Button.module.css";
 import { getChapter } from "../../shared/lib/content-loader";
 import { getMaterialReadState, markSectionRead } from "../../shared/lib/db";
+import { getChapterSupplements } from "../../shared/lib/supplement-loader";
+import SupplementSection, { SUPPLEMENT_SECTION_ID } from "./SupplementSection";
 import styles from "./ChapterViewPage.module.css";
 
 export default function ChapterViewPage() {
   const { chapterId } = useParams<{ chapterId: string }>();
   const chapter = chapterId ? getChapter(chapterId) : undefined;
   const [readSectionIds, setReadSectionIds] = useState<Set<string>>(new Set());
+  const supplements = chapterId ? getChapterSupplements(chapterId) : [];
+  const { hash } = useLocation();
+
+  // 別ページから「#節ID」「#補遺の項目ID」付きで開いたときに、その位置まで移動する。
+  useEffect(() => {
+    if (!hash) return;
+    const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+    target?.scrollIntoView();
+  }, [hash, chapterId]);
 
   useEffect(() => {
     if (!chapter) return;
@@ -60,6 +71,13 @@ export default function ChapterViewPage() {
               </a>
             </li>
           ))}
+          {supplements.length > 0 && (
+            <li>
+              <a href={`#${SUPPLEMENT_SECTION_ID}`} className={styles.tocLink}>
+                補遺（{supplements.length}）
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
 
@@ -172,6 +190,8 @@ export default function ChapterViewPage() {
           </ul>
         </Card>
       )}
+
+      <SupplementSection sections={chapter.sections} entries={supplements} />
     </div>
   );
 }

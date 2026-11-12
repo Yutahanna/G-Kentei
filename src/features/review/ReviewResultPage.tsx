@@ -9,6 +9,7 @@ import { useReviewSessionStore } from "../../shared/store/reviewSessionStore";
 import styles from "../drill/DrillResultPage.module.css";
 import AsOfDateNote from "../../shared/ui/AsOfDateNote";
 import { formatChoices, getCorrectIndices } from "../../shared/lib/answer";
+import SupplementLink from "../../shared/ui/SupplementLink";
 
 const SESSION_TYPE_LABEL: Record<string, string> = {
   mock_review: "模試の誤答・ブックマーク復習",
@@ -126,6 +127,7 @@ export default function ReviewResultPage() {
                         </Link>
                       </>
                     )}
+                    <SupplementLink question={question} />
                   </p>
                 </div>
               )}

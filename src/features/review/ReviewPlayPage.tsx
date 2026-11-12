@@ -17,6 +17,7 @@ import { useQuestionProgress } from "../../shared/hooks/useQuestionProgress";
 import styles from "../drill/DrillPlayPage.module.css";
 import localStyles from "./ReviewPlayPage.module.css";
 import AsOfDateNote from "../../shared/ui/AsOfDateNote";
+import SupplementLink from "../../shared/ui/SupplementLink";
 
 const DIFFICULTY_LABEL: Record<string, string> = {
   basic: "基礎",
@@ -234,6 +235,7 @@ export default function ReviewPlayPage() {
                 </Link>
               </>
             )}
+            <SupplementLink question={question} />
           </p>
 
           <div className={styles.actions}>

@@ -1,0 +1,5887 @@
+{
+  "_generated": true,
+  "_generatedBy": "scripts/build-supplements.ts",
+  "_doNotEdit": "このファイルは自動生成物です。修正は materials/supplements/、scripts/data/supplement-placement.json または scripts/build-supplements.ts に対して行ってください。",
+  "generatedAt": "2026-11-12T22:23:29.750Z",
+  "sources": [
+    {
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "title": "画像認識",
+      "contentHash": "c7b94d2c4354da1d9c9adeac5d912f1425ca0a8cc7e4d3a5c32d97b998328f88"
+    },
+    {
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "title": "音声処理",
+      "contentHash": "52f0df2893681f5ec4004be711a20d816b69d0ab75f75ac36b4e30441ec18008"
+    },
+    {
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "title": "自然言語処理",
+      "contentHash": "495d55d7e77bbd7941fdee83a999dfa24ed50aea00abdca6a27cef62b1bc1f4f"
+    },
+    {
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "title": "深層強化学習",
+      "contentHash": "6f5f855e8ef678c28082ec4c25c272ec81f95b94e8ff2b3104aad35d1f245afc"
+    },
+    {
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "title": "解釈性・軽量化・開発の進め方の補足",
+      "contentHash": "037a56629e3abf9ebda694a71ee9ea3dd4dc0c8d9db1c5f5f527fd0f2e2984e4"
+    }
+  ],
+  "entries": [
+    {
+      "blockId": "sup-6-1-8a3ae8f6",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "intro",
+      "heading": "1. 画像認識のタスク（公式テキスト p.254〜263）",
+      "title": "画像認識のタスク",
+      "groupTitle": "画像認識のタスク",
+      "pageRef": "p.254〜263",
+      "sectionId": "ch06-s01",
+      "body": [
+        {
+          "type": "table",
+          "header": [
+            [
+              {
+                "t": "text",
+                "v": "タスク"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "出力"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "代表的なモデル"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "物体識別（画像分類）"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "画像全体が何かを表すカテゴリ"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "AlexNet、VGG、GoogLeNet、ResNet、Vision Transformer"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "物体検出"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "物体を囲む枠（バウンディングボックス）とカテゴリ"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Faster R-CNN、YOLO、SSD"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "セマンティックセグメンテーション"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "ピクセルごとのカテゴリ（同じカテゴリの個体は区別しない）"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "FCN、SegNet、U-Net、PSPNet、DeepLab"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "インスタンスセグメンテーション"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "個体を区別したピクセル単位の領域"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Mask R-CNN"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "パノプティックセグメンテーション"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "背景（空・道路など数えられない領域）はカテゴリで、物体（人・車など数えられるもの）は個体を区別して、すべてのピクセルに割り当てる"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Panoptic FPN など"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "姿勢推定"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "人の関節などの特徴点（キーポイント）の位置"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "OpenPose"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-46c2a805",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "一般物体認識と物体識別（索引なし）",
+      "title": "一般物体認識と物体識別",
+      "groupTitle": "画像認識のタスク",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "一般物体認識"
+                },
+                {
+                  "t": "text",
+                  "v": "：「犬」「車」「椅子」のような一般的なカテゴリを、画像から認識すること。特定の商品や特定の建物など、ある1つの対象を見分ける「特定物体認識」と対になる語。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "物体識別"
+                },
+                {
+                  "t": "text",
+                  "v": "：画像（または切り出した領域）に写っている物体のカテゴリを答えること。位置は答えない。画像分類とほぼ同じ意味で使われる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-30d15154",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "パノプティックセグメンテーション（p.263）",
+      "title": "パノプティックセグメンテーション",
+      "groupTitle": "画像認識のタスク",
+      "pageRef": "p.263",
+      "sectionId": "ch06-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：セマンティックセグメンテーションとインスタンスセグメンテーションを統合したタスク。画像のすべてのピクセルに、カテゴリと（物体であれば）個体の番号を割り当てる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "背景と物体"
+                },
+                {
+                  "t": "text",
+                  "v": "：空・道路・芝生のように数えられない領域（stuff）はカテゴリだけ、人・車のように数えられる物体（things）は個体まで区別する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第6章の章末整理でも扱っている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-9286a8b2",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "格納テキストで扱っているモデルの補足",
+      "title": "格納テキストで扱っているモデルの補足",
+      "groupTitle": "画像分類のモデル",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "AlexNet（2012年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：ILSVRC 2012で優勝。格納テキスト第4章・第5章で扱っている。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "VGG（2014年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：ILSVRC 2014の分類部門で2位。3×3の小さなフィルタを重ねる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "GoogLeNet（2014年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：ILSVRC 2014の分類部門で優勝。Inceptionモジュール（1×1、3×3、5×5の畳み込みとプーリングを並列に並べて結合する）を持つ。1×1の畳み込みでチャネル数を減らして計算量を抑える。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "ResNet（2015年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：ILSVRC 2015で優勝。スキップ接続（残差接続）で152層の学習を可能にした。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-a54acb29",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "DenseNet（p.259）",
+      "title": "DenseNet",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.259",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：各層が、それより前のすべての層の出力を入力として受け取るCNN（2017年）。ResNetが前の層の出力を「足し合わせる」のに対し、DenseNetはチャネル方向に「つなぎ合わせる（連結する）」。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "特徴"
+                },
+                {
+                  "t": "text",
+                  "v": "：特徴の再利用が進み、少ないパラメータで高い精度が出る。勾配が伝わりやすい。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-39702d3e",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "SENet（Squeeze-and-Excitation Networks）（p.259）",
+      "title": "SENet（Squeeze-and-Excitation Networks）",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.259",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：チャネルごとの重要度を学習し、重要なチャネルを強め、そうでないチャネルを弱めるCNN（2017年）。ILSVRC 2017の分類部門で優勝。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "仕組み"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "Squeeze：特徴マップをチャネルごとに平均して（Global Average Pooling）、各チャネルを1つの値にまとめる。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "Excitation：全結合層とシグモイド関数で、チャネルごとの重み（0〜1）を求める。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "その重みを元の特徴マップの各チャネルに掛ける。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "ポイント"
+                },
+                {
+                  "t": "text",
+                  "v": "：SEブロックは、ResNetなど既存のネットワークに組み込んで使える。注意機構（Attention）の一種と見ることもできる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-741cc13d",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "Wide ResNet（p.259）",
+      "title": "Wide ResNet",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.259",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：ResNetの各層のチャネル数（幅）を増やしたモデル（2016年）。代表的な設計方針は「層をむやみに深くするより、幅を広げる」こと。例えば、もとのResNetより浅く幅の広い構成で、同等以上の精度が、より短い学習時間で得られることを示した（浅くすることが必須条件というわけではない）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-46fb5743",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "NAS（Neural Architecture Search）（p.260）",
+      "title": "NAS（Neural Architecture Search）",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.260",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：ニューラルネットワークの構造（層の種類、フィルタの大きさ、接続のしかたなど）を、人が設計する代わりに自動で探索する手法。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "探索の方式"
+                },
+                {
+                  "t": "text",
+                  "v": "：強化学習を使う方式のほか、進化的アルゴリズムを使う方式、構造の選択を連続的な値で表して勾配で最適化する方式などがある。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "初期の代表例（強化学習）"
+                },
+                {
+                  "t": "text",
+                  "v": "：RNNで構造を生成し、生成した構造を学習させたときの精度を報酬として、強化学習でRNNを更新する（2017年）。探索して見つけた構造の例がNASNet。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "課題"
+                },
+                {
+                  "t": "text",
+                  "v": "：特に初期の方式は、候補の構造を何度も学習させて評価するため、計算コストが非常に大きい。のちに、候補どうしで重みを共有するなど、コストを下げる工夫が進んだ。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-55464365",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "MobileNet（p.260）",
+      "title": "MobileNet",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.260",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：スマートフォンなどの計算資源が少ない環境向けに、計算量とパラメータ数を減らしたCNN（2017年）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "仕組み"
+                },
+                {
+                  "t": "text",
+                  "v": "：Depthwise Separable Convolution（下記）を使う。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第5章の章末整理（Depthwise Separable Convolution）でも触れている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-e811cb71",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "Depthwise Separable Convolution（索引なし。p.260）",
+      "title": "Depthwise Separable Convolution",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.260",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：通常の畳み込みを、次の2段階に分けて計算量を減らす方法。"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "Depthwise Convolution：入力の各チャネルに、別々の空間方向のフィルタ（例：3×3）を1枚ずつかける。チャネルどうしは混ぜない。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "Pointwise Convolution：1×1の畳み込みで、チャネル方向の情報を混ぜて、出力のチャネル数にする。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "効果"
+                },
+                {
+                  "t": "text",
+                  "v": "：3×3のフィルタの場合、パラメータ数と計算量はおよそ8分の1〜9分の1になる（計算は第5節）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-134cb559",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "MnasNet（p.260）",
+      "title": "MnasNet",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.260",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：NASで、モバイル端末向けのCNNの構造を探索したモデル（2018年）。精度だけでなく、実際のスマートフォンでの推論時間（レイテンシ）も報酬に含めて探索した点が特徴。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-6f1404b1",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "EfficientNet（p.261）",
+      "title": "EfficientNet",
+      "groupTitle": "画像分類のモデル",
+      "pageRef": "p.261",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：ネットワークの深さ（層の数）・幅（チャネル数）・入力画像の解像度の3つを、決まった比率で同時に大きくする（複合スケーリング、compound scaling）ことで、少ないパラメータで高い精度を出したモデル（2019年）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "ポイント"
+                },
+                {
+                  "t": "text",
+                  "v": "：もとになる小さなネットワーク（EfficientNet-B0）はNASで探索し、それを複合スケーリングで大きくしてB1〜B7を作った。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-c20ee5f6",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "Vision Transformer（ViT）（索引なし）",
+      "title": "Vision Transformer（ViT）",
+      "groupTitle": "画像分類のモデル",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：画像を小さな正方形の区画（パッチ。例：16×16ピクセル）に分け、各パッチをベクトルに変換して単語の列のように並べ、Transformerのエンコーダーで処理するモデル（2020年）。原型のViTは、画像の特徴を取り出す部分に畳み込み層を使わない（のちに畳み込みと組み合わせた派生モデルもある）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "仕組み"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "パッチ埋め込み：各パッチを1列に並べたベクトルを、線形変換で決まった長さのベクトルにする。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "位置埋め込み：パッチの位置の情報を、各ベクトルに加える（Transformerは、そのままでは並び順を区別できないため）。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "Self-Attention：すべてのパッチどうしの関係を計算し、画像全体の情報を取り込む。分類には、先頭に加えた分類用のトークン（[CLS]）の出力を使う。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "特徴"
+                },
+                {
+                  "t": "text",
+                  "v": "：大量のデータで事前学習すると、CNNと同等以上の精度が出る。データが少ないとCNNより不利になりやすい（CNNのような「近くのピクセルは関係が深い」という前提を持たないため）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第5章5.10（マルチモーダルモデル）で、画像をパッチに分けて系列として扱う点に触れている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-b0353845",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "R-CNN系列の補足（p.261）",
+      "title": "R-CNN系列の補足",
+      "groupTitle": "物体検出のモデル",
+      "pageRef": "p.261",
+      "sectionId": "ch06-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "R-CNN（2014年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：候補領域（Selective Searchで約2,000個）を切り出し、1つずつCNNで特徴を取り出して分類する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "Fast R-CNN（2015年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：画像全体を1回だけCNNに通し、得られた特徴マップから候補領域の部分を切り出す（RoI Pooling）。R-CNNより大幅に速い。候補領域の抽出はまだ外部の手法に頼る。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "Faster R-CNN（2015年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：候補領域の抽出もニューラルネットワーク（領域提案ネットワーク、RPN：Region Proposal Network）で行い、全体を1つのネットワークで学習できるようにした。RPNは、検出の処理と畳み込みの特徴（特徴マップ）を共有するため、候補領域の提案にかかる計算が少なくて済む。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第6章6.1でも扱っている（2段階方式）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-fb97c4af",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "YOLOとSSDの補足（p.261〜262）",
+      "title": "YOLOとSSDの補足",
+      "groupTitle": "物体検出のモデル",
+      "pageRef": "p.261〜262",
+      "sectionId": "ch06-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "YOLO（2016年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：画像をグリッド（例：7×7）に分け、各マスで枠と確信度、カテゴリを一度に予測する。非常に速い。初期の版は、小さな物体や密集した物体が苦手。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "SSD（2016年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：大きさの異なる複数の特徴マップで検出を行う。各位置に、大きさと縦横比が異なる枠の型（デフォルトボックス）をあらかじめ置き、そこからのずれとカテゴリを予測する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "デフォルトボックス（p.262）"
+                },
+                {
+                  "t": "text",
+                  "v": "：SSDで、特徴マップの各位置にあらかじめ置く、大きさや縦横比の異なる枠。Faster R-CNNなどでは同様のものをアンカーボックスと呼ぶ。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-53eaf9c4",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "FPN（Feature Pyramid Network）（p.261）",
+      "title": "FPN（Feature Pyramid Network）",
+      "groupTitle": "物体検出のモデル",
+      "pageRef": "p.261",
+      "sectionId": "ch06-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：CNNの浅い層（解像度が高く、位置の情報が細かい）と深い層（解像度が低く、意味の情報が強い）の特徴マップを、上から下へ（深い層から浅い層へ）たどる経路と横方向の接続でつなぎ、どの大きさの特徴マップでも意味の強い特徴を使えるようにする構造（2017年）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "効果"
+                },
+                {
+                  "t": "text",
+                  "v": "：大きさの異なる物体、特に小さな物体の検出精度が上がる。Faster R-CNNやMask R-CNNなどと組み合わせて使われる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-f2713c09",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "FCN（Fully Convolutional Network）（p.264）",
+      "title": "FCN（Fully Convolutional Network）",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.264",
+      "sectionId": "ch06-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：分類用CNNの最後にある全結合層を畳み込み層に置き換え、すべての層を畳み込み層にしたネットワーク（2015年）。セマンティックセグメンテーションを深層学習で行う先駆け。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "特徴"
+                },
+                {
+                  "t": "text",
+                  "v": "：全結合層がないため、任意の大きさの画像を入力できる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "アップサンプリング"
+                },
+                {
+                  "t": "text",
+                  "v": "：畳み込みとプーリングで縮小した特徴マップを、転置畳み込み（逆畳み込みとも呼ばれる）などで拡大（アップサンプリング）し、入力と同じ大きさのマップにして、ピクセルごとのカテゴリを予測する。拡大だけでは境界がぼやけるため、浅い層（解像度が高い層）の特徴を足し合わせて、細かい位置を補う。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-16d72142",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "SegNet（索引なし。p.265）",
+      "title": "SegNet",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.265",
+      "sectionId": "ch06-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：エンコーダー（縮小）とデコーダー（拡大）からなるセマンティックセグメンテーションのモデル（2015年）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "特徴"
+                },
+                {
+                  "t": "text",
+                  "v": "：エンコーダーのMaxプーリングで「どの位置の値を選んだか」（プーリングのインデックス）を記録しておき、デコーダーで拡大するときにその位置に値を戻す。特徴マップそのものを渡すU-Netより、メモリを節約できる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-9452d35c",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "U-Netの補足（p.266）",
+      "title": "U-Netの補足",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.266",
+      "sectionId": "ch06-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：エンコーダーとデコーダーをU字型につなぎ、エンコーダーの各解像度の特徴マップを、同じ解像度のデコーダーにスキップ接続で渡す（連結する）。医療画像のために提案された（2015年）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第6章6.2で扱っている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-961ff8f0",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "PSPNet（Pyramid Scene Parsing Network）（p.267）",
+      "title": "PSPNet（Pyramid Scene Parsing Network）",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.267",
+      "sectionId": "ch06-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Pyramid Pooling Module（ピラミッド・プーリング・モジュール）を持つセマンティックセグメンテーションのモデル（2017年）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "Pyramid Pooling Module（p.267）"
+                },
+                {
+                  "t": "text",
+                  "v": "：特徴マップを、1×1、2×2、3×3、6×6のように大きさの異なる区画でプーリングし、それぞれを元の大きさに戻して連結する。画像全体から局所までの、さまざまな範囲の文脈（周りの情報）を取り込める。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-7cbefb3c",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "DeepLab（p.267）",
+      "title": "DeepLab",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.267",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Atrous Convolution（膨張畳み込み、Dilated Convolutionともいう）を使うセマンティックセグメンテーションのモデルの系列（2015年〜）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "Atrous Convolution"
+                },
+                {
+                  "t": "text",
+                  "v": "：フィルタの要素の間を空けて畳み込む。パラメータ数や計算量をほとんど増やさずに、1回の畳み込みで見る範囲（受容野）を広げられる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "ASPP（Atrous Spatial Pyramid Pooling）"
+                },
+                {
+                  "t": "text",
+                  "v": "：間隔の異なるAtrous Convolutionを並列にかけて結合し、いろいろな大きさの範囲の情報を取り込む（DeepLab v2以降）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第5章の章末整理（Atrous／Dilated Convolution）でも触れている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-caf54a8c",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "Mask R-CNNの補足（p.269）",
+      "title": "Mask R-CNNの補足",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.269",
+      "sectionId": "ch06-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Faster R-CNNに、領域ごとの物体のマスク（ピクセル単位の形）を予測する部分を加えた、インスタンスセグメンテーションのモデル（2017年）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "RoIAlign"
+                },
+                {
+                  "t": "text",
+                  "v": "：RoI Poolingで生じる位置のずれ（座標の切り捨て）をなくすため、補間を使って特徴を正確な位置から取り出す仕組み。マスクの精度が上がる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第6章6.2で扱っている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-6cc81a5f",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "姿勢推定とOpenPose（p.267〜268）",
+      "title": "姿勢推定とOpenPose",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.267〜268",
+      "sectionId": "ch06-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "姿勢推定"
+                },
+                {
+                  "t": "text",
+                  "v": "：画像や動画から、人の関節（肩、肘、手首、膝など）の位置を推定し、骨格（スケルトン）として表すタスク。スポーツの動作分析、リハビリ、監視、ゲームなどで使われる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "OpenPose（2017年）"
+                },
+                {
+                  "t": "text",
+                  "v": "：画像に写る複数の人の姿勢を、リアルタイムで推定する手法。"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "関節の位置を表すヒートマップ（信頼度マップ）と、関節どうしのつながり（どの肘とどの手首が同じ人のものか）を表すParts Affinity Fields（PAF）を、同時に推定する。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "先に画像全体から関節を見つけ、あとで人ごとに組み立てる（ボトムアップ型）。人数が増えても処理時間が増えにくい。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "Convolutional Pose Machines（p.267）"
+                },
+                {
+                  "t": "text",
+                  "v": "：CNNを何段も重ね、前の段の推定結果を次の段で修正していく姿勢推定の手法（2016年）。OpenPoseの土台になった。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-42b90fe4",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "マルチタスク（p.268）",
+      "title": "マルチタスク",
+      "groupTitle": "セグメンテーションと姿勢推定のモデル",
+      "pageRef": "p.268",
+      "sectionId": "ch06-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：複数のタスクに対して、ネットワークのパラメータや特徴表現の一部を共有して学習する方法。例えば、Mask R-CNNは、物体検出（枠とカテゴリ）とマスクの予測で特徴を共有する。タスクに応じて専用の出力部分を持つ場合もある。共通の特徴を使えるため、効率や精度が上がることがある。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "一般的な説明は、補遺「データ生成・転移学習・マルチモーダル」の「マルチタスク学習」を参照。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-9965612e",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "intro",
+      "heading": "5. 計算：畳み込み層のパラメータ数（技術分野 18）",
+      "title": "計算：畳み込み層のパラメータ数（技術分野 18）",
+      "groupTitle": "計算：畳み込み層のパラメータ数（技術分野 18）",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "paragraph",
+          "inlines": [
+            {
+              "t": "text",
+              "v": "試験では、ネットワークの重み（パラメータ）の数を計算させる問題が出る。全結合層と、1チャネル入力の畳み込み層の計算は、補遺「数理統計と計算」で扱っている。ここでは、入力が複数チャネルの場合と、Depthwise Separable Convolutionを扱う。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-5db1e93a",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "入力が複数チャネルの畳み込み層",
+      "title": "入力が複数チャネルの畳み込み層",
+      "groupTitle": "計算：畳み込み層のパラメータ数（技術分野 18）",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "式"
+                },
+                {
+                  "t": "text",
+                  "v": "：パラメータ数 ＝（フィルタの縦 × 横 × 入力チャネル数 ＋ 1）× 出力チャネル数"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "「＋1」はバイアス。バイアスは出力チャネル（フィルタ）ごとに1つ。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "1枚のフィルタは、入力のすべてのチャネルにまたがる（大きさは 縦×横×入力チャネル数）。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "例"
+                },
+                {
+                  "t": "text",
+                  "v": "：3×3のフィルタ、入力32チャネル、出力64チャネル"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "バイアスなし：3 × 3 × 32 × 64 ＝ 18,432"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "バイアスあり：（3 × 3 × 32 ＋ 1）× 64 ＝ 18,496"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "注意"
+                },
+                {
+                  "t": "text",
+                  "v": "：パラメータ数は、入力画像の縦横の大きさやストライド、パディングに左右されない（出力の大きさは変わるが、フィルタの数と大きさは変わらない）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-5b6e257a",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "term",
+      "heading": "Depthwise Separable Convolutionのパラメータ数",
+      "title": "Depthwise Separable Convolutionのパラメータ数",
+      "groupTitle": "計算：畳み込み層のパラメータ数（技術分野 18）",
+      "sectionId": "ch05-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "例"
+                },
+                {
+                  "t": "text",
+                  "v": "：上と同じ条件（3×3、入力32チャネル、出力64チャネル、バイアスなし）"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "Depthwise：3 × 3 × 32 ＝ 288（入力チャネルごとに3×3のフィルタが1枚）"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "Pointwise：1 × 1 × 32 × 64 ＝ 2,048"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "合計：288 ＋ 2,048 ＝ 2,336"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "比べると"
+                },
+                {
+                  "t": "text",
+                  "v": "：2,336 ÷ 18,432 ≒ 0.127。通常の畳み込みのおよそ8分の1。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "一般の式"
+                },
+                {
+                  "t": "text",
+                  "v": "：通常の畳み込みに対する比は 1/出力チャネル数 ＋ 1/(フィルタの縦×横)。3×3なら、出力チャネル数が大きいとき、およそ1/9に近づく。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-1-e4f15cb7",
+      "sourceFile": "materials/supplements/6-1_画像認識_ORG.md",
+      "supplementTitle": "画像認識",
+      "kind": "intro",
+      "heading": "モデルが解決した課題",
+      "title": "モデルが解決した課題",
+      "groupTitle": "モデルが解決した課題",
+      "sectionId": "ch06-s01",
+      "body": [
+        {
+          "type": "table",
+          "header": [
+            [
+              {
+                "t": "text",
+                "v": "課題"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "解決したモデル・技術"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "方法"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "層を深くすると学習がうまく進まない"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "ResNet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "スキップ接続で、入力を数層先の出力に足し合わせる"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "特徴の再利用とパラメータの効率"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "DenseNet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "前のすべての層の出力を連結する"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "層を深くしても精度の伸びが小さく、学習に時間がかかる"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Wide ResNet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "幅（チャネル数）を広げる"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "どのチャネルが重要かを考慮しない"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "SENet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "チャネルごとの重要度を学習して重み付けする"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "人手による構造の設計に手間がかかる"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "NAS、MnasNet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "構造を自動で探索する（MnasNetは推論時間も考慮）"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "計算資源の少ない端末で動かしたい"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "MobileNet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Depthwise Separable Convolutionで計算量を減らす"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "深さ・幅・解像度を、ばらばらに大きくすると効率が悪い"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "EfficientNet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "3つを決まった比率で同時に大きくする（複合スケーリング）"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "畳み込みでは画像全体の関係をとらえにくい"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Vision Transformer"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "パッチに分けてSelf-Attentionで処理する"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "候補領域ごとにCNNを計算し直すため遅い"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Fast R-CNN"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "画像全体を1回だけCNNに通し、RoI Poolingで切り出す"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "候補領域の抽出が外部の手法で遅い"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Faster R-CNN"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "候補領域もRPNで出す"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "2段階方式では速度が足りない"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "YOLO、SSD"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "1回の処理で枠とカテゴリを同時に予測する"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "小さな物体を検出しにくい"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "FPN、SSD"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "大きさの異なる特徴マップを使う"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "全結合層があるとピクセルごとの出力が得られない"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "FCN"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "すべての層を畳み込み層にし、アップサンプリングする"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "拡大のときに細かい位置の情報が失われる"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "U-Net、SegNet"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "スキップ接続で特徴マップを渡す／プーリングの位置を記録する"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "周りの広い範囲の文脈を取り込みたい"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "PSPNet、DeepLab"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "ピラミッド・プーリング／Atrous Convolution"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "t": "text",
+                  "v": "複数の人の関節を誰のものか組み立てたい"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "OpenPose"
+                }
+              ],
+              [
+                {
+                  "t": "text",
+                  "v": "Parts Affinity Fieldsで関節どうしのつながりを推定する"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-577998aa",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "A-D変換（p.270）",
+      "title": "A-D変換",
+      "groupTitle": "音をデジタルにする",
+      "pageRef": "p.270",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：マイクで拾った連続的な音の波形（アナログ信号）を、コンピュータで扱える数値の列（デジタル信号）に変換すること。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "3つの段階"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "標本化（サンプリング）"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：一定の時間間隔で波形の値を取り出す。1秒あたりの回数をサンプリング周波数という。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "量子化"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：取り出した値を、決められた段階の値に丸める。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "符号化"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：丸めた値を0と1の符号（2進数）で表す。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-7e6548f0",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "パルス符号変調（PCM）（p.270）",
+      "title": "パルス符号変調（PCM）",
+      "groupTitle": "音をデジタルにする",
+      "pageRef": "p.270",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：標本化・量子化・符号化によってアナログ信号をデジタル信号にする、代表的な方式。音楽CDなどで使われている。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "シラバスでの表記"
+                },
+                {
+                  "t": "text",
+                  "v": "：「パルス符号変調器（PCM）」。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-7875b534",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "高速フーリエ変換（FFT）（p.270）",
+      "title": "高速フーリエ変換（FFT）",
+      "groupTitle": "音の特徴をとらえる",
+      "pageRef": "p.270",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：時間とともに変化する波形を、どの周波数の成分がどれだけ含まれているか（周波数スペクトル）に分解するフーリエ変換を、高速に計算するアルゴリズム。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "補足"
+                },
+                {
+                  "t": "text",
+                  "v": "：短い時間ごとにスペクトルを求めて並べたものが、格納テキスト6.4節に出てくるスペクトログラム。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-c2be4869",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "スペクトル包絡（p.271）",
+      "title": "スペクトル包絡",
+      "groupTitle": "音の特徴をとらえる",
+      "pageRef": "p.271",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：周波数スペクトルの細かい凹凸を取り除いた、なめらかな外形。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "意味"
+                },
+                {
+                  "t": "text",
+                  "v": "：声帯の振動による倍音の細かな凹凸をならし、主に声道（のどや口の形）の共鳴の特性をとらえたもの。何の音を発音しているかの手がかりになる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-846f9e0e",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "フォルマント／フォルマント周波数（p.271）",
+      "title": "フォルマント／フォルマント周波数",
+      "groupTitle": "音の特徴をとらえる",
+      "pageRef": "p.271",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：声道の共鳴に対応して、スペクトル包絡に現れる特徴的な山（ピーク）をフォルマントという。その山の周波数がフォルマント周波数。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "呼び方"
+                },
+                {
+                  "t": "text",
+                  "v": "：周波数の低いほうから、第1フォルマント、第2フォルマント…と呼ぶ。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：母音の違いは、主に第1・第2フォルマントの周波数で区別できる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-ccc9ceb3",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "メル尺度（p.271）",
+      "title": "メル尺度",
+      "groupTitle": "音の特徴をとらえる",
+      "pageRef": "p.271",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：人が感じる音の高さに合わせて、周波数の目盛りを付け直した尺度。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "性質"
+                },
+                {
+                  "t": "text",
+                  "v": "：人の耳は、低い周波数の違いには敏感で、高い周波数の違いには鈍い。メル尺度では、この感じ方に合わせて、高い周波数ほど、同じHzの変化に対応するメル尺度上の変化が小さくなる（高い周波数の側が相対的に圧縮される）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-2a8431ef",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "メル周波数ケプストラム係数（MFCC）（p.271）",
+      "title": "メル周波数ケプストラム係数（MFCC）",
+      "groupTitle": "音の特徴をとらえる",
+      "pageRef": "p.271",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：短い時間ごとのスペクトルをメル尺度に沿ったフィルタの組（メルフィルタバンク）で処理し、各帯域のエネルギーの対数を取り、離散コサイン変換（DCT）を適用して得る特徴量。スペクトル包絡の形を、少数の値（係数）で表す。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "メル尺度との違い"
+                },
+                {
+                  "t": "text",
+                  "v": "：メル尺度は周波数の尺度。MFCCはそれを使って計算する特徴量。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：音声認識で使われてきた代表的な特徴量。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキストの章末整理には「音声認識で使う特徴量」とだけある。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-ed6266c5",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "音素・音韻（p.271）",
+      "title": "音素・音韻",
+      "groupTitle": "音の特徴をとらえる",
+      "pageRef": "p.271",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "音素"
+                },
+                {
+                  "t": "text",
+                  "v": "：ある言語の中で、意味を区別する最小の音の単位。例えば「柿（かき）」と「滝（たき）」は、/k/ と /t/ の違いで意味が変わる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "音韻"
+                },
+                {
+                  "t": "text",
+                  "v": "：言語における音の機能や体系を指す概念。文脈によっては音素とほぼ同じ意味で使われることもある。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-2bf146c9",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "隠れマルコフモデル（HMM）（索引なし。p.272）",
+      "title": "隠れマルコフモデル（HMM）",
+      "groupTitle": "音声認識の仕組み",
+      "pageRef": "p.272",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：外から直接見えない「状態」が確率的に移り変わり、各状態から観測できる値が確率的に出てくる、と考える確率モデル。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：従来の音声認識で、音素などが時間とともに変化する様子を表すのに広く使われた。ニューラルネットワークと組み合わせた方式（DNN-HMMなど）でも利用された。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-6ce621e5",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "CTC（Connectionist Temporal Classification）（p.272）",
+      "title": "CTC（Connectionist Temporal Classification）",
+      "groupTitle": "音声認識の仕組み",
+      "pageRef": "p.272",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：入力（細かく区切った音声のフレームの列）と出力（文字の列）の長さが違い、どのフレームがどの文字に当たるかが分からなくても学習できるようにする手法。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "仕組み"
+                },
+                {
+                  "t": "text",
+                  "v": "：各時刻の出力に「空白（ブランク）」という特別な記号を加える。最終的な文字列は、連続する同じ記号を1つにまとめてから、空白を取り除いて得る。例えば「A, A, 空白, A」は「AA」になる（空白で区切られた同じ文字は残る）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "学習"
+                },
+                {
+                  "t": "text",
+                  "v": "：正解の文字列になり得る対応付けの候補すべての確率を合計して学習する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト6.4節の「入力系列と出力系列の長さの違いを吸収する仕組み」の代表例にあたる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-15117af4",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "WaveNet（p.274）",
+      "title": "WaveNet",
+      "groupTitle": "音声合成と、声からわかること",
+      "pageRef": "p.274",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：DeepMindが2016年に発表した、音声の波形を直接生成するモデル。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "仕組み"
+                },
+                {
+                  "t": "text",
+                  "v": "：それまでの波形のサンプル（値）を条件として、次のサンプルの確率分布を予測し、そこからサンプリングして波形を1つずつ生成する、自己回帰型の生成モデル。Dilated Causal Convolution（間隔を空けた、過去だけを見る畳み込み）で、長い範囲の過去を効率よく参照する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "成果"
+                },
+                {
+                  "t": "text",
+                  "v": "：従来の手法より自然な音声合成を実現した。原論文では、同じ仕組みを音声認識に応用できることも示されている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-e898caa9",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "話者識別（p.273）",
+      "title": "話者識別",
+      "groupTitle": "音声合成と、声からわかること",
+      "pageRef": "p.273",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：声の特徴から、誰が話しているかを特定すること。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-2-74e0f814",
+      "sourceFile": "materials/supplements/6-2_音声処理_ORG.md",
+      "supplementTitle": "音声処理",
+      "kind": "term",
+      "heading": "感情分析（音声）（p.273）",
+      "title": "感情分析（音声）",
+      "groupTitle": "音声合成と、声からわかること",
+      "pageRef": "p.273",
+      "sectionId": "ch06-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：声の高さ・強さ・話す速さなどから、話し手の感情を推定すること。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "補足"
+                },
+                {
+                  "t": "text",
+                  "v": "：文章から感情を推定する感情分析（評判分析）は、自然言語処理の補遺で扱う。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-53930af2",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "形態素解析（索引なし。p.285）",
+      "title": "形態素解析",
+      "groupTitle": "文を解析する基本処理",
+      "pageRef": "p.285",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：文を、意味を持つ最小の単位（形態素）に区切り、それぞれの品詞などを判定する処理。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "補足"
+                },
+                {
+                  "t": "text",
+                  "v": "：日本語は単語の間に空白がないため、多くの処理の最初に行う。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-7a571a5c",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "構文解析（索引なし。p.285）",
+      "title": "構文解析",
+      "groupTitle": "文を解析する基本処理",
+      "pageRef": "p.285",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：文の構造を解析し、どの語句がどの語句にかかるか（係り受け）などの関係を明らかにする処理。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-6cbe9876",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "品詞タグ付け・固有表現分析（p.283）",
+      "title": "品詞タグ付け・固有表現分析",
+      "groupTitle": "文を解析する基本処理",
+      "pageRef": "p.283",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "品詞タグ付け"
+                },
+                {
+                  "t": "text",
+                  "v": "：文中の各単語に、名詞・動詞などの品詞を付ける処理。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "固有表現分析"
+                },
+                {
+                  "t": "text",
+                  "v": "：文中から、人名・地名・組織名・日付などの固有表現を見つけて分類する処理（固有表現抽出とも呼ばれる）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-57986c97",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "Bag-of-Words（BoW）（p.275）",
+      "title": "Bag-of-Words（BoW）",
+      "groupTitle": "単語や文書を数値で表す",
+      "pageRef": "p.275",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：語順を無視し、文書に各単語が何回出てくるかだけで文書を表す方法。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "弱点"
+                },
+                {
+                  "t": "text",
+                  "v": "：語順や文脈の情報は失われる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-3f0becfe",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "n-gram（ユニグラム・バイグラム・トライグラム）（p.275）",
+      "title": "n-gram（ユニグラム・バイグラム・トライグラム）",
+      "groupTitle": "単語や文書を数値で表す",
+      "pageRef": "p.275",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：連続するn個の単語（または文字）の並び。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "呼び方"
+                },
+                {
+                  "t": "text",
+                  "v": "：nが1ならユニグラム、2ならバイグラム、3ならトライグラム。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：BoWに比べて、近くの語順の情報を少し残せる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-23f65ad7",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "TF-IDF（p.276）",
+      "title": "TF-IDF",
+      "groupTitle": "単語や文書を数値で表す",
+      "pageRef": "p.276",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：ある単語の、その文書での出現頻度と、文書集合全体での希少さを組み合わせた、統計的な重み。その文書を特徴づける単語ほど大きくなる（意味の重要さを直接評価するものではない）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "計算の考え方"
+                },
+                {
+                  "t": "text",
+                  "v": "：その文書の中での出現頻度（TF）が高いほど大きくなる。一方、多くの文書に共通して出てくる単語ほど小さくなるよう、逆文書頻度（IDF）をかける。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "効果"
+                },
+                {
+                  "t": "text",
+                  "v": "：「は」「です」のようにどの文書にも出てくる語の重みが下がり、その文書を特徴づける語が浮かび上がる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-74f021eb",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "ワンホットベクトル・局所表現（p.276〜277）",
+      "title": "ワンホットベクトル・局所表現",
+      "groupTitle": "単語や文書を数値で表す",
+      "pageRef": "p.276〜277",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：語彙の数と同じ長さのベクトルで、その単語に対応する1か所だけを1、ほかをすべて0にする表し方。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "局所表現"
+                },
+                {
+                  "t": "text",
+                  "v": "：このように、1つの要素が1つの単語に対応する表現を局所表現という。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "弱点"
+                },
+                {
+                  "t": "text",
+                  "v": "：語彙が多いとベクトルが非常に長くなる。どの2単語のベクトルも直交するため、単語どうしの意味の近さを表せない。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-cf00d612",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "分散表現・単語埋め込み（p.277）",
+      "title": "分散表現・単語埋め込み",
+      "groupTitle": "単語や文書を数値で表す",
+      "pageRef": "p.277",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：単語を、数百次元程度の、0以外の値が詰まった（密な）ベクトルで表す方法。単語埋め込みとも呼ばれる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "性質"
+                },
+                {
+                  "t": "text",
+                  "v": "：意味の近い単語ほど、近いベクトルになるように学習する。ベクトルどうしの計算で、意味の関係をある程度表せる（「王様−男性＋女性≒女王」の例が有名）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-d89f2949",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "分布仮説（p.277）",
+      "title": "分布仮説",
+      "groupTitle": "単語や文書を数値で表す",
+      "pageRef": "p.277",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：「単語の意味は、その単語の周りにどんな単語が現れるかによって決まる」という考え方。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "関係"
+                },
+                {
+                  "t": "text",
+                  "v": "：word2vecなどの分散表現の学習は、この考え方に基づいている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-f954308d",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "word2vec（p.277）",
+      "title": "word2vec",
+      "groupTitle": "単語の分散表現を学ぶモデル",
+      "pageRef": "p.277",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：大量の文章から、単語の分散表現を学習する手法。2013年にGoogleのミコロフらが発表した。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "2つの方式"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "CBOW"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：周辺の単語から、中心の単語を予測する。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "スキップグラム（Skip-gram）"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：中心の単語から、周辺の単語を予測する。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-519c4a36",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "fastText（p.279）",
+      "title": "fastText",
+      "groupTitle": "単語の分散表現を学ぶモデル",
+      "pageRef": "p.279",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Facebook（現Meta）が開発した手法。ここで扱うのは、文字n-gramを利用して単語ベクトルを学習する手法（fastTextには、高速なテキスト分類の系統もある）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "工夫"
+                },
+                {
+                  "t": "text",
+                  "v": "：単語を、文字のn-gram（単語の一部分）の集まりとして扱う。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "効果"
+                },
+                {
+                  "t": "text",
+                  "v": "：学習データに出てこなかった単語（未知語）にも、一定のベクトルを作れる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-d4a707c4",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "ELMo（p.279）",
+      "title": "ELMo",
+      "groupTitle": "単語の分散表現を学ぶモデル",
+      "pageRef": "p.279",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：2018年に発表された、文脈に応じて単語の表現を変えるモデル。順方向と逆方向のLSTM言語モデルを組み合わせ、その内部の表現から、文脈に応じた単語ベクトルを作る（BERTの双方向の処理とは仕組みが異なる）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "対比"
+                },
+                {
+                  "t": "text",
+                  "v": "：word2vecでは、1つの単語に1つのベクトルしかない。ELMoは「bank（銀行／土手）」のような多義語を、文脈に応じて違うベクトルで表せる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-74014bd5",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "Seq2Seq（sequence-to-sequence）（p.231）",
+      "title": "Seq2Seq（sequence-to-sequence）",
+      "groupTitle": "系列を変換するモデルと、機械翻訳",
+      "pageRef": "p.231",
+      "sectionId": "ch05-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：入力の系列を別の系列に変換するモデルの総称。初期の代表例はRNNエンコーダ-デコーダで、TransformerなどもSeq2Seqに使われる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "初期のRNN方式の仕組み"
+                },
+                {
+                  "t": "text",
+                  "v": "：エンコーダ（RNN）が入力文を読み込んで、固定長のベクトルにまとめる。デコーダ（RNN）が、そのベクトルから出力文を1語ずつ生成する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：機械翻訳などに使われた。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "課題とその後"
+                },
+                {
+                  "t": "text",
+                  "v": "：初期のRNN方式では、長い文を固定長のベクトル1つにまとめるため、情報が失われやすかった。Attention（格納テキスト第5章）により、入力系列の各位置を直接参照できるようになった。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-13bd324d",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "機械翻訳の方式の移り変わり（p.37、p.285）",
+      "title": "機械翻訳の方式の移り変わり",
+      "groupTitle": "系列を変換するモデルと、機械翻訳",
+      "pageRef": "p.37、p.285",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "ルールベース機械翻訳"
+                },
+                {
+                  "t": "text",
+                  "v": "：人が作った文法規則と辞書で翻訳する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "統計的機械翻訳"
+                },
+                {
+                  "t": "text",
+                  "v": "：大量の対訳データ（同じ内容の2言語の文の組）から、翻訳の確率モデルを学習して翻訳する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "ニューラル機械翻訳"
+                },
+                {
+                  "t": "text",
+                  "v": "：ニューラルネットワーク（Seq2Seq、のちにTransformer）で翻訳する。現在の主流。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-d58fc255",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "BERTの事前学習の2つの課題（p.282）",
+      "title": "BERTの事前学習の2つの課題",
+      "groupTitle": "事前学習モデルとベンチマーク",
+      "pageRef": "p.282",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "マスク言語モデル（MLM）"
+                },
+                {
+                  "t": "text",
+                  "v": "：文中の一部の単語を隠し（マスクし）、前後の文脈から当てる。格納テキスト第5章で扱っている。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "次文予測（NSP、Next Sentence Prediction）"
+                },
+                {
+                  "t": "text",
+                  "v": "：2つの文が、元の文章で実際に続いていたかどうかを当てる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-d07ec8fa",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "GLUE（p.282, 285）",
+      "title": "GLUE",
+      "groupTitle": "事前学習モデルとベンチマーク",
+      "pageRef": "p.282, 285",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：文の意味の理解（自然言語理解）に関する複数のタスクをまとめたベンチマーク。言語モデルの性能を比べる共通の物差しとして使われる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-8b82d305",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "SQuAD（p.283）",
+      "title": "SQuAD",
+      "groupTitle": "事前学習モデルとベンチマーク",
+      "pageRef": "p.283",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：スタンフォード大学が作った質問応答のデータセット。Wikipediaの記事と、それに関する質問・答えの組からなる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "形式"
+                },
+                {
+                  "t": "text",
+                  "v": "：SQuAD 1.1では、答えは記事の中の該当箇所を抜き出す形。SQuAD 2.0では、記事からは答えられない質問も加えられた。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-1609fca3",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "PaLM（索引なし。p.284）",
+      "title": "PaLM",
+      "groupTitle": "事前学習モデルとベンチマーク",
+      "pageRef": "p.284",
+      "sectionId": "ch05-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：PaLM（Pathways Language Model）は、Googleが2022年に発表したTransformer型の大規模言語モデル。最大のモデル（PaLM 540B）は約5400億のパラメータを持つ。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-7b2470c2",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "感情分析（評判分析）（p.280, 285）",
+      "title": "感情分析（評判分析）",
+      "groupTitle": "事前学習モデルとベンチマーク",
+      "pageRef": "p.280, 285",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：文章から、書き手の感情や評価（肯定的か否定的かなど）を判定するタスク。商品のレビューやSNSの分析に使われる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-db2e885f",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "情報検索（p.285）",
+      "title": "情報検索",
+      "groupTitle": "事前学習モデルとベンチマーク",
+      "pageRef": "p.285",
+      "sectionId": "ch06-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：大量の文書の中から、利用者の求める情報（質問に関連する文書）を探し出すタスク。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-3-84f1870c",
+      "sourceFile": "materials/supplements/6-3_自然言語処理_ORG.md",
+      "supplementTitle": "自然言語処理",
+      "kind": "term",
+      "heading": "CEC（Constant Error Carousel）（p.229）",
+      "title": "CEC（Constant Error Carousel）",
+      "groupTitle": "参考：シラバスで「自然言語処理」に並ぶCEC",
+      "pageRef": "p.229",
+      "sectionId": "ch05-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：LSTMのセル状態を通じて、誤差の信号を長い距離にわたって伝えやすくする仕組み。勾配消失の緩和に役立ち、長い系列の依存関係を学習しやすくする。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "補足"
+                },
+                {
+                  "t": "text",
+                  "v": "：シラバスでは「27. 自然言語処理」のキーワードに入っているが、内容はLSTMの仕組み（公式テキスト p.229）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-5ba2969f",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "DQN（Deep Q-Network）",
+      "title": "DQN（Deep Q-Network）",
+      "groupTitle": "DQNとその改良",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Q学習で使う「Q値（ある状態である行動を取ったときに将来得られる報酬の見込み）」を、ディープニューラルネットワークで近似する手法。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "代表例"
+                },
+                {
+                  "t": "text",
+                  "v": "：ゲーム画面の画素を直接入力にして、Atariのゲームを人間並みに遊べるようにした（DeepMind）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "学習を安定させる2つの工夫"
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "経験再生"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：過去の経験（状態・行動・報酬・次の状態）をためておき、ランダムに取り出して学習する。続けて得た経験どうしは似通っている（相関が強い）ので、その偏りを減らす。（p.287）"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "ターゲットネットワーク"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：学習の目標値を計算するためのネットワークを、学習中のネットワークとは別に用意する。重みは一定間隔でだけ写し、目標が動き続けて学習が不安定になるのを防ぐ。（p.287）"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキストでは、第6章の章末整理に「DQN系列」として一言だけある。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-d78a7db3",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "ダブルDQN（p.288）",
+      "title": "ダブルDQN",
+      "groupTitle": "DQNとその改良",
+      "pageRef": "p.288",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：DQNもオンラインネットワーク（学習中のネットワーク）とターゲットネットワークの2つを持つ。ダブルDQNは、次の行動の「選択」をオンラインネットワーク、その行動の価値の「評価」をターゲットネットワークに分担させる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "目的"
+                },
+                {
+                  "t": "text",
+                  "v": "：DQNではQ値が実際より大きく見積もられやすい（過大評価）。これを抑える。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-b2149532",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "デュエリングネットワーク（p.288）",
+      "title": "デュエリングネットワーク",
+      "groupTitle": "DQNとその改良",
+      "pageRef": "p.288",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Q値を「状態そのものの価値（状態価値）」と「その状態で各行動がどれだけ得か（アドバンテージ）」の2つに分けて推定し、最後に合成するネットワーク構造。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "取り違え注意"
+                },
+                {
+                  "t": "text",
+                  "v": "：ダブルDQNは「選択と評価を2つのネットワークに分担させる」。デュエリングは「Q値を2つの部分に分ける」。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-cf0d0742",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "ノイジーネットワーク（p.288）",
+      "title": "ノイジーネットワーク",
+      "groupTitle": "DQNとその改良",
+      "pageRef": "p.288",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：ネットワークの重みに確率的なノイズを加え、その大きさを決めるパラメータを学習することで、探索を促す。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "対比"
+                },
+                {
+                  "t": "text",
+                  "v": "：ε-greedy方策のように「一定確率でランダムに行動する」やり方の代わりになる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-ea090263",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "優先度付き経験再生（p.288）",
+      "title": "優先度付き経験再生",
+      "groupTitle": "DQNとその改良",
+      "pageRef": "p.288",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：経験再生で、TD誤差（予測と目標値のずれ）などを学習上の重要度の目安とし、重要度の高い経験を優先して取り出す。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-f022e44a",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "カテゴリカルDQN（p.288）",
+      "title": "カテゴリカルDQN",
+      "groupTitle": "DQNとその改良",
+      "pageRef": "p.288",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：将来の報酬を期待値（平均）の1つの値でなく、確率分布として学習する（分布強化学習。代表的な手法の名前からC51とも呼ばれる）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-37bc1f4b",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "Rainbow（p.288）",
+      "title": "Rainbow",
+      "groupTitle": "DQNとその改良",
+      "pageRef": "p.288",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：DQNに対する複数の改良を1つにまとめた手法。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "組み合わせた改良（6つ）"
+                },
+                {
+                  "t": "text",
+                  "v": "：ダブルDQN、デュエリングネットワーク、優先度付き経験再生、マルチステップ学習（n-step学習。数ステップ先までの実際の報酬を使って目標値を作る）、分布強化学習（カテゴリカルDQN／C51）、ノイジーネットワーク。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-2f91e8db",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "内発的報酬（p.288）",
+      "title": "内発的報酬",
+      "groupTitle": "DQNとその改良",
+      "pageRef": "p.288",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：好奇心や新しさ（新しい状態に出会うこと）などに基づいて、エージェントの内部で計算される報酬。環境から与えられる報酬（外発的報酬）とは別に、探索を促すために使う。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：報酬がめったに得られず、探索が難しい環境で使われる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-15c9785f",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "APE-X（索引なし）",
+      "title": "APE-X",
+      "groupTitle": "DQNとその改良",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：多数のActor（経験を集める役）が並列に経験を集めて、共有の優先度付き経験再生バッファにためる。Learner（学習する役）は、そこから経験を取り出して学習する。この役割分担をとる分散型の仕組み。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "対比"
+                },
+                {
+                  "t": "text",
+                  "v": "：A3Cは「各ワーカーが計算した勾配を非同期に反映する」。APE-Xは「経験の収集と学習を分担する」。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-ce3c702b",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "Agent57（索引なし）",
+      "title": "Agent57",
+      "groupTitle": "DQNとその改良",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Atari57（57種類のゲーム）のすべてで、標準的な人間のベンチマークスコアを上回った、初めての深層強化学習エージェント（DeepMind、2020年）。内発的報酬と、探索と活用の度合いを切り替える仕組みを用いる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-1b6baf21",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "A3C（Asynchronous Advantage Actor-Critic）",
+      "title": "A3C（Asynchronous Advantage Actor-Critic）",
+      "groupTitle": "方策を直接学ぶ系統",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：複数のワーカーが環境と並列にやりとりし、ActorとCriticを使って計算した勾配を、共有のモデルへ非同期に反映する手法。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "Actor-Criticとは"
+                },
+                {
+                  "t": "text",
+                  "v": "：行動を決める役（Actor）と、価値（典型的には状態価値）を推定して行動の良し悪しを評価する役（Critic）を同時に学習する。Actor-Critic自体は公式テキスト p.149。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-3708e1a0",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "PPO（Proximal Policy Optimization）",
+      "title": "PPO（Proximal Policy Optimization）",
+      "groupTitle": "方策を直接学ぶ系統",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：方策勾配法の一種。新しい方策と古い方策の行動確率の比を使った目的関数にクリッピング（上限・下限で切る処理）を適用し、方策が一度に大きく変わることを抑えて学習を安定させる。変化の幅を厳密に保証するものではない。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：RLHFの強化学習の段階や、OpenAI Fiveの学習でも使われた。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-58099c38",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "OpenAI Five（p.292）",
+      "title": "OpenAI Five",
+      "groupTitle": "大規模な応用",
+      "pageRef": "p.292",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：OpenAIが開発した、5人対5人で戦うゲーム「Dota 2」をプレイするエージェント群。2019年、使用できるヒーローを制限した条件のもとで、世界チャンピオンのチームOGに勝利した。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "学習方法"
+                },
+                {
+                  "t": "text",
+                  "v": "：大規模な自己対戦による強化学習（PPOを使用）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-816897c6",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "AlphaStar（アルファスター）（p.293）",
+      "title": "AlphaStar（アルファスター）",
+      "groupTitle": "大規模な応用",
+      "pageRef": "p.293",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：DeepMindが開発した、リアルタイム戦略ゲーム「StarCraft II」（基本は1対1の対戦）をプレイするエージェント。2019年に、3種族すべてでグランドマスター級に達した。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "学習方法"
+                },
+                {
+                  "t": "text",
+                  "v": "：人間の対戦記録による模倣学習を出発点に、多様な相手と対戦するリーグ方式のマルチエージェント強化学習で強化した。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-78e7b6e7",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "マルチエージェント強化学習（MARL）（p.292）",
+      "title": "マルチエージェント強化学習（MARL）",
+      "groupTitle": "大規模な応用",
+      "pageRef": "p.292",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：複数のエージェントが相互に影響し合う環境で、協調や競争を扱う強化学習。すべてのエージェントが同時に学習するとは限らない。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-feb38e0f",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "状態表現学習（p.294）",
+      "title": "状態表現学習",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.294",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：画像などの観測から、意思決定に役立つ特徴表現（状態の表現）を学習すること。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "効果"
+                },
+                {
+                  "t": "text",
+                  "v": "：次元の圧縮や、少ない試行での学習（サンプル効率の改善）につながる場合がある。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-fe17c27f",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "報酬成形（p.295）",
+      "title": "報酬成形",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.295",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：最終目標を達成したときにしか報酬が出ないと、学習が進みにくい。そこで、目標に近づく途中の行動にも報酬が出るように、報酬を設計し直すこと。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "注意"
+                },
+                {
+                  "t": "text",
+                  "v": "：補助の報酬を安易に加えると、本来の目的に対する最適な方策が変わってしまう場合がある。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "内発的報酬との関係"
+                },
+                {
+                  "t": "text",
+                  "v": "：内発的報酬は「好奇心・新しさなどから計算される報酬の種類」。報酬成形は「学習を促すよう報酬信号を追加・変更する技法」。両者は排他的ではなく、内発的報酬を報酬成形に使うこともある。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-533b4990",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "連続値制御（p.295）",
+      "title": "連続値制御",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.295",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：関節への指令トルクや目標角度のように、制御入力（行動）が連続的な値をとる制御問題。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "対比"
+                },
+                {
+                  "t": "text",
+                  "v": "：DQNは「上・下・左・右」のような離散的な行動を前提とする。連続値制御には、方策を直接学ぶ系統の手法が使われることが多い。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-3d96834a",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "模倣学習（p.296）",
+      "title": "模倣学習",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.296",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：人間や既存のエキスパートの方策などが示すお手本の行動（デモンストレーション）をまねて、方策を学習する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：報酬の設計が難しい課題で有効。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-bb3a89d2",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "オフライン強化学習（p.297）",
+      "title": "オフライン強化学習",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.297",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：環境と新たにやりとりせず、事前に集めた固定のデータ（オフラインデータ）だけで方策を学習する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：試行錯誤が危険・高コストな医療や自動運転などで有用とされる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-f88cd88b",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "残差強化学習（p.298）",
+      "title": "残差強化学習",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.298",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：既存の制御器（人が設計した制御プログラムなど）の出力をそのまま使い、それに足す「補正分（残差）」だけを強化学習で学ぶ。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "効果"
+                },
+                {
+                  "t": "text",
+                  "v": "：既存の制御器を活用するので、ゼロから学ぶ場合より学習の効率や安全性の改善が期待できる（保証されるわけではない）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-baab68fe",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "sim2real（p.298）",
+      "title": "sim2real",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.298",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：シミュレーションで学習した方策を、現実世界のロボットなどに移して使うこと。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "課題"
+                },
+                {
+                  "t": "text",
+                  "v": "：シミュレーションと現実の違い（リアリティギャップ）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-6-4-0760d011",
+      "sourceFile": "materials/supplements/6-4_深層強化学習_ORG.md",
+      "supplementTitle": "深層強化学習",
+      "kind": "term",
+      "heading": "ドメインランダマイゼーション（p.298）",
+      "title": "ドメインランダマイゼーション",
+      "groupTitle": "実世界への応用と、学習を助ける工夫",
+      "pageRef": "p.298",
+      "sectionId": "ch06-s05",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：シミュレーションの見た目（色・質感・照明）や物理的な条件（摩擦・重さなど）をランダムに変えながら学習する。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "効果"
+                },
+                {
+                  "t": "text",
+                  "v": "：現実世界との違いに強い方策を得る。sim2realのリアリティギャップへの代表的な対策。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-87c5e34c",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "CAM（p.312）",
+      "title": "CAM",
+      "groupTitle": "モデルの解釈性",
+      "pageRef": "p.312",
+      "sectionId": "ch07-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Class Activation Mapping の略。画像分類のCNNで、あるクラスと判断するときに、画像のどの領域が強く影響したかを"
+                },
+                {
+                  "t": "strong",
+                  "v": "ヒートマップ"
+                },
+                {
+                  "t": "text",
+                  "v": "（影響の強さを色の濃さで表した図）で示す方法。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "しくみ"
+                },
+                {
+                  "t": "text",
+                  "v": "：最後の畳み込み層の特徴マップを、そのあとの全結合層の重み（そのクラスに対する重み）で重み付けして足し合わせる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "制約"
+                },
+                {
+                  "t": "text",
+                  "v": "：最後の畳み込み層のあとに"
+                },
+                {
+                  "t": "strong",
+                  "v": "Global Average Pooling"
+                },
+                {
+                  "t": "text",
+                  "v": "（特徴マップ全体の平均をとる層）を置き、すぐ全結合層につなぐ構造のCNNでなければ、そのままでは使えない。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-9802427b",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "Grad-CAM（p.313）",
+      "title": "Grad-CAM",
+      "groupTitle": "モデルの解釈性",
+      "pageRef": "p.313",
+      "sectionId": "ch07-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：CAMを発展させた方法。特徴マップの重み付けに、そのクラスの出力に対する"
+                },
+                {
+                  "t": "strong",
+                  "v": "勾配"
+                },
+                {
+                  "t": "text",
+                  "v": "を使う。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "CAMとの違い"
+                },
+                {
+                  "t": "text",
+                  "v": "：勾配を使うので、Global Average Pooling を持たない構造のCNNにも、作り直さずに適用できる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "関連する語"
+                },
+                {
+                  "t": "text",
+                  "v": "：Guided Grad-CAM（p.314）は、Grad-CAMと、より細かい輪郭を示す方法を組み合わせ、判断に効いた部分を高い解像度で示す。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "注意"
+                },
+                {
+                  "t": "text",
+                  "v": "：CAMやGrad-CAMは「どこを見て判断したか」を示すものであり、判断が正しいことを保証するものではない。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-e37eafd1",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "Permutation Importance（p.312）",
+      "title": "Permutation Importance",
+      "groupTitle": "モデルの解釈性",
+      "pageRef": "p.312",
+      "sectionId": "ch07-s04",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：学習済みのモデルで、ある特徴量の値だけをデータ間でランダムに並べ替え（シャッフルし）、予測の精度がどれだけ下がるかを調べる。精度が大きく下がる特徴量ほど、モデルにとって重要だとみなす。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "特徴"
+                },
+                {
+                  "t": "text",
+                  "v": "："
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "モデルの種類を問わずに使える（モデルの中身を見ずに、入力と出力だけで計算できる）。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "モデル全体として、どの特徴量が重要かを示す（大域的な説明）。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "LIMEとの違い"
+                },
+                {
+                  "t": "text",
+                  "v": "：LIME（p.312）は、ある1件の予測について、その周辺で単純なモデルを当てはめ、その予測にどの特徴量が効いたかを示す（局所的な説明）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第7章 7.4節（XAI）とあわせて理解する。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-7b39868d",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "モデル圧縮（索引なし。関連：蒸留 p.315・枝刈り p.316・量子化 p.317）",
+      "title": "モデル圧縮",
+      "groupTitle": "モデルの軽量化",
+      "pageRef": "関連：蒸留 p.315・枝刈り p.316・量子化 p.317",
+      "sectionId": "ch06-s06",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：精度をなるべく保ったまま、モデルの大きさ（パラメータの数やメモリ）や計算量を減らす技術の総称。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "代表的な方法"
+                },
+                {
+                  "t": "text",
+                  "v": "："
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "枝刈り（プルーニング）"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：重要度の低い重みやニューロンを取り除く。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "量子化"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：重みなどの数値を表すビット数を減らす（例：32ビットの小数を8ビットの整数にする）。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "蒸留（知識蒸留）"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：学習済みの大きなモデル（教師モデル）の出力をお手本にして、小さなモデル（生徒モデル）を学習させる。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "目的"
+                },
+                {
+                  "t": "text",
+                  "v": "：スマートフォンや組み込み機器など、計算資源の限られた環境でモデルを動かすため。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第6章の章末整理で、プルーニング・量子化・知識蒸留に一言触れている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-9d67bd5b",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "宝くじ仮説（p.317）",
+      "title": "宝くじ仮説",
+      "groupTitle": "モデルの軽量化",
+      "pageRef": "p.317",
+      "sectionId": "ch06-s06",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：大きなニューラルネットワークの中には、学習前の初期値のまま取り出して単独で学習させても、元のネットワークと同じくらい（またはそれ以下）の学習回数で、同じくらいの精度に達する小さなサブネットワーク（「当たりくじ」）が含まれている、という仮説（FrankleとCarbinによる研究。2019年の国際会議ICLRで発表された）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "意味"
+                },
+                {
+                  "t": "text",
+                  "v": "：大きなネットワークの多くの重みは、性能にとって必ずしも必要ではない可能性を示す。枝刈りで小さなモデルを作る研究の根拠の1つになっている。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-8f7687f4",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "エッジAI（p.333）",
+      "title": "エッジAI",
+      "groupTitle": "モデルの軽量化",
+      "pageRef": "p.333",
+      "sectionId": "ch06-s06",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：スマートフォン、監視カメラ、自動車、工場の機器など、データが発生する現場に近い端末（エッジ）でAIの推論を行うこと。データをクラウドに送って処理する"
+                },
+                {
+                  "t": "strong",
+                  "v": "クラウドAI"
+                },
+                {
+                  "t": "text",
+                  "v": "と対比される。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "利点"
+                },
+                {
+                  "t": "text",
+                  "v": "："
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "クラウドとの通信の待ち時間を減らせるので、すぐに結果が出る（リアルタイム処理に向く）。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "送るデータが減るので、通信量や通信の費用を抑えられる。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "通信できない場所でも動かせる。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "データを外に送らずに済むので、プライバシーの保護に役立つ場合がある。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "課題"
+                },
+                {
+                  "t": "text",
+                  "v": "：端末の計算資源や電力には限りがあるので、モデル圧縮などで軽量化する必要があることが多い。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-1c20ef07",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "BPR（p.332）",
+      "title": "BPR",
+      "groupTitle": "AIプロジェクトの進め方",
+      "pageRef": "p.332",
+      "sectionId": "ch07-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：Business Process Re-engineering（ビジネスプロセス・リエンジニアリング）の略。業務の流れ（プロセス）を根本から見直し、作り直すこと。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "AIとの関係"
+                },
+                {
+                  "t": "text",
+                  "v": "：AIを導入するとき、今の業務のやり方のままAIを部分的に当てはめるだけでは、効果が限られることがある。AIを前提に、業務の流れそのものを見直すことが重要になる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-66bb8baf",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "ウォーターフォール・アジャイル（索引なし。シラバスのキーワードとしては2語）",
+      "title": "ウォーターフォール・アジャイル",
+      "groupTitle": "AIプロジェクトの進め方",
+      "sectionId": "ch07-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "ウォーターフォール"
+                },
+                {
+                  "t": "text",
+                  "v": "：要件定義 → 設計 → 実装 → テスト → 運用 のように、工程を上から下へ順に進める開発の進め方。原則として前の工程に戻らない前提で計画する。最初に仕様がはっきり決まる開発に向く。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "アジャイル"
+                },
+                {
+                  "t": "text",
+                  "v": "：短い期間で「計画 → 開発 → 確認」を何度も繰り返し、途中で分かったことを取り入れて、仕様を柔軟に変えながら進める開発の進め方。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "AI開発との関係"
+                },
+                {
+                  "t": "text",
+                  "v": "：AI開発では、データを集めて学習させてみるまで、どれだけの精度が出るかが分からない。そのため、最初にすべてを決めるウォーターフォールだけでは進めにくく、試行錯誤を前提にした反復的な進め方が使われることが多い。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第7章 7.1節（PoCを含むサイクル）と、補遺「法律と契約」の「探索的段階型の開発」とあわせて理解する。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-c30311f9",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "Python（p.344）",
+      "title": "Python",
+      "groupTitle": "AIプロジェクトの進め方",
+      "pageRef": "p.344",
+      "sectionId": "ch07-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：機械学習やデータ分析で最もよく使われるプログラミング言語。文法が読みやすく、書いたコードをすぐに実行して確かめやすい。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "主なライブラリ"
+                },
+                {
+                  "t": "text",
+                  "v": "：NumPy（数値計算）、pandas（表形式のデータの処理）、scikit-learn（機械学習）、TensorFlow・PyTorch（ディープラーニング）、Matplotlib（グラフの作成）。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-ac55789f",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "Jupyter Notebook（索引なし）",
+      "title": "Jupyter Notebook",
+      "groupTitle": "AIプロジェクトの進め方",
+      "sectionId": "ch07-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：ブラウザ上で、プログラムを小さな単位（セル）ごとに実行し、その結果（表やグラフ）をその場で確かめながら、説明の文章と一緒に記録できる対話型の開発環境。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：データ分析やモデル作りの試行錯誤。分析の過程を、ほかの人と共有しやすい。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "関連する語"
+                },
+                {
+                  "t": "text",
+                  "v": "：Google Colaboratory は、同じような環境をクラウド上で使えるサービス。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-4037c56c",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "Docker（索引なし）",
+      "title": "Docker",
+      "groupTitle": "AIプロジェクトの進め方",
+      "sectionId": "ch07-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：アプリケーションと、その実行に必要なライブラリや設定を"
+                },
+                {
+                  "t": "strong",
+                  "v": "コンテナ"
+                },
+                {
+                  "t": "text",
+                  "v": "という単位にまとめ、どのコンピュータでも同じように動かせるようにする仕組み（コンテナ型の仮想化）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：「開発者のパソコンでは動いたのに、本番のサーバーでは動かない」といった、環境の違いによる問題を減らす。学習や推論の環境を、ほかの人やサーバーに再現しやすくなる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "仮想マシンとの違い"
+                },
+                {
+                  "t": "text",
+                  "v": "：仮想マシンはOSごと再現するが、コンテナは土台のOSの中心部分（カーネル）を共有するので、軽く、すぐに起動できる。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-4092d501",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "Web API（索引なし）",
+      "title": "Web API",
+      "groupTitle": "AIプロジェクトの進め方",
+      "sectionId": "ch07-s01",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：ネットワーク（主にHTTP）を通じて、ほかのプログラムから機能を呼び出せるようにした窓口。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "AIとの関係"
+                },
+                {
+                  "t": "text",
+                  "v": "：学習済みのモデルをWeb APIとして公開すると、利用する側はモデルの中身や実行環境を用意しなくても、データを送るだけで予測結果を受け取れる。クラウド事業者が提供する画像認識や音声認識のAPIが、その例。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-76f23a5f",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "オープンデータセット（p.340）",
+      "title": "オープンデータセット",
+      "groupTitle": "データ",
+      "pageRef": "p.340",
+      "sectionId": "ch07-s02",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：誰でも利用できるように公開されているデータセット。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "例"
+                },
+                {
+                  "t": "text",
+                  "v": "：ImageNet（画像分類）、MNIST（手書き数字）、COCO（物体検出など）、CIFAR-10（画像分類）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "利点"
+                },
+                {
+                  "t": "text",
+                  "v": "：自分でデータを集めてラベルを付ける手間を省ける。同じデータで手法どうしの性能を比べられる（ベンチマーク）。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "注意"
+                },
+                {
+                  "t": "text",
+                  "v": "："
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "ライセンスや利用条件（商用利用の可否など）を、使う前に確認する必要がある。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "text",
+                          "v": "データの集め方によっては偏りが含まれることがある。自分の用途に合うかを確かめる。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "text",
+                  "v": "格納テキスト第7章 7.2節（データ収集と偏り）とあわせて理解する。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "sup-7-8faad90b",
+      "sourceFile": "materials/supplements/7_解釈性・軽量化・開発の進め方の補足_ORG.md",
+      "supplementTitle": "解釈性・軽量化・開発の進め方の補足",
+      "kind": "term",
+      "heading": "度数分布（索引なし）",
+      "title": "度数分布",
+      "groupTitle": "数理・統計",
+      "sectionId": "ch08-s03",
+      "body": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "説明"
+                },
+                {
+                  "t": "text",
+                  "v": "：データを値の範囲（"
+                },
+                {
+                  "t": "strong",
+                  "v": "階級"
+                },
+                {
+                  "t": "text",
+                  "v": "）ごとに区切り、それぞれの階級に入るデータの個数（"
+                },
+                {
+                  "t": "strong",
+                  "v": "度数"
+                },
+                {
+                  "t": "text",
+                  "v": "）を数えて整理したもの。表にしたものを"
+                },
+                {
+                  "t": "strong",
+                  "v": "度数分布表"
+                },
+                {
+                  "t": "text",
+                  "v": "、棒グラフのように表したものを"
+                },
+                {
+                  "t": "strong",
+                  "v": "ヒストグラム"
+                },
+                {
+                  "t": "text",
+                  "v": "と呼ぶ。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "関連する語"
+                },
+                {
+                  "t": "text",
+                  "v": "："
+                }
+              ],
+              "children": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "相対度数"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：ある階級の度数を、データ全体の個数で割った値（全体に占める割合）。すべての階級の相対度数を足すと1になる。"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "inlines": [
+                        {
+                          "t": "strong",
+                          "v": "累積度数"
+                        },
+                        {
+                          "t": "text",
+                          "v": "：最初の階級から、ある階級までの度数を足し合わせた値。"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "使いどころ"
+                },
+                {
+                  "t": "text",
+                  "v": "：データの分布の形（どのあたりに集中しているか、偏りや外れ値がないか）をつかむ。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "注意"
+                },
+                {
+                  "t": "text",
+                  "v": "：階級の幅の決め方によって、分布の見え方が変わる。"
+                }
+              ],
+              "children": []
+            },
+            {
+              "inlines": [
+                {
+                  "t": "strong",
+                  "v": "計算の例"
+                },
+                {
+                  "t": "text",
+                  "v": "：50人の得点で、「60点以上70点未満」の階級の度数が12人なら、相対度数は 12 ÷ 50 ＝ 0.24。"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

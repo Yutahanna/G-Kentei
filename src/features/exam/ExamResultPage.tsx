@@ -16,6 +16,7 @@ import { getChoiceOrder } from "../../shared/lib/choiceOrder";
 import { useExamSessionStore } from "../../shared/store/examSessionStore";
 import styles from "./ExamResultPage.module.css";
 import AsOfDateNote from "../../shared/ui/AsOfDateNote";
+import SupplementLink from "../../shared/ui/SupplementLink";
 
 const DIFFICULTY_LABEL: Record<string, string> = {
   basic: "基礎",
@@ -261,6 +262,7 @@ export default function ExamResultPage() {
                         </Link>
                       </>
                     )}
+                    <SupplementLink question={question} />
                   </p>
                 </details>
               )}
